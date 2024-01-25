@@ -1,0 +1,122 @@
+{
+    "SITIO_WEB": {
+        "NOMBRE": "Politécnico Madre Rafaela Ybarra",
+        "DESCRIPCION": "Descubre y enriquece tus conocimientos con la oferta educativa del Politécnico Madre Rafaela Ybarra. Sumérgete en una experiencia educativa única, donde la excelencia académica se combina con valores sólidos. ¡Únete a nuestra comunidad y haz crecer tu potencial con nosotros!",
+        "CATEGORIA": "Educación",
+        "TAGS": [
+            "educación",
+            "aprendizaje",
+            "tecnología",
+            "clases",
+            "formación",
+            "desarrollo académico",
+            "innovación educativa",
+            "politécnico"
+        ]
+    },
+    "NAVBAR": {
+        "NOMBRE": "POMARAY",
+        "VER_NOTICIAS": "Ver noticias",
+        "NOTIFICACION": {
+            "TEXTO": "¡No te pierdas nuestro aniversario! %s",
+            "TEXTO_LINK": "Ver invitación",
+            "LINK": "/aniversario"
+        },
+        "ITEMS": [
+            {
+                "TEXTO": "Inicio",
+                "LINK": "/"
+            },
+            {
+                "TEXTO": "Técnicas",
+                "LINK": "/tecnicas"
+            },
+            {
+                "TEXTO": "Noticias",
+                "LINK": "/noticias"
+            },
+            {
+                "TEXTO": "Anuario",
+                "LINK": "/anuario"
+            },
+            {
+                "TEXTO": "Descargas",
+                "LINK": "/descargas"
+            },
+            {
+                "TEXTO": "Acerca de",
+                "LINK": "/nosotros"
+            },
+            {
+                "TEXTO": "Contacto",
+                "LINK": "/contacto"
+            }
+        ]
+    },
+    "REDES": {
+        "INSTAGRAM": "http://instagram.com/",
+        "FACEBOOK": "http://facebook.com"
+    },
+    "FOOTER": [
+        {
+            "TITULO": "Nosotros",
+            "ELEMENTOS": [
+                {
+                    "TEXTO": "Historia",
+                    "ENLACE": "/"
+                },
+                {
+                    "TEXTO": "Ubicación",
+                    "ENLACE": "/"
+                }
+            ]
+        },
+        {
+            "TITULO": "Sitio",
+            "ELEMENTOS": [
+                {
+                    "TEXTO": "Página Principal",
+                    "ENLACE": "/"
+                },
+                {
+                    "TEXTO": "Tecnicas",
+                    "ENLACE": "/tecnicas"
+                },
+                {
+                    "TEXTO": "Noticias",
+                    "ENLACE": "/noticias"
+                },
+                {
+                    "TEXTO": "Estudiantes",
+                    "ENLACE": "/estudiantes"
+                }
+            ]
+        },
+        {
+            "TITULO": "Contacto",
+            "ELEMENTOS": [
+                {
+                    "TEXTO": "Email",
+                    "ENLACE": "mailto:desarolladores.pomaray@gmail.com"
+                },
+                {
+                    "TEXTO": "Teléfono",
+                    "ENLACE": "tel:+123456789"
+                }
+            ]
+        },
+        {
+            "TITULO": "Legal",
+            "ELEMENTOS": [
+                {
+                    "TEXTO": "Términos y Condiciones",
+                    "ENLACE": "/terminos"
+                },
+                {
+                    "TEXTO": "Política de Privacidad",
+                    "ENLACE": "/privacidad"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "HERO": {
+        "TITULO": "¿Por qué estudiar en el Politécnico?",
+        "DESCRIPCION": "El Politécnico ofrece una educación de alta calidad en diversas áreas, proporcionando a los estudiantes las habilidades necesarias para destacar en el mundo laboral."
+    },
+    "TECH_TITULO": "Técnicas",
+    "TECNICAS": [
+        {
+            "ID": "DAAI",
+            "COLOR": "#3498db",
+            "DESCRIPCION": "Descubre el mundo de la informática y la programación."
+        },
+        {
+            "ID": "GAT",
+            "COLOR": "#2ecc71",
+            "DESCRIPCION": "Aprende los fundamentos de la contabilidad y las finanzas."
+        },
+        {
+            "ID": "CM",
+            "COLOR": "#e74c3c",
+            "DESCRIPCION": "Explora el mundo del comercio y los negocios internacionales."
+        },
+        {
+            "ID": "GAS",
+            "COLOR": "#f39c12",
+            "DESCRIPCION": "Sumérgete en el arte de la gastronomía y la cocina."
+        },
+        {
+            "ID": "TRO",
+            "COLOR": "#34495e",
+            "DESCRIPCION": "Aprende sobre circuitos y dispositivos electrónicos."
+        },
+        {
+            "ID": "TRI",
+            "COLOR": "#1abc9c",
+            "DESCRIPCION": "Explora los principios de la electricidad y la energía."
+        },
+        {
+            "ID": "RAE",
+            "COLOR": "#95a5a6",
+            "DESCRIPCION": "Conoce los sistemas de refrigeración y climatización."
+        }
+    ]
+}
