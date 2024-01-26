@@ -13,6 +13,8 @@ import { cloneElement } from "react";
 
 export default function HomePage() {
 	const router = useRouter();
+	const dynamicPath = "/tecnicas";
+
 	return (
 		<main>
 			<Section className="p-10">
@@ -21,7 +23,7 @@ export default function HomePage() {
 					{LOCALE.HERO.DESCRIPCION}
 				</p>
 			</Section>
-			<Section className="pb-20 flex flex-col justify-center">
+			<Section className="pb-20 flex flex-col justify-center 2xl:px-[10rem]">
 				<SectionTitle withLine text={LOCALE.TECH_TITULO} />
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-4 px-6 sm:px-10 md:px-10 lg:px-[15rem]]">
 					{LOCALE.TECNICAS.map((tecnica) => {
@@ -32,12 +34,12 @@ export default function HomePage() {
 						return (
 							<Card
 								onClick={() => {
-									router.push(`/tecnicas/${tecnica.ID.toLowerCase()}`);
+									router.push(`${dynamicPath}/${tecnica.ID.toLowerCase()}`);
 								}}
 								isPressable
 								key={tecnica.ID}
-								shadow="sm"
-								className="hover:translate-y-2 hover:opacity-50 text-foreground xl:p-6 transition-transform-opacity"
+								shadow="none"
+								className="xl:p-6 hover:translate-y-2 hover:opacity-50 text-foreground transition-transform-opacity"
 							>
 								<CardHeader className="flex items-center justify-center pt-5 sm:pt-10">
 									<div

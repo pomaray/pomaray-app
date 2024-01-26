@@ -13,7 +13,7 @@ interface LoginResponse {
 }
 
 export async function GET() {
-	const END_POINT = process.env.TOKEN_ENDPOINT ?? "";
+	const END_POINT = process.env.LOGIN_ENDPOINT as string;
 
 	try {
 		const token = cookies().get("token")?.value;
@@ -36,11 +36,11 @@ export async function GET() {
 		console.error("Error en el manejado de la API:", error);
 
 		if (axios.isAxiosError(error)) {
-			if (error.code === "401") {
+			if (error.status === 401) {
 				return NextResponse.json({ error: "No esta autorizado" });
 			}
 
-			if (error.code === "404") {
+			if (error.status === 404) {
 				return NextResponse.json({ error: "El Token no existe." });
 			}
 		}
@@ -49,21 +49,32 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
-	const END_POINT = process.env.LOGIN_ENDPOINT ?? "";
+	try {
+		const END_POINT = process.env.LOGIN_ENDPOINT as string;
 
-	const { username, password } = await req.json();
+		const { username, password } = await req.json();
+		const response: AxiosResponse<LoginResponse> = await axios.post(END_POINT, {
+			username,
+			password,
+		});
 
-	const response: AxiosResponse<LoginResponse> = await axios.post(END_POINT, {
-		username,
-		password,
-	});
+		const { user, token } = response.data;
+		if (!user || !token) {
+			throw new Error("Usuario no recibido desde el servidor");
+		}
 
-	const { user, token } = response.data;
-	if (!user || !token) {
-		throw new Error("Usuario no recibido desde el servidor");
+		cookies().set("token", token, { secure: true });
+		return NextResponse.json({ user });
+	} catch (error) {
+		if (axios.isAxiosError(error)) {
+			if (error.response?.status === 401) {
+				return NextResponse.json({ code: "401" });
+			}
+
+			if (error.response?.status === 404) {
+				return NextResponse.json({ code: "404" });
+			}
+		}
+		return NextResponse.json({ code: "500" });
 	}
-
-	cookies().set("token", token, { secure: true });
-
-	return NextResponse.json({ user });
 }

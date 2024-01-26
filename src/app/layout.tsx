@@ -43,7 +43,7 @@ export default function RootLayout({
 						<FooterTable key={table.TITULO.trim()} title={table.TITULO}>
 							{table.ELEMENTOS.map((item) => (
 								<FooterItem
-									key={table.TITULO.trim()}
+									key={item.TEXTO.trim()}
 									text={item.TEXTO}
 									href={item.ENLACE}
 								/>
