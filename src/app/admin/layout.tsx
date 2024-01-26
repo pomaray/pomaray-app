@@ -1,18 +1,18 @@
-import Sidebar from "@/components/ui/sidebar"
+import Sidebar from "@/components/ui/Sidebar";
 
 export const metadata = {
-    title: "Admin"
-}
+	title: "Admin",
+};
 
 export default function AdminLayout({
-    children
+	children,
 }: {
-    children: React.ReactNode
+	children: React.ReactNode;
 }) {
-    return (
-        <div>
-            <Sidebar />
-            {children}
-        </div>
-    )
+	return (
+		<div>
+			<Sidebar />
+			{children}
+		</div>
+	);
 }

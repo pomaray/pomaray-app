@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { cookies } from "next/headers";
-import type { User } from "@/types/user";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
+import { type User } from "@/types/user";
 
 interface TokenResponse {
 	user?: User;
@@ -33,7 +33,7 @@ export async function GET() {
 
 		return NextResponse.json({ user });
 	} catch (error) {
-		console.error("Error en el manejador de la API:", error);
+		console.error("Error en el manejado de la API:", error);
 
 		if (axios.isAxiosError(error)) {
 			if (error.code === "401") {

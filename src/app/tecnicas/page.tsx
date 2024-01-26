@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation";
 import LOCALE from "@/locales/tecnicas.json";
 
 // COMPONENTES
-import { Section, SectionTitle } from "@/components/ui/section";
-import { Tech } from "@/types/tech";
+import { Section, SectionTitle } from "@/components/ui/Section";
+import { Tech } from "@/types/enums";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
-import { TECH_ICONS } from "@/components/tecnicas/tech_icons";
+import { TECH_ICONS } from "@/components/tecnicas/TechIcons";
 import { cloneElement } from "react";
 
 export default function HomePage() {
@@ -24,7 +24,7 @@ export default function HomePage() {
 			<Section className="pb-20 flex flex-col justify-center">
 				<SectionTitle withLine text={LOCALE.TECH_TITULO} />
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-4 px-6 sm:px-10 md:px-10 lg:px-[15rem]]">
-					{LOCALE.TECNICAS.map((tecnica, index: number) => {
+					{LOCALE.TECNICAS.map((tecnica) => {
 						const iconElement = TECH_ICONS.find(
 							(icon) => Object.keys(icon)[0] === tecnica.ID,
 						)?.[tecnica.ID];
@@ -35,7 +35,7 @@ export default function HomePage() {
 									router.push(`/tecnicas/${tecnica.ID.toLowerCase()}`);
 								}}
 								isPressable
-								key={index}
+								key={tecnica.ID}
 								shadow="sm"
 								className="hover:translate-y-2 hover:opacity-50 text-foreground xl:p-6 transition-transform-opacity"
 							>

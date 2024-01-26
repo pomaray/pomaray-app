@@ -1,29 +1,20 @@
-"use client";
-
-import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { twMerge } from "tailwind-merge";
 
 type LogoProps = {
-  className?: string;
+	className?: string;
 };
 
-export default  function Logo({
-  className
-}: LogoProps){
-  const router = useRouter();
+export default function Logo({ className }: LogoProps) {
+	const logoPath = "/pomaray_logo.png";
 
-  const handleClick = () => {
-    router.push("/");
-  };
-
-  return (
-      <Image
-        src="/pomaray_logo.png"
-        alt="Logo"
-        className={`mx-2 ${className}`}
-        width={24}
-        height={24}
-      />
-  );
-};
-
+	return (
+		<Image
+			src={logoPath}
+			alt="Logo"
+			className={twMerge("mx-2", className)}
+			width={24}
+			height={24}
+		/>
+	);
+}

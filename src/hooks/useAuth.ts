@@ -1,26 +1,35 @@
-import { create } from "zustand";
 import axios from "axios";
+import { create } from "zustand";
 import { User } from "@/types/user";
 
-export type AuthStore = {
+export interface AuthenticateRequest {
+	username: string;
+	password: string;
+}
+
+export interface AuthStore {
+	error?: string;
+	isLoading: boolean;
+
 	token?: string;
 	user?: User;
-	loading: boolean;
-	authenticateUser: (username: string, password: string) => Promise<boolean>;
+
+	authenticateUser: (request: AuthenticateRequest) => Promise<boolean>;
 	checkToken: () => Promise<void>;
-};
+}
 
 export const useAuthStore = create<AuthStore>((set) => ({
 	user: undefined,
-	loading: false,
+	isLoading: false,
+	error: undefined,
 
-	authenticateUser: async (username: string, password: string) => {
+	authenticateUser: async (request: AuthenticateRequest) => {
 		try {
-			set({ loading: true });
+			set({ isLoading: true });
 
 			const response = await axios.post("/api/auth/", {
-				username,
-				password,
+				username: request.username,
+				password: request.password,
 			});
 
 			const { user } = response.data;
@@ -31,7 +40,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
 			console.error("Error de autenticación:", error);
 			throw error;
 		} finally {
-			set({ loading: false });
+			set({ isLoading: false });
 		}
 	},
 
@@ -45,7 +54,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
 			console.error("Error de autenticación:", error);
 			throw error;
 		} finally {
-			set({ loading: false });
+			set({ isLoading: false });
 		}
 	},
 }));

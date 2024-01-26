@@ -1,9 +1,7 @@
 "use client";
 
-//  REACT Y LOCALES
-import LOCALE from "@/locales/root.json";
+import { useState } from "react";
 
-// COMPONENTES NEXT UI
 import {
 	Navbar as NextNavbar,
 	NavbarBrand,
@@ -15,12 +13,12 @@ import {
 	NavbarMenuToggle,
 } from "@nextui-org/react";
 
-// ICONES Y LOGO DE /components
-import Logo from "@/components/logo";
-import { NewsModal } from "@/components/news";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
-import { useState } from "react";
-import { NavbarNotify } from "./notify";
+import { NewsModal } from "@/components/News";
+import { NavbarNotify } from "@/components/ui/Notify";
+
+import Logo from "@/components/Logo";
+import LOCALE from "@/locales/root.json";
 
 export function Header() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -79,7 +77,11 @@ export function Header() {
 					</div>
 					<NewsModal />
 					<NavbarMenuToggle
-						aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+						aria-label={
+							isMenuOpen
+								? "Abrir modal de noticias."
+								: "Cerrar modal de noticias."
+						}
 						className="lg:hidden"
 					/>
 				</NavbarContent>

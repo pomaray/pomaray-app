@@ -1,20 +1,15 @@
-// React Y LOCALES
-import React from "react";
-import LOCALE from "@/locales/root.json";
-
-// NEXT.JS
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-// ESTILOS Y PROVEDORES
 import "@/styles/globals.css";
-import UIProviders from "@/components/ui/providers";
+import UIProviders from "@/components/ui/Providers";
 
-// COMPONETES DE /components
-import { Footer, FooterItem, FooterTable } from "@/components/footer";
-import { Header } from "@/components/ui/header";
+import { Footer, FooterItem, FooterTable } from "@/components/ui/Footer";
+import { Header } from "@/components/ui/Header";
 
-// TIPOGRAFIA
+import LOCALE from "@/locales/root.json";
+
+// Tipografía.
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

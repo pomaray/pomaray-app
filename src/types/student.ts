@@ -1,6 +1,5 @@
-import { Sex } from "@/types/general";
+import { Sex } from "@/types/enums";
 
-// Modelo para el estudiante
 export type Student = {
 	id: string;
 	singerd_id: number;
