@@ -27,7 +27,7 @@ export default function TechniquePage() {
 
 	return (
 		<main className="min-h-screen">
-			<article className="max-w-6xl mx-auto overflow-hidden p-2">
+			<article className="max-w-6xl mx-auto overflow-hidden p-12">
 				<section className="flex flex-col items-center">
 					<div>
 						<Image
@@ -56,10 +56,15 @@ export default function TechniquePage() {
 				</section>
 
 				{technique.INFORMACION.map((item) => (
-					<section className="py-6 px-4 sm:px-0">
+					<section key={item.TITULO} className="py-6 px-4 sm:px-0">
 						<h2 className="text-3xl font-bold my-4">{item.TITULO}</h2>
 						{item.PARRAFOS.map((parrafo) => (
-							<p className="opacity-80 text-lg text-pretty mb-4">{parrafo}</p>
+							<p
+								key={parrafo.substring(0, 10)}
+								className="opacity-80 text-lg text-pretty mb-4"
+							>
+								{parrafo}
+							</p>
 						))}
 					</section>
 				))}

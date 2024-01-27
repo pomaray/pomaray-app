@@ -18,9 +18,10 @@ export async function generateMetadata(
 	const technique = TECH.DATA[id as keyof typeof TECH.DATA];
 
 	return {
+		metadataBase: new URL("https://acme.com"),
 		title: `${technique.NOMBRE} - ${LOCALE.SITIO_WEB.NOMBRE}`,
 		openGraph: {
-			images: [technique.BANNER, ...previousImages],
+			images: technique.BANNER,
 		},
 	};
 }
