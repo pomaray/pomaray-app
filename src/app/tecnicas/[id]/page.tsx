@@ -25,17 +25,17 @@ export default function TechniquePage() {
     <main className="min-h-screen">
       <aside className="container mx-auto p-2 flex">
         <div className=" rounded-lg shadow-lg overflow-hidden flex-grow">
-          <Section className="relative h-90">
+          <section className="relative h-60">
             <Image
               src={technique.COVER_IMAGE}
               alt={id.toString()}
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-center"
               classNames={{
-                img: "w-full h-full object-cover !rounded-none",
+                img: "w-full h-full !rounded-none",
                 wrapper: "!max-w-full !rounded-none"
               }}
             />
-          </Section>
+          </section>
 
           <Section className="flex items-center">
             <div className="flex flex-col justify-center items-start p-8 w-full md:w-[80%]">
