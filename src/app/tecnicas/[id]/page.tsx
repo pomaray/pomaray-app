@@ -27,7 +27,7 @@ export default function TechniquePage() {
 
 	return (
 		<main className="min-h-screen">
-			<article className="max-w-6xl mx-auto overflow-hidden p-12">
+			<article className="max-w-5xl mx-auto overflow-hidden px-2 sm:px-12 py-6">
 				<section className="flex flex-col items-center">
 					<div>
 						<Image
@@ -40,9 +40,14 @@ export default function TechniquePage() {
 						<Chip size="sm" className="mb-2 max-w-full">
 							{technique.NOMBRE}
 						</Chip>
-						<h1 className="text-4xl font-bold mb-2">{technique.TITULO}</h1>
+						<h1 className="sm:text-4xl text-2xl font-bold mb-2 text-balance">
+							{technique.TITULO}
+						</h1>
 						{technique.DESCRIPCION.map((desc) => (
-							<p key={desc.substring(0, 10)} className="text-gray-700 mb-4">
+							<p
+								key={desc.substring(0, 10)}
+								className="text-gray-700 mb-4 sm:text-lg text-sm"
+							>
 								{desc}
 							</p>
 						))}
@@ -56,12 +61,14 @@ export default function TechniquePage() {
 				</section>
 
 				{technique.INFORMACION.map((item) => (
-					<section key={item.TITULO} className="py-6 px-4 sm:px-0">
-						<h2 className="text-3xl font-bold my-4">{item.TITULO}</h2>
+					<section key={item.TITULO} className="sm:py-6 py-2 sm:px-0">
+						<h2 className="sm:text-3xl text-xl font-bold my-4 text-primary">
+							{item.TITULO}
+						</h2>
 						{item.PARRAFOS.map((parrafo) => (
 							<p
 								key={parrafo.substring(0, 10)}
-								className="opacity-80 text-lg text-pretty mb-4"
+								className="opacity-80 sm:text-lg text-sm text-pretty sm:mb-4 mb-2"
 							>
 								{parrafo}
 							</p>
@@ -70,7 +77,7 @@ export default function TechniquePage() {
 				))}
 
 				<section className="py-8">
-					<h2 className="text-3xl font-bold mb-4">
+					<h2 className="text-3xl font-bold mb-4 text-primary">
 						{technique.GALERIA_TITULO}
 					</h2>
 					<div className="grid grid-cols-12 gap-4">
@@ -83,7 +90,7 @@ export default function TechniquePage() {
 								<Image
 									removeWrapper
 									alt={`Image ${index + 1}`}
-									className="z-0 w-full h-full object-cover"
+									className="z-0 w-full h-full object-cover hover:scale-110 transition-transform"
 									src={image}
 								/>
 							</Card>

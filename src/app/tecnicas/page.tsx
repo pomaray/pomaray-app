@@ -23,7 +23,7 @@ export default function HomePage() {
 					{LOCALE.HERO.DESCRIPCION}
 				</p>
 			</Section>
-			<Section className="pb-20 flex flex-col justify-center 2xl:px-[10rem]">
+			<Section className="pb-20 flex flex-col justify-center 2xl:px-[15rem]">
 				<SectionTitle withLine text={LOCALE.TECH_TITULO} />
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-4 px-6 sm:px-10 md:px-10 lg:px-[15rem]]">
 					{LOCALE.TECNICAS.map((tecnica) => {
