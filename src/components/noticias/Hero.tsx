@@ -1,7 +1,8 @@
 import { Button, Image } from "@nextui-org/react";
-import { Section } from "@/components/ui/section";
+import { Section } from "@/components/ui/Section";
 
 export function HeroNoticias() {
+	const TITLE = "Hero Noticias";
 	return (
 		<Section className="grid relative place-content-center w-full h-[80vh] p-10 bg-red-500 -top-10">
 			<Image
