@@ -26,7 +26,7 @@ export function SectionTitle({
 	color = "primary",
 }: SectionTitleProps) {
 	return (
-		<div className={`${className} py-10`}>
+		<div className={`${className ?? ""} py-10`}>
 			{typeof text === "object" ? (
 				text
 			) : (

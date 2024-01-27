@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { type Student } from "@/types/student";
 import { AxiosError } from "axios";

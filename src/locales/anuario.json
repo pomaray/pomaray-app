@@ -1,0 +1,10 @@
+{
+    "TITULO": "Encuentra tu foto de anuario",
+    "TIP": "Filtra y encuentra tu foto de anuario fácilmente. Puedes Utilizar los filtros para buscar.",
+    "FORMULARIO": {
+        "MIN_PERIDO": "2010",
+        "NOMBRE": "Nombre del estudiante",
+        "TECNICA": "Técnica",
+        "PERIODO": "Periodo escolar"
+    }
+}
