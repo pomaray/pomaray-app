@@ -1,5 +1,3 @@
-import Sidebar from "@/components/ui/Sidebar";
-
 export const metadata = {
 	title: "Admin",
 };
@@ -9,10 +7,5 @@ export default function AdminLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	return (
-		<div>
-			<Sidebar />
-			{children}
-		</div>
-	);
+	return <div>{children}</div>;
 }

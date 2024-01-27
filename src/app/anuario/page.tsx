@@ -36,15 +36,10 @@ export default function YearBook() {
 				} `}
 			>
 				{!isLoading && !isError ? (
-					<div className="grid grid-cols-1 xxs:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 sm:grid-cols-3 gap-4 sm:px-2 px-4 pb-20">
-						{Array.from({ length: students?.length || 30 }, (_, index) => {
-							const student = students ? students[index] : null;
-							return <div>{student?.first_name}</div>;
-						})}
-					</div>
+					<div className="grid grid-cols-1 xxs:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 sm:grid-cols-3 gap-4 sm:px-2 px-4 pb-20"></div>
 				) : isError ? (
 					<Card className="p-6 bg-transparent shadow-none text-danger sm:text-start text-center">
-						<p>{isError}</p>
+						<p>Hubo un error</p>
 					</Card>
 				) : (
 					<Spinner label="Cargando..." />
