@@ -1,0 +1,83 @@
+{
+	"DESCARGAR_BTN": "Descargar folleto",
+	"SOLICITAR_BTN": "Solicitar información",
+	"ENVIO_CORREO": {
+		"CORREO": "pomaray@gmail.com",
+		"SUJETO": "%s - Solicitud información",
+		"MENSAJE": "¡Hola!\n\nMe gustaría obtener más información sobre la técnica de %s.\n\nGracias."
+	},
+	"DATA": {
+		"daai": {
+			"NOMBRE": "Desarrollo y Administración de Aplicaciones Informáticas",
+			"TITULO": "Da el salto a la industria tecnológica.",
+			"BANNER": "/banner/1.png",
+			"DESCRIPCION": [
+				"La técnica de Desarrollo y Administración de Aplicaciones Informáticas es un campo amplio y emocionante que abarca el estudio y la aplicación de sistemas de cómputo, hardware, software y procesos de información. Aquellos que optan por seguir esta técnica se sumergen en el mundo de la programación, la gestión de datos, la ciberseguridad y el desarrollo de software.",
+				"La capacidad de resolver problemas de manera lógica y creativa es esencial en este campo. Los profesionales de la informática son responsables de diseñar soluciones innovadoras para desafíos tecnológicos y contribuir al avance continuo de la sociedad digital."
+			],
+			"INFORMACION": [
+				{
+					"TITULO": "¿Por qué elegir esta técnica?",
+					"PARRAFOS": [
+						"¿Por qué elegir la técnica de Desarrollo y Administración de Aplicaciones Informáticas? La respuesta es simple: impulsa la revolución tecnológica y transforma la forma en que vivimos, trabajamos y nos comunicamos. Al optar por esta técnica, te embarcarás en un viaje donde podrás influir en el futuro digital y marcar la diferencia en diversas industrias.",
+						"La demanda de profesionales en este campo está en constante aumento, lo que significa que tendrás oportunidades abundantes en el mercado laboral y la posibilidad de contribuir a proyectos innovadores que impactan a nivel global."
+					]
+				},
+				{
+					"TITULO": "Aspectos emocionantes",
+					"PARRAFOS": [
+						"Explora tu potencial en el emocionante mundo de la programación, gestión de datos y ciberseguridad.",
+						"Proyectos destacados de estudiantes incluyen el desarrollo de aplicaciones innovadoras y soluciones tecnológicas vanguardistas.",
+						"Esta área te brinda la oportunidad de trabajar en proyectos desafiantes y creativos, donde puedes aplicar tus conocimientos en situaciones del mundo real.",
+						"Colabora con compañeros apasionados y expertos de la industria para abordar problemas tecnológicos y contribuir a soluciones innovadoras.",
+						"Participa en hackatones y competiciones, donde puedes demostrar tus habilidades y ganar reconocimiento en la comunidad tecnológica.",
+						"Experimenta la emoción de ser parte de un campo en constante evolución, donde cada día trae nuevos desafíos y oportunidades emocionantes."
+					]
+				},
+				{
+					"TITULO": "¿Por donde inciar?",
+					"PARRAFOS": [
+						"Dónde podrás emprender tu carrera en Desarrollo y Administración de Aplicaciones Informáticas es una pregunta emocionante. Las posibilidades son vastas, ya que esta área se integra en casi todos los aspectos de la sociedad moderna. Puedes trabajar en empresas de tecnología, instituciones financieras, agencias gubernamentales, startups o incluso crear tu propio proyecto emprendedor.",
+						"La versatilidad de las habilidades te permitirá explorar diversos campos, desde el desarrollo web hasta la inteligencia artificial, brindándote la flexibilidad para adaptarte a tus intereses y metas profesionales."
+					]
+				},
+				{
+					"TITULO": "¿Que trabajar?",
+					"PARRAFOS": [
+						"Dónde podrás emprender tu carrera en Desarrollo y Administración de Aplicaciones Informáticas es una pregunta emocionante. Las posibilidades son vastas, ya que esta área se integra en casi todos los aspectos de la sociedad moderna. Puedes trabajar en empresas de tecnología, instituciones financieras, agencias gubernamentales, startups o incluso crear tu propio proyecto emprendedor.",
+						"La versatilidad de las habilidades te permitirá explorar diversos campos, desde el desarrollo web hasta la inteligencia artificial, brindándote la flexibilidad para adaptarte a tus intereses y metas profesionales."
+					]
+				},
+				{
+					"TITULO": "Plan de estudio.",
+					"PARRAFOS": [
+						"El plan de estudios para la técnica de Desarrollo y Administración de Aplicaciones Informáticas está diseñado para proporcionarte una base sólida en conceptos fundamentales y habilidades prácticas. Durante tus estudios, explorarás temas como algoritmos, estructuras de datos, programación orientada a objetos, bases de datos, redes, inteligencia artificial y desarrollo de software.",
+						"Además de las clases teóricas, tendrás la oportunidad de participar en proyectos prácticos, pasantías y colaboraciones que te prepararán para enfrentar los desafíos del mundo real en el campo de la informática."
+					]
+				},
+
+				{
+					"TITULO": "Requerimientos.",
+					"PARRAFOS": [
+						"Los requisitos para ingresar al área de Desarrollo y Administración de Aplicaciones Informáticas incluyen un fuerte interés en la tecnología.",
+						"Habilidades lógicas y creativas son esenciales para abordar los desafíos presentes en el campo de la informática.",
+						"Una sólida comprensión de los fundamentos de la informática, como algoritmos y estructuras de datos, es beneficioso.",
+						"Curiosidad y disposición para aprender constantemente, ya que la tecnología está en constante evolución.",
+						"Capacidad para trabajar en equipo y comunicarse efectivamente en entornos tecnológicos colaborativos.",
+						"El deseo de contribuir a soluciones innovadoras y ser parte de la transformación digital en diversos sectores."
+					]
+				}
+			],
+
+			"GALERIA_TITULO": "Galeria de imagenes",
+			"IMAGENES": [
+				"/daai/daai.jpg",
+				"/daai/daai1.jpg",
+				"/daai/daai2.jpg",
+				"/daai/daai3.jpg",
+				"/daai/daai.jpg",
+				"/daai/daai.jpg"
+			]
+		}
+	}
+}

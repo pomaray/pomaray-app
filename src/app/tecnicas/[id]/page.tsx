@@ -1,92 +1,91 @@
 "use client";
 
-import { useParams } from 'next/navigation';
-import tech from '@/locales/tech.json';
-import { Image, Card, CardHeader, CardBody, Button, Chip, Spacer } from "@nextui-org/react";
-import { Section } from '@/components/ui/Section';
+import { useParams } from "next/navigation";
+import LOCALE from "@/locales/tecnicas[id].json";
+import { Image, Card, Button, Chip } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 
 export default function TechniquePage() {
-  const { id } = useParams<{ id: string }>();
+	const { id } = useParams<{ id: string }>();
 
-  const technique = tech[id as keyof typeof tech];
+	const technique = LOCALE.DATA[id as keyof typeof LOCALE.DATA];
+	const router = useRouter();
 
-  const handleInformationRequest = () => {
-    const subject = `Solicitud de información - ${technique.TITULO}`;
-    const body = `¡Hola!\n\nMe gustaría obtener más información sobre la técnica de ${technique.TITULO}.\n\nGracias.`;
-    const mailtoLink = `mailto:correo@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
-  };
+	const mailTo = () => {
+		const subject = LOCALE.ENVIO_CORREO.SUJETO.replace("%s", technique.NOMBRE);
+		const body = LOCALE.ENVIO_CORREO.MENSAJE.replace("%s", technique.NOMBRE);
+		const mailtoLink = `mailto:${
+			LOCALE.ENVIO_CORREO.CORREO
+		}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+		window.location.href = mailtoLink;
+	};
 
-  if (!technique) {
-    return <p>Técnica no encontrada</p>;
-  }
+	if (!technique) {
+		router.push("/not-found");
+		return;
+	}
 
-  return (
-    <main className="min-h-screen">
-      <aside className="container mx-auto p-2 flex">
-        <div className=" rounded-lg shadow-lg overflow-hidden flex-grow">
-          <Section className="relative h-90">
-            <Image
-              src={technique.COVER_IMAGE}
-              alt={id.toString()}
-              className="w-full h-full object-cover object-center"
-              classNames={{
-                img: "w-full h-full object-cover !rounded-none",
-                wrapper: "!max-w-full !rounded-none"
-              }}
-            />
-          </Section>
+	return (
+		<main className="min-h-screen">
+			<article className="max-w-6xl mx-auto overflow-hidden p-2">
+				<section className="flex flex-col items-center">
+					<div>
+						<Image
+							shadow="none"
+							src={technique.BANNER}
+							alt={technique.TITULO}
+						/>
+					</div>
+					<div className="flex flex-col justify-center items-start py-8 w-full">
+						<Chip size="sm" className="mb-2 max-w-full">
+							{technique.NOMBRE}
+						</Chip>
+						<h1 className="text-4xl font-bold mb-2">{technique.TITULO}</h1>
+						{technique.DESCRIPCION.map((desc) => (
+							<p key={desc.substring(0, 10)} className="text-gray-700 mb-4">
+								{desc}
+							</p>
+						))}
+						<div className="flex space-x-4 mt-4">
+							<Button color="primary">{LOCALE.DESCARGAR_BTN}</Button>
+							<Button onClick={mailTo} color="primary" variant="bordered">
+								{LOCALE.SOLICITAR_BTN}
+							</Button>
+						</div>
+					</div>
+				</section>
 
-          <Section className="flex items-center">
-            <div className="flex flex-col justify-center items-start p-8 w-full md:w-[80%]">
-              <Chip className="mb-2">{technique.ID}</Chip>
-              <h1 className="text-4xl font-bold mb-2">{technique.TITULO}</h1>
-              <p className="text-gray-700 mb-4">{technique.PROFILE[0]}</p>
-              <Spacer y={2} />
-              <div className="flex space-x-4">
-                <Button color="primary">
-                  Descargar Folleto
-                </Button>
-                <Button onClick={handleInformationRequest} color="primary" variant="bordered">
-                  Solicitar Información
-                </Button>
-              </div>
-            </div>
-          </Section>
+				{technique.INFORMACION.map((item) => (
+					<section className="py-6 px-4 sm:px-0">
+						<h2 className="text-3xl font-bold my-4">{item.TITULO}</h2>
+						{item.PARRAFOS.map((parrafo) => (
+							<p className="opacity-80 text-lg text-pretty mb-4">{parrafo}</p>
+						))}
+					</section>
+				))}
 
-          <div className="p-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold mb-4">Oportunidades Profesionales</h2>
-              <p className="text-gray-700 mx-auto">{technique.WHAT_TOWORK}</p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold mb-4">Tu camino de estudio</h2>
-              <p className="text-gray-700 mx-auto">{technique.STUDY_PLAN}</p>
-            </section>
-            
-            </div>
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold mb-4">Galería de Imágenes</h2>
-              <div className="grid grid-cols-12 gap-4">
-                {technique.IMAGENES.map((image, index) => (
-                  <Card key={index} className="col-span-12 sm:col-span-4 h-[300px]">
-                    <CardHeader className="absolute z-10 top-1 flex-col !items-start"></CardHeader>
-                    <Image
-                      removeWrapper
-                      alt={`Image ${index + 1}`}
-                      className="z-0 w-full h-full object-cover"
-                      src={image}
-                    />
-                  </Card>
-                ))}
-              </div>
-            </section>
-          </div>
-        </div>
-      </aside>
-    </main>
-  );
-};
-
+				<section className="py-8">
+					<h2 className="text-3xl font-bold mb-4">
+						{technique.GALERIA_TITULO}
+					</h2>
+					<div className="grid grid-cols-12 gap-4">
+						{technique.IMAGENES.map((image, index) => (
+							<Card
+								shadow="none"
+								key={image.trim()}
+								className="col-span-12 sm:col-span-4 h-[300px]"
+							>
+								<Image
+									removeWrapper
+									alt={`Image ${index + 1}`}
+									className="z-0 w-full h-full object-cover"
+									src={image}
+								/>
+							</Card>
+						))}
+					</div>
+				</section>
+			</article>
+		</main>
+	);
+}
