@@ -15,7 +15,7 @@ export default function ThemeSwitcher() {
 	if (!mounted) return null;
 
 	return (
-		<div className="flex gap-x-2 justify-end w-full">
+		<div className="flex gap-x-2 sm:justify-end w-full">
 			<button
 				type="button"
 				className="dark:hover:bg-neutral-700 hover:bg-slate-500 transition-colors p-2 text-xl rounded-xl"

@@ -34,7 +34,6 @@ interface YearBookHook {
 	students?: Student[];
 	formRequest: FormRequest;
 
-	submit: () => void;
 	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 	setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 	setFormRequest: React.Dispatch<React.SetStateAction<FormRequest>>;
@@ -61,69 +60,38 @@ const useYearBook: () => YearBookHook = () => {
 		studentTech: "",
 	});
 
-	const submit = async () => {
-		try {
-			// Construir los *query params* según FormRequest.
-			const params = new URLSearchParams();
-			if (formRequest.studentName) params.set("name", formRequest.studentName);
-			if (formRequest.studentTech) params.set("tech", formRequest.studentTech);
-			if (formRequest.studentSchoolYear)
-				params.set("year", formRequest.studentSchoolYear.toString());
+	const [debouncedFormRequest, setDebouncedFormRequest] =
+		useState<FormRequest>(formRequest);
 
-			/* 
-					Calcular cuantos estudiantes se debe **saltar según la pagina actual**.
-					Ej. si currentPage es 1 (la primera página) y limit es 10,
-					entonces skip sería 0, lo que significa que no se omite ningún
-					estudiante porque estamos en la primera página, si pagina actual es 
-				*/
-			const skip = (currentPage - 1) * limit;
-			const url = `${baseUrl}?${params.toString()}&limit=${limit}&skip=${skip}`;
+	useEffect(() => {
+		const timerId = setTimeout(() => {
+			setDebouncedFormRequest(formRequest);
+		}, 500); // Ajusta el tiempo de espera según tus necesidades
 
-			const response = await fetch(url);
-			if (!response.ok) {
-				setIsError(true);
-				return;
-			}
+		return () => {
+			clearTimeout(timerId);
+		};
+	}, [formRequest]);
 
-			const { total, students } = (await response.json()) as YearBookResponse;
-			if (students.length < 1 || total < 1) {
-				setIsNotFound(true);
-				return;
-			}
-
-			setTotalPages(Math.ceil(total / limit));
-			setStudents(students);
-		} catch (error) {
-			if (error instanceof AxiosError) {
-				setIsNotFound(error.code === "404");
-				return;
-			}
-
-			setTotalPages(0);
-			setIsError(true);
-		} finally {
-			setIsLoading(false);
-		}
-	};
-
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				// Construir los *query params* según FormRequest.
-				const params = new URLSearchParams();
-				if (formRequest.studentName)
-					params.set("name", formRequest.studentName);
-				if (formRequest.studentTech)
-					params.set("tech", formRequest.studentTech);
-				if (formRequest.studentSchoolYear)
-					params.set("year", formRequest.studentSchoolYear.toString());
+				if (isLoading || !debouncedFormRequest) return; // No realiza la solicitud si isLoading es true o debouncedFormRequest está vacío
+				setIsLoading(true);
 
-				/* 
-					Calcular cuantos estudiantes se debe **saltar según la pagina actual**.
-					Ej. si currentPage es 1 (la primera página) y limit es 10,
-					entonces skip sería 0, lo que significa que no se omite ningún
-					estudiante porque estamos en la primera página, si pagina actual es 
-				*/
+				// Construir los *query params* según debouncedFormRequest.
+				const params = new URLSearchParams();
+				if (debouncedFormRequest.studentName)
+					params.set("name", debouncedFormRequest.studentName);
+				if (debouncedFormRequest.studentTech)
+					params.set("tech", debouncedFormRequest.studentTech);
+				if (debouncedFormRequest.studentSchoolYear)
+					params.set(
+						"years",
+						debouncedFormRequest.studentSchoolYear.toString(),
+					);
+
 				const skip = (currentPage - 1) * limit;
 				const url = `${baseUrl}?${params.toString()}&limit=${limit}&skip=${skip}`;
 
@@ -154,10 +122,9 @@ const useYearBook: () => YearBookHook = () => {
 			}
 		};
 
-		console.log(formRequest);
-
 		fetchData();
-	}, [formRequest, currentPage]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [debouncedFormRequest, currentPage]);
 
 	return {
 		isError,
@@ -170,7 +137,6 @@ const useYearBook: () => YearBookHook = () => {
 		students,
 		formRequest,
 
-		submit,
 		setIsLoading,
 		setCurrentPage,
 		setFormRequest,

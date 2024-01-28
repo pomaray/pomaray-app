@@ -31,7 +31,7 @@ export default function RootLayout({
 	return (
 		<html suppressHydrationWarning lang="en">
 			<body
-				className={`bg-background overflow-y-auto overflow-x-hidden ${inter.className}`}
+				className={`bg-background overflow-y-auto w-screen overflow-x-hidden ${inter.className}`}
 			>
 				<header className="relative min-w-screen z-40 h-24">
 					<div className="fixed">

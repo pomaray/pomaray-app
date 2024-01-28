@@ -6,15 +6,36 @@ const END_POINT = process.env.STUDENT_ENDPOINT ?? "";
 
 interface FindStudents {
 	total: number;
-	stundets: Student[];
+	students: Student[];
 }
 
 export async function GET(request: Request) {
-	const { searchParams } = new URL(request.url);
+	try {
+		const { searchParams } = new URL(request.url);
 
-	const url = `${END_POINT}?${searchParams}`;
-	const response = await axios.get(url);
-	const { total, stundets } = (await response.data) as FindStudents;
+		const url = `${END_POINT}?${searchParams}`;
+		const response = await axios.get(url);
+		const { total, students } = (await response.data) as FindStudents;
 
-	return NextResponse.json({ total, stundets });
+		return NextResponse.json({ total, students });
+	} catch (error) {
+		if (axios.isAxiosError(error)) {
+			NextResponse.json(
+				{},
+				{
+					status: error.status,
+					statusText: error.status?.toString() ?? "Error",
+				},
+			);
+		}
+		return NextResponse.json(
+			{
+				message: error,
+			},
+			{
+				status: 500,
+				statusText: "ERR_INTERNAL_SERVER",
+			},
+		);
+	}
 }

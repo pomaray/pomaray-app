@@ -39,7 +39,7 @@ export default function HomePage() {
 								isPressable
 								key={tecnica.ID}
 								shadow="none"
-								className="xl:p-6 hover:translate-y-2 hover:opacity-50 shadow-small text-foreground transition-transform-opacity"
+								className="xl:p-6 hover:translate-y-2 hover:opacity-50 bg-default-100  shadow-small text-foreground transition-transform-opacity"
 							>
 								<CardHeader className="flex items-center justify-center pt-5 sm:pt-10">
 									<div

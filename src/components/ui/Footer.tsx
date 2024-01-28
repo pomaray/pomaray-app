@@ -48,7 +48,7 @@ export function Footer({
 				className="grid
         			sm:place-content-start sm:grid-cols-2
         			lg:place-content-center lg:grid-cols-4
-					max-w-5xl mx-auto"
+					max-w-5xl lg:mx-auto"
 			>
 				{children}
 			</div>

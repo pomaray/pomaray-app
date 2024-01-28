@@ -127,7 +127,12 @@ export default function LoginPage() {
 							color={passwordError ? "danger" : "default"}
 						/>
 						{error && <p className="text-danger">{error}</p>}
-						<Button isDisabled={isDisabled} type="submit" color="primary">
+						<Button
+							isDisabled={isDisabled}
+							isLoading={isLoading}
+							type="submit"
+							color="primary"
+						>
 							Acceder
 						</Button>
 					</form>
