@@ -16,6 +16,7 @@
     "axios": "^1.6.4",
     "dotenv": "^16.3.1",
     "framer-motion": "^10.17.9",
+    "icons": "^1.0.0",
     "jwt-decode": "^4.0.0",
     "next": "14.0.3",
     "next-auth": "^4.24.5",
