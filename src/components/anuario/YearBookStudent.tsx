@@ -18,10 +18,15 @@ export function YearBookStudent({
 	const LAST_YEAR = student?.school_years?.[student.school_years.length - 1];
 
 	return (
-		<Skeleton className="rounded-lg" isLoaded={!!student}>
+		<Skeleton
+			disableAnimation={true}
+			className="rounded-lg shadow-sm"
+			isLoaded={!!student}
+		>
 			<Card
 				radius="lg"
-				className="xs:h-80 xs:max-h-[310px] xs:p-4 xl:max-h-[none] max-h-[335px] max-w-[220px] w-full m-auto bg-content2 shadow-sm"
+				shadow="none"
+				className="xs:h-80 xs:max-h-[310px] xs:p-4 xl:max-h-[none] max-h-[335px] max-w-[220px] w-full m-auto bg-default-100"
 			>
 				<CardHeader className="overflow-hidden relative min-h-[180px] p-0">
 					<div className="absolute flex items-center justify-center">

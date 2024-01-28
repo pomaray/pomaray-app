@@ -42,7 +42,6 @@ interface YearBookHook {
 const useYearBook: () => YearBookHook = () => {
 	// Configuraciones del *Hook*.
 	const limit = 30;
-	const currentYear = new Date().getFullYear();
 	const baseUrl = "/api/students";
 
 	// Estados.
@@ -56,7 +55,7 @@ const useYearBook: () => YearBookHook = () => {
 	const [students, setStudents] = useState<Student[]>();
 	const [formRequest, setFormRequest] = useState<FormRequest>({
 		studentName: "",
-		studentSchoolYear: [currentYear],
+		studentSchoolYear: [],
 		studentTech: "",
 	});
 
@@ -79,6 +78,7 @@ const useYearBook: () => YearBookHook = () => {
 			try {
 				if (isLoading || !debouncedFormRequest) return; // No realiza la solicitud si isLoading es true o debouncedFormRequest está vacío
 				setIsLoading(true);
+				setStudents([]);
 
 				// Construir los *query params* según debouncedFormRequest.
 				const params = new URLSearchParams();
@@ -100,6 +100,8 @@ const useYearBook: () => YearBookHook = () => {
 					setIsError(true);
 					return;
 				}
+
+				console.log(response);
 
 				const { total, students } = (await response.json()) as YearBookResponse;
 				if (students.length < 1 || total < 1) {

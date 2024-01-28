@@ -24,25 +24,23 @@ export default function YearBook() {
 				<p>{LOCALE.TIP}</p>
 			</section>
 
-			<section className="w-full text-center max-w-5xl mx-auto">
+			<section className="w-full text-center max-w-5xl mx-auto py-6">
 				<YearBookForm />
 			</section>
 
-			<section className="grid grid-cols-1 xxs:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 sm:grid-cols-3 gap-4 sm:px-2 px-4 pb-20">
-				{!isLoading &&
-					Array.from({ length: students?.length || 30 }, (_, index) => {
-						const student = students?.[index];
+			<section className="grid grid-cols-1 lg:grid-cols-4 xl:grid-cols-6 sm:grid-cols-3 gap-4 sm:px-2 px-4 pb-20 mx-w-6xl mx-auto">
+				{Array.from({ length: students?.length || 30 }, (_, index) => {
+					const student = students?.[index];
 
-						return (
-							<YearBookStudent key={student?.id || index} student={student} />
-						);
-					})}
-				{isLoading && <Spinner label="Cargando estudiantes..." />}
+					return (
+						<YearBookStudent key={student?.id || index} student={student} />
+					);
+				})}
 			</section>
 
 			<section className="flex justify-center py-10">
 				<Pagination
-					isDisabled={isLoading || totalPages < 2}
+					isDisabled={totalPages < 2}
 					size="lg"
 					initialPage={currentPage}
 					total={totalPages}
