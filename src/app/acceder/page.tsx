@@ -116,6 +116,7 @@ export default function LoginPage() {
 							label="Nombre de usuario."
 							onInput={onChange}
 							errorMessage={usernameError}
+							color={usernameError ? "danger" : "default"}
 						/>
 						<Input
 							isRequired
@@ -123,6 +124,7 @@ export default function LoginPage() {
 							label="Contraseña."
 							onInput={onChange}
 							errorMessage={passwordError}
+							color={passwordError ? "danger" : "default"}
 						/>
 						{error && <p className="text-danger">{error}</p>}
 						<Button isDisabled={isDisabled} type="submit" color="primary">
@@ -131,10 +133,10 @@ export default function LoginPage() {
 					</form>
 				</CardBody>
 				<CardFooter className="flex flex-col gap-y-6">
-					<p className="w-full text-center">
+					<p className="text-nowrap text-center">
 						¿Ya iniciaste la sesión?{" "}
 						<Link isDisabled={isLoading} showAnchorIcon href="/admin">
-							Soy administrador.
+							Si, soy administrador.
 						</Link>
 					</p>
 				</CardFooter>

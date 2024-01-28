@@ -17,6 +17,7 @@ import { Collage, type CollageContent } from "@/components/Collage";
 // ICONOS Y EXTAS
 import { FaUserGraduate, FaUsers, FaLaptopCode } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
+import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 
 export default function HomePage() {
 	const [backgroundIndex, setBackgroundIndex] = useState(0);
@@ -74,24 +75,24 @@ export default function HomePage() {
 						onAnimationComplete={() => setDirection(0)}
 					/>
 				</AnimatePresence>
-				<div className="relative text-center mt-30 text-background mt-10 sm:mt-0">
+				<div className="relative text-center mt-30 text-white mt-10 sm:mt-0">
 					<h1 className="md:text-5xl text-3xl font-bold mb-4 max-w-[20ch]">
 						{LOCAL.HERO.TITULO}
 					</h1>
-					<p className="lg:text-lg text-md font-semibold mt-6 ">
+					<p className="lg:text-lg text-md font-semibold mt-6">
 						{LOCAL.HERO.SUB_TITULO}
 					</p>
 				</div>
 				<div className="mt-12 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-9">
-					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4">
+					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background">
 						<FaUserGraduate className="text-3xl text-primary" />
 						<p className="p-2">{LOCAL.HERO.GRADUADO}</p>
 					</Card>
-					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4">
+					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background">
 						<FaUsers className="text-3xl text-primary" />
 						<p className="p-2">{LOCAL.HERO.USUARIO}</p>
 					</Card>
-					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4">
+					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background">
 						<FaLaptopCode className="text-3xl text-primary" />
 						<p className="p-2">{LOCAL.HERO.TECNOLOGIA}</p>
 					</Card>
@@ -101,9 +102,9 @@ export default function HomePage() {
 			<Section className="container mx-auto py-12 text-center text-foreground">
 				<div className="sm:px-12 px-6">
 					<SectionTitle text={LOCAL.MEDIDAS_DE_SEGURIDAD.TITULO} />
-					<p className="sm:text-lg text-sm mt-4 mx-auto max-w-1xl my-12">
+					<p className="sm:text-lg text-sm mt-4 mx-auto max-w-[75ch] my-12">
 						{MEDIDAS_DE_SEGURIDAD_SUBTITULO[0]}
-						<Link href="/nosotros#seguridad">
+						<Link className="sm:text-lg text-sm" href="/nosotros#seguridad">
 							{LOCAL.MEDIDAS_DE_SEGURIDAD.SUB_TITULO_LINK}
 						</Link>
 						{MEDIDAS_DE_SEGURIDAD_SUBTITULO[1]}
@@ -134,9 +135,9 @@ export default function HomePage() {
 				</div>
 			</Section>
 
-			<Section className="flex flex-col justify-center items-center bg-green-100 py-5 sm:px-10 md:px-40 px-6">
+			<Section className="flex flex-col justify-center items-center py-5 sm:px-10 md:px-40 px-6">
 				<SectionTitle className="py-4" text={LOCAL.VIDA_Y_CULTURA.TITULO} />
-				<p>
+				<p className="text-foreground">
 					{VIDA_CULTURA_SUBTITULO[0]}{" "}
 					<Link
 						className="underline text - white"

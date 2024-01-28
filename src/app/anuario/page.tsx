@@ -9,10 +9,7 @@ import { Card, Pagination, Spinner } from "@nextui-org/react";
 
 export default function YearBook() {
 	const {
-		students,
-
 		isError,
-		isNotFound,
 		isLoading,
 
 		currentPage,
@@ -39,8 +36,9 @@ export default function YearBook() {
 			</section>
 
 			<section className="flex justify-center py-10">
+				{totalPages}
 				<Pagination
-					isDisabled={isLoading}
+					isDisabled={isLoading || totalPages < 2}
 					size="lg"
 					initialPage={currentPage}
 					total={totalPages}

@@ -29,30 +29,32 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
+		<html suppressHydrationWarning lang="en">
 			<body
-				className={`light overflow-y-auto overflow-x-hidden ${inter.className}`}
+				className={`bg-background overflow-y-auto overflow-x-hidden ${inter.className}`}
 			>
 				<header className="relative min-w-screen z-40 h-24">
 					<div className="fixed">
 						<Header />
 					</div>
 				</header>
-				<UIProviders>{children}</UIProviders>
+				<UIProviders>
+					{children}
+					<Footer>
+						{LOCALE.FOOTER.map((table) => (
+							<FooterTable key={table.TITULO.trim()} title={table.TITULO}>
+								{table.ELEMENTOS.map((item) => (
+									<FooterItem
+										key={item.TEXTO.trim()}
+										text={item.TEXTO}
+										href={item.ENLACE}
+									/>
+								))}
+							</FooterTable>
+						))}
+					</Footer>
+				</UIProviders>
 				<SpeedInsights />
-				<Footer>
-					{LOCALE.FOOTER.map((table) => (
-						<FooterTable key={table.TITULO.trim()} title={table.TITULO}>
-							{table.ELEMENTOS.map((item) => (
-								<FooterItem
-									key={item.TEXTO.trim()}
-									text={item.TEXTO}
-									href={item.ENLACE}
-								/>
-							))}
-						</FooterTable>
-					))}
-				</Footer>
 			</body>
 		</html>
 	);

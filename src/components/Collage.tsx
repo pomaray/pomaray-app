@@ -65,7 +65,9 @@ export function Collage({
 	className,
 }: CollageProps) {
 	return (
-		<section className={`bg-primary h-full flex flex-col ${className}`}>
+		<section
+			className={`bg-primary h-full flex flex-col overflow-hidden rounded-md ${className}`}
+		>
 			{contentSections.map((section, index) => (
 				<CollageItem
 					key={section.IMAGEN_SRC}

@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import LOCALE from "@/locales/root.json";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 type FooterTableProps = {
 	title?: string;
@@ -41,21 +43,21 @@ export function Footer({
 	const currentYear = new Date().getFullYear();
 
 	return (
-		<footer className="flex flex-col bg-gray-500 min-h-[10rem] w-screen py-10 shadow-small text-foreground-50">
-			<div className="relative px-12 lg:px-[10rem] 2xl:px-[30rem]">
-				<div
-					className="grid
+		<footer className="flex flex-col bg-slate-600 dark:bg-neutral-800 min-h-[10rem] shadow-small text-white p-6">
+			<div
+				className="grid
         			sm:place-content-start sm:grid-cols-2
-        			lg:place-content-center lg:grid-cols-4"
-				>
-					{children}
-				</div>
-				<div className="grid grid-cols-1 grid-flow-row place-content-center mt-10 gap-2">
-					<p className="relative block col-span-3 text-center text-xs opacity-70 text-base-color sm:px-20 px-0">
-						Copyright © {currentYear} {LOCALE.SITIO_WEB.NOMBRE}. Todos los
-						derechos reservados.
-					</p>
-				</div>
+        			lg:place-content-center lg:grid-cols-4
+					max-w-5xl mx-auto"
+			>
+				{children}
+			</div>
+			<div className="grid grid-cols-1 grid-flow-row place-content-center mt-10 gap-2">
+				<p className="relative block col-span-3 text-center text-xs opacity-70 text-white sm:px-20 px-0">
+					Copyright © {currentYear} {LOCALE.SITIO_WEB.NOMBRE}. Todos los
+					derechos reservados.
+				</p>
+				<ThemeSwitcher />
 			</div>
 		</footer>
 	);

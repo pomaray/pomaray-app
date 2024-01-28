@@ -34,6 +34,7 @@ interface YearBookHook {
 	students?: Student[];
 	formRequest: FormRequest;
 
+	submit: () => void;
 	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 	setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 	setFormRequest: React.Dispatch<React.SetStateAction<FormRequest>>;
@@ -59,6 +60,51 @@ const useYearBook: () => YearBookHook = () => {
 		studentSchoolYear: [currentYear],
 		studentTech: "",
 	});
+
+	const submit = async () => {
+		try {
+			// Construir los *query params* según FormRequest.
+			const params = new URLSearchParams();
+			if (formRequest.studentName) params.set("name", formRequest.studentName);
+			if (formRequest.studentTech) params.set("tech", formRequest.studentTech);
+			if (formRequest.studentSchoolYear)
+				params.set("year", formRequest.studentSchoolYear.toString());
+
+			/* 
+					Calcular cuantos estudiantes se debe **saltar según la pagina actual**.
+					Ej. si currentPage es 1 (la primera página) y limit es 10,
+					entonces skip sería 0, lo que significa que no se omite ningún
+					estudiante porque estamos en la primera página, si pagina actual es 
+				*/
+			const skip = (currentPage - 1) * limit;
+			const url = `${baseUrl}?${params.toString()}&limit=${limit}&skip=${skip}`;
+
+			const response = await fetch(url);
+			if (!response.ok) {
+				setIsError(true);
+				return;
+			}
+
+			const { total, students } = (await response.json()) as YearBookResponse;
+			if (students.length < 1 || total < 1) {
+				setIsNotFound(true);
+				return;
+			}
+
+			setTotalPages(Math.ceil(total / limit));
+			setStudents(students);
+		} catch (error) {
+			if (error instanceof AxiosError) {
+				setIsNotFound(error.code === "404");
+				return;
+			}
+
+			setTotalPages(0);
+			setIsError(true);
+		} finally {
+			setIsLoading(false);
+		}
+	};
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -88,6 +134,10 @@ const useYearBook: () => YearBookHook = () => {
 				}
 
 				const { total, students } = (await response.json()) as YearBookResponse;
+				if (students.length < 1 || total < 1) {
+					setIsNotFound(true);
+					return;
+				}
 
 				setTotalPages(Math.ceil(total / limit));
 				setStudents(students);
@@ -104,6 +154,8 @@ const useYearBook: () => YearBookHook = () => {
 			}
 		};
 
+		console.log(formRequest);
+
 		fetchData();
 	}, [formRequest, currentPage]);
 
@@ -118,6 +170,7 @@ const useYearBook: () => YearBookHook = () => {
 		students,
 		formRequest,
 
+		submit,
 		setIsLoading,
 		setCurrentPage,
 		setFormRequest,
