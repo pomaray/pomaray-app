@@ -71,10 +71,423 @@
 
 			"GALERIA_TITULO": "Galeria de imagenes",
 			"IMAGENES": [
-				"/daai/daai.jpg",
+				"/daai/daai7.jpg",
 				"/daai/daai1.jpg",
-				"/daai/daai2.jpg",
-				"/daai/daai3.jpg"
+				"/daai/daai5.jpg",
+				"/daai/daai3.jpg",
+				"/daai/daai4.jpg",
+				"/daai/daai6.jpg"
+			]
+		},
+		"gas": {
+			"NOMBRE": "Gastronomía",
+			"TITULO": "Descubre el arte culinario.",
+			"BANNER": "/banner/6.png",
+			"DESCRIPCION": [
+				"La técnica de Gastronomía es un apasionante viaje al mundo de la cocina y la creación de experiencias culinarias. Los estudiantes explorarán las técnicas de cocina, la presentación de platos, la gestión de restaurantes y la creatividad gastronómica.",
+				"La gastronomía va más allá de la preparación de alimentos; es un arte que fusiona la tradición culinaria con la innovación y la expresión personal."
+			],
+			"INFORMACION": [
+				{
+					"TITULO": "¿Por qué elegir esta técnica?",
+					"PARRAFOS": [
+						"La técnica de Gastronomía te sumergirá en el apasionante mundo de la cocina, donde podrás expresar tu creatividad a través de la preparación y presentación de platos.",
+						"Podrás adquirir habilidades prácticas en cocina, pastelería, enología y gestión de restaurantes, preparándote para una carrera emocionante en la industria culinaria.",
+						"La demanda de profesionales en gastronomía es constante, ya que la comida es una parte esencial de la cultura y el entretenimiento en todo el mundo."
+					]
+				},
+				{
+					"TITULO": "Aspectos emocionantes",
+					"PARRAFOS": [
+						"Explora tu pasión por la cocina y la creatividad gastronómica.",
+						"Participa en eventos culinarios, competiciones y festivales para mostrar tus habilidades.",
+						"Tendrás la oportunidad de realizar pasantías en restaurantes reconocidos y aprender de chefs expertos en el campo.",
+						"Descubre la diversidad de la gastronomía, desde la cocina étnica hasta la cocina molecular, ampliando tus horizontes culinarios.",
+						"Colabora con colegas apasionados y expertos de la industria para crear experiencias culinarias únicas."
+					]
+				},
+				{
+					"TITULO": "¿Por dónde empezar?",
+					"PARRAFOS": [
+						"Tu carrera en Gastronomía puede comenzar en restaurantes de alta cocina, hoteles, resorts, cruceros, o incluso emprendiendo tu propio negocio gastronómico.",
+						"La versatilidad de las habilidades adquiridas te permitirá explorar diversos roles, desde chef ejecutivo hasta especialista en pastelería o consultor gastronómico."
+					]
+				},
+				{
+					"TITULO": "¿En dónde trabajar?",
+					"PARRAFOS": [
+						"Con tu formación en Gastronomía, podrás trabajar en restaurantes de renombre, hoteles de lujo, cruceros, resorts, servicios de catering o iniciar tu propio restaurante o empresa gastronómica.",
+						"La gastronomía ofrece oportunidades emocionantes para aquellos que aman la creatividad culinaria y la experiencia gastronómica única."
+					]
+				},
+				{
+					"TITULO": "Plan de estudio",
+					"PARRAFOS": [
+						"El plan de estudios en Gastronomía está diseñado para proporcionarte una base sólida en técnicas culinarias, presentación de platos, gestión de restaurantes y enología.",
+						"Además de las clases teóricas, tendrás la oportunidad de participar en prácticas en cocinas profesionales, eventos culinarios y proyectos creativos que te prepararán para el dinámico mundo de la gastronomía."
+					]
+				},
+				{
+					"TITULO": "Requisitos",
+					"PARRAFOS": [
+						"Se busca a estudiantes apasionados por la cocina y la gastronomía.",
+						"Habilidades creativas en la presentación de platos y una apreciación por la diversidad culinaria son fundamentales.",
+						"Capacidad para trabajar bajo presión en entornos de cocina profesional.",
+						"Curiosidad y disposición para explorar nuevas tendencias y técnicas gastronómicas.",
+						"Excelentes habilidades de trabajo en equipo y comunicación para colaborar eficazmente en entornos de cocina."
+					]
+				}
+			],
+
+			"GALERIA_TITULO": "Galería de imágenes",
+			"IMAGENES": [
+				"/gastronomia/gas1.jpg",
+				"/gastronomia/gas2.jpg",
+				"/gastronomia/gas3.jpg",
+				"/gastronomia/gas4.jpg",
+				"/gastronomia/gas5.jpg",
+				"/gastronomia/gas.jpg"
+			]
+		},
+		"cm": {
+			"NOMBRE": "Comercio y Mercadeo",
+			"TITULO": "Impulsa tu carrera en el mundo de los negocios.",
+			"BANNER": "/banner/4.png",
+			"DESCRIPCION": [
+				"La técnica de Comercio y Mercadeo te brinda las habilidades y conocimientos necesarios para destacar en el entorno empresarial actual. Desde estrategias de mercadeo hasta gestión de ventas y comercio internacional, este programa prepara a los estudiantes para liderar en el competitivo mundo de los negocios."
+			],
+			"INFORMACION": [
+				{
+					"TITULO": "¿Por qué elegir esta técnica?",
+					"PARRAFOS": [
+						"Optar por la técnica de Comercio y Mercadeo es el camino para comprender las dinámicas del mercado y desarrollar estrategias efectivas para promover productos y servicios.",
+						"Este programa ofrece una comprensión integral del comportamiento del consumidor, análisis de mercado, gestión de marcas y negociación, permitiéndote destacar en roles de marketing, ventas y gestión empresarial.",
+						"La demanda de profesionales en comercio y mercadeo es constante, ya que las empresas buscan expertos para posicionar sus productos y servicios en mercados cada vez más competitivos."
+					]
+				},
+				{
+					"TITULO": "Aspectos emocionantes",
+					"PARRAFOS": [
+						"Explora la emoción de crear y ejecutar estrategias de mercadeo innovadoras.",
+						"Participa en proyectos prácticos, simulaciones empresariales y competiciones de mercadeo para aplicar tus conocimientos en entornos empresariales simulados.",
+						"Tendrás la oportunidad de realizar prácticas en empresas reconocidas, adquiriendo experiencia práctica y construyendo una red profesional.",
+						"Colabora con profesionales del sector y expertos en marketing para comprender las últimas tendencias y mejores prácticas en la industria.",
+						"Desarrolla habilidades de comunicación persuasiva, negociación efectiva y análisis estratégico para destacar en el mundo del comercio y mercadeo."
+					]
+				},
+				{
+					"TITULO": "¿Por dónde empezar?",
+					"PARRAFOS": [
+						"Tu carrera en Comercio y Mercadeo puede comenzar en roles como ejecutivo de cuentas, analista de marketing, representante de ventas, gerente de marca o especialista en comercio internacional.",
+						"La versatilidad de las habilidades adquiridas te permitirá adaptarte a diversas industrias, desde la tecnología hasta la moda, y trabajar en empresas grandes, pequeñas o incluso emprender tu propio proyecto."
+					]
+				},
+				{
+					"TITULO": "¿En dónde trabajar?",
+					"PARRAFOS": [
+						"Con tu formación en Comercio y Mercadeo, podrás trabajar en empresas de marketing, agencias publicitarias, departamentos de ventas, comercio internacional, e-commerce o incluso emprender tu propio negocio.",
+						"La demanda de profesionales en esta área es global, ofreciendo oportunidades tanto a nivel local como internacional."
+					]
+				},
+				{
+					"TITULO": "Plan de estudio",
+					"PARRAFOS": [
+						"El plan de estudios en Comercio y Mercadeo está diseñado para proporcionarte una base sólida en marketing estratégico, investigación de mercado, gestión de ventas, branding y comercio internacional.",
+						"Además de las clases teóricas, tendrás la oportunidad de participar en proyectos empresariales, estudios de caso y prácticas profesionales que te prepararán para enfrentar los desafíos del mundo real en el ámbito comercial."
+					]
+				},
+				{
+					"TITULO": "Requisitos",
+					"PARRAFOS": [
+						"Se busca a estudiantes con habilidades analíticas, creativas y orientadas a resultados.",
+						"Interés en comprender el comportamiento del consumidor y las tendencias del mercado.",
+						"Habilidades de comunicación efectiva y capacidad para trabajar en equipo.",
+						"Curiosidad y disposición para aprender sobre las últimas tendencias en marketing y comercio.",
+						"Enfoque proactivo para enfrentar desafíos y encontrar soluciones innovadoras."
+					]
+				}
+			],
+
+			"GALERIA_TITULO": "Galería de imágenes",
+			"IMAGENES": [
+				"/cm/cm1.jpg",
+				"/cm/cm2.jpg",
+				"/cm/cm3.jpg",
+				"/cm/cm4.jpg",
+				"/cm/cm5.jpg",
+				"/cm/cm6.jpg"
+			]
+		},
+		"gat": {
+			"NOMBRE": "Gestión Administrativa y Tributaria",
+			"TITULO": "Domina la contabilidad y lidera en el ámbito administrativo.",
+			"BANNER": "/banner/3.png",
+			"DESCRIPCION": [
+				"La técnica de Gestión Administrativa y Tributaria se centra en proporcionar a los estudiantes conocimientos sólidos en contabilidad, gestión financiera y tributación. Este programa prepara a los futuros profesionales para asumir roles clave en el ámbito administrativo, brindando habilidades esenciales para el manejo efectivo de las finanzas y el cumplimiento tributario."
+			],
+			"INFORMACION": [
+				{
+					"TITULO": "¿Por qué elegir esta técnica?",
+					"PARRAFOS": [
+						"Optar por la técnica de Gestión Administrativa y Tributaria es el camino para convertirte en un experto en contabilidad y finanzas.",
+						"Este programa te proporcionará las habilidades necesarias para gestionar eficientemente los recursos financieros de una empresa, realizar análisis contables, y cumplir con las obligaciones tributarias.",
+						"La demanda de profesionales en contabilidad y gestión financiera es constante, ya que las empresas buscan expertos para garantizar la solidez financiera y el cumplimiento normativo."
+					]
+				},
+				{
+					"TITULO": "Aspectos emocionantes",
+					"PARRAFOS": [
+						"Explora la emoción de realizar análisis financieros y tomar decisiones estratégicas basadas en datos contables.",
+						"Participa en proyectos prácticos, simulaciones empresariales y casos de estudio para aplicar tus conocimientos en entornos administrativos simulados.",
+						"Tendrás la oportunidad de realizar prácticas en empresas reconocidas, adquiriendo experiencia práctica y construyendo una red profesional en el campo de la contabilidad y gestión financiera.",
+						"Colabora con profesionales contables y asesores tributarios para comprender las últimas regulaciones y mejores prácticas en el ámbito administrativo."
+					]
+				},
+				{
+					"TITULO": "¿Por dónde empezar?",
+					"PARRAFOS": [
+						"Tu carrera en Gestión Administrativa y Tributaria puede comenzar en roles como contador, analista financiero, especialista en impuestos, auditor financiero o gerente administrativo.",
+						"La versatilidad de las habilidades adquiridas te permitirá trabajar en diversos sectores, desde la industria hasta el sector público, y en empresas grandes, pequeñas o incluso emprender tu propio servicio contable."
+					]
+				},
+				{
+					"TITULO": "¿En dónde trabajar?",
+					"PARRAFOS": [
+						"Con tu formación en Gestión Administrativa y Tributaria, podrás trabajar en firmas de contabilidad, departamentos financieros de empresas, despachos de consultoría tributaria, instituciones gubernamentales o incluso emprender tu propio servicio de contabilidad y consultoría.",
+						"La contabilidad es esencial en todos los sectores, brindando oportunidades en diversas industrias y organizaciones."
+					]
+				},
+				{
+					"TITULO": "Plan de estudio",
+					"PARRAFOS": [
+						"El plan de estudios en Gestión Administrativa y Tributaria está diseñado para proporcionarte una base sólida en contabilidad, finanzas corporativas, análisis financiero, legislación tributaria y gestión administrativa.",
+						"Además de las clases teóricas, tendrás la oportunidad de participar en proyectos contables, auditorías simuladas y prácticas profesionales que te prepararán para enfrentar los desafíos del mundo real en el ámbito administrativo."
+					]
+				},
+				{
+					"TITULO": "Requisitos",
+					"PARRAFOS": [
+						"Se busca a estudiantes con habilidades analíticas, atención al detalle y capacidad para trabajar con números.",
+						"Interés en comprender las normativas tributarias y el impacto financiero en las decisiones empresariales.",
+						"Habilidades de comunicación efectiva y capacidad para trabajar en equipo.",
+						"Curiosidad y disposición para aprender sobre las últimas regulaciones contables y tributarias.",
+						"Enfoque proactivo para enfrentar desafíos y encontrar soluciones eficientes en el ámbito administrativo."
+					]
+				}
+			],
+
+			"GALERIA_TITULO": "Galería de imágenes",
+			"IMAGENES": [
+				"/contabilidad/GAT8.jpg",
+				"/contabilidad/GAT3.jpg",
+				"/contabilidad/GAT7.jpg",
+				"/contabilidad/GAT4.jpg",
+				"/contabilidad/GAT5.jpg",
+				"/contabilidad/GAT6.jpg"
+			]
+		},
+		"tro": {
+			"NOMBRE": "Electrónica",
+			"TITULO": "Explora el fascinante mundo de la electrónica.",
+			"BANNER": "/banner/2.png",
+			"DESCRIPCION": [
+				"La técnica de Electrónica es un emocionante viaje al corazón de la tecnología moderna. Este programa proporciona a los estudiantes conocimientos especializados en el diseño, montaje y mantenimiento de sistemas electrónicos. Desde circuitos integrados hasta dispositivos avanzados, los estudiantes adquieren habilidades esenciales para contribuir al desarrollo de la electrónica en la sociedad actual."
+			],
+			"INFORMACION": [
+				{
+					"TITULO": "¿Por qué elegir esta técnica?",
+					"PARRAFOS": [
+						"Optar por la técnica de Electrónica es el camino para convertirte en un experto en la creación y mantenimiento de dispositivos electrónicos.",
+						"Este programa te proporcionará conocimientos en electrónica analógica y digital, sistemas embebidos, comunicación inalámbrica, y diseño de circuitos, permitiéndote participar en el desarrollo de tecnologías innovadoras.",
+						"La demanda de profesionales en electrónica es constante, ya que la tecnología sigue evolucionando y se integra en todas las facetas de la vida moderna."
+					]
+				},
+				{
+					"TITULO": "Aspectos emocionantes",
+					"PARRAFOS": [
+						"Explora la emoción de diseñar y construir circuitos electrónicos desde cero.",
+						"Participa en proyectos prácticos, laboratorios de electrónica y competiciones técnicas para aplicar tus conocimientos en entornos prácticos.",
+						"Tendrás la oportunidad de trabajar con tecnologías emergentes como la Internet de las cosas (IoT), robótica y sistemas de control, ampliando tus habilidades en el campo de la electrónica.",
+						"Colabora con profesionales de la industria y expertos en electrónica para abordar desafíos tecnológicos y contribuir a soluciones innovadoras."
+					]
+				},
+				{
+					"TITULO": "¿Por dónde empezar?",
+					"PARRAFOS": [
+						"Tu carrera en Electrónica puede comenzar en roles como ingeniero electrónico, técnico en sistemas embebidos, diseñador de circuitos, o incluso en investigación y desarrollo.",
+						"La versatilidad de las habilidades adquiridas te permitirá trabajar en sectores como la industria, la investigación, la salud, las comunicaciones, y más."
+					]
+				},
+				{
+					"TITULO": "¿En dónde trabajar?",
+					"PARRAFOS": [
+						"Con tu formación en Electrónica, podrás trabajar en empresas de tecnología, laboratorios de investigación, compañías de telecomunicaciones, fabricantes de dispositivos electrónicos, o incluso emprender tu propio proyecto tecnológico.",
+						"La electrónica es esencial en diversas industrias, brindando oportunidades emocionantes en el mundo de la innovación tecnológica."
+					]
+				},
+				{
+					"TITULO": "Plan de estudio",
+					"PARRAFOS": [
+						"El plan de estudios en Electrónica está diseñado para proporcionarte una base sólida en teoría electrónica, diseño de circuitos, sistemas embebidos, comunicación de datos y tecnologías emergentes.",
+						"Además de las clases teóricas, tendrás la oportunidad de participar en proyectos de laboratorio, investigación aplicada y prácticas industriales que te prepararán para enfrentar los desafíos del mundo real en el ámbito de la electrónica."
+					]
+				},
+				{
+					"TITULO": "Requisitos",
+					"PARRAFOS": [
+						"Se busca a estudiantes con un fuerte interés en la tecnología y la electrónica.",
+						"Habilidades analíticas y capacidad para resolver problemas técnicos.",
+						"Curiosidad y disposición para aprender sobre las últimas tendencias en electrónica.",
+						"Capacidad para trabajar en equipo y comunicarse eficazmente en entornos colaborativos.",
+						"Enfoque proactivo para explorar nuevas tecnologías y aplicaciones prácticas."
+					]
+				}
+			],
+
+			"GALERIA_TITULO": "Galería de imágenes",
+			"IMAGENES": [
+				"/electronica/1.jpg",
+				"/electronica/2.jpg",
+				"/electronica/3.jpg",
+				"/electronica/4.jpg",
+				"/electronica/5.jpg",
+				"/electronica/6.jpg"
+			]
+		},
+		"tri": {
+			"NOMBRE": "Electricidad",
+			"TITULO": "Sumérgete en el mundo de la energía eléctrica.",
+			"BANNER": "/banner/5.png",
+			"DESCRIPCION": [
+				"La técnica de Electricidad te proporciona conocimientos especializados en la generación, distribución y aplicación de la energía eléctrica. Desde sistemas de potencia hasta electrónica de potencia, los estudiantes adquieren habilidades esenciales para trabajar en el emocionante campo de la electricidad, contribuyendo al desarrollo sostenible de la sociedad actual."
+			],
+			"INFORMACION": [
+				{
+					"TITULO": "¿Por qué elegir esta técnica?",
+					"PARRAFOS": [
+						"Optar por la técnica de Electricidad es el camino para convertirte en un experto en la manipulación y aplicación de la energía eléctrica.",
+						"Este programa te proporcionará conocimientos en sistemas eléctricos, electrónica de potencia, control de procesos y automatización, permitiéndote participar en el desarrollo de soluciones energéticas innovadoras.",
+						"La demanda de profesionales en electricidad es constante, ya que la energía eléctrica es fundamental en todos los aspectos de la vida moderna."
+					]
+				},
+				{
+					"TITULO": "Aspectos emocionantes",
+					"PARRAFOS": [
+						"Explora la emoción de diseñar y mantener sistemas eléctricos eficientes y seguros.",
+						"Participa en proyectos prácticos, laboratorios de electricidad y aplicaciones prácticas para aplicar tus conocimientos en entornos reales.",
+						"Tendrás la oportunidad de trabajar con tecnologías emergentes como la energía renovable, sistemas de automatización y la electrificación de procesos industriales, ampliando tus habilidades en el campo de la electricidad.",
+						"Colabora con profesionales de la industria y expertos en electricidad para abordar desafíos energéticos y contribuir a soluciones innovadoras."
+					]
+				},
+				{
+					"TITULO": "¿Por dónde empezar?",
+					"PARRAFOS": [
+						"Tu carrera en Electricidad puede comenzar en roles como ingeniero eléctrico, técnico en sistemas de control, especialista en energías renovables, o incluso en investigación y desarrollo.",
+						"La versatilidad de las habilidades adquiridas te permitirá trabajar en sectores como la energía, la industria, la construcción, y más."
+					]
+				},
+				{
+					"TITULO": "¿En dónde trabajar?",
+					"PARRAFOS": [
+						"Con tu formación en Electricidad, podrás trabajar en empresas de energía, firmas de ingeniería eléctrica, industrias manufactureras, compañías de automatización, o incluso emprender tu propio proyecto en el campo de la energía eléctrica.",
+						"La electricidad es esencial en diversas industrias, brindando oportunidades emocionantes en el mundo de la innovación y la sostenibilidad energética."
+					]
+				},
+				{
+					"TITULO": "Plan de estudio",
+					"PARRAFOS": [
+						"El plan de estudios en Electricidad está diseñado para proporcionarte una base sólida en teoría eléctrica, sistemas de potencia, electrónica de potencia, control automático y tecnologías emergentes.",
+						"Además de las clases teóricas, tendrás la oportunidad de participar en proyectos de investigación, aplicaciones prácticas y prácticas industriales que te prepararán para enfrentar los desafíos del mundo real en el ámbito de la electricidad."
+					]
+				},
+				{
+					"TITULO": "Requisitos",
+					"PARRAFOS": [
+						"Se busca a estudiantes con un fuerte interés en la electricidad y la energía.",
+						"Habilidades analíticas y capacidad para resolver problemas técnicos.",
+						"Curiosidad y disposición para aprender sobre las últimas tecnologías en el campo de la electricidad.",
+						"Capacidad para trabajar en equipo y comunicarse eficazmente en entornos colaborativos.",
+						"Enfoque proactivo para explorar nuevas soluciones energéticas y aplicaciones prácticas."
+					]
+				}
+			],
+
+			"GALERIA_TITULO": "Galería de imágenes",
+			"IMAGENES": [
+				"/electricidad/1.jpg",
+				"/electricidad/2.jpg",
+				"/electricidad/3.jpg",
+				"/electricidad/4.jpg",
+				"/electricidad/5.jpg",
+				"/electricidad/6.jpg"
+			]
+		},
+		"rae": {
+			"NOMBRE": "Refrigeración y Acondicionamiento de Aire",
+			"TITULO": "Sumérgete en el mundo de la climatización y la refrigeración.",
+			"BANNER": "/banner/7.png",
+			"DESCRIPCION": [
+				"La técnica de Refrigeración y Acondicionamiento de Aire se enfoca en brindar conocimientos especializados en sistemas de climatización, refrigeración y gestión térmica. Este programa prepara a los estudiantes para diseñar, instalar y mantener sistemas que controlan la temperatura y la calidad del aire, desempeñando un papel clave en la comodidad y la eficiencia energética."
+			],
+			"INFORMACION": [
+				{
+					"TITULO": "¿Por qué elegir esta técnica?",
+					"PARRAFOS": [
+						"Optar por la técnica de Refrigeración y Acondicionamiento de Aire es el camino para convertirte en un experto en sistemas de climatización y refrigeración.",
+						"Este programa te proporcionará conocimientos en diseño de sistemas HVAC, tecnologías de refrigeración, gestión térmica y eficiencia energética, permitiéndote contribuir a la creación de entornos confortables y sostenibles.",
+						"La demanda de profesionales en refrigeración y climatización es constante, ya que la eficiencia energética y el confort ambiental son prioridades en diversas industrias."
+					]
+				},
+				{
+					"TITULO": "Aspectos emocionantes",
+					"PARRAFOS": [
+						"Explora la emoción de diseñar sistemas de climatización que maximizan la eficiencia energética.",
+						"Participa en proyectos prácticos, laboratorios de refrigeración y simulaciones de sistemas HVAC para aplicar tus conocimientos en entornos prácticos.",
+						"Tendrás la oportunidad de trabajar con tecnologías emergentes como sistemas de refrigeración ecológicos, automatización de edificios y gestión inteligente de la energía, ampliando tus habilidades en el campo de la refrigeración y el acondicionamiento de aire.",
+						"Colabora con profesionales de la industria y expertos en climatización para abordar desafíos relacionados con la calidad del aire y la sostenibilidad ambiental."
+					]
+				},
+				{
+					"TITULO": "¿Por dónde empezar?",
+					"PARRAFOS": [
+						"Tu carrera en Refrigeración y Acondicionamiento de Aire puede comenzar en roles como ingeniero de climatización, técnico en sistemas HVAC, diseñador de sistemas de refrigeración, o incluso en investigación y desarrollo de tecnologías ambientales.",
+						"La versatilidad de las habilidades adquiridas te permitirá trabajar en sectores como la construcción, la industria alimentaria, la salud, y más."
+					]
+				},
+				{
+					"TITULO": "¿En dónde trabajar?",
+					"PARRAFOS": [
+						"Con tu formación en Refrigeración y Acondicionamiento de Aire, podrás trabajar en empresas de climatización, firmas de ingeniería ambiental, industrias de alimentos y bebidas, instituciones de salud, o incluso emprender tu propio servicio de instalación y mantenimiento de sistemas HVAC.",
+						"La climatización es esencial en diversos entornos, brindando oportunidades emocionantes en el campo de la sostenibilidad y la calidad del aire."
+					]
+				},
+				{
+					"TITULO": "Plan de estudio",
+					"PARRAFOS": [
+						"El plan de estudios en Refrigeración y Acondicionamiento de Aire está diseñado para proporcionarte una base sólida en diseño de sistemas HVAC, tecnologías de refrigeración, gestión térmica y sostenibilidad ambiental.",
+						"Además de las clases teóricas, tendrás la oportunidad de participar en proyectos de instalación, mantenimiento de sistemas, y prácticas industriales que te prepararán para enfrentar los desafíos del mundo real en el ámbito de la climatización."
+					]
+				},
+				{
+					"TITULO": "Requisitos",
+					"PARRAFOS": [
+						"Se busca a estudiantes con un fuerte interés en la climatización y la refrigeración.",
+						"Habilidades analíticas y capacidad para resolver problemas técnicos.",
+						"Curiosidad y disposición para aprender sobre las últimas tecnologías en sistemas HVAC.",
+						"Capacidad para trabajar en equipo y comunicarse eficazmente en entornos colaborativos.",
+						"Enfoque proactivo para explorar soluciones eficientes y sostenibles en el ámbito de la refrigeración y el acondicionamiento de aire."
+					]
+				}
+			],
+
+			"GALERIA_TITULO": "Galería de imágenes",
+			"IMAGENES": [
+				"/refrigeracion/ref1.jpg",
+				"/refrigeracion/ref2.jpg",
+				"/refrigeracion/ref3.jpg",
+				"/refrigeracion/ref4.jpg",
+				"/refrigeracion/ref5.jpg",
+				"/refrigeracion/ref6.jpg"
 			]
 		}
 	}
