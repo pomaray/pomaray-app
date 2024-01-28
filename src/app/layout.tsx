@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "@/styles/globals.css";
 import UIProviders from "@/components/ui/Providers";
@@ -38,6 +39,7 @@ export default function RootLayout({
 					</div>
 				</header>
 				<UIProviders>{children}</UIProviders>
+				<SpeedInsights />
 				<Footer>
 					{LOCALE.FOOTER.map((table) => (
 						<FooterTable key={table.TITULO.trim()} title={table.TITULO}>

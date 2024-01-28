@@ -12,6 +12,7 @@
     "@biomejs/biome": "^1.5.3",
     "@nextui-org/react": "^2.2.9",
     "@nextui-org/use-infinite-scroll": "^2.1.2",
+    "@vercel/speed-insights": "^1.0.8",
     "axios": "^1.6.4",
     "dotenv": "^16.3.1",
     "framer-motion": "^10.17.9",

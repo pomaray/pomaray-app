@@ -4,16 +4,19 @@ import LOCALE from "@/locales/root.json";
 
 type Props = {
 	params: { id: string };
-	searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-	// read route params
+export async function generateMetadata({
+	params,
+}: {
+	params: {
+		id: string;
+	};
+}) {
 	const id = params.id;
 	const technique = TECH.DATA[id as keyof typeof TECH.DATA];
-
 	return {
-		metadataBase: new URL("https://acme.com"),
+		metadataBase: new URL("https://pomaray.vercel.app/"),
 		title: `${technique.NOMBRE} - ${LOCALE.SITIO_WEB.NOMBRE}`,
 		openGraph: {
 			images: technique.BANNER,
