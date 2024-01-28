@@ -24,7 +24,7 @@ export default function TechniquePage() {
 
 	return (
 		<main className="min-h-screen">
-			<article className="max-w-5xl mx-auto overflow-hidden px-2 sm:px-12 py-6">
+			<article className="max-w-5xl mx-auto overflow-hidden px-6 sm:px-12 py-6">
 				<section className="flex flex-col items-center">
 					<div>
 						<Image
@@ -34,7 +34,15 @@ export default function TechniquePage() {
 						/>
 					</div>
 					<div className="flex flex-col justify-center items-start py-8 w-full">
-						<Chip size="sm" className="mb-2 max-w-full">
+						<Chip
+							color="primary"
+							variant="bordered"
+							size="lg"
+							className="mb-2 max-w-full text-ellipsis overflow-hidden"
+							classNames={{
+								content: "text-ellipsis  overflow-hidden",
+							}}
+						>
 							{technique.NOMBRE}
 						</Chip>
 						<h1 className="sm:text-4xl text-2xl font-bold mb-2 text-balance">
@@ -43,7 +51,7 @@ export default function TechniquePage() {
 						{technique.DESCRIPCION.map((desc) => (
 							<p
 								key={desc.substring(0, 10)}
-								className="text-gray-700 mb-4 sm:text-lg text-sm"
+								className="mb-4 sm:text-lg text-sm"
 							>
 								{desc}
 							</p>

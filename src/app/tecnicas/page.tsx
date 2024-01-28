@@ -19,7 +19,7 @@ export default function HomePage() {
 		<main>
 			<Section className="p-10">
 				<SectionTitle text={LOCALE.HERO.TITULO} />
-				<p className="text-lg text-gray-600 max-w-2xl mx-auto text-center ">
+				<p className="text-lg  max-w-2xl mx-auto text-center ">
 					{LOCALE.HERO.DESCRIPCION}
 				</p>
 			</Section>
@@ -39,7 +39,7 @@ export default function HomePage() {
 								isPressable
 								key={tecnica.ID}
 								shadow="none"
-								className="xl:p-6 hover:translate-y-2 hover:opacity-50 text-foreground transition-transform-opacity"
+								className="xl:p-6 hover:translate-y-2 hover:opacity-50 bg-default-100  shadow-small text-foreground transition-transform-opacity"
 							>
 								<CardHeader className="flex items-center justify-center pt-5 sm:pt-10">
 									<div
