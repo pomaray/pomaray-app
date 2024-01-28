@@ -26,10 +26,10 @@ export function YearBookStudent({
 			<Card
 				radius="lg"
 				shadow="none"
-				className="xs:h-80 xs:max-h-[310px] p-4 xl:max-h-[none] max-h-[335px] max-w-[220px] w-full m-auto bg-default-100"
+				className="xss:h-[16.5rem] sm:h-80 xs:max-h-[310px] xl:max-h-[none] max-h-[335px] max-w-[220px] w-full m-auto bg-default-100 sm:p-2"
 			>
-				<CardHeader className="overflow-hidden relative min-h-[180px] p-0">
-					<div className="absolute flex items-center justify-center">
+				<CardHeader className="overflow-hidden relative min-h-[180px] px-3">
+					<div className="flex items-center justify-center">
 						<Image
 							key={student?.id}
 							classNames={{
@@ -42,13 +42,13 @@ export function YearBookStudent({
 						/>
 					</div>
 				</CardHeader>
-				<CardBody className="!overflow-hidden place-self-center flex-none">
+				<CardBody className="!overflow-hidden place-self-center flex-none sm:py-2 py-0">
 					<p className="block whitespace-nowrap max-w-[100%] overflow-hidden text-ellipsis text-lg font-semibold">
 						{`${student?.first_name} ${student?.last_name}`}
 					</p>
 				</CardBody>
-				<CardFooter className="grid grid-cols-2 gap-4 max-w-full row-span-1">
-					<Chip size="md">
+				<CardFooter className="flex gap-2">
+					<Chip size="md" className="px-1">
 						{`${FIRST_YEAR}-${
 							LAST_YEAR ? LAST_YEAR.toString().slice(2, 5) : ""
 						}`}

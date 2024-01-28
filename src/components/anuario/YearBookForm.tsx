@@ -8,10 +8,14 @@ import {
 	Button,
 } from "@nextui-org/react";
 import { Tech } from "@/types/enums";
-import { FormEvent } from "react";
+import { Dispatch, FormEvent, SetStateAction } from "react";
+import { type FormRequest } from "@/hooks/useYearBook";
 
-export default function YearBookForm() {
-	const { setFormRequest } = useYearBook();
+export default function YearBookForm({
+	setFormRequestHandler,
+}: {
+	setFormRequestHandler: Dispatch<SetStateAction<FormRequest>>;
+}) {
 	const techItems: { key: keyof typeof Tech; value: string }[] = Object.keys(
 		Tech,
 	).map((key) => {
@@ -76,7 +80,7 @@ export default function YearBookForm() {
 				name="studentName"
 				label={LOCALE.FORMULARIO.NOMBRE}
 				onChange={(e) =>
-					setFormRequest((prev) => ({
+					setFormRequestHandler((prev) => ({
 						...prev,
 						studentName: e.target.value,
 					}))
@@ -88,25 +92,33 @@ export default function YearBookForm() {
 				label={LOCALE.FORMULARIO.TECNICA}
 				defaultItems={techItems}
 				onSelectionChange={(key) =>
-					setFormRequest((prev) => ({ ...prev, studentTech: key?.toString() }))
+					key &&
+					setFormRequestHandler((prev) => ({
+						...prev,
+						studentTech: key.toString(),
+					}))
 				}
 			>
-				{(tech) => (
-					<AutocompleteItem key={tech.key}>{tech.value}</AutocompleteItem>
+				{(tecnique) => (
+					<AutocompleteItem key={tecnique.key}>
+						{tecnique.value}
+					</AutocompleteItem>
 				)}
 			</Autocomplete>
 			<Autocomplete
 				size="sm"
-				name="tech"
+				name="tecnique"
 				label={LOCALE.FORMULARIO.PERIODO}
 				defaultItems={getYears()}
 				onSelectionChange={(key) =>
-					setFormRequest((prev) => ({
+					setFormRequestHandler((prev) => ({
 						...prev,
 						studentSchoolYear: key
-							.toString()
-							.split("-")
-							.map((value) => Number(value)),
+							? key
+									.toString()
+									.split("-")
+									.map((value) => Number(value))
+							: [],
 					}))
 				}
 			>

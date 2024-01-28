@@ -12,7 +12,7 @@ interface YearBookResponse {
 	students: Student[];
 }
 
-interface FormRequest {
+export interface FormRequest {
 	/* 
 		Solicitud del formulario, hace referencia
 		a los *query params* que se utilizaran en la 
@@ -85,7 +85,7 @@ const useYearBook: () => YearBookHook = () => {
 				if (debouncedFormRequest.studentName)
 					params.set("name", debouncedFormRequest.studentName);
 				if (debouncedFormRequest.studentTech)
-					params.set("tech", debouncedFormRequest.studentTech);
+					params.set("tecnique", debouncedFormRequest.studentTech);
 				if (debouncedFormRequest.studentSchoolYear)
 					params.set(
 						"years",

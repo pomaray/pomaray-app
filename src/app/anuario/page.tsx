@@ -15,20 +15,22 @@ export default function YearBook() {
 
 		currentPage,
 		totalPages,
+
+		setFormRequest,
 		setCurrentPage,
 	} = useYearBook();
 	return (
-		<main className="flex flex-col gap-y-6 min-h-screen w-screen px-8 max-w-screen overflow-x-hidden">
+		<main className="flex flex-col gap-y-6 min-h-screen w-screen px-6 max-w-screen overflow-x-hidden">
 			<section className="w-full text-center max-w-5xl mx-auto">
 				<SectionTitle text={LOCALE.TITULO} withLine />
 				<p>{LOCALE.TIP}</p>
 			</section>
 
-			<section className="w-full text-center max-w-5xl mx-auto py-6">
-				<YearBookForm />
+			<section className="w-full text-center max-w-5xl mx-auto py-6 md:px-20">
+				<YearBookForm setFormRequestHandler={setFormRequest} />
 			</section>
 
-			<section className="grid xs:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 sm:grid-cols-3 gap-4 sm:px-2 px-4 pb-20 mx-w-6xl mx-auto">
+			<section className="grid xs:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 sm:grid-cols-3 gap-4 sm:px-2 pb-20 mx-w-6xl mx-auto">
 				{Array.from({ length: students?.length || 30 }, (_, index) => {
 					const student = students?.[index];
 
@@ -42,8 +44,7 @@ export default function YearBook() {
 				<Pagination
 					isDisabled={totalPages < 2}
 					size="lg"
-					initialPage={currentPage}
-					total={totalPages}
+					total={totalPages < 2 ? 1 : totalPages}
 					onChange={(page) => setCurrentPage(page)}
 					page={currentPage}
 				/>
