@@ -1,62 +1,11 @@
 {
-<<<<<<< HEAD
-    "HERO": {
-        "TITULO": "¡Aprende con el Politécnico Madre Rafaela Ybarra!",
-        "SUB_TITULO": "Donde tu futuro comienza.",
-        "CARUSEL": [
-            "/images/carusel1.jpg",
-            "/images/carusel2.jpg",
-            "/images/carusel3.jpg"
-        ],
-        "GRADUADO": "Oportunidades Laborales.",
-        "USUARIO": "Cuerpo Docente Calificado.",
-        "TECNOLOGIA": "Innovación Educativa y Tecnología Avanzada."
-    },
-    "MEDIDAS_DE_SEGURIDAD": {
-        "TITULO": "Medidas de seguridad implementadas",
-        "SUB_TITULO": "Hacemos todo lo posible para garantizar la salud, la seguridad y el bienestar de nuestros estudiantes y empleados. Puede encontrar información adicional %s.",
-        "SUB_TITULO_LINK": "Aquí",
-        "COLLAGE": [
-            {
-                "TITLE": "Vida Estudiantil",
-                "CONTENT": "La vida estudiantil en nuestro centro es enriquecedora y llena de oportunidades para el crecimiento potencial y académico. Nuestros estudiantes disfrutan de una amplia variedad de actividades y recursos.",
-                "BUTTON_TEXT": "Medidas de Seguridad",
-                "BUTTON_LINK": "#",
-                "IMAGEN_SRC": "/images/1"
-            },
-            {
-                "TITLE": "Red de Contactos Profesionales Sólida gracias al Politécnico",
-                "CONTENT": "El amplio alcance del Politécnico permite a los estudiantes conectarse con expertos de la industria y establecer relaciones valiosas que pueden beneficiarles durante toda su carrera.",
-                "BUTTON_TEXT": "Aplica Hoy",
-                "BUTTON_LINK": "#",
-                "IMAGEN_SRC": "/noticias/2"
-            }
-        ]
-    },
-    "NOTICIAS": {
-        "TITULO": "Ultimas noticias",
-        "LEER_BOTON": "Leer todas las noticias",
-        "CARGANDO": "Cargando las ultimas noticias."
-    },
-    "UBICACION": {
-        "TITULO": "Ubicación"
-    },
-    "VIDA_Y_CULTURA": {
-        "TITULO": "Vida y cultura",
-        "SUB_TITULO": "Síguenos con el %s en instagram.",
-        "HASHTAG": "#yosoypomaray",
-        "HASHTAG_LINK": "#yosoypomaray",
-        "CARGANDO": "Cargando #yosoypamaray"
-    }
-}
-=======
 	"HERO": {
 		"TITULO": "¡Aprende con el Politécnico Madre Rafaela Ybarra!",
 		"SUB_TITULO": "Donde tu futuro comienza.",
 		"CARUSEL": [
-			"/images/carusel1.jpg",
-			"/images/carusel2.jpg",
-			"/images/carusel3.jpg"
+			"/images/hero1.jpg",
+			"/images/hero2.jpg",
+			"/images/hero3.jpg"
 		],
 		"GRADUADO": "Oportunidades Laborales.",
 		"USUARIO": "Cuerpo Docente Calificado.",
@@ -99,4 +48,3 @@
 		"CARGANDO": "Cargando #yosoypamaray"
 	}
 }
->>>>>>> 88753f857cadce96d5b5cc84afd1f00d9ac732c9

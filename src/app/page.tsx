@@ -61,7 +61,7 @@ export default function HomePage() {
 	return (
 		<main>
 			<section className="grid relative place-content-center  w-full min-h-[100vh] p-10 bg-primary/80 -top-10">
-				<AnimatePresence initial={false} custom={direction}>
+				<AnimatePresence initial={true} custom={direction}>
 					<motion.img
 						key={backgroundIndex}
 						className="absolute inset-0 object-cover w-full h-full bg-no-repeat bg-center -z-10"
