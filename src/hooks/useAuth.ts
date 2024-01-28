@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { User } from "@/types/user";
 import LOCALE from "@/locales/acceder.json";
-import axios, { AxiosError, isAxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 
 interface ErrorCodes {
 	"404": string;
@@ -30,7 +30,7 @@ export interface AuthStore {
 
 	authenticateUser: (request: AuthenticateRequest) => Promise<User | undefined>;
 	setError: (error: string) => void;
-	checkToken: () => Promise<void>;
+	checkToken: () => Promise<User | undefined>;
 }
 
 export const useAuthStore = create<AuthStore>((set) => ({
@@ -95,6 +95,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
 
 			const { user } = (await response.json()) as AuthResponse;
 			set({ user });
+			return user;
 		} catch (error) {
 			set({ user: undefined });
 		} finally {

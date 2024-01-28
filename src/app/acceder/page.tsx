@@ -10,11 +10,13 @@ import {
 	Button,
 	Link,
 } from "@nextui-org/react";
+import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
 import useAuth, { AuthenticateRequest } from "@/hooks/useAuth";
 import LOCALE from "@/locales/acceder.json";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+	const [isShowPassword, setIsShowPassword] = useState(false);
 	const [isDisabled, setIsDisabled] = useState(true);
 	const [passwordError, setPasswordError] = useState("");
 	const [usernameError, setUsernameError] = useState("");
@@ -118,17 +120,26 @@ export default function LoginPage() {
 							label={LOCALE.FORMULARIO.USERNAME}
 							onInput={onChange}
 							errorMessage={usernameError}
-							color={usernameError ? "danger" : "default"}
 						/>
 						<Input
 							isRequired
 							name="password"
+							type={isShowPassword ? "password" : "text"}
 							label={LOCALE.FORMULARIO.PASSWORD}
 							onInput={onChange}
 							errorMessage={passwordError}
-							color={passwordError ? "danger" : "default"}
+							endContent={
+								<Button
+									isIconOnly
+									variant="light"
+									className="relative top-1 text-lg text-foreground-500"
+									onClick={() => setIsShowPassword(!isShowPassword)}
+								>
+									{isShowPassword ? <EyeSlashFilledIcon /> : <EyeFilledIcon />}
+								</Button>
+							}
 						/>
-						{error && <p className="text-danger">{error}</p>}
+						{error && <p className="text-danger text-center">{error}</p>}
 						<Button
 							isDisabled={isDisabled}
 							isLoading={isLoading}

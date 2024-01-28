@@ -85,7 +85,7 @@ export function Header() {
 						className="lg:hidden"
 					/>
 				</NavbarContent>
-				<NavbarMenu>
+				<NavbarMenu className="overflow-hidden">
 					{LOCALE.NAVBAR.ITEMS.map((item) => (
 						<NavbarMenuItem key={item.LINK}>
 							<Link

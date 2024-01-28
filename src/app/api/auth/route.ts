@@ -3,6 +3,9 @@ import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { type User } from "@/types/user";
 import { UAParser } from "ua-parser-js";
+import * as jwt from "jose";
+import { log } from "console";
+import { stat } from "fs";
 
 interface TokenResponse {
 	user?: User;
@@ -13,8 +16,10 @@ interface LoginResponse {
 	token?: string;
 }
 
+const SECRET = process.env.SIGNATURE as string;
+
 export async function GET() {
-	const END_POINT = process.env.LOGIN_ENDPOINT as string;
+	const END_POINT = process.env.TOKEN_ENDPOINT as string;
 
 	try {
 		const token = cookies().get("token")?.value;
@@ -98,7 +103,13 @@ export async function POST(req: NextRequest) {
 			throw new Error("Usuario no recibido desde el servidor");
 		}
 
-		cookies().set("token", token, { secure: true });
+		const secret = new TextEncoder().encode(SECRET);
+		const decoded = await jwt.jwtVerify(token, secret);
+		const expirePayload = decoded.payload.exp as number;
+		const expire = new Date(expirePayload);
+		console.log(decoded);
+
+		cookies().set("token", token, { secure: true, expires: expire });
 		return NextResponse.json({ user, ip });
 	} catch (error) {
 		if (axios.isAxiosError(error)) {
@@ -107,10 +118,10 @@ export async function POST(req: NextRequest) {
 			return NextResponse.json(
 				{
 					message: error.toJSON(),
-					status: status,
+					status: status ?? 500,
 				},
 				{
-					status: status,
+					status: status ?? 500,
 					statusText: code,
 				},
 			);
