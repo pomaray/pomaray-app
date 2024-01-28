@@ -1,6 +1,13 @@
 import { create } from "zustand";
 import { User } from "@/types/user";
 import LOCALE from "@/locales/acceder.json";
+import axios, { AxiosError } from "axios";
+
+interface ErrorCodes {
+	"404": string;
+	"401": string;
+	"500": string;
+}
 
 export interface AuthenticateRequest {
 	username: string;
@@ -21,9 +28,9 @@ export interface AuthStore {
 	error?: string;
 	user?: User;
 
-	authenticateUser: (request: AuthenticateRequest) => Promise<void>;
+	authenticateUser: (request: AuthenticateRequest) => Promise<User | undefined>;
 	setError: (error: string) => void;
-	checkToken: () => Promise<void>;
+	checkToken: () => Promise<User | undefined>;
 }
 
 export const useAuthStore = create<AuthStore>((set) => ({
@@ -37,46 +44,44 @@ export const useAuthStore = create<AuthStore>((set) => ({
 		try {
 			set({ isLoading: true, error: undefined });
 
-			const response = await fetch("/api/auth/", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
+			const response = await axios.post(
+				"/api/auth/",
+				{
 					username: request.username,
 					password: request.password,
-				}),
-			});
+				},
+				{
+					headers: {
+						"Content-Type": "application/json",
+					},
+				},
+			);
 
-			const { user, code } = (await response.json()) as AuthResponse;
-			if (code) {
-				switch (code) {
-					case "404":
-						set({
-							isLoading: false,
-							error: LOCALE.ERRORES[404],
-						});
-						return;
-					case "401":
-						set({ isLoading: false, error: LOCALE.ERRORES[401] });
-						return;
-					default:
-						set({ isLoading: false, error: LOCALE.ERRORES[500] });
-						return;
-				}
-			}
+			const { user } = response.data as AuthResponse;
 
 			if (!user) {
-				set({ error: LOCALE.ERRORES[500] });
-				return;
+				set({ error: LOCALE.ERRORES.CODES["500"] });
+				return undefined;
 			}
 
 			set({ user });
-		} catch (error) {
-			set({
-				user: undefined,
-				error: LOCALE.ERRORES[500],
-			});
+			return user;
+		} catch (err) {
+			const error = err as AxiosError;
+			if (error.response) {
+				const errorStatus =
+					error.response.status.toString() as keyof ErrorCodes;
+				set({
+					user: undefined,
+					error:
+						LOCALE.ERRORES.CODES[errorStatus] || LOCALE.ERRORES.CODES["500"],
+				});
+			} else {
+				set({
+					user: undefined,
+					error: LOCALE.ERRORES.CODES["500"],
+				});
+			}
 		} finally {
 			set({ isLoading: false });
 		}
@@ -90,6 +95,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
 
 			const { user } = (await response.json()) as AuthResponse;
 			set({ user });
+			return user;
 		} catch (error) {
 			set({ user: undefined });
 		} finally {

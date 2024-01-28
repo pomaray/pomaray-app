@@ -1,15 +1,26 @@
 {
-  "ERRORES": {
-    "USERNAME": {
-      "CARACTERES": "El nombre de usuario solo puede contener letras (Aa-Zz), números y los caracteres (., _)",
-      "LONGITUD": "El nombre de usuario debe tener al menos 1 carácter."
-    },
-    "PASSWORD": {
-      "CARACTERES": "La contraseña solo puede contener letras (Aa-Zz), números y los caracteres (., _)",
-      "LONGITUD": "La contraseña debe tener al menos 8 carácter."
-    },
-    "404": "Nombre de usuario o contraseña incorrectos. Por favor, verifique sus credenciales.",
-    "401": "No tienes autorización para acceder a este recurso.",
-    "500": "Se produjo un error en el servidor. Por favor, inténtelo de nuevo más tarde."
-  }
+	"FORMULARIO": {
+		"TITILO": "Pomaray Admin",
+		"DESCRIPCION": "Este formulario es privado, tal vez no puedas acceder.",
+		"USERNAME": "Nombre de usuario",
+		"PASSWORD": "Contraseña",
+		"ACCEDER_BTN": "Acceder",
+		"YA_TIENES": "¿Ya iniciaste la sesión?",
+		"YA_TIENES_ACCEDER": "Si, soy administrador."
+	},
+	"ERRORES": {
+		"USERNAME": {
+			"CARACTERES": "El nombre de usuario solo puede contener letras (Aa-Zz), números y los caracteres (., _, @, #)",
+			"LONGITUD": "El nombre de usuario debe tener al menos 1 carácter."
+		},
+		"PASSWORD": {
+			"CARACTERES": "La contraseña solo puede contener letras (Aa-Zz), números y los caracteres (., _, @, #)",
+			"LONGITUD": "La contraseña debe tener al menos 8 carácter."
+		},
+		"CODES": {
+			"404": "No el usuario no existe.",
+			"401": "El nombre de usuario o contraseña incorrectos.",
+			"500": "Hubo un problema en el servidor. Intenta nuevamente más tarde."
+		}
+	}
 }

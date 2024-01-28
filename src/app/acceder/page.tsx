@@ -10,11 +10,13 @@ import {
 	Button,
 	Link,
 } from "@nextui-org/react";
+import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
 import useAuth, { AuthenticateRequest } from "@/hooks/useAuth";
 import LOCALE from "@/locales/acceder.json";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+	const [isShowPassword, setIsShowPassword] = useState(false);
 	const [isDisabled, setIsDisabled] = useState(true);
 	const [passwordError, setPasswordError] = useState("");
 	const [usernameError, setUsernameError] = useState("");
@@ -38,10 +40,8 @@ export default function LoginPage() {
 	const onSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 
-		await authenticateUser(formRequest);
-		if (user) {
-			router.push("/admin");
-		}
+		const result = await authenticateUser(formRequest);
+		if (result) router.push("/admin");
 	};
 
 	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -76,8 +76,10 @@ export default function LoginPage() {
 		};
 
 		const validateString = (value: string): boolean => {
-			const regex = /^[A-Za-z0-9.,_]+$/;
-			return regex.test(value);
+			const regex = /^[A-Za-z0-9.,_@#]+$/;
+			const disallowedChars = /[${}]/;
+
+			return regex.test(value) && !disallowedChars.test(value);
 		};
 
 		const validUsername = validateInput(
@@ -102,9 +104,11 @@ export default function LoginPage() {
 				className="sm:w-[26rem] max-w-[26rem] bg-transparent px-4 min-h-[22rem] shadow-none"
 			>
 				<CardHeader className="flex flex-col justify-center gap-y-4 sm:py-6">
-					<h2 className="sm:text-2xl text-xl font-semibold">Pomaray Admin</h2>
+					<h2 className="sm:text-2xl text-xl font-semibold">
+						{LOCALE.FORMULARIO.TITILO}
+					</h2>
 					<p className="sm:text-lg text-md text-center">
-						Este formulario es privado, tal vez no puedas acceder.
+						{LOCALE.FORMULARIO.DESCRIPCION}
 					</p>
 				</CardHeader>
 
@@ -113,35 +117,44 @@ export default function LoginPage() {
 						<Input
 							isRequired
 							name="username"
-							label="Nombre de usuario."
+							label={LOCALE.FORMULARIO.USERNAME}
 							onInput={onChange}
 							errorMessage={usernameError}
-							color={usernameError ? "danger" : "default"}
 						/>
 						<Input
 							isRequired
 							name="password"
-							label="Contraseña."
+							type={isShowPassword ? "password" : "text"}
+							label={LOCALE.FORMULARIO.PASSWORD}
 							onInput={onChange}
 							errorMessage={passwordError}
-							color={passwordError ? "danger" : "default"}
+							endContent={
+								<Button
+									isIconOnly
+									variant="light"
+									className="relative top-1 text-lg text-foreground-500"
+									onClick={() => setIsShowPassword(!isShowPassword)}
+								>
+									{isShowPassword ? <EyeSlashFilledIcon /> : <EyeFilledIcon />}
+								</Button>
+							}
 						/>
-						{error && <p className="text-danger">{error}</p>}
+						{error && <p className="text-danger text-center">{error}</p>}
 						<Button
 							isDisabled={isDisabled}
 							isLoading={isLoading}
 							type="submit"
 							color="primary"
 						>
-							Acceder
+							{LOCALE.FORMULARIO.ACCEDER_BTN}
 						</Button>
 					</form>
 				</CardBody>
 				<CardFooter className="flex flex-col gap-y-6">
-					<p className="text-nowrap text-center">
-						¿Ya iniciaste la sesión?{" "}
+					<p className="text-center w-screen">
+						{LOCALE.FORMULARIO.YA_TIENES}{" "}
 						<Link isDisabled={isLoading} showAnchorIcon href="/admin">
-							Si, soy administrador.
+							{LOCALE.FORMULARIO.YA_TIENES_ACCEDER}
 						</Link>
 					</p>
 				</CardFooter>
