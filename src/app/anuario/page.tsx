@@ -28,7 +28,7 @@ export default function YearBook() {
 				<YearBookForm />
 			</section>
 
-			<section className="grid grid-cols-1 lg:grid-cols-4 xl:grid-cols-6 sm:grid-cols-3 gap-4 sm:px-2 px-4 pb-20 mx-w-6xl mx-auto">
+			<section className="grid xs:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 sm:grid-cols-3 gap-4 sm:px-2 px-4 pb-20 mx-w-6xl mx-auto">
 				{Array.from({ length: students?.length || 30 }, (_, index) => {
 					const student = students?.[index];
 
