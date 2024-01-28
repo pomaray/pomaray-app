@@ -35,7 +35,7 @@ export default function YearBook() {
 					(isLoading || isError) && "grid place-content-center"
 				} `}
 			>
-				Estudiantes
+				{isLoading && <Spinner label="Cargando estudiantes..." />}
 			</section>
 
 			<section className="flex justify-center py-10">

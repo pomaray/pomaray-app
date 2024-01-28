@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import LOCALE from "@/locales/tecnicas[id].json";
 import { Image, Card, Button, Chip } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
@@ -20,10 +20,7 @@ export default function TechniquePage() {
 		window.location.href = mailtoLink;
 	};
 
-	if (!technique) {
-		router.push("/not-found");
-		return;
-	}
+	if (!technique) notFound();
 
 	return (
 		<main className="min-h-screen">
