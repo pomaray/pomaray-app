@@ -2,6 +2,7 @@ import axios, { AxiosError, AxiosResponse } from "axios";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { type User } from "@/types/user";
+import { UAParser } from "ua-parser-js";
 
 interface TokenResponse {
 	user?: User;
@@ -64,6 +65,20 @@ export async function POST(req: NextRequest) {
 	try {
 		const END_POINT = process.env.LOGIN_ENDPOINT as string;
 
+		// Obtener el User-Agent del header
+		const userAgentString = req.headers.get("User-Agent");
+		console.log("User-Agent:", userAgentString);
+
+		// Analizar el User-Agent
+		const parser = new UAParser();
+		const userAgentInfo = parser.setUA(userAgentString as string).getResult();
+
+		// Extraer información del sistema operativo y navegador
+		const os = userAgentInfo.os.name || "Desconocido";
+		const browser = userAgentInfo.browser.name || "Desconocido";
+
+		const device = `${os} - ${browser}`;
+
 		const ip = req.ip || req.headers.get("X-Forwarded-For");
 		if (!ip) {
 			throw Error("No IP address provided");
@@ -75,6 +90,7 @@ export async function POST(req: NextRequest) {
 			ip,
 			username,
 			password,
+			device,
 		});
 
 		const { user, token } = response.data;

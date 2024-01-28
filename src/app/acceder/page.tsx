@@ -38,10 +38,8 @@ export default function LoginPage() {
 	const onSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 
-		await authenticateUser(formRequest);
-		if (user) {
-			router.push("/admin");
-		}
+		const result = await authenticateUser(formRequest);
+		if (result) router.push("/admin");
 	};
 
 	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -104,9 +102,11 @@ export default function LoginPage() {
 				className="sm:w-[26rem] max-w-[26rem] bg-transparent px-4 min-h-[22rem] shadow-none"
 			>
 				<CardHeader className="flex flex-col justify-center gap-y-4 sm:py-6">
-					<h2 className="sm:text-2xl text-xl font-semibold">Pomaray Admin</h2>
+					<h2 className="sm:text-2xl text-xl font-semibold">
+						{LOCALE.FORMULARIO.TITILO}
+					</h2>
 					<p className="sm:text-lg text-md text-center">
-						Este formulario es privado, tal vez no puedas acceder.
+						{LOCALE.FORMULARIO.DESCRIPCION}
 					</p>
 				</CardHeader>
 
@@ -115,7 +115,7 @@ export default function LoginPage() {
 						<Input
 							isRequired
 							name="username"
-							label="Nombre de usuario."
+							label={LOCALE.FORMULARIO.USERNAME}
 							onInput={onChange}
 							errorMessage={usernameError}
 							color={usernameError ? "danger" : "default"}
@@ -123,7 +123,7 @@ export default function LoginPage() {
 						<Input
 							isRequired
 							name="password"
-							label="Contraseña."
+							label={LOCALE.FORMULARIO.PASSWORD}
 							onInput={onChange}
 							errorMessage={passwordError}
 							color={passwordError ? "danger" : "default"}
@@ -135,15 +135,15 @@ export default function LoginPage() {
 							type="submit"
 							color="primary"
 						>
-							Acceder
+							{LOCALE.FORMULARIO.ACCEDER_BTN}
 						</Button>
 					</form>
 				</CardBody>
 				<CardFooter className="flex flex-col gap-y-6">
-					<p className="text-nowrap text-center">
-						¿Ya iniciaste la sesión?{" "}
+					<p className="text-center w-screen">
+						{LOCALE.FORMULARIO.YA_TIENES}{" "}
 						<Link isDisabled={isLoading} showAnchorIcon href="/admin">
-							Si, soy administrador.
+							{LOCALE.FORMULARIO.YA_TIENES_ACCEDER}
 						</Link>
 					</p>
 				</CardFooter>

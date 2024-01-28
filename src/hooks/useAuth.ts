@@ -28,7 +28,7 @@ export interface AuthStore {
 	error?: string;
 	user?: User;
 
-	authenticateUser: (request: AuthenticateRequest) => Promise<void>;
+	authenticateUser: (request: AuthenticateRequest) => Promise<User | undefined>;
 	setError: (error: string) => void;
 	checkToken: () => Promise<void>;
 }
@@ -61,10 +61,11 @@ export const useAuthStore = create<AuthStore>((set) => ({
 
 			if (!user) {
 				set({ error: LOCALE.ERRORES.CODES["500"] });
-				return;
+				return undefined;
 			}
 
 			set({ user });
+			return user;
 		} catch (err) {
 			const error = err as AxiosError;
 			if (error.response) {

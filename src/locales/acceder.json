@@ -1,4 +1,13 @@
 {
+	"FORMULARIO": {
+		"TITILO": "Pomaray Admin",
+		"DESCRIPCION": "Este formulario es privado, tal vez no puedas acceder.",
+		"USERNAME": "Nombre de usuario",
+		"PASSWORD": "Contraseña",
+		"ACCEDER_BTN": "Acceder",
+		"YA_TIENES": "¿Ya iniciaste la sesión?",
+		"YA_TIENES_ACCEDER": "Si, soy administrador."
+	},
 	"ERRORES": {
 		"USERNAME": {
 			"CARACTERES": "El nombre de usuario solo puede contener letras (Aa-Zz), números y los caracteres (., _, @, #)",

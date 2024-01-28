@@ -12,6 +12,7 @@
     "@biomejs/biome": "^1.5.3",
     "@nextui-org/react": "^2.2.9",
     "@nextui-org/use-infinite-scroll": "^2.1.2",
+    "@types/ua-parser-js": "^0.7.39",
     "@vercel/speed-insights": "^1.0.8",
     "axios": "^1.6.4",
     "dotenv": "^16.3.1",
@@ -29,6 +30,7 @@
     "react-responsive-carousel": "^3.2.23",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
+    "ua-parser-js": "^1.0.37",
     "zustand": "^4.4.7"
   },
   "devDependencies": {
