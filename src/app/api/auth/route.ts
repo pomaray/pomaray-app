@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { type User } from "@/types/user";
 
 interface TokenResponse {
@@ -18,7 +18,7 @@ export async function GET() {
 	try {
 		const token = cookies().get("token")?.value;
 		if (!token) {
-			throw new AxiosError("No esta authorization", "401");
+			throw new AxiosError("No esta autorizado", "401");
 		}
 		const response: AxiosResponse<TokenResponse> = await axios.get(END_POINT, {
 			headers: {
@@ -33,27 +33,46 @@ export async function GET() {
 
 		return NextResponse.json({ user });
 	} catch (error) {
-		console.error("Error en el manejado de la API:", error);
-
 		if (axios.isAxiosError(error)) {
-			if (error.status === 401) {
-				return NextResponse.json({ error: "No esta autorizado" });
-			}
-
-			if (error.status === 404) {
-				return NextResponse.json({ error: "El Token no existe." });
-			}
+			return NextResponse.json(
+				{
+					message: error.message,
+				},
+				{
+					status: error.status,
+					statusText: error.code,
+				},
+			);
 		}
-		return NextResponse.json({ error: "Error en el servidor" });
+		return NextResponse.json(
+			{
+				code: "500",
+				message:
+					error instanceof Error
+						? error.message
+						: "Error interno del servidor.",
+			},
+			{
+				status: 500,
+				statusText: "ERR_INTERNAL_SERVER_ERROR",
+			},
+		);
 	}
 }
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
 	try {
 		const END_POINT = process.env.LOGIN_ENDPOINT as string;
 
+		const ip = req.ip || req.headers.get("X-Forwarded-For");
+		if (!ip) {
+			throw Error("No IP address provided");
+		}
+		console.log(ip);
+
 		const { username, password } = await req.json();
 		const response: AxiosResponse<LoginResponse> = await axios.post(END_POINT, {
+			ip,
 			username,
 			password,
 		});
@@ -64,17 +83,34 @@ export async function POST(req: Request) {
 		}
 
 		cookies().set("token", token, { secure: true });
-		return NextResponse.json({ user });
+		return NextResponse.json({ user, ip });
 	} catch (error) {
 		if (axios.isAxiosError(error)) {
-			if (error.response?.status === 401) {
-				return NextResponse.json({ code: "401" });
-			}
+			const { status, code } = error.toJSON() as AxiosError;
 
-			if (error.response?.status === 404) {
-				return NextResponse.json({ code: "404" });
-			}
+			return NextResponse.json(
+				{
+					message: error.toJSON(),
+					status: status,
+				},
+				{
+					status: status,
+					statusText: code,
+				},
+			);
 		}
-		return NextResponse.json({ code: "500" });
+		return NextResponse.json(
+			{
+				code: "500",
+				message:
+					error instanceof Error
+						? error.message
+						: "Error interno del servidor.",
+			},
+			{
+				status: 500,
+				statusText: "ERR_INTERNAL_SERVER_ERROR",
+			},
+		);
 	}
 }

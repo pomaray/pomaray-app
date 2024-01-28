@@ -40,7 +40,7 @@ export default function YearBook() {
 				})}
 			</section>
 
-			<section className="flex justify-center py-10">
+			<section className="flex justify-center pb-10">
 				<Pagination
 					isDisabled={totalPages < 2}
 					size="lg"

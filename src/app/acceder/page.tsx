@@ -76,8 +76,10 @@ export default function LoginPage() {
 		};
 
 		const validateString = (value: string): boolean => {
-			const regex = /^[A-Za-z0-9.,_]+$/;
-			return regex.test(value);
+			const regex = /^[A-Za-z0-9.,_@#]+$/;
+			const disallowedChars = /[${}]/;
+
+			return regex.test(value) && !disallowedChars.test(value);
 		};
 
 		const validUsername = validateInput(
