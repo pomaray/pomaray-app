@@ -1,0 +1,49 @@
+{
+    "HERO": {
+      "TITULO": "Términos y Condiciones",
+      "DESCRIPCION": "Lee detenidamente los términos y condiciones antes de utilizar nuestros servicios."
+    },
+    "INTRODUCCION": {
+      "TITULO": "Introducción",
+      "CONTENIDO": [
+        "Estos términos y condiciones establecen las reglas y condiciones para el uso de nuestros servicios y la interacción con nuestro sitio web.",
+        "Al utilizar nuestros servicios, aceptas cumplir con estos términos y condiciones. Te recomendamos revisar esta sección regularmente, ya que puede estar sujeta a actualizaciones."
+      ]
+    },
+    "INFORMACION_RECOPILADA": {
+      "TITULO": "Información Recopilada",
+      "CONTENIDO": [
+        "Recopilamos información necesaria para brindarte nuestros servicios, como nombre, dirección de correo electrónico, y otra información relevante proporcionada por ti.",
+        "Además, podemos recopilar información automáticamente, como la dirección IP, la información del navegador, el tipo de dispositivo y las páginas visitadas, para mejorar la experiencia del usuario y analizar el rendimiento de nuestro sitio."
+      ]
+    },
+    "USO_DE_LA_INFORMACION": {
+      "TITULO": "Uso de la Información",
+      "CONTENIDO": [
+        "La información recopilada se utiliza para proporcionar y mejorar nuestros servicios, personalizar la experiencia del usuario, responder a consultas y proporcionar información relevante.",
+        "No compartimos tu información personal con terceros sin tu consentimiento, a menos que estemos legalmente obligados a hacerlo."
+      ]
+    },
+    "SEGURIDAD": {
+      "TITULO": "Seguridad",
+      "CONTENIDO": [
+        "Implementamos medidas de seguridad para proteger la información personal contra accesos no autorizados, alteraciones, divulgación o destrucción.",
+        "A pesar de nuestros esfuerzos, ninguna transmisión de datos por Internet o sistema de almacenamiento puede garantizar una seguridad absoluta. Te recomendamos que tomes precauciones adicionales para proteger tu información personal."
+      ]
+    },
+    "ENLACES_EXTERNOS": {
+      "TITULO": "Enlaces a Sitios Externos",
+      "CONTENIDO": [
+        "Nuestro sitio web puede contener enlaces a sitios externos que no son operados por nosotros. No tenemos control sobre el contenido y las prácticas de privacidad de estos sitios y no nos hacemos responsables de sus políticas.",
+        "Te recomendamos que revises las políticas de privacidad de los sitios externos que visites desde nuestro sitio."
+      ]
+    },
+    "CAMBIOS_EN_LA_POLITICA": {
+      "TITULO": "Cambios en los Términos y Condiciones",
+      "CONTENIDO": [
+        "Estos términos y condiciones pueden ser actualizados ocasionalmente para reflejar cambios en nuestras prácticas y servicios. Te notificaremos sobre cambios significativos mediante la publicación de los nuevos términos en nuestro sitio.",
+        "Al continuar utilizando nuestros servicios después de cualquier cambio en estos términos y condiciones, aceptas y aceptas los términos modificados."
+      ]
+    }
+  }
+  
