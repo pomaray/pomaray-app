@@ -29,7 +29,7 @@ export function FooterTable({
 } & FooterTableProps) {
 	return (
 		<ul className="relative flex flex-col gap-1 w-fit h-fit p-4">
-			{title && <h4 className="font-bold text-base py-2">{title}</h4>}
+			{title && <h3 className="font-bold text-base py-2">{title}</h3>}
 			{children}
 		</ul>
 	);
@@ -43,12 +43,12 @@ export function Footer({
 	const currentYear = new Date().getFullYear();
 
 	return (
-		<footer className="flex flex-col bg-slate-600 dark:bg-neutral-800 min-h-[10rem] shadow-small text-white p-6">
+		<footer className="flex flex-col bg-slate-600 dark:bg-content1 min-h-[10rem] text-white p-6">
 			<div
 				className="grid
         			sm:place-content-start sm:grid-cols-2
         			lg:place-content-center lg:grid-cols-4
-					max-w-5xl lg:mx-auto"
+					lg:px-[20rem]"
 			>
 				{children}
 			</div>

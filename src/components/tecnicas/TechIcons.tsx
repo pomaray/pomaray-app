@@ -7,11 +7,11 @@ import {
 	BsSnow,
 } from "react-icons/bs";
 
-type TECH_ICON = {
+type TechIcon = {
 	[key: string]: JSX.Element;
 };
 
-export const TECH_ICONS: TECH_ICON[] = [
+export const TechIcons: TechIcon[] = [
 	{ DAAI: <BsLaptop size={60} /> },
 	{ GAT: <BsCalculator size={60} /> },
 	{ CM: <BsBriefcase size={60} /> },

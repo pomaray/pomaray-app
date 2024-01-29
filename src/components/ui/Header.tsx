@@ -11,6 +11,7 @@ import {
 	NavbarItem,
 	NavbarMenuItem,
 	NavbarMenuToggle,
+	Button,
 } from "@nextui-org/react";
 
 import { FaInstagram, FaFacebook } from "react-icons/fa";
@@ -22,14 +23,13 @@ import LOCALE from "@/locales/root.json";
 
 export function Header() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-
 	return (
-		<header className="relative min-w-screen z-40 h-24">
+		<header className="relative min-w-screen z-40 h-28">
 			<NextNavbar
-				onMenuOpenChange={setIsMenuOpen}
 				isBlurred={false}
-				isBordered
-				className="z-50 relative shadow-sm w-screen"
+				isBordered={false}
+				onMenuOpenChange={setIsMenuOpen}
+				className="z-50 relative shadow-sm border-none outline-none w-screen bg-slate-600 dark:bg-default-200"
 			>
 				<NavbarContent>
 					<NavbarBrand>
@@ -38,7 +38,7 @@ export function Header() {
 							className="cursor-pointer hover:opacity-60 transition-opacity"
 						>
 							<Logo />
-							<p className="font-bold text-inherit text-primary text-lg sm:text-2xl">
+							<p className="font-bold text-inherit text-white text-lg sm:text-2xl">
 								{LOCALE.NAVBAR.NOMBRE}
 							</p>
 						</Link>
@@ -48,7 +48,7 @@ export function Header() {
 					{LOCALE.NAVBAR.ITEMS.map((item) => (
 						<NavbarItem key={item.LINK}>
 							<Link
-								className="text-foreground font-semibold cursor-pointer"
+								className="text-white font-semibold cursor-pointer"
 								href={item.LINK}
 							>
 								{item.TEXTO}
@@ -59,16 +59,14 @@ export function Header() {
 				<NavbarContent justify="end">
 					<div className="hidden lg:flex gap-x-4">
 						<Link
-							className="sm:text-2xl text-lg"
-							color="primary"
+							className="sm:text-xl text-lg text-danger bg-white rounded-lg p-1"
 							href={LOCALE.REDES.INSTAGRAM}
 							target="_blank"
 						>
 							<FaInstagram />
 						</Link>
 						<Link
-							className="sm:text-2xl text-lg"
-							color="primary"
+							className="sm:text-xl text-md text-blue-600 bg-white rounded-lg p-1"
 							href={LOCALE.REDES.FACEBOOK}
 							target="_blank"
 						>
@@ -82,14 +80,14 @@ export function Header() {
 								? "Abrir modal de noticias."
 								: "Cerrar modal de noticias."
 						}
-						className="lg:hidden"
+						className="lg:hidden text-white"
 					/>
 				</NavbarContent>
-				<NavbarMenu className="overflow-hidden">
+				<NavbarMenu className="overflow-hidden bg-slate-600/90 dark:bg-default-200/90 pt-6">
 					{LOCALE.NAVBAR.ITEMS.map((item) => (
 						<NavbarMenuItem key={item.LINK}>
 							<Link
-								className="text-foreground font-semibold cursor-pointer"
+								className="text-white font-semibold cursor-pointer"
 								href={item.LINK}
 							>
 								{item.TEXTO}
@@ -97,22 +95,22 @@ export function Header() {
 						</NavbarMenuItem>
 					))}
 					<div className="flex flex-row gap-4">
-						<Link
-							className="text-2xl"
-							color="primary"
+						<Button
+							isIconOnly
+							className="text-2xl text-danger bg-white"
 							href={LOCALE.REDES.INSTAGRAM}
 							target="_blank"
 						>
 							<FaInstagram />
-						</Link>
-						<Link
-							className="text-2xl"
-							color="primary"
+						</Button>
+						<Button
+							isIconOnly
+							className="text-2xl text-blue-600 bg-white"
 							href={LOCALE.REDES.FACEBOOK}
 							target="_blank"
 						>
 							<FaFacebook />
-						</Link>
+						</Button>
 					</div>
 				</NavbarMenu>
 			</NextNavbar>

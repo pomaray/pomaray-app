@@ -3,9 +3,9 @@
 		"TITULO": "¡Aprende con el Politécnico Madre Rafaela Ybarra!",
 		"SUB_TITULO": "Donde tu futuro comienza.",
 		"CARUSEL": [
-			"/images/hero1.jpg",
-			"/images/hero2.jpg",
-			"/images/hero3.jpg"
+			"images/TECNICA.png",
+			"images/TECNICA.png",
+			"images/TECNICA.png"
 		],
 		"GRADUADO": "Oportunidades Laborales.",
 		"USUARIO": "Cuerpo Docente Calificado.",

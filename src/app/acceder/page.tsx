@@ -151,7 +151,7 @@ export default function LoginPage() {
 					</form>
 				</CardBody>
 				<CardFooter className="flex flex-col gap-y-6">
-					<p className="text-center w-screen">
+					<p className="text-center">
 						{LOCALE.FORMULARIO.YA_TIENES}{" "}
 						<Link isDisabled={isLoading} showAnchorIcon href="/admin">
 							{LOCALE.FORMULARIO.YA_TIENES_ACCEDER}

@@ -8,7 +8,6 @@ import {
 	CardHeader,
 	Pagination,
 	Button,
-	Skeleton,
 	Spinner,
 	Tooltip,
 } from "@nextui-org/react";
@@ -59,7 +58,7 @@ export default function NewsPage() {
 								key={index}
 								isPressable
 								shadow="none"
-								className="hover:bg-default-100 transition-colors"
+								className="hover:bg-default-200 bg-default-100 shadow-sm transition-colors"
 							>
 								<CardHeader className="h-48">
 									<Image
@@ -97,11 +96,9 @@ export default function NewsPage() {
 											isOpen={tooltipOpen[index]}
 											onOpenChange={(open) => {
 												if (!open) {
-													setTimeout(() => {
-														const newTooltipOpen = [...tooltipOpen];
-														newTooltipOpen[index] = false;
-														setTooltipOpen(newTooltipOpen);
-													}, 300);
+													const newTooltipOpen = [...tooltipOpen];
+													newTooltipOpen[index] = false;
+													setTooltipOpen(newTooltipOpen);
 												}
 											}}
 										>

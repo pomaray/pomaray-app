@@ -1,5 +1,5 @@
 "use client";
-import { TECH_ICONS } from "@/components/tecnicas/TechIcons";
+import { TechIcons } from "@/components/tecnicas/TechIcons";
 import { sexColorMap } from "@/types/enums";
 import { Student } from "@/types/student";
 import {
@@ -54,7 +54,7 @@ export function AdminStudentTable({
 					</Chip>
 				);
 			case "current_technique": {
-				const iconElement = TECH_ICONS.find(
+				const iconElement = TechIcons.find(
 					(icon) => Object.keys(icon)[0] === cellValue,
 				)?.[cellValue as string];
 

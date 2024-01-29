@@ -35,7 +35,7 @@ export function NavbarNotify({ IsClose }: NavbarNotifyProps) {
 			{!!forceCLose ||
 				(!IsClose && (
 					<motion.div
-						initial={{ y: -80, opacity: 1 }}
+						initial={{ y: -120, opacity: 1 }}
 						animate={{ y: 0 }}
 						exit={{ y: -50 }}
 						transition={{
@@ -56,6 +56,7 @@ export function NavbarNotify({ IsClose }: NavbarNotifyProps) {
 						</span>
 
 						<Button
+							name="close"
 							isIconOnly
 							variant="light"
 							color="primary"

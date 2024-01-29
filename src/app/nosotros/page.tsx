@@ -5,8 +5,8 @@ export default function NosotrosPage() {
 	return (
 		<article className="max-w-5xl mx-auto px-6 sm:px-12 py-6">
 			<section>
-				<div className="flex gap-4 items-center">
-					<h1 className="sm:text-5xl text-4xl font-bold my-4 text-primary">
+				<div className="flex justify-between gap-4 items-center bg-primary text-white w-full">
+					<h1 className="sm:text-5xl text-4xl font-bold my-4">
 						{LOCALE.HERO.TITULO}
 					</h1>
 					<Image

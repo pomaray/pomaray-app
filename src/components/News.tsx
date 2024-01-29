@@ -27,8 +27,9 @@ export function NewsModal() {
 					setIsOpen(true);
 				}}
 				color="primary"
-				variant="flat"
+				variant="bordered"
 				size="sm"
+				className="text-white font-semibold"
 			>
 				{LOCALE.NAVBAR.VER_NOTICIAS}
 			</Button>
