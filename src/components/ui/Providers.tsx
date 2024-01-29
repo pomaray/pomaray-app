@@ -29,7 +29,7 @@ function UIProviders({
 	children: React.ReactNode;
 }) {
 	return (
-		<NextThemesProvider attribute="class" defaultTheme="dark">
+		<NextThemesProvider attribute="class" defaultTheme="light">
 			<NextUIProvider>{children}</NextUIProvider>
 		</NextThemesProvider>
 	);

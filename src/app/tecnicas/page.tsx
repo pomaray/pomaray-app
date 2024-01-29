@@ -8,7 +8,7 @@ import LOCALE from "@/locales/tecnicas.json";
 import { Section, SectionTitle } from "@/components/ui/Section";
 import { Tech } from "@/types/enums";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
-import { TECH_ICONS } from "@/components/tecnicas/TechIcons";
+import { TechIcons } from "@/components/tecnicas/TechIcons";
 import { cloneElement } from "react";
 
 export default function HomePage() {
@@ -17,9 +17,9 @@ export default function HomePage() {
 
 	return (
 		<main className="min-h-[90vh]">
-			<Section className="p-10">
+			<Section className="p-10 pt-0">
 				<SectionTitle text={LOCALE.HERO.TITULO} />
-				<p className="text-lg  max-w-2xl mx-auto text-center ">
+				<p className="text-lg max-w-2xl mx-auto text-pretty">
 					{LOCALE.HERO.DESCRIPCION}
 				</p>
 			</Section>
@@ -27,7 +27,7 @@ export default function HomePage() {
 				<SectionTitle withLine text={LOCALE.TECH_TITULO} />
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-4 px-6 sm:px-10 md:px-10 lg:px-[15rem]]">
 					{LOCALE.TECNICAS.map((tecnica) => {
-						const iconElement = TECH_ICONS.find(
+						const iconElement = TechIcons.find(
 							(icon) => Object.keys(icon)[0] === tecnica.ID,
 						)?.[tecnica.ID];
 
@@ -39,7 +39,7 @@ export default function HomePage() {
 								isPressable
 								key={tecnica.ID}
 								shadow="none"
-								className="xl:p-6 hover:translate-y-2 hover:opacity-50 bg-default-100 shadow-small text-foreground transition-transform-opacity"
+								className="xl:p-6 hover:bg-default-200 bg-default-100 shadow-sm text-foreground transition-colors"
 							>
 								<CardHeader className="flex items-center justify-center pt-5 sm:pt-10">
 									<div

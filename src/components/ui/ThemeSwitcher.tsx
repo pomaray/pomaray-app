@@ -4,6 +4,8 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { SunIcon, MoonIcon, MailIcon } from "@nextui-org/shared-icons";
 import LOCALE from "@/locales/root.json";
+import { Button } from "@nextui-org/button";
+import { Tooltip } from "@nextui-org/react";
 
 export default function ThemeSwitcher() {
 	const [mounted, setMounted] = useState(false);
@@ -15,24 +17,44 @@ export default function ThemeSwitcher() {
 	if (!mounted) return null;
 
 	return (
-		<div className="flex gap-x-2 sm:justify-end w-full">
-			<button
-				type="button"
-				className="dark:hover:bg-neutral-700 hover:bg-slate-500 transition-colors p-2 text-xl rounded-xl"
-				onClick={() => {
-					setTheme(resolvedTheme === "light" ? "dark" : "light");
+		<div className="flex gap-x-2 sm:justify-end w-ful">
+			<Tooltip
+				shouldCloseOnInteractOutside={(element: Element) => {
+					console.log(element);
+					return true;
 				}}
+				content={`Cambiar a modo ${
+					resolvedTheme === "light" ? "oscuro" : "claro"
+				}`}
 			>
-				{theme === "light" ? <MoonIcon /> : <SunIcon />}
-			</button>
-			<button
-				type="button"
-				className="dark:hover:bg-neutral-700 hover:bg-slate-500 transition-colors p-2 text-xl rounded-xl"
-			>
-				<a href={`mailto:${LOCALE.SITIO_WEB.CORREO}`}>
-					<MailIcon />
-				</a>
-			</button>
+				<Button
+					name="Tema"
+					variant="light"
+					isIconOnly
+					className="dark:hover:bg-neutral-700 hover:bg-slate-500 transition-colors p-2 text-xl rounded-xl"
+					onClick={() => {
+						setTheme(resolvedTheme === "light" ? "dark" : "light");
+					}}
+				>
+					{theme === "light" ? (
+						<MoonIcon className="text-white" />
+					) : (
+						<SunIcon className="text-white" />
+					)}
+				</Button>
+			</Tooltip>
+			<Tooltip content="Enviar correo">
+				<Button
+					name="Correo"
+					variant="light"
+					isIconOnly
+					className="dark:hover:bg-neutral-700 hover:bg-slate-500 transition-colors p-2 text-xl rounded-xl"
+				>
+					<a href={`mailto:${LOCALE.SITIO_WEB.CORREO}`}>
+						<MailIcon className="text-white" />
+					</a>
+				</Button>
+			</Tooltip>
 		</div>
 	);
 }
