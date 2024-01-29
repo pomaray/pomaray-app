@@ -31,7 +31,7 @@ interface YearBookHook {
 	currentPage?: number;
 	totalPages: number;
 
-	students?: Student[];
+	students: Student[];
 	formRequest: FormRequest;
 
 	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -39,9 +39,9 @@ interface YearBookHook {
 	setFormRequest: React.Dispatch<React.SetStateAction<FormRequest>>;
 }
 
-const useYearBook: () => YearBookHook = () => {
+const useYearBook: (_limit?: number) => YearBookHook = (_limit) => {
 	// Configuraciones del *Hook*.
-	const limit = 30;
+	const limit: number = _limit ?? 30;
 	const baseUrl = "/api/students";
 
 	// Estados.
@@ -52,7 +52,7 @@ const useYearBook: () => YearBookHook = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [totalPages, setTotalPages] = useState(0);
 
-	const [students, setStudents] = useState<Student[]>();
+	const [students, setStudents] = useState<Student[]>([]);
 	const [formRequest, setFormRequest] = useState<FormRequest>({
 		studentName: "",
 		studentSchoolYear: [],
@@ -100,8 +100,6 @@ const useYearBook: () => YearBookHook = () => {
 					setIsError(true);
 					return;
 				}
-
-				console.log(response);
 
 				const { total, students } = (await response.json()) as YearBookResponse;
 				if (students.length < 1 || total < 1) {

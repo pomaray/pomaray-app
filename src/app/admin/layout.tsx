@@ -1,3 +1,5 @@
+import { Header } from "@/components/admin/AdminHeader";
+
 export const metadata = {
 	title: "Admin",
 };
@@ -7,5 +9,10 @@ export default function AdminLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	return children;
+	return (
+		<main className="container mx-auto">
+			<Header />
+			{children}
+		</main>
+	);
 }

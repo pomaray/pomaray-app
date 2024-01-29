@@ -9,6 +9,13 @@ export enum Role {
 	SUPER_ADMIN = 2,
 }
 
+type Colors = "success" | "secondary";
+
+export const sexColorMap: { [key: string]: Colors } = {
+	Male: "success",
+	Female: "secondary",
+};
+
 export enum Tech {
 	DAAI = "Desarrollo y Administración de Aplicaciones Informáticas",
 	GAT = "Gestión Administrativa y Tributaria",

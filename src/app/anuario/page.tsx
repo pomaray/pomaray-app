@@ -26,7 +26,7 @@ export default function YearBook() {
 				<p>{LOCALE.TIP}</p>
 			</section>
 
-			<section className="w-full text-center max-w-5xl mx-auto py-6 md:px-20">
+			<section className="w-full text-center max-w-7xl mx-auto py-6 md:px-20">
 				<YearBookForm setFormRequestHandler={setFormRequest} />
 			</section>
 

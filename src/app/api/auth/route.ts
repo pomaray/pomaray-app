@@ -72,7 +72,6 @@ export async function POST(req: NextRequest) {
 
 		// Obtener el User-Agent del header
 		const userAgentString = req.headers.get("User-Agent");
-		console.log("User-Agent:", userAgentString);
 
 		// Analizar el User-Agent
 		const parser = new UAParser();
@@ -88,7 +87,6 @@ export async function POST(req: NextRequest) {
 		if (!ip) {
 			throw Error("No IP address provided");
 		}
-		console.log(ip);
 
 		const { username, password } = await req.json();
 		const response: AxiosResponse<LoginResponse> = await axios.post(END_POINT, {
@@ -103,11 +101,8 @@ export async function POST(req: NextRequest) {
 			throw new Error("Usuario no recibido desde el servidor");
 		}
 
-		const secret = new TextEncoder().encode(SECRET);
-		const decoded = await jwt.jwtVerify(token, secret);
-		const expirePayload = decoded.payload.exp as number;
-		const expire = new Date(expirePayload);
-		console.log(decoded);
+		const expire = new Date();
+		expire.setMonth(1);
 
 		cookies().set("token", token, { secure: true, expires: expire });
 		return NextResponse.json({ user, ip });
@@ -118,10 +113,10 @@ export async function POST(req: NextRequest) {
 			return NextResponse.json(
 				{
 					message: error.toJSON(),
-					status: status ?? 500,
+					status: status ?? error.status,
 				},
 				{
-					status: status ?? 500,
+					status: status ?? error.status,
 					statusText: code,
 				},
 			);

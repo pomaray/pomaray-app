@@ -30,7 +30,7 @@ export interface AuthStore {
 
 	authenticateUser: (request: AuthenticateRequest) => Promise<User | undefined>;
 	setError: (error: string) => void;
-	checkToken: () => Promise<User | undefined>;
+	getUserByToken: () => Promise<User | undefined>;
 }
 
 export const useAuthStore = create<AuthStore>((set) => ({
@@ -87,13 +87,14 @@ export const useAuthStore = create<AuthStore>((set) => ({
 		}
 	},
 
-	checkToken: async () => {
+	getUserByToken: async () => {
 		try {
 			set({ isLoading: true, error: undefined });
 
 			const response = await fetch("/api/auth");
 
 			const { user } = (await response.json()) as AuthResponse;
+
 			set({ user });
 			return user;
 		} catch (error) {
