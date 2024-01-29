@@ -13,8 +13,6 @@ export function Header() {
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		const fetch = async () => {
-			console.log(user);
-
 			if (!user) {
 				const newUser = await getUserByToken();
 				if (!newUser) {

@@ -25,3 +25,29 @@ export enum Tech {
 	RAE = "Refrigeración y Acondicionamiento de Aire",
 	GAS = "Gastronomía",
 }
+
+export const Roles: { value: keyof typeof Role; key: number }[] =
+	Object.entries(Role)
+		.filter(([key]) => Number.isNaN(Number(key)))
+		.map(([key, value]) => ({
+			value: key as keyof typeof Role,
+			key: Number(value),
+		}));
+
+export const Sexos: { value: keyof typeof Sex; key: string }[] = Object.entries(
+	Sex,
+)
+	.filter(([key]) => Number.isNaN(Number(key)))
+	.map(([key, value]) => ({
+		value: key as keyof typeof Sex,
+		key: value,
+	}));
+
+export const Techs: { key: keyof typeof Tech; value: string }[] = Object.keys(
+	Tech,
+).map((key) => {
+	return {
+		key: key as keyof typeof Tech,
+		value: Tech[key as keyof typeof Tech],
+	};
+});

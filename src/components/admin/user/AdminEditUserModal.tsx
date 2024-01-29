@@ -9,16 +9,18 @@ import {
 	ModalHeader,
 	Tooltip,
 	useDisclosure,
-	Chip,
-	DropdownMenu,
 	Checkbox,
 	CheckboxGroup,
+	Select,
+	Selection,
+	SelectItem,
 } from "@nextui-org/react";
 import { PressEvent } from "@react-types/shared";
-import { EditDocumentBulkIcon, EditIcon } from "@nextui-org/shared-icons";
+import { AvatarIcon } from "@nextui-org/shared-icons";
 import { User } from "@/types/user";
-import { Role, Sex } from "@/types/enums";
+import { Role, Roles, Sex, Sexos } from "@/types/enums";
 import useAuthStore from "@/hooks/useAuth";
+import { useState } from "react";
 
 interface AdminEditUserModal {
 	editUser?: User;
@@ -33,6 +35,7 @@ export function AdminEditUserModal({
 }: AdminEditUserModal) {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 	const { user, isLoading } = useAuthStore();
+	const [role, setRole] = useState<Selection>(new Set([]));
 
 	return (
 		<>
@@ -44,7 +47,7 @@ export function AdminEditUserModal({
 					isIconOnly
 					color={color}
 				>
-					<EditDocumentBulkIcon className="text-lg text-background" />
+					<AvatarIcon className="text-lg text-background" />
 				</Button>
 			</Tooltip>
 			<Modal
@@ -82,45 +85,96 @@ export function AdminEditUserModal({
 							<ModalHeader className="flex flex-col gap-1 text-sm">
 								<span className="opacity-75">Editando a:</span>
 								<span className="text-3xl">{editUser?.username}</span>
-								<span>
-									{" "}
-									Role:{" "}
-									<span className="text-primary">
-										{editUser?.role ? Role[editUser?.role] : "Ninguno"}
+								<div className="text-foreground">
+									<span className="opacity-60">Role: </span>
+									<span className="font-bold capitalize">
+										{editUser?.role
+											? Role[editUser?.role].toLowerCase().replaceAll("_", " ")
+											: "Ninguno"}
 									</span>
-								</span>
-							</ModalHeader>
-							<ModalBody>
-								<Input
-									color="primary"
-									variant="bordered"
-									label="Nombre de usuario"
-									value={editUser?.username}
-									isRequired
-								/>
-								<Input
-									color="primary"
-									variant="bordered"
-									label="Nombre a mostrar:"
-									value={editUser?.display_name}
-									isRequired
-								/>
-								<div>
-									<CheckboxGroup
-										orientation="horizontal"
-										label="Sexo:"
-										defaultValue={[editUser?.sex as string]}
-									>
-										<Checkbox value={Sex.MALE}>Masculino</Checkbox>
-										<Checkbox value={Sex.FEMALE}>Femenino</Checkbox>
-									</CheckboxGroup>
 								</div>
-							</ModalBody>
-							<ModalFooter>
-								<Button fullWidth color="primary" onPress={onClose}>
-									Guardar
-								</Button>
-							</ModalFooter>
+							</ModalHeader>
+							<form onSubmit={() => onOpen()}>
+								<ModalBody>
+									<Input
+										color="primary"
+										variant="bordered"
+										label="Nombre de usuario"
+										value={editUser?.username}
+										isRequired
+									/>
+									<Input
+										color="primary"
+										variant="bordered"
+										label="Nombre a mostrar:"
+										value={editUser?.display_name}
+										isRequired
+									/>
+									{Roles && user?.role && user.role >= 2 && (
+										<Select
+											color="primary"
+											variant="bordered"
+											items={Roles}
+											label="Rol"
+											defaultSelectedKeys={[user?.role.toString()]}
+											fullWidth
+											onSelectionChange={setRole}
+											renderValue={(items) => (
+												<span className="capitalize text-foreground">
+													{items[0].textValue
+														?.toLowerCase()
+														.replaceAll("_", " ")}
+												</span>
+											)}
+										>
+											{(role) => (
+												<SelectItem
+													className="capitalize"
+													key={role.key.toString()}
+													textValue={role.value}
+												>
+													{role.value.toLowerCase().replaceAll("_", " ")}
+												</SelectItem>
+											)}
+										</Select>
+									)}
+
+									{Sexos && user?.sex && (
+										<Select
+											color="primary"
+											variant="bordered"
+											items={Sexos}
+											label="Sexo:"
+											defaultSelectedKeys={[user?.sex.toString()]}
+											fullWidth
+											onSelectionChange={setRole}
+											renderValue={(items) => (
+												<span className="capitalize text-foreground">
+													{items[0].textValue === Sex.MALE ? "Hombre" : "Mujer"}
+												</span>
+											)}
+										>
+											{(role) => (
+												<SelectItem
+													className="capitalize"
+													key={role.key.toString()}
+													textValue={role.key as string}
+												>
+													{role.key === Sex.MALE ? "Hombre" : "Mujer"}
+												</SelectItem>
+											)}
+										</Select>
+									)}
+								</ModalBody>
+								<ModalFooter>
+									<Button fullWidth color="primary" onPress={onClose}>
+										Guardar
+									</Button>
+									<Button fullWidth variant="bordered" onPress={onClose}>
+										Cerrar
+									</Button>
+								</ModalFooter>
+							</form>
 						</>
 					)}
 				</ModalContent>

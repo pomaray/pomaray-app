@@ -64,11 +64,15 @@
 			"ELEMENTOS": [
 				{
 					"TEXTO": "Historia",
-					"ENLACE": "/"
+					"ENLACE": "/nosotros"
 				},
 				{
 					"TEXTO": "Ubicación",
 					"ENLACE": "/"
+				},
+				{
+					"TEXTO": "Técnicas",
+					"ENLACE": "/tecnicas"
 				}
 			]
 		},
@@ -80,16 +84,16 @@
 					"ENLACE": "/"
 				},
 				{
-					"TEXTO": "Tecnicas",
-					"ENLACE": "/tecnicas"
+					"TEXTO": "Descargas",
+					"ENLACE": "/descargas"
 				},
 				{
 					"TEXTO": "Noticias",
 					"ENLACE": "/noticias"
 				},
 				{
-					"TEXTO": "Estudiantes",
-					"ENLACE": "/estudiantes"
+					"TEXTO": "Anuario",
+					"ENLACE": "/anuario"
 				}
 			]
 		},

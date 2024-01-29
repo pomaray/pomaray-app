@@ -29,7 +29,7 @@ export function NewsModal() {
 				color="primary"
 				variant="bordered"
 				size="sm"
-				className="text-white font-semibold"
+				className="text-foreground font-semibold"
 			>
 				{LOCALE.NAVBAR.VER_NOTICIAS}
 			</Button>

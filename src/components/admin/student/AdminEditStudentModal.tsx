@@ -12,10 +12,15 @@ import {
 	Checkbox,
 	CheckboxGroup,
 	Image,
+	Select,
+	SelectItem,
+	Autocomplete,
+	AutocompleteItem,
+	Chip,
 } from "@nextui-org/react";
 import { PressEvent } from "@react-types/shared";
 import { EditDocumentBulkIcon } from "@nextui-org/shared-icons";
-import { Role, Sex } from "@/types/enums";
+import { Role, Sex, Sexos, Techs } from "@/types/enums";
 import { Student } from "@/types/student";
 import useAuthStore from "@/hooks/useAuth";
 
@@ -26,6 +31,19 @@ export function AdminEditStudentModal({
 }) {
 	const { user, isLoading } = useAuthStore();
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
+	const years = (): { key: string; value: string }[] => {
+		const currentYear: number = new Date().getFullYear();
+		const yearObjects: { key: string; value: string }[] = [];
+
+		for (let year = 2010; year <= currentYear; year++) {
+			yearObjects.push({
+				key: year.toString(),
+				value: year.toString(),
+			});
+		}
+
+		return yearObjects;
+	};
 
 	return (
 		<>
@@ -76,10 +94,10 @@ export function AdminEditStudentModal({
 								<div className="flex flex-col gap-1 text-sm">
 									<span className="opacity-75">Editando a:</span>
 									<span className="text-3xl">{`${student?.first_name} ${student?.last_name}`}</span>
-									<span>
-										SIGERD ID:{" "}
-										<span className="text-primary">{student?.sigerd_id}</span>
-									</span>
+									<div className="text-foreground">
+										<span className="opacity-60">SIGERD ID: </span>
+										<span className="font-bold">{student?.sigerd_id}</span>
+									</div>
 								</div>
 								<Image
 									width={70}
@@ -89,6 +107,7 @@ export function AdminEditStudentModal({
 							</ModalHeader>
 							<ModalBody>
 								<Input
+									size="sm"
 									color="primary"
 									variant="bordered"
 									label="Foto de perfil"
@@ -96,22 +115,90 @@ export function AdminEditStudentModal({
 									isRequired
 								/>
 								<Input
+									size="sm"
 									color="primary"
 									variant="bordered"
 									label="Nombre del esutudiante:"
 									value={`${student?.first_name} ${student?.last_name}`}
 									isRequired
 								/>
-								<div>
-									<CheckboxGroup
-										orientation="horizontal"
-										label="Sexo:"
-										defaultValue={[student?.sex as string]}
-									>
-										<Checkbox value={Sex.MALE}>Masculino</Checkbox>
-										<Checkbox value={Sex.FEMALE}>Femenino</Checkbox>
-									</CheckboxGroup>
-								</div>
+								<Select
+									size="sm"
+									color="primary"
+									variant="bordered"
+									items={Sexos}
+									label="Sexo:"
+									defaultSelectedKeys={[student?.sex.toString()]}
+									fullWidth
+									renderValue={(items) => (
+										<span className="capitalize text-foreground">
+											{items[0].textValue === Sex.FEMALE ? "Mujer" : "Homber"}
+										</span>
+									)}
+								>
+									{(role) => (
+										<SelectItem
+											className="capitalize"
+											key={role.key.toString()}
+											textValue={role.key.toString()}
+										>
+											{role.key === Sex.FEMALE ? "Mujer" : "Hombre"}
+										</SelectItem>
+									)}
+								</Select>
+
+								<Select
+									size="sm"
+									color="primary"
+									variant="bordered"
+									items={Techs}
+									label="Tecnica:"
+									defaultSelectedKeys={[student?.current_technique]}
+									fullWidth
+									renderValue={(items) => (
+										<span className="capitalize text-foreground">
+											{items[0].textValue}
+										</span>
+									)}
+								>
+									{(role) => (
+										<SelectItem
+											className="capitalize"
+											key={role.key.toString()}
+											textValue={role.key as string}
+										>
+											{role.value}
+										</SelectItem>
+									)}
+								</Select>
+								<Select
+									color="primary"
+									items={years()}
+									label="Peridos escolars"
+									variant="bordered"
+									isMultiline={true}
+									selectionMode="multiple"
+									labelPlacement="outside"
+									defaultSelectedKeys={student?.school_years.map((year) =>
+										year.toString(),
+									)}
+									fullWidth
+									renderValue={(items) => {
+										return (
+											<div className="flex flex-wrap gap-2">
+												{items.map((item) => (
+													<Chip key={item.key}>{item.textValue}</Chip>
+												))}
+											</div>
+										);
+									}}
+								>
+									{(year) => (
+										<SelectItem key={year.key} textValue={year.value}>
+											{year.key}
+										</SelectItem>
+									)}
+								</Select>
 							</ModalBody>
 							<ModalFooter>
 								<Button fullWidth color="primary" onPress={onClose}>

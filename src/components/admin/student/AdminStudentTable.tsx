@@ -92,8 +92,12 @@ export function AdminStudentTable({
 
 	return (
 		<Table
+			shadow="none"
 			aria-label="Example table with client side pagination"
 			className="py-6"
+			classNames={{
+				wrapper: "shadow-sm",
+			}}
 			bottomContent={
 				<div className="flex w-full justify-center">
 					<Pagination

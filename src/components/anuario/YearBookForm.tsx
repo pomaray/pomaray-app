@@ -1,13 +1,7 @@
 "use client";
 import LOCALE from "@/locales/anuario.json";
-import useYearBook from "@/hooks/useYearBook";
-import {
-	Input,
-	Autocomplete,
-	AutocompleteItem,
-	Button,
-} from "@nextui-org/react";
-import { Tech } from "@/types/enums";
+import { Input, Autocomplete, AutocompleteItem } from "@nextui-org/react";
+import { Tech, Techs } from "@/types/enums";
 import { Dispatch, FormEvent, SetStateAction } from "react";
 import { type FormRequest } from "@/hooks/useYearBook";
 
@@ -16,14 +10,6 @@ export default function YearBookForm({
 }: {
 	setFormRequestHandler: Dispatch<SetStateAction<FormRequest>>;
 }) {
-	const techItems: { key: keyof typeof Tech; value: string }[] = Object.keys(
-		Tech,
-	).map((key) => {
-		return {
-			key: key as keyof typeof Tech,
-			value: Tech[key as keyof typeof Tech],
-		};
-	});
 	const getYears = (): { key: string; value: string }[] => {
 		try {
 			const currentYear = new Date().getFullYear();
@@ -90,7 +76,7 @@ export default function YearBookForm({
 				size="sm"
 				name="studentTech"
 				label={LOCALE.FORMULARIO.TECNICA}
-				defaultItems={techItems}
+				defaultItems={Techs}
 				onSelectionChange={(key) =>
 					key &&
 					setFormRequestHandler((prev) => ({

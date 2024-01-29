@@ -12,7 +12,7 @@ export default function Logo({ className }: LogoProps) {
 		<Image
 			src={logoPath}
 			alt="Logo"
-			className={twMerge("mx-2", className)}
+			className={twMerge("mx-2 w-auto h-auto", className)}
 			width={40}
 			height={40}
 		/>
