@@ -6,15 +6,15 @@ type LogoProps = {
 };
 
 export default function Logo({ className }: LogoProps) {
-	const logoPath = "/pomaray_logo.png";
+	const logoPath = "/images/logo.png";
 
 	return (
 		<Image
 			src={logoPath}
 			alt="Logo"
 			className={twMerge("mx-2", className)}
-			width={24}
-			height={24}
+			width={40}
+			height={40}
 		/>
 	);
 }

@@ -1,41 +1,40 @@
 {
-    "nuestraHistoria": {
-      "banner": {
-        "titulo": "46 Aniversario del Politécnico Madre Rafaela Ybarra",
-        "IMAGEN": "/images/TECNICA.png",
-        "descripcion": "Celebrando décadas de excelencia en educación técnica y profesional."
-      },
-      "titulo": "Nuestra Historia",
-      "desarrollo": {
-        "subtitulo": "Un Legado de Compromiso y Transformación",
-        "parrafos": [
-          "El Politécnico Madre Rafaela Ybarra, inaugurado con solemnidad el 14 de febrero de 1978, se enorgullece al conmemorar su 46 aniversario como un bastión educativo en la República Dominicana. Su origen se remonta a sus primeros días como una institución dirigida por monjas comprometidas con la educación y la formación integral de sus estudiantes.",
-          "A lo largo de su rica historia, el Politécnico ha experimentado una evolución significativa al pasar de ser una institución de carácter religioso a formar parte integral del Ministerio de Educación de la República Dominicana. Este cambio marcó un hito trascendental, consolidándose como un referente destacado en la educación técnica y profesional en el país.",
-          "La institución ha mantenido a lo largo de los años su firme compromiso con la excelencia académica y la formación de profesionales altamente capacitados. Su legado está impregnado de valores éticos y morales, reflejando la visión de su fundadora y el impacto positivo que ha tenido en la sociedad dominicana."
-        ]
-      },
-      "aportesSignificativos": {
-        "subtitulo": "Aportes Significativos a la Sociedad Dominicana",
-        "contenido": [
-          "Como parte de los más significativos aportes que ha hecho el Politécnico a la sociedad dominicana se pueden señalar:",
-          "- Desarrollo de programas educativos innovadores que han contribuido a la formación de profesionales altamente calificados en diversas áreas.",
-          "- Implementación de proyectos de investigación que han impulsado el avance científico y tecnológico en el país.",
-          "- Colaboración activa con empresas e instituciones para fomentar la inserción laboral de sus egresados.",
-          "- Promoción de valores éticos y ciudadanos, formando líderes comprometidos con el desarrollo sostenible.",
-          "- Participación activa en iniciativas comunitarias y sociales para contribuir al bienestar general de la sociedad dominicana."
-        ]
-      },
-      "carrerasPrecursoras": {
-        "subtitulo": "Carreras Precursoras",
-        "contenido": [
-          "Las carreras en las que el Politécnico fue precursora son:",
-          "- Ingeniería en Tecnología de la Información",
-          "- Administración de Empresas Turísticas",
-          "- Ingeniería Ambiental",
-          "- Tecnología Médica",
-          "- Diseño Gráfico y Multimedia",
-          "Estas pioneras carreras no solo marcaron la diferencia en el ámbito educativo, sino que también respondieron a las necesidades cambiantes de la sociedad, contribuyendo al desarrollo integral del país."
-        ]
-      }
-    }
-  }
+	"HERO": {
+		"TITULO": "Nuestra Historia",
+		"SUBTITLO": "lorem",
+		"LOGO": "/images/logo.png"
+	},
+	"CONTENIDO": [
+		{
+			"TITLE": "Un Legado de Compromiso y Transformación",
+			"PARRAFOS": [
+				"El Politécnico Madre Rafaela Ybarra, inaugurado con solemnidad el 14 de febrero de 1978, se enorgullece al conmemorar su 46 aniversario como un bastión educativo en la República Dominicana. Su origen se remonta a sus primeros días como una institución dirigida por monjas comprometidas con la educación y la formación integral de sus estudiantes.",
+				"A lo largo de su rica historia, el Politécnico ha experimentado una evolución significativa al pasar de ser una institución de carácter religioso a formar parte integral del Ministerio de Educación de la República Dominicana. Este cambio marcó un hito trascendental, consolidándose como un referente destacado en la educación técnica y profesional en el país.",
+				"La institución ha mantenido a lo largo de los años su firme compromiso con la excelencia académica y la formación de profesionales altamente capacitados. Su legado está impregnado de valores éticos y morales, reflejando la visión de su fundadora y el impacto positivo que ha tenido en la sociedad dominicana."
+			]
+		},
+		{
+			"TITLE": "Aportes Significativos a la Sociedad Dominicana",
+			"PARRAFOS": [
+				"Como parte de los más significativos aportes que ha hecho el Politécnico a la sociedad dominicana se pueden señalar:",
+				"Desarrollo de programas educativos innovadores que han contribuido a la formación de profesionales altamente calificados en diversas áreas.",
+				"Implementación de proyectos de investigación que han impulsado el avance científico y tecnológico en el país.",
+				"Colaboración activa con empresas e instituciones para fomentar la inserción laboral de sus egresados.",
+				"Promoción de valores éticos y ciudadanos, formando líderes comprometidos con el desarrollo sostenible.",
+				"Participación activa en iniciativas comunitarias y sociales para contribuir al bienestar general de la sociedad dominicana."
+			]
+		},
+		{
+			"TITLE": "Carreras Precursoras",
+			"PARRAFOS": [
+				"Las carreras en las que el Politécnico fue precursora son:",
+				"- Ingeniería en Tecnología de la Información",
+				"- Administración de Empresas Turísticas",
+				"- Ingeniería Ambiental",
+				"- Tecnología Médica",
+				"- Diseño Gráfico y Multimedia",
+				"Estas pioneras carreras no solo marcaron la diferencia en el ámbito educativo, sino que también respondieron a las necesidades cambiantes de la sociedad, contribuyendo al desarrollo integral del país."
+			]
+		}
+	]
+}
