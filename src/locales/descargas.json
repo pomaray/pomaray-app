@@ -1,0 +1,99 @@
+{
+    "HERO": {
+      "TITULO": "Descargas",
+      "ICONO": "/icons/icone-pdf-symbole-png-verte.png"
+    },
+    "DESCARGAS": [
+      {
+        "ID": 1,
+        "NOMBRE": "Guía de Usuario",
+        "TAMANO": "2 MB",
+        "VISITAS": 120,
+        "FECHA_AÑADIDO": "2024-01-29",
+        "DESCARGAR": "/descargas/guia_usuario.pdf",
+        "VISTA_PREVIA": "/vista_previa/guia_usuario"
+      },
+      {
+        "ID": 2,
+        "NOMBRE": "Informe Anual 2023",
+        "TAMANO": "5 MB",
+        "VISITAS": 85,
+        "FECHA_AÑADIDO": "2024-01-28",
+        "DESCARGAR": "/descargas/informe_anual_2023.pdf",
+        "VISTA_PREVIA": "/vista_previa/informe_anual_2023"
+      },
+      {
+        "ID": 3,
+        "NOMBRE": "Formulario de Solicitud",
+        "TAMANO": "1.5 MB",
+        "VISITAS": 50,
+        "FECHA_AÑADIDO": "2024-01-27",
+        "DESCARGAR": "/descargas/formulario_solicitud.pdf",
+        "VISTA_PREVIA": "/vista_previa/formulario_solicitud"
+      },
+      {
+        "ID": 4,
+        "NOMBRE": "Manual del Usuario",
+        "TAMANO": "3 MB",
+        "VISITAS": 90,
+        "FECHA_AÑADIDO": "2024-01-26",
+        "DESCARGAR": "/descargas/manual_usuario.pdf",
+        "VISTA_PREVIA": "/vista_previa/manual_usuario"
+      },
+      {
+        "ID": 5,
+        "NOMBRE": "Presentación Corporativa",
+        "TAMANO": "4 MB",
+        "VISITAS": 75,
+        "FECHA_AÑADIDO": "2024-01-25",
+        "DESCARGAR": "/descargas/presentacion_corporativa.pdf",
+        "VISTA_PREVIA": "/vista_previa/presentacion_corporativa"
+      },
+      {
+        "ID": 6,
+        "NOMBRE": "Plan Estratégico",
+        "TAMANO": "2.5 MB",
+        "VISITAS": 60,
+        "FECHA_AÑADIDO": "2024-01-24",
+        "DESCARGAR": "/descargas/plan_estrategico.pdf",
+        "VISTA_PREVIA": "/vista_previa/plan_estrategico"
+      },
+      {
+        "ID": 7,
+        "NOMBRE": "Catálogo de Productos",
+        "TAMANO": "5.5 MB",
+        "VISITAS": 110,
+        "FECHA_AÑADIDO": "2024-01-23",
+        "DESCARGAR": "/descargas/catalogo_productos.pdf",
+        "VISTA_PREVIA": "/vista_previa/catalogo_productos"
+      },
+      {
+        "ID": 8,
+        "NOMBRE": "Informe Financiero",
+        "TAMANO": "4.5 MB",
+        "VISITAS": 80,
+        "FECHA_AÑADIDO": "2024-01-22",
+        "DESCARGAR": "/descargas/informe_financiero.pdf",
+        "VISTA_PREVIA": "/vista_previa/informe_financiero"
+      },
+      {
+        "ID": 9,
+        "NOMBRE": "Folleto Publicitario",
+        "TAMANO": "1.8 MB",
+        "VISITAS": 95,
+        "FECHA_AÑADIDO": "2024-01-21",
+        "DESCARGAR": "/descargas/folleto_publicitario.pdf",
+        "VISTA_PREVIA": "/vista_previa/folleto_publicitario"
+      },
+      {
+        "ID": 10,
+        "NOMBRE": "Calendario de Eventos",
+        "TAMANO": "2.2 MB",
+        "VISITAS": 70,
+        "FECHA_AÑADIDO": "2024-01-20",
+        "DESCARGAR": "/descargas/calendario_eventos.pdf",
+        "VISTA_PREVIA": "/vista_previa/calendario_eventos"
+      }
+    ]
+  }
+  
