@@ -13,6 +13,7 @@ const config: Config = {
 			screens: {
 				xs: "390px",
 				xxs: "320px",
+				tv: "2800px",
 			},
 		},
 	},

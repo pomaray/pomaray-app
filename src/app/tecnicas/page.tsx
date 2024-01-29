@@ -16,14 +16,14 @@ export default function HomePage() {
 	const dynamicPath = "/tecnicas";
 
 	return (
-		<main>
+		<main className="min-h-[90vh]">
 			<Section className="p-10">
 				<SectionTitle text={LOCALE.HERO.TITULO} />
 				<p className="text-lg  max-w-2xl mx-auto text-center ">
 					{LOCALE.HERO.DESCRIPCION}
 				</p>
 			</Section>
-			<Section className="pb-20 flex flex-col justify-center 2xl:px-[15rem]">
+			<Section className="pb-20 flex flex-col justify-center 2xl:px-[15rem] tv:px-[45rem]">
 				<SectionTitle withLine text={LOCALE.TECH_TITULO} />
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-4 px-6 sm:px-10 md:px-10 lg:px-[15rem]]">
 					{LOCALE.TECNICAS.map((tecnica) => {
@@ -39,7 +39,7 @@ export default function HomePage() {
 								isPressable
 								key={tecnica.ID}
 								shadow="none"
-								className="xl:p-6 hover:translate-y-2 hover:opacity-50 bg-default-100  shadow-small text-foreground transition-transform-opacity"
+								className="xl:p-6 hover:translate-y-2 hover:opacity-50 bg-default-100 shadow-small text-foreground transition-transform-opacity"
 							>
 								<CardHeader className="flex items-center justify-center pt-5 sm:pt-10">
 									<div
