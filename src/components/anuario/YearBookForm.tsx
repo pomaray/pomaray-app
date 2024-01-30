@@ -7,7 +7,9 @@ import { StudentRequest } from "@/types/request/student";
 
 export default function YearBookForm({
 	setFormRequestHandler,
+	isLoading = false,
 }: {
+	isLoading: boolean;
 	setFormRequestHandler: Dispatch<SetStateAction<StudentRequest>>;
 }) {
 	const getYears = (): { key: string; value: string }[] => {
@@ -63,8 +65,9 @@ export default function YearBookForm({
 		>
 			<Input
 				size="sm"
-				name="studentName"
+				name="name"
 				label={i18n.FORM.NAME}
+				isDisabled={isLoading}
 				onChange={(e) =>
 					setFormRequestHandler((prev) => ({
 						...prev,
@@ -74,8 +77,9 @@ export default function YearBookForm({
 			/>
 			<Autocomplete
 				size="sm"
-				name="studentTech"
+				name="tech"
 				label={i18n.FORM.TECH}
+				isDisabled={isLoading}
 				defaultItems={getTechIterables()}
 				onSelectionChange={(key) =>
 					key &&
@@ -93,7 +97,8 @@ export default function YearBookForm({
 			</Autocomplete>
 			<Autocomplete
 				size="sm"
-				name="tecnique"
+				name="years"
+				isDisabled={isLoading}
 				label={i18n.FORM.PERIOD}
 				defaultItems={getYears()}
 				onSelectionChange={(key) =>

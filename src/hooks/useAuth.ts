@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { User } from "@/types/user";
+import { User } from "@/types/general";
 import i18n from "@/locales/acceder.json";
 import axios, { AxiosError } from "axios";
 
@@ -60,7 +60,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
 			const { user } = response.data as AuthResponse;
 
 			if (!user) {
-				set({ error: i18n.ERRORES.CODES["500"] });
+				set({ error: i18n.ERRORS.CODES["500"] });
 				return undefined;
 			}
 
@@ -73,12 +73,12 @@ export const useAuthStore = create<AuthStore>((set) => ({
 					error.response.status.toString() as keyof ErrorCodes;
 				set({
 					user: undefined,
-					error: i18n.ERRORES.CODES[errorStatus] || i18n.ERRORES.CODES["500"],
+					error: i18n.ERRORS.CODES[errorStatus] || i18n.ERRORS.CODES["500"],
 				});
 			} else {
 				set({
 					user: undefined,
-					error: i18n.ERRORES.CODES["500"],
+					error: i18n.ERRORS.CODES["500"],
 				});
 			}
 		} finally {

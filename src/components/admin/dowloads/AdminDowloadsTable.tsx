@@ -9,13 +9,18 @@ import {
 	Button,
 } from "@nextui-org/react";
 import { cloneElement, useCallback } from "react";
-import { FILE_ICONS } from "./FileIcons";
+import { FILE_ICONS } from "@/components/descargas/FileIcons";
 import { PiDownloadSimpleFill } from "react-icons/pi";
 import { type File } from "@/types/general";
 import useFiles from "@/hooks/useFiles";
-import { TableEmpty } from "../TableEmpty";
+import { TableEmpty } from "@/components/TableEmpty";
+import { AdminEditStudentModal } from "../student/AdminEditStudentModal";
 
-export function DowloadsTable() {
+export function AdminDowloadsTable({
+	forceLoaing,
+}: {
+	forceLoaing: boolean;
+}) {
 	const { isError, isNotFound, isLoading, files } = useFiles();
 
 	const renderCell = useCallback((file: File, columnKey: string) => {
@@ -42,15 +47,24 @@ export function DowloadsTable() {
 				);
 			}
 
-			case "download":
+			case "actions":
 				return (
-					<Button
-						variant="solid"
-						isIconOnly
-						className="hover:opacity-100 opacity-70 transition-opacity"
-					>
-						<PiDownloadSimpleFill className="text-lg text-foreground" />
-					</Button>
+					<>
+						<Button
+							variant="solid"
+							isIconOnly
+							className="hover:opacity-100 opacity-70 transition-opacity"
+						>
+							<PiDownloadSimpleFill className="text-lg text-foreground" />
+						</Button>
+						<Button
+							variant="solid"
+							isIconOnly
+							className="hover:opacity-100 opacity-70 transition-opacity"
+						>
+							<PiDownloadSimpleFill className="text-lg text-foreground" />
+						</Button>
+					</>
 				);
 			default:
 				return (
@@ -74,16 +88,14 @@ export function DowloadsTable() {
 				<TableColumn key="size">{i18n.TABLE.COLUMNS.FILE_SIZE}</TableColumn>
 
 				<TableColumn key="date">{i18n.TABLE.COLUMNS.FILE_DATE}</TableColumn>
-				<TableColumn key="download">
-					{i18n.TABLE.COLUMNS.DOWNLOAD_FILE}
-				</TableColumn>
+				<TableColumn key="actions">Acciones</TableColumn>
 			</TableHeader>
 
 			<TableBody
 				emptyContent={
 					<TableEmpty
 						isError={isError}
-						isLoading={isLoading}
+						isLoading={isLoading || forceLoaing}
 						isNotFound={isNotFound}
 					/>
 				}

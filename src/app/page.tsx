@@ -78,15 +78,15 @@ export default function HomePage() {
 					</p>
 				</div>
 				<div className="mt-12 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-9">
-					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background">
+					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background dark:bg-default-200">
 						<FaUserGraduate className="text-3xl text-primary" />
 						<p className="p-2">{i18n.HERO.GRADUATED}</p>
 					</Card>
-					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background">
+					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background dark:bg-default-200">
 						<FaUsers className="text-3xl text-primary" />
 						<p className="p-2">{i18n.HERO.USUER}</p>
 					</Card>
-					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background">
+					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background dark:bg-default-200">
 						<FaLaptopCode className="text-3xl text-primary" />
 						<p className="p-2">{i18n.HERO.TECHNOLOGY}</p>
 					</Card>

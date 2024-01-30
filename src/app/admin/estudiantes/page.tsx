@@ -19,7 +19,10 @@ export default function AdminStudents() {
 	return (
 		<section className="min-h-[80vh] pb-12 px-2">
 			<div className="w-full text-center mx-auto py-6">
-				<YearBookForm setFormRequestHandler={setFormRequest} />
+				<YearBookForm
+					isLoading={isLoading}
+					setFormRequestHandler={setFormRequest}
+				/>
 			</div>
 
 			<AdminStudentTable

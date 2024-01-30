@@ -24,7 +24,7 @@ export function Header() {
 				isBlurred={false}
 				isBordered={false}
 				onMenuOpenChange={setIsMenuOpen}
-				className="z-50 relative shadow-sm border-none outline-none w-screen bg-background"
+				className="z-50 relative shadow-sm border-none outline-none w-screen bg-background dark:bg-default-200"
 			>
 				<NextNavbarContent>
 					<NavbarBrand>
