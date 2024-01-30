@@ -7,7 +7,7 @@
     "DATA": [
       {
         "ID": "noticia1",
-        "imagen_principal": "/daai/daai1.jpg",
+        "imagen_principal": "/images/daai/daai1.jpg",
         "titular": "Estudiantes del Politécnico Madre Rafaela Ybarra Organizan Feria de Ciencias Innovadora",
         "ENTRADA": "En un esfuerzo por promover la creatividad y el ingenio, estudiantes del Instituto Politécnico Madre Rafaela Ybarra se unieron para organizar una Feria de Ciencias única y emocionante, que tuvo lugar el pasado [Fecha].",
         "cuerpo": [
@@ -24,16 +24,16 @@
         "recursos_multimedia": {
           "imagen_principal": "",
           "galeria_imagenes": [
-            "/noticias/1/url_imagen_proyecto_robotica.jpg",
-            "/noticias/1/url_imagen_proyecto_energia_renovable.jpg",
-            "/noticias/1/url_imagen_inauguracion.jpg"
+            "/images/noticias/1.jpg",
+            "/images/noticias/1.jpg",
+            "/images/noticias/1.jpg"
           ],
           "video": "/noticias/1/url_video_entrevistas_estudiantes.mp4"
         }
       },
       {
         "ID": "noticia2",
-        "imagen_principal": "/contabilidad/GAT3.jpg",
+        "imagen_principal": "/images/contabilidad/GAT3.jpg",
         "titular": "Nuevo Laboratorio de Inteligencia Artificial Inaugurado en el Campus del Politécnico Madre Rafaela Ybarra",
         "ENTRADA": "El Instituto Politécnico Madre Rafaela Ybarra dio un paso hacia el futuro con la inauguración de su nuevo Laboratorio de Inteligencia Artificial (IA), un espacio de vanguardia diseñado para impulsar la investigación y la educación en este campo emergente.",
         "cuerpo": [
@@ -48,18 +48,18 @@
         "fecha": "12/5/2024",
         "vistas": 2200,
         "recursos_multimedia": {
-          "imagen_principal": "/contabilidad/GAT2.jpg",
+          "imagen_principal": "/images/contabilidad/GAT2.jpg",
           "galeria_imagenes": [
-            "/noticias/2/url_imagen_equipo_computadoras.jpg",
-            "/noticias/2/url_imagen_ceremonia_inauguracion.jpg",
-            "/noticias/2/url_imagen_clases_practicas.jpg"
+            "/images/noticias/2.jpg",
+            "/images/noticias/2/url_imagen_ceremonia_inauguracion.jpg",
+            "/images/noticias/2/url_imagen_clases_practicas.jpg"
           ],
           "video": "/noticias/2/url_video_entrevista_profesor_director.mp4"
         }
       },
       {
         "ID": "noticia3",
-        "imagen_principal": "/gastronomia/gas3.jpg",
+        "imagen_principal": "/images/gastronomia/gas3.jpg",
         "titular": "Exitoso Evento Cultural en el Politécnico Madre Rafaela Ybarra",
         "ENTRADA": "El Politécnico Madre Rafaela Ybarra celebró un vibrante evento cultural que reunió a estudiantes, profesores y personal en una jornada llena de arte, música y expresión cultural.",
         "cuerpo": [
@@ -74,11 +74,11 @@
         "fecha": "12/5/2024",
         "vistas": 1800,
         "recursos_multimedia": {
-          "imagen_principal": "/gas/3.jpg",
+          "imagen_principal": "/images/gastronomia/gas/3.jpg",
           "galeria_imagenes": [
-            "/noticias/3/url_imagen_danza_estudiantil.jpg",
-            "/noticias/3/url_imagen_exposicion_arte.jpg",
-            "/noticias/3/url_imagen_director_discurso.jpg"
+            "/images/noticias/3.jpg",
+            "/images/noticias/3.jpg",
+            "/images/noticias/3.jpg"
           ],
           "video": "/noticias/3/url_video_entrevistas_participantes.mp4"
         }
@@ -102,9 +102,9 @@
         "recursos_multimedia": {
           "imagen_principal": "/ref/1.jpg",
           "galeria_imagenes": [
-            "/noticias/4/url_imagen_presentacion_cientifica.jpg",
-            "/noticias/4/url_imagen_panel_discusion.jpg",
-            "/noticias/4/url_imagen_interaccion_estudiantes.jpg"
+            "/images/noticias/4.jpg",
+            "/images/noticias/4.jpg",
+            "/images/noticias/4.jpg"
           ],
           "video": "/noticias/4/url_video_entrevistas_investigadores.mp4"
         }
@@ -127,16 +127,16 @@
         "recursos_multimedia": {
           "imagen_principal": "/noticias/5/url_imagen_deporte_campeonato.jpg",
           "galeria_imagenes": [
-            "/noticias/5/url_imagen_atletismo.jpg",
-            "/noticias/5/url_imagen_natacion.jpg",
-            "/noticias/5/url_imagen_equipo_futbol.jpg"
+            "/images/noticias/5.jpg",
+            "images/noticias/5.jpg",
+            "/images/noticias/5.jpg"
           ],
           "video": "/noticias/5/url_video_entrevistas_atletas_deportivos.mp4"
         }
       },
       {
         "ID": "noticia2",
-        "imagen_principal": "/electronica/3.jpg",
+        "imagen_principal": "/images/electronica/3.jpg",
         "titular": "Nuevo Laboratorio de Inteligencia Artificial Inaugurado en el Campus del Politécnico Madre Rafaela Ybarra",
         "ENTRADA": "El Instituto Politécnico Madre Rafaela Ybarra dio un paso hacia el futuro con la inauguración de su nuevo Laboratorio de Inteligencia Artificial (IA), un espacio de vanguardia diseñado para impulsar la investigación y la educación en este campo emergente.",
         "cuerpo": [
@@ -151,18 +151,18 @@
         "fecha": "12/5/2024",
         "vistas": 2200,
         "recursos_multimedia": {
-          "imagen_principal": "/contabilidad/GAT2.jpg",
+          "imagen_principal": "/images/contabilidad/GAT2.jpg",
           "galeria_imagenes": [
-            "/noticias/2/url_imagen_equipo_computadoras.jpg",
-            "/noticias/2/url_imagen_ceremonia_inauguracion.jpg",
-            "/noticias/2/url_imagen_clases_practicas.jpg"
+            "/images/noticias/2.jpg",
+            "/images/noticias/2.jpg",
+            "/images/noticias/2.jpg"
           ],
           "video": "/noticias/2/url_video_entrevista_profesor_director.mp4"
         }
       },
       {
         "ID": "noticia3",
-        "imagen_principal": "/electricidad/3.jpg",
+        "imagen_principal": "/images/electricidad/3.jpg",
         "titular": "Exitoso Evento Cultural en el Politécnico Madre Rafaela Ybarra",
         "ENTRADA": "El Politécnico Madre Rafaela Ybarra celebró un vibrante evento cultural que reunió a estudiantes, profesores y personal en una jornada llena de arte, música y expresión cultural.",
         "cuerpo": [
@@ -177,18 +177,18 @@
         "fecha": "12/5/2024",
         "vistas": 1800,
         "recursos_multimedia": {
-          "imagen_principal": "/gas/3.jpg",
+          "imagen_principal": "/images/gas/3.jpg",
           "galeria_imagenes": [
-            "/noticias/3/url_imagen_danza_estudiantil.jpg",
-            "/noticias/3/url_imagen_exposicion_arte.jpg",
-            "/noticias/3/url_imagen_director_discurso.jpg"
+            "/images/noticias/3.jpg",
+            "/images/noticias/3.jpg",
+            "/images/noticias/3.jpg"
           ],
           "video": "/noticias/3/url_video_entrevistas_participantes.mp4"
         }
       },
       {
         "ID": "noticia4",
-        "imagen_principal": "/daai/daai6.jpg",
+        "imagen_principal": "/images/daai/daai6.jpg",
         "titular": "Conferencia Internacional sobre Avances Científicos en el Politécnico Madre Rafaela Ybarra",
         "ENTRADA": "El Politécnico Madre Rafaela Ybarra fue sede de una destacada conferencia internacional que reunió a expertos de todo el mundo para discutir los últimos avances científicos en diversas disciplinas.",
         "cuerpo": [
@@ -203,18 +203,18 @@
         "fecha": "12/5/2024",
         "vistas": 2000,
         "recursos_multimedia": {
-          "imagen_principal": "/ref/1.jpg",
+          "imagen_principal": "/images/ref/1.jpg",
           "galeria_imagenes": [
-            "/noticias/4/url_imagen_presentacion_cientifica.jpg",
-            "/noticias/4/url_imagen_panel_discusion.jpg",
-            "/noticias/4/url_imagen_interaccion_estudiantes.jpg"
+            "/images/noticias/4.jpg",
+            "/images/noticias/4.jpg",
+            "/images/noticias/4.jpg"
           ],
           "video": "/noticias/4/url_video_entrevistas_investigadores.mp4"
         }
       },
       {
         "ID": "noticia5",
-        "imagen_principal": "/cm/cm1.jpg",
+        "imagen_principal": "/images/cm/cm1.jpg",
         "titular": "Éxito del Equipo Deportivo del Politécnico Madre Rafaela Ybarra en Campeonato Nacional",
         "ENTRADA": "Los atletas del Politécnico Madre Rafaela Ybarra demostraron su habilidad y dedicación al lograr un destacado desempeño en el Campeonato Nacional de Deportes, compitiendo contra equipos de universidades de todo el país.",
         "cuerpo": [
@@ -228,11 +228,11 @@
         "fecha": "12/5/2024",
         "vistas": 1800,
         "recursos_multimedia": {
-          "imagen_principal": "/noticias/5/url_imagen_deporte_campeonato.jpg",
+          "imagen_principal": "/images/noticias/5.jpg",
           "galeria_imagenes": [
-            "/noticias/5/url_imagen_atletismo.jpg",
-            "/noticias/5/url_imagen_natacion.jpg",
-            "/noticias/5/url_imagen_equipo_futbol.jpg"
+            "/images/noticias/5.jpg",
+            "/images/noticias/5.jpg",
+            "/images/noticias/5.jpg"
           ],
           "video": "/noticias/5/url_video_entrevistas_atletas_deportivos.mp4"
         }
