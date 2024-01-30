@@ -3,9 +3,9 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { SunIcon, MoonIcon, MailIcon } from "@nextui-org/shared-icons";
-import LOCALE from "@/locales/root.json";
 import { Button } from "@nextui-org/button";
 import { Tooltip } from "@nextui-org/react";
+import i18n from "@/locales/root.json";
 
 export default function ThemeSwitcher() {
 	const [mounted, setMounted] = useState(false);
@@ -50,7 +50,7 @@ export default function ThemeSwitcher() {
 					isIconOnly
 					className="dark:hover:bg-neutral-700 hover:bg-slate-500 transition-colors p-2 text-xl rounded-xl"
 				>
-					<a href={`mailto:${LOCALE.SITIO_WEB.CORREO}`}>
+					<a href={`mailto:${i18n.WEBSITE.MAIL}`}>
 						<MailIcon className="text-white" />
 					</a>
 				</Button>

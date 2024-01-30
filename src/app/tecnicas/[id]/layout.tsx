@@ -1,10 +1,6 @@
 import TECH from "@/locales/tecnicas[id].json";
-import LOCALE from "@/locales/root.json";
+import i18n from "@/locales/root.json";
 import { notFound } from "next/navigation";
-
-type Props = {
-	params: { id: string };
-};
 
 export async function generateMetadata({
 	params,
@@ -14,15 +10,16 @@ export async function generateMetadata({
 	};
 }) {
 	const id = params.id;
-	const technique = TECH.DATA[id as keyof typeof TECH.DATA];
+	const tech = TECH.DATA[id as keyof typeof TECH.DATA];
 
-	if (!technique) notFound();
+	if (!tech) notFound();
 	return {
 		metadataBase: new URL("https://pomaray.vercel.app/"),
-		title: `${technique.NOMBRE} - ${LOCALE.SITIO_WEB.NOMBRE}`,
+		title: `${tech.NAME} - ${i18n.WEBSITE.NAME}`,
 		openGraph: {
-			images: technique.BANNER,
+			images: tech.BANNER,
 		},
+		description: tech.DESCRIPTION,
 	};
 }
 

@@ -9,20 +9,21 @@ import {
 	ModalHeader,
 	Tooltip,
 	useDisclosure,
-	Checkbox,
-	CheckboxGroup,
 	Image,
 	Select,
 	SelectItem,
-	Autocomplete,
-	AutocompleteItem,
 	Chip,
 } from "@nextui-org/react";
 import { PressEvent } from "@react-types/shared";
 import { EditDocumentBulkIcon } from "@nextui-org/shared-icons";
-import { Role, Sex, Sexos, Techs } from "@/types/enums";
-import { Student } from "@/types/student";
+import { Role, Sex } from "@/types/enums";
+import { Student } from "@/types/general";
 import useAuthStore from "@/hooks/useAuth";
+import {
+	getSexIterables,
+	getTechIterables,
+	renderSexEnum,
+} from "@/utils/enums";
 
 export function AdminEditStudentModal({
 	student,
@@ -126,23 +127,25 @@ export function AdminEditStudentModal({
 									size="sm"
 									color="primary"
 									variant="bordered"
-									items={Sexos}
+									items={getSexIterables()}
 									label="Sexo:"
-									defaultSelectedKeys={[student?.sex.toString()]}
+									defaultSelectedKeys={[student?.sex.toString().toUpperCase()]}
 									fullWidth
 									renderValue={(items) => (
 										<span className="capitalize text-foreground">
-											{items[0].textValue === Sex.FEMALE ? "Mujer" : "Homber"}
+											{items.length > 0
+												? renderSexEnum(items[0].textValue as unknown as Sex)
+												: undefined}
 										</span>
 									)}
 								>
-									{(role) => (
+									{(sex) => (
 										<SelectItem
 											className="capitalize"
-											key={role.key.toString()}
-											textValue={role.key.toString()}
+											key={sex.key.toString()}
+											textValue={sex.key.toString()}
 										>
-											{role.key === Sex.FEMALE ? "Mujer" : "Hombre"}
+											{renderSexEnum(sex.key as Sex)}
 										</SelectItem>
 									)}
 								</Select>
@@ -151,7 +154,7 @@ export function AdminEditStudentModal({
 									size="sm"
 									color="primary"
 									variant="bordered"
-									items={Techs}
+									items={getTechIterables()}
 									label="Tecnica:"
 									defaultSelectedKeys={[student?.current_technique]}
 									fullWidth
@@ -161,13 +164,13 @@ export function AdminEditStudentModal({
 										</span>
 									)}
 								>
-									{(role) => (
+									{(tech) => (
 										<SelectItem
 											className="capitalize"
-											key={role.key.toString()}
-											textValue={role.key as string}
+											key={tech.key.toString()}
+											textValue={tech.key as string}
 										>
-											{role.value}
+											{tech.value}
 										</SelectItem>
 									)}
 								</Select>

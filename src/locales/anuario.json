@@ -1,11 +1,11 @@
 {
-	"TITULO": "Encuentra tu foto de anuario",
+	"TITLE": "Encuentra tu foto de anuario",
 	"TIP": "Filtra y encuentra tu foto de anuario fácilmente. Puedes Utilizar los filtros para buscar.",
-	"FORMULARIO": {
-		"MIN_PERIDO": "2010",
-		"NOMBRE": "Nombre del estudiante",
-		"TECNICA": "Técnica",
-		"PERIODO": "Periodo escolar"
+	"FORM": {
+		"MIN_PERIOD": "2010",
+		"NAME": "Nombre del estudiante",
+		"TECH": "Técnica",
+		"PERIOD": "Periodo escolar"
 	},
 	"ERROR": "Ops! Hubo un error, por favor intentelo de nuevo.",
 	"NOT_FOUND": "No se pudo encontrar el estudiante que buscas"

@@ -1,14 +1,14 @@
 "use client";
-import LOCALE from "@/locales/anuario.json";
+import i18n from "@/locales/anuario.json";
 import { Input, Autocomplete, AutocompleteItem } from "@nextui-org/react";
-import { Tech, Techs } from "@/types/enums";
 import { Dispatch, FormEvent, SetStateAction } from "react";
-import { type FormRequest } from "@/hooks/useYearBook";
+import { getTechIterables } from "@/utils/enums";
+import { StudentRequest } from "@/types/request/student";
 
 export default function YearBookForm({
 	setFormRequestHandler,
 }: {
-	setFormRequestHandler: Dispatch<SetStateAction<FormRequest>>;
+	setFormRequestHandler: Dispatch<SetStateAction<StudentRequest>>;
 }) {
 	const getYears = (): { key: string; value: string }[] => {
 		try {
@@ -16,7 +16,7 @@ export default function YearBookForm({
 			let startYear = 2010;
 
 			try {
-				startYear = Number(LOCALE.FORMULARIO.MIN_PERIDO);
+				startYear = Number(i18n.FORM.MIN_PERIOD);
 			} catch (innerError) {
 				console.error("Error al obtener el año mínimo:", innerError);
 			}
@@ -64,7 +64,7 @@ export default function YearBookForm({
 			<Input
 				size="sm"
 				name="studentName"
-				label={LOCALE.FORMULARIO.NOMBRE}
+				label={i18n.FORM.NAME}
 				onChange={(e) =>
 					setFormRequestHandler((prev) => ({
 						...prev,
@@ -75,8 +75,8 @@ export default function YearBookForm({
 			<Autocomplete
 				size="sm"
 				name="studentTech"
-				label={LOCALE.FORMULARIO.TECNICA}
-				defaultItems={Techs}
+				label={i18n.FORM.TECH}
+				defaultItems={getTechIterables()}
 				onSelectionChange={(key) =>
 					key &&
 					setFormRequestHandler((prev) => ({
@@ -94,7 +94,7 @@ export default function YearBookForm({
 			<Autocomplete
 				size="sm"
 				name="tecnique"
-				label={LOCALE.FORMULARIO.PERIODO}
+				label={i18n.FORM.PERIOD}
 				defaultItems={getYears()}
 				onSelectionChange={(key) =>
 					setFormRequestHandler((prev) => ({

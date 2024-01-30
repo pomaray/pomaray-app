@@ -3,9 +3,6 @@ import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { type User } from "@/types/user";
 import { UAParser } from "ua-parser-js";
-import * as jwt from "jose";
-import { log } from "console";
-import { stat } from "fs";
 
 interface TokenResponse {
 	user?: User;

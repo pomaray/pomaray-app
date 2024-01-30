@@ -1,21 +1,21 @@
 "use client";
 
 import { notFound, useParams } from "next/navigation";
-import LOCALE from "@/locales/tecnicas[id].json";
+import i18n from "@/locales/tecnicas[id].json";
 import { Image, Card, Button, Chip } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 
 export default function TechniquePage() {
 	const { id } = useParams<{ id: string }>();
 
-	const technique = LOCALE.DATA[id as keyof typeof LOCALE.DATA];
+	const technique = i18n.DATA[id as keyof typeof i18n.DATA];
 	const router = useRouter();
 
 	const mailTo = () => {
-		const subject = LOCALE.ENVIO_CORREO.SUJETO.replace("%s", technique.NOMBRE);
-		const body = LOCALE.ENVIO_CORREO.MENSAJE.replace("%s", technique.NOMBRE);
+		const subject = i18n.SEND_MAIL.SUBJECT.replace("%s", technique.NAME);
+		const body = i18n.SEND_MAIL.MESSAGE.replace("%s", technique.NAME);
 		const mailtoLink = `mailto:${
-			LOCALE.ENVIO_CORREO.CORREO
+			i18n.SEND_MAIL.MAIL
 		}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 		window.location.href = mailtoLink;
 	};
@@ -27,11 +27,7 @@ export default function TechniquePage() {
 			<article className="max-w-5xl mx-auto overflow-hidden px-6 sm:px-12 py-6">
 				<section className="flex flex-col items-center">
 					<div>
-						<Image
-							shadow="none"
-							src={technique.BANNER}
-							alt={technique.TITULO}
-						/>
+						<Image src={technique.BANNER} alt={technique.TITLE} />
 					</div>
 					<div className="flex flex-col justify-center items-start py-8 w-full">
 						<Chip
@@ -43,12 +39,12 @@ export default function TechniquePage() {
 								content: "text-ellipsis  overflow-hidden",
 							}}
 						>
-							{technique.NOMBRE}
+							{technique.NAME}
 						</Chip>
 						<h1 className="sm:text-4xl text-2xl font-bold mb-2 text-balance">
-							{technique.TITULO}
+							{technique.TITLE}
 						</h1>
-						{technique.DESCRIPCION.map((desc) => (
+						{technique.DESCRIPTION.map((desc) => (
 							<p
 								key={desc.substring(0, 10)}
 								className="mb-4 sm:text-lg text-sm"
@@ -57,25 +53,25 @@ export default function TechniquePage() {
 							</p>
 						))}
 						<div className="flex space-x-4 mt-4">
-							<Button color="primary">{LOCALE.DESCARGAR_BTN}</Button>
+							<Button color="primary">{i18n.DOWNLOAD_BTN}</Button>
 							<Button onClick={mailTo} color="primary" variant="bordered">
-								{LOCALE.SOLICITAR_BTN}
+								{i18n.REQUEST_BTN}
 							</Button>
 						</div>
 					</div>
 				</section>
 
-				{technique.INFORMACION.map((item) => (
-					<section key={item.TITULO} className="sm:py-6 py-2 sm:px-0">
+				{technique.INFORMATION.map((item) => (
+					<section key={item.TITLE} className="sm:py-6 py-2 sm:px-0">
 						<h2 className="sm:text-3xl text-xl font-bold my-4 text-primary">
-							{item.TITULO}
+							{item.TITLE}
 						</h2>
-						{item.PARRAFOS.map((parrafo) => (
+						{item.PARAGRAPHS.map((parag) => (
 							<p
-								key={parrafo.substring(0, 10)}
+								key={parag.substring(0, 10)}
 								className="opacity-80 sm:text-lg text-sm text-pretty sm:mb-4 mb-2"
 							>
-								{parrafo}
+								{parag}
 							</p>
 						))}
 					</section>
@@ -83,10 +79,10 @@ export default function TechniquePage() {
 
 				<section className="py-8">
 					<h2 className="text-3xl font-bold mb-4 text-primary">
-						{technique.GALERIA_TITULO}
+						{technique.GALLERY_TITLE}
 					</h2>
 					<div className="grid grid-cols-12 gap-4">
-						{technique.IMAGENES.map((image, index) => (
+						{technique.IMAGES.map((image, index) => (
 							<Card
 								shadow="none"
 								key={image.trim()}
@@ -95,7 +91,7 @@ export default function TechniquePage() {
 								<Image
 									removeWrapper
 									alt={`Image ${index + 1}`}
-									className="z-0 w-full h-full object-cover hover:scale-110 transition-transform"
+									className="z-0 w-full h-full object-cover hover:scale-125 transition-transform"
 									src={image}
 								/>
 							</Card>

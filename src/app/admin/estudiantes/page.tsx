@@ -3,15 +3,15 @@
 import useYearBook from "@/hooks/useYearBook";
 import { AdminStudentTable } from "@/components/admin/student/AdminStudentTable";
 import YearBookForm from "@/components/anuario/YearBookForm";
-import { Button } from "@nextui-org/react";
-import { PlusFilledIcon } from "@nextui-org/shared-icons";
 
 export default function AdminStudents() {
 	const {
 		students,
 		totalPages,
 		currentPage,
-
+		isNotFound,
+		isError,
+		isLoading,
 		setCurrentPage,
 		setFormRequest,
 	} = useYearBook(12);
@@ -27,6 +27,9 @@ export default function AdminStudents() {
 				currentPage={currentPage || 1}
 				totalPages={totalPages}
 				setCurrentPage={setCurrentPage}
+				isNotFound={isNotFound ?? false}
+				isError={isError}
+				isLoading={isLoading}
 			/>
 		</section>
 	);

@@ -1,54 +1,24 @@
-import LOCALE from "@/locales/descargas.json";
+import i18n from "@/locales/descargas.json";
 import {
 	Table,
 	TableHeader,
 	TableColumn,
 	TableBody,
-	Spinner,
 	TableCell,
 	TableRow,
 	Button,
 } from "@nextui-org/react";
-import { cloneElement, useCallback } from "react";
+import { cloneElement, useCallback, useEffect, useState } from "react";
 import { FILE_ICONS } from "./FileIcons";
 import { PiDownloadSimpleFill } from "react-icons/pi";
-
-interface Template {
-	file: string;
-	size: string;
-	type: string;
-	date: string;
-	[key: string]: string;
-}
+import { type File } from "@/types/general";
+import useFiles from "@/hooks/useFiles";
+import { TableEmpty } from "../TableEmpty";
 
 export function DowloadsTable() {
-	const items: Template[] = [
-		{
-			date: "20/01/2015",
-			file: "normas.pdf",
-			type: "pdf",
-			size: "666kb",
-		},
-		{
-			date: "20/01/2015",
-			file: "notas.xlsx",
-			type: "xlsx",
-			size: "666kb",
-		},
-		{
-			date: "20/01/2015",
-			file: "circular.docx",
-			type: "docx",
-			size: "666kb",
-		},
-		{
-			date: "20/01/2015",
-			file: "random.png",
-			type: "png",
-			size: "666kb",
-		},
-	];
-	const renderCell = useCallback((file: Template, columnKey: string) => {
+	const { isError, isNotFound, isLoading, files } = useFiles();
+
+	const renderCell = useCallback((file: File, columnKey: string) => {
 		const cellValue = file[columnKey];
 		const defaultFileIcon = FILE_ICONS.find(
 			(icon) => Object.keys(icon)[0] === "default",
@@ -99,36 +69,30 @@ export function DowloadsTable() {
 			}}
 		>
 			<TableHeader className="bg-blue-600">
-				<TableColumn key="file">
-					{LOCALE.TABLE.COLUMNAS.NOMBRE_ARCHIVO}
-				</TableColumn>
-				<TableColumn key="type">
-					{LOCALE.TABLE.COLUMNAS.TIPO_ARCHIVO}
-				</TableColumn>
-				<TableColumn key="size">
-					{LOCALE.TABLE.COLUMNAS.SIZE_ARCHIVO}
-				</TableColumn>
+				<TableColumn key="file">{i18n.TABLE.COLUMNS.FILE_NAME}</TableColumn>
+				<TableColumn key="type">{i18n.TABLE.COLUMNS.FILE_TYPE}</TableColumn>
+				<TableColumn key="size">{i18n.TABLE.COLUMNS.FILE_SIZE}</TableColumn>
 
-				<TableColumn key="date">
-					{LOCALE.TABLE.COLUMNAS.FECHA_ARCHIVO}
-				</TableColumn>
+				<TableColumn key="date">{i18n.TABLE.COLUMNS.FILE_DATE}</TableColumn>
 				<TableColumn key="download">
-					{LOCALE.TABLE.COLUMNAS.DESCARGAR_ARCHIVO}
+					{i18n.TABLE.COLUMNS.DOWNLOAD_FILE}
 				</TableColumn>
 			</TableHeader>
 
 			<TableBody
 				emptyContent={
-					<div className="min-h-[75vh] grid place-content-center">
-						<Spinner label="Cargando estudiantes" />
-					</div>
+					<TableEmpty
+						isError={isError}
+						isLoading={isLoading}
+						isNotFound={isNotFound}
+					/>
 				}
-				items={items}
+				items={files}
 			>
-				{(item) => (
-					<TableRow key={item.file}>
+				{(file) => (
+					<TableRow key={file.name}>
 						{(columnKey) => (
-							<TableCell>{renderCell(item, columnKey.toString())}</TableCell>
+							<TableCell>{renderCell(file, columnKey.toString())}</TableCell>
 						)}
 					</TableRow>
 				)}

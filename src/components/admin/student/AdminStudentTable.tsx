@@ -1,7 +1,7 @@
 "use client";
 import { TechIcons } from "@/components/tecnicas/TechIcons";
-import { sexColorMap } from "@/types/enums";
-import { Student } from "@/types/student";
+import { Sex } from "@/types/enums";
+import { Student } from "@/types/general";
 import {
 	User,
 	Chip,
@@ -18,16 +18,25 @@ import {
 import { useCallback, cloneElement } from "react";
 import { AdminEditStudentModal } from "./AdminEditStudentModal";
 import TECH from "@/locales/tecnicas.json";
+import { TableEmpty } from "@/components/TableEmpty";
+import { renderSexColor, renderSexEnum } from "@/utils/enums";
+import Link from "next/link";
 
 export function AdminStudentTable({
 	students,
 	totalPages,
 	currentPage,
+	isNotFound,
+	isError,
+	isLoading,
 	setCurrentPage,
 }: {
 	students?: Student[];
 	totalPages: number;
 	currentPage: number;
+	isNotFound: boolean;
+	isError: boolean;
+	isLoading: boolean;
 	setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }) {
 	const renderCell = useCallback((student: Student, columnKey: string) => {
@@ -46,11 +55,11 @@ export function AdminStudentTable({
 				return (
 					<Chip
 						className="capitalize"
-						color={sexColorMap[student.sex]}
+						color={renderSexColor(cellValue as Sex)}
 						size="sm"
 						variant="flat"
 					>
-						{cellValue}
+						{renderSexEnum(cellValue as Sex)}
 					</Chip>
 				);
 			case "current_technique": {
@@ -58,10 +67,12 @@ export function AdminStudentTable({
 					(icon) => Object.keys(icon)[0] === cellValue,
 				)?.[cellValue as string];
 
-				const tecnica = TECH.TECNICAS.find((item) => item.ID === cellValue);
+				const tecnica = TECH.TECHS.find((item) => item.ID === cellValue);
 
 				return (
 					<Button
+						as={Link}
+						href={`/tecnicas/${cellValue.toString().toLowerCase()}`}
 						size="sm"
 						className="p-2 text-white"
 						isIconOnly
@@ -93,11 +104,11 @@ export function AdminStudentTable({
 	return (
 		<Table
 			shadow="none"
-			aria-label="Example table with client side pagination"
 			className="py-6"
 			classNames={{
 				wrapper: "shadow-sm",
 			}}
+			aria-label="Tabla de estudiantes."
 			bottomContent={
 				<div className="flex w-full justify-center">
 					<Pagination
@@ -125,9 +136,11 @@ export function AdminStudentTable({
 
 			<TableBody
 				emptyContent={
-					<div className="min-h-[75vh] grid place-content-center">
-						<Spinner label="Cargando estudiantes" />
-					</div>
+					<TableEmpty
+						isError={isError}
+						isNotFound={isNotFound}
+						isLoading={isLoading}
+					/>
 				}
 				items={students}
 			>

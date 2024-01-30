@@ -17,10 +17,16 @@ import {
 } from "@nextui-org/react";
 import { PressEvent } from "@react-types/shared";
 import { AvatarIcon } from "@nextui-org/shared-icons";
-import { User } from "@/types/user";
-import { Role, Roles, Sex, Sexos } from "@/types/enums";
+import { User } from "@/types/general";
+import { Role, Sex } from "@/types/enums";
 import useAuthStore from "@/hooks/useAuth";
 import { useState } from "react";
+import {
+	getRoleIterables,
+	getSexIterables,
+	renderRoleEnum,
+	renderSexEnum,
+} from "@/utils/enums";
 
 interface AdminEditUserModal {
 	editUser?: User;
@@ -110,47 +116,22 @@ export function AdminEditUserModal({
 										value={editUser?.display_name}
 										isRequired
 									/>
-									{Roles && user?.role && user.role >= 2 && (
+									{user?.role && user.role >= 2 && (
 										<Select
 											color="primary"
 											variant="bordered"
-											items={Roles}
+											items={getRoleIterables()}
 											label="Rol"
 											defaultSelectedKeys={[user?.role.toString()]}
 											fullWidth
 											onSelectionChange={setRole}
 											renderValue={(items) => (
 												<span className="capitalize text-foreground">
-													{items[0].textValue
-														?.toLowerCase()
-														.replaceAll("_", " ")}
-												</span>
-											)}
-										>
-											{(role) => (
-												<SelectItem
-													className="capitalize"
-													key={role.key.toString()}
-													textValue={role.value}
-												>
-													{role.value.toLowerCase().replaceAll("_", " ")}
-												</SelectItem>
-											)}
-										</Select>
-									)}
-
-									{Sexos && user?.sex && (
-										<Select
-											color="primary"
-											variant="bordered"
-											items={Sexos}
-											label="Sexo:"
-											defaultSelectedKeys={[user?.sex.toString()]}
-											fullWidth
-											onSelectionChange={setRole}
-											renderValue={(items) => (
-												<span className="capitalize text-foreground">
-													{items[0].textValue === Sex.MALE ? "Hombre" : "Mujer"}
+													{items.length > 0
+														? renderRoleEnum(
+																items[0].textValue as unknown as Role,
+														  )
+														: undefined}
 												</span>
 											)}
 										>
@@ -160,7 +141,36 @@ export function AdminEditUserModal({
 													key={role.key.toString()}
 													textValue={role.key as string}
 												>
-													{role.key === Sex.MALE ? "Hombre" : "Mujer"}
+													{renderRoleEnum(role.key as Role)}
+												</SelectItem>
+											)}
+										</Select>
+									)}
+
+									{user?.sex && (
+										<Select
+											color="primary"
+											variant="bordered"
+											items={getSexIterables()}
+											label="Sexo:"
+											defaultSelectedKeys={[user?.sex.toString().toUpperCase()]}
+											fullWidth
+											onSelectionChange={setRole}
+											renderValue={(items) => (
+												<span className="capitalize text-foreground">
+													{items.length > 0
+														? renderSexEnum(items[0].textValue as Sex)
+														: undefined}
+												</span>
+											)}
+										>
+											{(sex) => (
+												<SelectItem
+													className="capitalize"
+													key={sex.key}
+													textValue={sex.key as string}
+												>
+													{renderSexEnum(sex.key as Sex)}
 												</SelectItem>
 											)}
 										</Select>

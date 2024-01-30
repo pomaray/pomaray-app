@@ -1,10 +1,10 @@
 "use client";
 
-import LOCALE from "@/locales/anuario.json";
+import i18n from "@/locales/anuario.json";
 import useYearBook from "@/hooks/useYearBook";
 import YearBookForm from "@/components/anuario/YearBookForm";
 
-import { SectionTitle } from "@/components/ui/Section";
+import { SectionTitle } from "@/components/ui/section";
 import { Pagination, Spinner } from "@nextui-org/react";
 import { YearBookStudent } from "@/components/anuario/YearBookStudent";
 
@@ -22,8 +22,8 @@ export default function YearBook() {
 	return (
 		<main className="flex flex-col gap-y-6 min-h-screen w-screen px-6 max-w-screen overflow-x-hidden">
 			<section className="w-full text-center max-w-5xl mx-auto">
-				<SectionTitle text={LOCALE.TITULO} withLine />
-				<p>{LOCALE.TIP}</p>
+				<SectionTitle text={i18n.TITULO} withLine />
+				<p>{i18n.TIP}</p>
 			</section>
 
 			<section className="w-full text-center max-w-7xl mx-auto py-6 md:px-20">

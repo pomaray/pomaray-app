@@ -1,9 +1,9 @@
 {
     "HERO": {
-      "TITULO": "¿Por qué estudiar en el Politécnico Madre Rafaela Ybarra?",
-      "DESCRIPCION": "El Politécnico Madre Rafaela Ybarra ofrece una educación de alta calidad en diversas áreas, proporcionando a los estudiantes las habilidades necesarias para destacar en el mundo laboral."
+      "TITLE": "¿Por qué estudiar en el Politécnico Madre Rafaela Ybarra?",
+      "DESCRIPTION": "El Politécnico Madre Rafaela Ybarra ofrece una educación de alta calidad en diversas áreas, proporcionando a los estudiantes las habilidades necesarias para destacar en el mundo laboral."
     },
-    "NOT_TITULO": "NOTICIAS",
+    "NOT_TITLE": "NOTICIAS",
     "DATA": [
       {
         "ID": "noticia1",
@@ -28,7 +28,7 @@
             "/images/noticias/1.jpg",
             "/images/noticias/1.jpg"
           ],
-          "video": "/noticias/1/url_video_entrevistas_estudiantes.mp4"
+          "video": "/noticias/1/url_video_entreviews_estudiantes.mp4"
         }
       },
       {
@@ -80,15 +80,15 @@
             "/images/noticias/3.jpg",
             "/images/noticias/3.jpg"
           ],
-          "video": "/noticias/3/url_video_entrevistas_participantes.mp4"
+          "video": "/noticias/3/url_video_entreviews_participantes.mp4"
         }
       },
       {
         "ID": "noticia4",
-        "imagen_principal": "/cm/cm4.jpg",
-        "titular": "Conferencia Internacional sobre Avances Científicos en el Politécnico Madre Rafaela Ybarra",
-        "ENTRADA": "El Politécnico Madre Rafaela Ybarra fue sede de una destacada conferencia internacional que reunió a expertos de todo el mundo para discutir los últimos avances científicos en diversas disciplinas.",
-        "cuerpo": [
+        "principal_image": "/cm/cm4.jpg",
+        "headline": "Conferencia Internacional sobre Avances Científicos en el Politécnico Madre Rafaela Ybarra",
+        "entry": "El Politécnico Madre Rafaela Ybarra fue sede de una destacada conferencia internacional que reunió a expertos de todo el mundo para discutir los últimos avances científicos en diversas disciplinas.",
+        "body": [
           "Investigadores y académicos presentaron sus trabajos en áreas como biotecnología, nanotecnología, y ciencias de la computación, compartiendo conocimientos y fomentando la colaboración internacional.",
           "El evento incluyó sesiones interactivas, paneles de discusión y oportunidades para que los estudiantes interactuaran con profesionales de la ciencia. La conferencia no solo destacó la importancia de la investigación en el Politécnico, sino también su papel en la comunidad científica global.",
           "El director del instituto expresó su gratitud a los participantes y subrayó el compromiso continuo del Politécnico Madre Rafaela Ybarra con la excelencia académica y la promoción de la investigación científica.",
@@ -106,15 +106,15 @@
             "/images/noticias/4.jpg",
             "/images/noticias/4.jpg"
           ],
-          "video": "/noticias/4/url_video_entrevistas_investigadores.mp4"
+          "video": "/noticias/4/url_video_entreviews_investigadores.mp4"
         }
       },
       {
         "ID": "noticia5",
-        "imagen_principal": "/cm/cm5.jpg",
-        "titular": "Éxito del Equipo Deportivo del Politécnico Madre Rafaela Ybarra en Campeonato Nacional",
-        "ENTRADA": "Los atletas del Politécnico Madre Rafaela Ybarra demostraron su habilidad y dedicación al lograr un destacado desempeño en el Campeonato Nacional de Deportes, compitiendo contra equipos de universidades de todo el país.",
-        "cuerpo": [
+        "principal_image": "/cm/cm5.jpg",
+        "headline": "Éxito del Equipo Deportivo del Politécnico Madre Rafaela Ybarra en Campeonato Nacional",
+        "ENTRY": "Los atletas del Politécnico Madre Rafaela Ybarra demostraron su habilidad y dedicación al lograr un destacado desempeño en el Campeonato Nacional de Deportes, compitiendo contra equipos de universidades de todo el país.",
+        "body": [
           "El equipo logró varias medallas de oro, plata y bronce en disciplinas como atletismo, natación y fútbol. Los estudiantes-atletas fueron elogiados por su espíritu competitivo y por representar con orgullo los colores del Politécnico en la competición nacional.",
           "El director de deportes del instituto expresó su satisfacción por los logros del equipo y destacó el papel fundamental del deporte en el desarrollo integral de los estudiantes.",
           "Este éxito deportivo se suma a la reputación del Politécnico Madre Rafaela Ybarra como un lugar donde se fomenta el talento en todas las áreas, incluyendo el deporte."
@@ -131,20 +131,21 @@
             "images/noticias/5.jpg",
             "/images/noticias/5.jpg"
           ],
-          "video": "/noticias/5/url_video_entrevistas_atletas_deportivos.mp4"
+          "video": "/noticias/5/url_video_entreviews_atletas_deportivos.mp4"
         }
       },
       {
         "ID": "noticia2",
-        "imagen_principal": "/images/electronica/3.jpg",
-        "titular": "Nuevo Laboratorio de Inteligencia Artificial Inaugurado en el Campus del Politécnico Madre Rafaela Ybarra",
-        "ENTRADA": "El Instituto Politécnico Madre Rafaela Ybarra dio un paso hacia el futuro con la inauguración de su nuevo Laboratorio de Inteligencia Artificial (IA), un espacio de vanguardia diseñado para impulsar la investigación y la educación en este campo emergente.",
-        "cuerpo": [
+        "principal_image": "/electronica/3.jpg",
+        "headline": "Nuevo Laboratorio de Inteligencia Artificial Inaugurado en el Campus del Politécnico Madre Rafaela Ybarra",
+        "ENTRY": "El Instituto Politécnico Madre Rafaela Ybarra dio un paso hacia el futuro con la inauguración de su nuevo Laboratorio de Inteligencia Artificial (IA), un espacio de vanguardia diseñado para impulsar la investigación y la educación en este campo emergente.",
+        "body": [
           "El laboratorio está equipado con las últimas tecnologías en IA, incluyendo computadoras de alto rendimiento, hardware especializado y acceso a conjuntos de datos masivos. Este desarrollo coloca al Politécnico Madre Rafaela Ybarra a la vanguardia de la investigación en IA a nivel nacional.",
           "La ceremonia de inauguración contó con la presencia de destacados expertos en inteligencia artificial, quienes elogiaron la iniciativa del instituto en la promoción de la investigación de vanguardia. El profesor [Nombre del Profesor], director del nuevo laboratorio, destacó las oportunidades que brindará a los estudiantes para participar en proyectos innovadores y colaborar con empresas líderes en tecnología.",
           "El laboratorio no solo será utilizado para investigación, sino también para cursos especializados en inteligencia artificial, brindando a los estudiantes la oportunidad de adquirir habilidades prácticas en este campo de rápido crecimiento.",
           "Con esta iniciativa, el Politécnico Madre Rafaela Ybarra busca no solo formar a la próxima generación de expertos en IA, sino también contribuir al avance de la investigación en este campo crucial para el futuro."
         ],
+<<<<<<< HEAD
         "cierre": "La inauguración del Laboratorio de Inteligencia Artificial marca un hito significativo en el compromiso del Instituto Politécnico Madre Rafaela Ybarra con la excelencia académica y la innovación tecnológica. Se espera que este nuevo recurso impulse la reputación del instituto como líder en educación y investigación en inteligencia artificial.",
         "firma": "Por [Nombre del Periodista]",
         "etiqueta": "Inteligencia Artificial",
@@ -156,21 +157,42 @@
             "/images/noticias/2.jpg",
             "/images/noticias/2.jpg",
             "/images/noticias/2.jpg"
+=======
+        "closing": "La inauguración del Laboratorio de Inteligencia Artificial marca un hito significativo en el compromiso del Instituto Politécnico Madre Rafaela Ybarra con la excelencia académica y la innovación tecnológica. Se espera que este nuevo recurso impulse la reputación del instituto como líder en educación y investigación en inteligencia artificial.",
+        "signature": "Por [Nombre del Periodista]",
+        "label": "Inteligencia Artificial",
+        "date": "12/5/2024",
+        "views": 2200,
+        "multimedia_resources": {
+          "principal_image": "/contabilidad/GAT2.jpg",
+          "image_gallery": [
+            "/noticias/2/url_imagen_equipo_computadoras.jpg",
+            "/noticias/2/url_imagen_ceremonia_inauguracion.jpg",
+            "/noticias/2/url_imagen_clases_practicas.jpg"
+>>>>>>> 906a92a (Good Practices y Accecibility.)
           ],
           "video": "/noticias/2/url_video_entrevista_profesor_director.mp4"
         }
       },
       {
         "ID": "noticia3",
+<<<<<<< HEAD
         "imagen_principal": "/images/electricidad/3.jpg",
         "titular": "Exitoso Evento Cultural en el Politécnico Madre Rafaela Ybarra",
         "ENTRADA": "El Politécnico Madre Rafaela Ybarra celebró un vibrante evento cultural que reunió a estudiantes, profesores y personal en una jornada llena de arte, música y expresión cultural.",
         "cuerpo": [
+=======
+        "principal_image": "/electricidad/3.jpg",
+        "headline": "Exitoso Evento Cultural en el Politécnico Madre Rafaela Ybarra",
+        "ENTRY": "El Politécnico Madre Rafaela Ybarra celebró un vibrante evento cultural que reunió a estudiantes, profesores y personal en una jornada llena de arte, música y expresión cultural.",
+        "body": [
+>>>>>>> 906a92a (Good Practices y Accecibility.)
           "El evento incluyó actuaciones de grupos estudiantiles de danza, música y teatro, destacando el talento artístico dentro de la comunidad politécnica.",
           "Los asistentes también tuvieron la oportunidad de disfrutar de exposiciones de arte realizadas por estudiantes de diversas disciplinas. Estas exhibiciones demostraron la creatividad y diversidad de enfoques artísticos presentes en el Politécnico.",
           "El director del instituto elogió a los participantes por su dedicación y destacó la importancia de eventos culturales para fortalecer el sentido de comunidad y promover el entendimiento intercultural en el campus.",
           "Este evento cultural se suma a las iniciativas del Politécnico Madre Rafaela Ybarra para proporcionar a los estudiantes experiencias enriquecedoras más allá del aula, fomentando un ambiente educativo integral."
         ],
+<<<<<<< HEAD
         "cierre": "El Politécnico Madre Rafaela Ybarra se enorgullece de la diversidad cultural y artística presente en su comunidad. Eventos como este subrayan el compromiso del instituto con el desarrollo integral de sus estudiantes y la promoción de la cultura en el campus.",
         "firma": "Por [Nombre del Periodista]",
         "etiqueta": "Cultura",
@@ -182,21 +204,42 @@
             "/images/noticias/3.jpg",
             "/images/noticias/3.jpg",
             "/images/noticias/3.jpg"
+=======
+        "closing": "El Politécnico Madre Rafaela Ybarra se enorgullece de la diversidad cultural y artística presente en su comunidad. Eventos como este subrayan el compromiso del instituto con el desarrollo integral de sus estudiantes y la promoción de la cultura en el campus.",
+        "signature": "Por [Nombre del Periodista]",
+        "label": "Cultura",
+        "date": "12/5/2024",
+        "views": 1800,
+        "multimedia_resources": {
+          "principal_image": "/gas/3.jpg",
+          "image_gallery": [
+            "/noticias/3/url_imagen_danza_estudiantil.jpg",
+            "/noticias/3/url_imagen_exposicion_arte.jpg",
+            "/noticias/3/url_imagen_director_discurso.jpg"
+>>>>>>> 906a92a (Good Practices y Accecibility.)
           ],
-          "video": "/noticias/3/url_video_entrevistas_participantes.mp4"
+          "video": "/noticias/3/url_video_entreviews_participantes.mp4"
         }
       },
       {
         "ID": "noticia4",
+<<<<<<< HEAD
         "imagen_principal": "/images/daai/daai6.jpg",
         "titular": "Conferencia Internacional sobre Avances Científicos en el Politécnico Madre Rafaela Ybarra",
         "ENTRADA": "El Politécnico Madre Rafaela Ybarra fue sede de una destacada conferencia internacional que reunió a expertos de todo el mundo para discutir los últimos avances científicos en diversas disciplinas.",
         "cuerpo": [
+=======
+        "principal_image": "/daai/daai6.jpg",
+        "headline": "Conferencia Internacional sobre Avances Científicos en el Politécnico Madre Rafaela Ybarra",
+        "ENTRY": "El Politécnico Madre Rafaela Ybarra fue sede de una destacada conferencia internacional que reunió a expertos de todo el mundo para discutir los últimos avances científicos en diversas disciplinas.",
+        "body": [
+>>>>>>> 906a92a (Good Practices y Accecibility.)
           "Investigadores y académicos presentaron sus trabajos en áreas como biotecnología, nanotecnología, y ciencias de la computación, compartiendo conocimientos y fomentando la colaboración internacional.",
           "El evento incluyó sesiones interactivas, paneles de discusión y oportunidades para que los estudiantes interactuaran con profesionales de la ciencia. La conferencia no solo destacó la importancia de la investigación en el Politécnico, sino también su papel en la comunidad científica global.",
           "El director del instituto expresó su gratitud a los participantes y subrayó el compromiso continuo del Politécnico Madre Rafaela Ybarra con la excelencia académica y la promoción de la investigación científica.",
           "Se espera que la conferencia siente las bases para futuras colaboraciones y proyectos de investigación internacionales en el campus."
         ],
+<<<<<<< HEAD
         "cierre": "La Conferencia Internacional sobre Avances Científicos refuerza la posición del Politécnico Madre Rafaela Ybarra como un centro de investigación de vanguardia. El instituto continuará impulsando la innovación y la excelencia en todas las áreas científicas.",
         "firma": "Por [Nombre del Periodista]",
         "etiqueta": "Ciencia",
@@ -208,20 +251,41 @@
             "/images/noticias/4.jpg",
             "/images/noticias/4.jpg",
             "/images/noticias/4.jpg"
+=======
+        "closing": "La Conferencia Internacional sobre Avances Científicos refuerza la posición del Politécnico Madre Rafaela Ybarra como un centro de investigación de vanguardia. El instituto continuará impulsando la innovación y la excelencia en todas las áreas científicas.",
+        "signature": "Por [Nombre del Periodista]",
+        "label": "Ciencia",
+        "date": "12/5/2024",
+        "views": 2000,
+        "multimedia_resources": {
+          "principal_image": "/ref/1.jpg",
+          "image_gallery": [
+            "/noticias/4/url_imagen_presentacion_cientifica.jpg",
+            "/noticias/4/url_imagen_panel_discusion.jpg",
+            "/noticias/4/url_imagen_interaccion_estudiantes.jpg"
+>>>>>>> 906a92a (Good Practices y Accecibility.)
           ],
-          "video": "/noticias/4/url_video_entrevistas_investigadores.mp4"
+          "video": "/noticias/4/url_video_entreviews_investigadores.mp4"
         }
       },
       {
         "ID": "noticia5",
+<<<<<<< HEAD
         "imagen_principal": "/images/cm/cm1.jpg",
         "titular": "Éxito del Equipo Deportivo del Politécnico Madre Rafaela Ybarra en Campeonato Nacional",
         "ENTRADA": "Los atletas del Politécnico Madre Rafaela Ybarra demostraron su habilidad y dedicación al lograr un destacado desempeño en el Campeonato Nacional de Deportes, compitiendo contra equipos de universidades de todo el país.",
         "cuerpo": [
+=======
+        "principal_image": "/cm/cm1.jpg",
+        "headline": "Éxito del Equipo Deportivo del Politécnico Madre Rafaela Ybarra en Campeonato Nacional",
+        "ENTRY": "Los atletas del Politécnico Madre Rafaela Ybarra demostraron su habilidad y dedicación al lograr un destacado desempeño en el Campeonato Nacional de Deportes, compitiendo contra equipos de universidades de todo el país.",
+        "body": [
+>>>>>>> 906a92a (Good Practices y Accecibility.)
           "El equipo logró varias medallas de oro, plata y bronce en disciplinas como atletismo, natación y fútbol. Los estudiantes-atletas fueron elogiados por su espíritu competitivo y por representar con orgullo los colores del Politécnico en la competición nacional.",
           "El director de deportes del instituto expresó su satisfacción por los logros del equipo y destacó el papel fundamental del deporte en el desarrollo integral de los estudiantes.",
           "Este éxito deportivo se suma a la reputación del Politécnico Madre Rafaela Ybarra como un lugar donde se fomenta el talento en todas las áreas, incluyendo el deporte."
         ],
+<<<<<<< HEAD
         "cierre": "El Politécnico Madre Rafaela Ybarra celebra el éxito del equipo deportivo y alienta a los estudiantes a participar en actividades atléticas como parte integral de su experiencia educativa.",
         "firma": "Por [Nombre del Periodista]",
         "etiqueta": "Deporte",
@@ -233,8 +297,21 @@
             "/images/noticias/5.jpg",
             "/images/noticias/5.jpg",
             "/images/noticias/5.jpg"
+=======
+        "closing": "El Politécnico Madre Rafaela Ybarra celebra el éxito del equipo deportivo y alienta a los estudiantes a participar en actividades atléticas como parte integral de su experiencia educativa.",
+        "signature": "Por [Nombre del Periodista]",
+        "label": "Deporte",
+        "date": "12/5/2024",
+        "views": 1800,
+        "multimedia_resources": {
+          "principal_image": "/noticias/5/url_imagen_deporte_campeonato.jpg",
+          "image_gallery": [
+            "/noticias/5/url_imagen_atletismo.jpg",
+            "/noticias/5/url_imagen_natacion.jpg",
+            "/noticias/5/url_imagen_equipo_futbol.jpg"
+>>>>>>> 906a92a (Good Practices y Accecibility.)
           ],
-          "video": "/noticias/5/url_video_entrevistas_atletas_deportivos.mp4"
+          "video": "/noticias/5/url_video_entreviews_atletas_deportivos.mp4"
         }
       }
     ]

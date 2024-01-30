@@ -1,4 +1,5 @@
 import { Image } from "@nextui-org/react";
+import { twMerge } from "tailwind-merge";
 
 export interface CollageContent {
 	/* 
@@ -9,7 +10,7 @@ export interface CollageContent {
 	CONTENT: string;
 	BUTTON_TEXT: string;
 	BUTTON_LINK: string;
-	IMAGEN_SRC: string;
+	IMAGE_SRC: string;
 }
 
 interface CollageProps {
@@ -34,7 +35,7 @@ export function CollageItem({
 	className,
 }: CollageItemProps) {
 	return (
-		<aside className={`grid grid-cols-1 sm:grid-cols-2 ${className}`}>
+		<aside className={twMerge("grid grid-cols-1 sm:grid-cols-2", className)}>
 			<div className={`h-full ${reverse ? "order-2" : "order-1"}`}>
 				<Image
 					src={imgSrc}
@@ -66,12 +67,15 @@ export function Collage({
 }: CollageProps) {
 	return (
 		<section
-			className={`bg-primary h-full flex flex-col overflow-hidden rounded-md ${className}`}
+			className={twMerge(
+				"bg-primary h-full flex flex-col overflow-hidden rounded-md",
+				className,
+			)}
 		>
 			{contentSections.map((section, index) => (
 				<CollageItem
-					key={section.IMAGEN_SRC}
-					imgSrc={section.IMAGEN_SRC}
+					key={section.IMAGE_SRC}
+					imgSrc={section.IMAGE_SRC}
 					reverse={index % 2 === 0}
 					text={section.CONTENT}
 					title={section.TITLE}

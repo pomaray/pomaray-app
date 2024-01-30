@@ -1,10 +1,7 @@
+/* ----Tailwind--------------------------------------------------- 
+/*  ¡NO TOCAR!
+/*  Ver mas en: https://tailwindcss.com/docs/installation
+*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-body {
-    overflow-x: hidden;
-    overflow-y: scroll;
-    background: #3a3a3c;
-}

@@ -1,41 +1,52 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-import { User } from "./types/user";
+//----Imports------------------------------------------------------
 
-interface TokenResponse {
-	user?: User;
-}
+import { NextResponse } from "next/server";
+import { type NextRequest } from "next/server";
+import {
+	type TokenResponse,
+	TOKEN_COOKIE,
+	TOKEN_ENDPOINT,
+	LOGIN_PAGE,
+} from "@/types/responses/auth";
+
+//----Middleware----------------------------------------------------
 
 export async function middleware(request: NextRequest) {
-	const END_POINT = process.env.TOKEN_ENDPOINT as string;
-
 	try {
-		const token = request.cookies.get("token");
+		// Validar si existe un token guardado en las cookies.
+		const token = request.cookies.get(TOKEN_COOKIE);
 		if (!token) {
-			throw new Error("No hay token");
+			throw new Error("No token provided.");
 		}
-		const response = await fetch(END_POINT, {
+
+		// Comprobar si el token es valido en la A.P.I.
+		const response = await fetch(TOKEN_ENDPOINT, {
 			headers: {
 				Authorization: `Bearer ${token.value.trim()}`,
 			},
 		});
 
-		if (!response.ok) throw new Error("NO fue un ok");
+		if (!response.ok) throw new Error("Token not valid.");
 
+		// Obtener el usuario de la respuesta de la A.P.I.
 		const { user } = (await response.json()) as TokenResponse;
-		if (!user) {
-			throw new Error("Usuario no recibido desde el servidor");
+		if (user) {
+			return NextResponse.next();
 		}
 
-		return NextResponse.next();
+		// Si el usuario no existe.
+		throw new Error("No user provided by the API.");
 	} catch (error) {
-		console.error(error);
+		// Eliminar le token de las cookies.
+		request.cookies.delete(TOKEN_COOKIE);
 
-		request.cookies.delete("token");
-		return NextResponse.redirect(new URL("/acceder", request.url));
+		// Redireccionar al formulario de login.
+		return NextResponse.redirect(new URL(LOGIN_PAGE, request.url));
 	}
 }
 
+// ¡NO TOCAR!
+// Ver mas en: https://nextjs.org/docs/app/building-your-application/routing/middleware
 export const config = {
 	matcher: ["/admin", "/admin/:path*"],
 };

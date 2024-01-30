@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 interface NewsResponse {
-	total: number
-	news: New[]
+	total: number;
+	news: New[];
 }
 
 interface New {
@@ -17,9 +17,8 @@ interface New {
 }
 
 interface NewsHook {
-	lastError?: string
-	error?: string
-
+	lastError?: string;
+	error?: string;
 
 	currentPage: number;
 	totalPages: number;
@@ -27,8 +26,8 @@ interface NewsHook {
 	news?: New[];
 	lastNew?: New;
 
-	setLastError: React.Dispatch<React.SetStateAction<string>>
-	setError: React.Dispatch<React.SetStateAction<string>>
+	setLastError: React.Dispatch<React.SetStateAction<string>>;
+	setError: React.Dispatch<React.SetStateAction<string>>;
 	setNews: React.Dispatch<React.SetStateAction<New[] | undefined>>;
 	setLastNew: React.Dispatch<React.SetStateAction<New | undefined>>;
 	setTotalPages: React.Dispatch<React.SetStateAction<number>>;
@@ -50,21 +49,21 @@ const useNews: () => NewsHook = () => {
 
 	// Configuracion del hook.
 	const limit = 30;
-	const baseUrl = "/api/news"
+	const baseUrl = "/api/news";
 
 	// Obtener la utlima notica.
 	useEffect(() => {
 		const fetchLastNew = async () => {
 			try {
-				const url = `${baseUrl}?order=latest&limit=1"`
+				const url = `${baseUrl}?order=latest&limit=1"`;
 
-				const response = await fetch(url)
+				const response = await fetch(url);
 				if (!response.ok) {
 					setError("Hubo un error, por favor intentelo de nuevo.");
 					return;
 				}
-	
-				const result  = await( response.json()) as New
+
+				const result = (await response.json()) as New;
 				setLastNew(result);
 			} catch (error) {
 				if (error instanceof Error) {
@@ -73,30 +72,27 @@ const useNews: () => NewsHook = () => {
 				}
 				setLastError("Hubo un error, por favor intentelo de nuevo.");
 			}
-		}
+		};
 
-		fetchLastNew()
-	})
+		fetchLastNew();
+	});
 
-	// Obtener noticias. 
+	// Obtener noticias.
 	useEffect(() => {
 		const fetchNews = async () => {
 			try {
 				const skip = (currentPage - 1) * limit;
-				const url = `${baseUrl}?limit=${limit}&skip=${skip}`
-	
-				const response = await fetch(url)
+				const url = `${baseUrl}?limit=${limit}&skip=${skip}`;
+
+				const response = await fetch(url);
 				if (!response.ok) {
 					setError("Hubo un error, por favor intentelo de nuevo.");
 					return;
 				}
 
-				const {
-					news,
-					total
-				} = (await response.json()) as NewsResponse;
+				const { news, total } = (await response.json()) as NewsResponse;
 
-				setNews(news)
+				setNews(news);
 				setTotalPages(Math.ceil(total / limit));
 			} catch (error) {
 				if (error instanceof Error) {
@@ -105,8 +101,10 @@ const useNews: () => NewsHook = () => {
 				}
 				setError("Hubo un error, por favor intentelo de nuevo.");
 			}
-		}
-	}, [currentPage])
+		};
+
+		fetchNews();
+	}, [currentPage]);
 
 	return {
 		lastError,
@@ -127,4 +125,4 @@ const useNews: () => NewsHook = () => {
 	};
 };
 
-export default useNews
+export default useNews;

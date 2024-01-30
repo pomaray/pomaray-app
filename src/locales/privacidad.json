@@ -1,46 +1,46 @@
 {
     "HERO": {
-      "TITULO": "Política de Privacidad",
-      "DESCRIPCION": "En el Politécnico Madre Rafaela Ybarra, nos comprometemos a proteger la privacidad de la información personal de nuestros usuarios y visitantes. A continuación, detallamos nuestra política de privacidad para garantizar la transparencia y confianza en el manejo de los datos proporcionados."
+      "TITLE": "Política de Privacidad",
+      "DESCRIPTION": "En el Politécnico Madre Rafaela Ybarra, nos comprometemos a proteger la privacidad de la información personal de nuestros usuarios y visitantes. A continuación, detallamos nuestra política de privacidad para garantizar la transparencia y confianza en el manejo de los datos proporcionados."
     },
-    "INTRODUCCION": {
-      "TITULO": "Introducción",
-      "CONTENIDO": [
+    "INTRODUCTION": {
+      "TITLE": "Introducción",
+      "CONTENT": [
         "Nuestra política de privacidad tiene como objetivo explicar cómo recopilamos, utilizamos, compartimos y protegemos la información personal de aquellos que utilizan nuestros servicios y visitan nuestro sitio web.",
         "Al utilizar nuestros servicios, usted acepta las prácticas descritas en esta política de privacidad. Le recomendamos que revise esta política regularmente, ya que puede estar sujeta a actualizaciones."
       ]
     },
-    "INFORMACION_RECOPILADA": {
-      "TITULO": "Información Recopilada",
-      "CONTENIDO": [
+    "COLLECTED_INFORMATION": {
+      "TITLE": "Información Recopilada",
+      "CONTENT": [
         "Recopilamos información personal que nos proporciona directamente, como nombre, dirección de correo electrónico, número de teléfono, etc., cuando se registra o se comunica con nosotros a través de formularios en nuestro sitio.",
         "Además, podemos recopilar información automáticamente, como la dirección IP, la información del navegador, el tipo de dispositivo y las páginas visitadas, para mejorar la experiencia del usuario y analizar el rendimiento de nuestro sitio."
       ]
     },
-    "USO_DE_LA_INFORMACION": {
-      "TITULO": "Uso de la Información",
-      "CONTENIDO": [
+    "INFORMATION_USE": {
+      "TITLE": "Uso de la Información",
+      "CONTENT": [
         "Utilizamos la información recopilada para brindar y mejorar nuestros servicios, personalizar la experiencia del usuario, responder a consultas y proporcionar información relevante.",
         "No compartimos su información personal con terceros sin su consentimiento, a menos que estemos legalmente obligados a hacerlo."
       ]
     },
-    "SEGURIDAD": {
-      "TITULO": "Seguridad",
-      "CONTENIDO": [
+    "SECURITY": {
+      "TITLE": "Seguridad",
+      "CONTENT": [
         "Implementamos medidas de seguridad para proteger la información personal contra accesos no autorizados, alteraciones, divulgación o destrucción.",
         "A pesar de nuestros esfuerzos, ninguna transmisión de datos por Internet o sistema de almacenamiento puede garantizar una seguridad absoluta. Le recomendamos que tome precauciones adicionales para proteger su información personal."
       ]
     },
-    "ENLACES_EXTERNOS": {
-      "TITULO": "Enlaces a Sitios Externos",
-      "CONTENIDO": [
-        "Nuestro sitio web puede contener enlaces a sitios externos que no son operados por nosotros. No tenemos control sobre el contenido y las prácticas de privacidad de estos sitios y no nos hacemos responsables de sus políticas.",
+    "EXTERNAL_LINKS": {
+      "TITLE": "Enlaces a Sitios Externos",
+      "CONTENT": [
+        "Nuestro sitio web puede contener enlaces a sitios externos que no son operados por nosotros. No tenemos control sobre el CONTENT y las prácticas de privacidad de estos sitios y no nos hacemos responsables de sus políticas.",
         "Le recomendamos que revise las políticas de privacidad de los sitios externos que visite desde nuestro sitio."
       ]
     },
-    "CAMBIOS_EN_LA_POLITICA": {
-      "TITULO": "Cambios en la Política de Privacidad",
-      "CONTENIDO": [
+    "POLICY_CHANGES": {
+      "TITLE": "Cambios en la Política de Privacidad",
+      "CONTENT": [
         "Esta política de privacidad puede ser actualizada ocasionalmente para reflejar cambios en nuestras prácticas y servicios. Le notificaremos sobre cambios significativos mediante la publicación de la nueva política en nuestro sitio.",
         "Al continuar utilizando nuestros servicios después de cualquier cambio en esta política, usted acepta y acepta los términos modificados."
       ]

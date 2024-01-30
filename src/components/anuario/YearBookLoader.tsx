@@ -1,10 +1,10 @@
-import LOCALE from "@/locales/anuario.json";
+import i18n from "@/locales/anuario.json";
 import { notFound } from "next/navigation";
 
 export default function YearBookNotFound() {
 	return (
 		<div>
-			<span>{LOCALE.NOT_FOUND}</span>
+			<span>{i18n.NOT_FOUND}</span>
 		</div>
 	);
 }

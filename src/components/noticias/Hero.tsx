@@ -1,10 +1,10 @@
 import { Button, Image } from "@nextui-org/react";
-import { Section } from "@/components/ui/Section";
+import { section } from "@/components/ui/section";
 
 export function HeroNoticias() {
 	const TITLE = "Hero Noticias";
 	return (
-		<Section className="grid relative place-content-center w-full h-[80vh] p-10 bg-red-500 -top-10">
+		<section className="grid relative place-content-center w-full h-[80vh] p-10 bg-red-500 -top-10">
 			<Image
 				src="/images/hero1.jpg"
 				alt={TITLE}
@@ -21,6 +21,6 @@ export function HeroNoticias() {
 					Seguir leyendo
 				</Button>
 			</div>
-		</Section>
+		</section>
 	);
 }

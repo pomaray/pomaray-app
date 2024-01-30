@@ -1,15 +1,15 @@
 "use client";
 import { DowloadsTable } from "@/components/descargas/DowloadsTable";
-import LOCALE from "@/locales/descargas.json";
+import i18n from "@/locales/descargas.json";
 
 export default function DescargasPage() {
 	return (
 		<section className="container mx-auto py-8">
 			<div>
 				<h1 className="text-5xl font-bold mb-6 text-primary">
-					{LOCALE.HERO.TITULO}
+					{i18n.HERO.TITLE}
 				</h1>
-				<p>{LOCALE.HERO.SUB_TITULO}</p>
+				<p>{i18n.HERO.SUB_TITLE}</p>
 			</div>
 			<div className="min-h-screen">
 				<DowloadsTable />

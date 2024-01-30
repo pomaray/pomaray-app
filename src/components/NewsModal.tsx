@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import LOCALE from "@/locales/root.json";
-
 import {
 	Modal,
 	ModalContent,
@@ -10,6 +8,7 @@ import {
 	ModalFooter,
 	Button,
 } from "@nextui-org/react";
+import i18n from "@/locales/root.json";
 
 export function NewsModal() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +30,7 @@ export function NewsModal() {
 				size="sm"
 				className="text-foreground font-semibold"
 			>
-				{LOCALE.NAVBAR.VER_NOTICIAS}
+				{i18n.NAVBAR.SEE_NEWS}
 			</Button>
 			<Modal
 				isOpen={isOpen}

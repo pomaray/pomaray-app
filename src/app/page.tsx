@@ -1,38 +1,32 @@
 "use client";
 
-// REACT Y LOCALES
 import { useEffect, useState } from "react";
-import LOCAL from "@/locales/home.json";
-
-// COMPONENTES DE @NEXT_UI
 import { Card } from "@nextui-org/card";
 import { Spinner } from "@nextui-org/spinner";
 import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/react";
 
-// COMPONENTES DE /components
-import { Section, SectionTitle } from "@/components/ui/Section";
+import { Title } from "@/components/ui/Title";
 import { Collage, type CollageContent } from "@/components/Collage";
-
-// ICONOS Y EXTAS
 import { FaUserGraduate, FaUsers, FaLaptopCode } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
-import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
+
+import i18n from "@/locales/home.json";
 
 export default function HomePage() {
 	const [backgroundIndex, setBackgroundIndex] = useState(0);
 	const [direction, setDirection] = useState(1);
 
 	// SHORT-CUTS DE LOCALES
-	const VIDA_CULTURA_SUBTITULO = LOCAL.VIDA_Y_CULTURA.SUB_TITULO.split("%s");
+	const VIDA_CULTURA_SUBTITULO = i18n.LIFE_AND_CULTURE.SUB_TITLE.split("%s");
 	const MEDIDAS_DE_SEGURIDAD_SUBTITULO =
-		LOCAL.MEDIDAS_DE_SEGURIDAD.SUB_TITULO.split("%s");
-	const contentSections: CollageContent[] = LOCAL.MEDIDAS_DE_SEGURIDAD.COLLAGE;
+		i18n.SECURITY_MEASURES.SUB_TITLE.split("%s");
+	const contentSections: CollageContent[] = i18n.SECURITY_MEASURES.COLLAGE;
 
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setBackgroundIndex(
-				(prevIndex) => (prevIndex + 1) % LOCAL.HERO.CARUSEL.length,
+				(prevIndex) => (prevIndex + 1) % i18n.HERO.CARROUSEL.length,
 			);
 		}, 5000);
 
@@ -65,7 +59,7 @@ export default function HomePage() {
 					<motion.img
 						key={backgroundIndex}
 						className="absolute inset-0 object-cover w-full h-full bg-no-repeat bg-center -z-10"
-						src={LOCAL.HERO.CARUSEL[backgroundIndex]}
+						src={i18n.HERO.CARROUSEL[backgroundIndex]}
 						custom={direction}
 						variants={imageVariants}
 						initial="enter"
@@ -77,54 +71,54 @@ export default function HomePage() {
 				</AnimatePresence>
 				<div className="relative text-center mt-30 text-white mt-10 sm:mt-0">
 					<h1 className="md:text-5xl text-3xl font-bold mb-4 max-w-[20ch]">
-						{LOCAL.HERO.TITULO}
+						{i18n.HERO.TITLE}
 					</h1>
 					<p className="lg:text-lg text-md font-semibold mt-6">
-						{LOCAL.HERO.SUB_TITULO}
+						{i18n.HERO.SUB_TITLE}
 					</p>
 				</div>
 				<div className="mt-12 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-9">
 					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background">
 						<FaUserGraduate className="text-3xl text-primary" />
-						<p className="p-2">{LOCAL.HERO.GRADUADO}</p>
+						<p className="p-2">{i18n.HERO.GRADUATED}</p>
 					</Card>
 					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background">
 						<FaUsers className="text-3xl text-primary" />
-						<p className="p-2">{LOCAL.HERO.USUARIO}</p>
+						<p className="p-2">{i18n.HERO.USUER}</p>
 					</Card>
 					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background">
 						<FaLaptopCode className="text-3xl text-primary" />
-						<p className="p-2">{LOCAL.HERO.TECNOLOGIA}</p>
+						<p className="p-2">{i18n.HERO.TECHNOLOGY}</p>
 					</Card>
 				</div>
 			</section>
 
-			<Section className="container mx-auto pb-12 text-center text-foreground">
+			<section className="container mx-auto pb-12 text-center text-foreground">
 				<div className="sm:px-12 px-6">
-					<SectionTitle text={LOCAL.MEDIDAS_DE_SEGURIDAD.TITULO} />
+					<Title text={i18n.SECURITY_MEASURES.TITLE} />
 					<p className="sm:text-lg text-sm mt-4 mx-auto max-w-[75ch] my-12">
 						{MEDIDAS_DE_SEGURIDAD_SUBTITULO[0]}
 						<Link className="sm:text-lg text-sm" href="/nosotros#seguridad">
-							{LOCAL.MEDIDAS_DE_SEGURIDAD.SUB_TITULO_LINK}
+							{i18n.SECURITY_MEASURES.SUB_TITLE_LINK}
 						</Link>
 						{MEDIDAS_DE_SEGURIDAD_SUBTITULO[1]}
 					</p>
 				</div>
 				<Collage contentSections={contentSections} />
-			</Section>
+			</section>
 
-			<Section className="h-full flex flex-col justify-center items-center gap-20">
-				<SectionTitle withLine className="py-12" text={LOCAL.NOTICIAS.TITULO} />
+			<section className="h-full flex flex-col justify-center items-center gap-20">
+				<Title withLine className="py-12" text={i18n.NEWS.TITLE} />
 				<div className="flex flex-row flex-wrap justify-center min-h-[50vh]">
-					{<Spinner label={LOCAL.NOTICIAS.CARGANDO} />}
+					{<Spinner label={i18n.NEWS.LOADING} />}
 				</div>
 				<a href="/noticias">
-					<Button color="primary">{LOCAL.NOTICIAS.LEER_BOTON}</Button>
+					<Button color="primary">{i18n.NEWS.READ_BTN}</Button>
 				</a>
-			</Section>
+			</section>
 
-			<Section className="text-center pb-20">
-				<SectionTitle withLine text={LOCAL.UBICACION.TITULO} />
+			<section id="ubicacion" className="text-center pb-20">
+				<Title withLine text={i18n.LOCATION.TITLE} />
 				<div className="mx-auto w-4/5">
 					<iframe
 						title="Ubicación"
@@ -133,24 +127,24 @@ export default function HomePage() {
 						allowFullScreen
 					/>
 				</div>
-			</Section>
+			</section>
 
-			<Section className="flex flex-col justify-center items-center py-5 sm:px-10 md:px-40 px-6">
-				<SectionTitle className="py-4" text={LOCAL.VIDA_Y_CULTURA.TITULO} />
+			<section className="flex flex-col justify-center items-center py-5 sm:px-10 md:px-40 px-6">
+				<Title className="py-4" text={i18n.LIFE_AND_CULTURE.TITLE} />
 				<p className="text-foreground">
 					{VIDA_CULTURA_SUBTITULO[0]}{" "}
 					<Link
 						className="underline text - white"
-						href={LOCAL.VIDA_Y_CULTURA.HASHTAG_LINK}
+						href={i18n.LIFE_AND_CULTURE.HASHTAG_LINK}
 					>
-						{LOCAL.VIDA_Y_CULTURA.HASHTAG}
+						{i18n.LIFE_AND_CULTURE.HASHTAG}
 					</Link>{" "}
 					{VIDA_CULTURA_SUBTITULO[1]}
 				</p>
 				<div className="flex flex-col justify-center min-h-[50vh]">
-					<Spinner label={LOCAL.VIDA_Y_CULTURA.CARGANDO} />
+					<Spinner label={i18n.LIFE_AND_CULTURE.LOADING} />
 				</div>
-			</Section>
+			</section>
 		</main>
 	);
 }

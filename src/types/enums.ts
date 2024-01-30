@@ -1,21 +1,40 @@
+//----Sex---------------------------------------------------
+/**
+Sexos disponibles. ¿Por qué solo existen masculino y femenino?
+Recordar que "sexo" no es lo mismo que "género",
+puedes ver más en: https://dle.rae.es/sexo.
+**/
 export enum Sex {
 	MALE = "Male",
 	FEMALE = "Female",
 }
 
+//----Role--------------------------------------------------
+/**
+Enumeración de los roles, mientras mas alto en numero mas poder tiene,
+Ejemplo: 0 tiene menos poder que 1. Roles disponibles:
+
+0. LECTOR
+1. ADMIN
+2. SUPER_ADMIN
+**/
 export enum Role {
 	LECTOR = 0,
 	ADMIN = 1,
 	SUPER_ADMIN = 2,
 }
 
-type Colors = "success" | "secondary";
-
-export const sexColorMap: { [key: string]: Colors } = {
-	Male: "success",
-	Female: "secondary",
-};
-
+//----Tech--------------------------------------------------
+/** 
+Técnicas disponibles.
+- DAAI
+- GAT
+- CM 
+- TRO 
+- TRI 
+- RAE  
+- GAS 
+**/
 export enum Tech {
 	DAAI = "Desarrollo y Administración de Aplicaciones Informáticas",
 	GAT = "Gestión Administrativa y Tributaria",
@@ -25,29 +44,3 @@ export enum Tech {
 	RAE = "Refrigeración y Acondicionamiento de Aire",
 	GAS = "Gastronomía",
 }
-
-export const Roles: { value: keyof typeof Role; key: number }[] =
-	Object.entries(Role)
-		.filter(([key]) => Number.isNaN(Number(key)))
-		.map(([key, value]) => ({
-			value: key as keyof typeof Role,
-			key: Number(value),
-		}));
-
-export const Sexos: { value: keyof typeof Sex; key: string }[] = Object.entries(
-	Sex,
-)
-	.filter(([key]) => Number.isNaN(Number(key)))
-	.map(([key, value]) => ({
-		value: key as keyof typeof Sex,
-		key: value,
-	}));
-
-export const Techs: { key: keyof typeof Tech; value: string }[] = Object.keys(
-	Tech,
-).map((key) => {
-	return {
-		key: key as keyof typeof Tech,
-		value: Tech[key as keyof typeof Tech],
-	};
-});

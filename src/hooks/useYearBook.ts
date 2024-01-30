@@ -1,117 +1,107 @@
-"use client";
+// ¡NO TOCAR!
+/* eslint-disable react-hooks/exhaustive-deps */
+//----Imports---------------------------------------------------
 
 import { useState, useEffect } from "react";
-import { type Student } from "@/types/student";
 import { AxiosError } from "axios";
+import { type Student } from "@/types/general";
+import {
+	TECH_QUERY,
+	type StudentRequest,
+	NAME_QUERY,
+	YEAR_QUERY,
+	LIMIT_QUERY,
+	SKIP_QUERY,
+	STUDENTS_URL,
+} from "@/types/request/student";
+import { StudentsResponse } from "@/types/responses/student";
+import { NOT_FOUND } from "@/types/responses/codes";
 
-interface YearBookResponse {
-	/* 
-		Respuesta de la API
-	*/
-	total: number;
-	students: Student[];
-}
+//----Functions-------------------------------------------------
 
-export interface FormRequest {
-	/* 
-		Solicitud del formulario, hace referencia
-		a los *query params* que se utilizaran en la 
-		petición de la API. 
-	*/
-	studentName?: string;
-	studentSchoolYear?: number[];
-	studentTech?: string;
-}
+export const useYearBook = (_limit: number) => {
+	const defaultLimit = _limit < 1 || _limit > 50 ? 30 : _limit;
 
-interface YearBookHook {
-	isError?: boolean;
-	isNotFound?: boolean;
-	isLoading: boolean;
+	// ----States------------------------------------------------
 
-	currentPage?: number;
-	totalPages: number;
-
-	students: Student[];
-	formRequest: FormRequest;
-
-	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-	setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
-	setFormRequest: React.Dispatch<React.SetStateAction<FormRequest>>;
-}
-
-const useYearBook: (_limit?: number) => YearBookHook = (_limit) => {
-	// Configuraciones del *Hook*.
-	const limit: number = _limit ?? 30;
-	const baseUrl = "/api/students";
-
-	// Estados.
+	// ----API--------------------------------------------
 	const [isError, setIsError] = useState(false);
 	const [isNotFound, setIsNotFound] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 
+	// ----Pagination-------------------------------------
+	const [limit, setLimit] = useState(defaultLimit);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [totalPages, setTotalPages] = useState(0);
 
+	// ----Response---------------------------------------
 	const [students, setStudents] = useState<Student[]>([]);
-	const [formRequest, setFormRequest] = useState<FormRequest>({
-		studentName: "",
-		studentSchoolYear: [],
-		studentTech: "",
+	const [formRequest, setFormRequest] = useState<StudentRequest>({
+		name: "",
+		years: [2024],
+		tech: "",
 	});
-
 	const [debouncedFormRequest, setDebouncedFormRequest] =
-		useState<FormRequest>(formRequest);
+		useState<StudentRequest>(formRequest);
 
 	useEffect(() => {
 		const timerId = setTimeout(() => {
 			setDebouncedFormRequest(formRequest);
-		}, 500); // Ajusta el tiempo de espera según tus necesidades
+		}, 500);
 
 		return () => {
 			clearTimeout(timerId);
 		};
 	}, [formRequest]);
 
+	// ¡NO TOCAR!
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				if (isLoading || !debouncedFormRequest) return; // No realiza la solicitud si isLoading es true o debouncedFormRequest está vacío
+				// No realiza la solicitud si `isLoading` es true o `debouncedFormRequest` está vacío.
+				if (isLoading || !debouncedFormRequest) return;
 				setIsLoading(true);
 				setStudents([]);
 
-				// Construir los *query params* según debouncedFormRequest.
+				// Construir los `Query Params` según `debouncedFormRequest`.
 				const params = new URLSearchParams();
-				if (debouncedFormRequest.studentName)
-					params.set("name", debouncedFormRequest.studentName);
-				if (debouncedFormRequest.studentTech)
-					params.set("tecnique", debouncedFormRequest.studentTech);
-				if (debouncedFormRequest.studentSchoolYear)
-					params.set(
-						"years",
-						debouncedFormRequest.studentSchoolYear.toString(),
-					);
+				if (debouncedFormRequest.name)
+					params.set(NAME_QUERY, debouncedFormRequest.name);
+				if (debouncedFormRequest.tech)
+					params.set(TECH_QUERY, debouncedFormRequest.tech);
+				if (debouncedFormRequest.years)
+					params.set(YEAR_QUERY, debouncedFormRequest.years.toString());
 
+				// Construir la URL con los `Query Params` el `limit` y `skip`.
+				// Ej. /api/students?name=JohnDoe&limit=10&skip=0
 				const skip = (currentPage - 1) * limit;
-				const url = `${baseUrl}?${params.toString()}&limit=${limit}&skip=${skip}`;
+				const url = `${STUDENTS_URL}?${params.toString()}&${LIMIT_QUERY}=${limit}&${SKIP_QUERY}=${skip}`;
 
+				// Hacer una petición `GET` a la URL.
 				const response = await fetch(url);
+				// Si la respuesta no es OK (códigos HTTP 200) hubo algún error.
 				if (!response.ok) {
 					setIsError(true);
 					return;
 				}
 
-				const { total, students } = (await response.json()) as YearBookResponse;
+				// Obtener datos de la respuesta.
+				const { total, students } = (await response.json()) as StudentsResponse;
 				if (students.length < 1 || total < 1) {
+					// Si la cantidad de estudiantes es < 1 o el total < 1 hay un error.
 					setIsNotFound(true);
 					return;
 				}
 
+				// Asignar `setStudents` y total de paginas `setTotalPages`.
 				setTotalPages(Math.ceil(total / limit));
 				setStudents(students);
 			} catch (error) {
+				// Manejo de errores si es 404 (Not found) asignar `setIsNotFound`
+				// De cualquier manera asignar `setIsError` y total de paginas 0 `setTotalPages`.
 				if (error instanceof AxiosError) {
-					setIsNotFound(error.code === "404");
+					setIsNotFound(error.code === NOT_FOUND);
 					return;
 				}
 
@@ -122,8 +112,9 @@ const useYearBook: (_limit?: number) => YearBookHook = (_limit) => {
 			}
 		};
 
+		// Se declara arriba y se ejecuta aquí por que es asíncrona.
+		// Ver mas : https://dev.to/jasmin/how-to-use-async-function-in-useeffect-5efc
 		fetchData();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [debouncedFormRequest, currentPage]);
 
 	return {

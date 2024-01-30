@@ -1,15 +1,17 @@
 {
 	"HERO": {
-		"TITULO": "Descargas",
-		"SUB_TITULO": "Descarga subtitulo."
+		"TITLE": "Descargas",
+		"SUB_TITLE": "Descarga subtitulo."
 	},
 	"TABLE": {
-		"COLUMNAS": {
-			"NOMBRE_ARCHIVO": "Nombre",
-			"TIPO_ARCHIVO": "Tipo",
-			"SIZE_ARCHIVO": "Tamaño",
-			"FECHA_ARCHIVO": "Date",
-			"DESCARGAR_ARCHIVO": "Descargar"
+		"FILES_PATH": "/archivos",
+		"LOADING": "Cargando archivos...",
+		"COLUMNS": {
+			"FILE_NAME": "Nombre",
+			"FILE_TYPE": "Tipo",
+			"FILE_SIZE": "Tamaño",
+			"FILE_DATE": "Date",
+			"DOWNLOAD_FILE": "Descargar"
 		}
 	}
 }

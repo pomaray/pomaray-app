@@ -12,7 +12,7 @@ import {
 } from "@nextui-org/react";
 import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
 import useAuth, { AuthenticateRequest } from "@/hooks/useAuth";
-import LOCALE from "@/locales/acceder.json";
+import i18n from "@/locales/acceder.json";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
@@ -57,12 +57,12 @@ export default function LoginPage() {
 			errorKey: "USERNAME" | "PASSWORD",
 		): boolean => {
 			if (value.length < minLength) {
-				setInputError(errorKey, LOCALE.ERRORES[errorKey].LONGITUD);
+				setInputError(errorKey, i18n.ERRORS[errorKey].LENGTH);
 				return false;
 			}
 
 			if (!validateString(value)) {
-				setInputError(errorKey, LOCALE.ERRORES[errorKey].CARACTERES);
+				setInputError(errorKey, i18n.ERRORS[errorKey].CHARACTERS);
 				return false;
 			}
 
@@ -105,10 +105,10 @@ export default function LoginPage() {
 			>
 				<CardHeader className="flex flex-col justify-center gap-y-4 sm:py-6">
 					<h2 className="sm:text-2xl text-xl font-semibold">
-						{LOCALE.FORMULARIO.TITILO}
+						{i18n.FORM.TITLE}
 					</h2>
 					<p className="sm:text-lg text-md text-center">
-						{LOCALE.FORMULARIO.DESCRIPCION}
+						{i18n.FORM.DESCRIPTION}
 					</p>
 				</CardHeader>
 
@@ -117,7 +117,7 @@ export default function LoginPage() {
 						<Input
 							isRequired
 							name="username"
-							label={LOCALE.FORMULARIO.USERNAME}
+							label={i18n.FORM.USERNAME}
 							onInput={onChange}
 							errorMessage={usernameError}
 						/>
@@ -125,7 +125,7 @@ export default function LoginPage() {
 							isRequired
 							name="password"
 							type={isShowPassword ? "password" : "text"}
-							label={LOCALE.FORMULARIO.PASSWORD}
+							label={i18n.FORM.PASSWORD}
 							onInput={onChange}
 							errorMessage={passwordError}
 							endContent={
@@ -146,15 +146,15 @@ export default function LoginPage() {
 							type="submit"
 							color="primary"
 						>
-							{LOCALE.FORMULARIO.ACCEDER_BTN}
+							{i18n.FORM.ACCESS_BTN}
 						</Button>
 					</form>
 				</CardBody>
 				<CardFooter className="flex flex-col gap-y-6">
 					<p className="text-center">
-						{LOCALE.FORMULARIO.YA_TIENES}{" "}
+						{i18n.FORM.ALREADY_HAVE}{" "}
 						<Link isDisabled={isLoading} showAnchorIcon href="/admin">
-							{LOCALE.FORMULARIO.YA_TIENES_ACCEDER}
+							{i18n.FORM.ALREADY_HAVE_ACCESS}
 						</Link>
 					</p>
 				</CardFooter>
