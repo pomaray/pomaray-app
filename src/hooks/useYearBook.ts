@@ -69,6 +69,7 @@ export const useYearBook = (_limit: number) => {
 				params.set(TECH_QUERY, debouncedFormRequest.tech);
 			if (debouncedFormRequest.years)
 				params.set(YEAR_QUERY, debouncedFormRequest.years.toString());
+			console.log(debouncedFormRequest);
 
 			// Construir la URL con los `Query Params` el `limit` y `skip`.
 			// Ej. /api/students?name=JohnDoe&limit=10&skip=0

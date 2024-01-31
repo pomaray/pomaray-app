@@ -71,7 +71,7 @@ export default function YearBookForm({
 				onChange={(e) =>
 					setFormRequestHandler((prev) => ({
 						...prev,
-						studentName: e.target.value,
+						name: e.target.value,
 					}))
 				}
 			/>
@@ -85,7 +85,7 @@ export default function YearBookForm({
 					key &&
 					setFormRequestHandler((prev) => ({
 						...prev,
-						studentTech: key.toString(),
+						tech: key.toString(),
 					}))
 				}
 			>
@@ -104,7 +104,7 @@ export default function YearBookForm({
 				onSelectionChange={(key) =>
 					setFormRequestHandler((prev) => ({
 						...prev,
-						studentSchoolYear: key
+						years: key
 							? key
 									.toString()
 									.split("-")
