@@ -14,7 +14,6 @@ import { PiDownloadSimpleFill } from "react-icons/pi";
 import { type File } from "@/types/general";
 import useFiles from "@/hooks/useFiles";
 import { TableEmpty } from "@/components/TableEmpty";
-import { AdminEditStudentModal } from "../student/AdminStudentModal";
 
 export function AdminDowloadsTable({
 	forceLoaing,

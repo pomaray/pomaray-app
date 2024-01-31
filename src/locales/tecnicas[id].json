@@ -4,7 +4,7 @@
 	"SEND_MAIL": {
 		"MAIL": "pomaray@gmail.com",
 		"SUBJECT": "%s - Solicitud información",
-		"MENSAJE": "¡Hola!\n\nMe gustaría obtener más información sobre la técnica de %s.\n\nGracias."
+		"MESSAGE": "¡Hola!\n\nMe gustaría obtener más información sobre la técnica de %s.\n\nGracias."
 	},
 	"DATA": {
 		"daai": {
