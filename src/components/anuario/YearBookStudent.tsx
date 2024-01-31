@@ -1,4 +1,4 @@
-import { type Student } from "@/types/student";
+import { type Student } from "@/types/general";
 import {
 	Card,
 	CardHeader,
@@ -7,7 +7,12 @@ import {
 	Chip,
 	Image,
 	Skeleton,
+	Button,
+	Link,
 } from "@nextui-org/react";
+import { cloneElement } from "react";
+import { TechIcons } from "../tecnicas/TechIcons";
+import i18n from "@/locales/tecnicas.json";
 
 export function YearBookStudent({
 	student,
@@ -24,9 +29,9 @@ export function YearBookStudent({
 			isLoaded={!!student}
 		>
 			<Card
-				radius="lg"
+				radius="sm"
 				shadow="none"
-				className="xss:h-[16.5rem] sm:h-80 xs:max-h-[310px] xl:max-h-[none] max-h-[335px] max-w-[220px] w-full m-auto bg-default-100 sm:p-2"
+				className="xss:h-[16.5rem] sm:h-[22rem] xs:max-h-[320px] xl:max-h-[none] max-h-[335px] max-w-[220px] w-full m-auto sm:p-2 bg-default-100  shadow-none"
 			>
 				<CardHeader className="overflow-hidden relative min-h-[180px] px-3">
 					<div className="flex items-center justify-center">
@@ -43,17 +48,50 @@ export function YearBookStudent({
 					</div>
 				</CardHeader>
 				<CardBody className="!overflow-hidden place-self-center flex-none sm:py-2 py-0">
-					<p className="block whitespace-nowrap max-w-[100%] overflow-hidden text-ellipsis text-lg font-semibold">
+					<p className="block whitespace-nowrap max-w-[100%] overflow-hidden text-ellipsis text-xl font-semibold">
 						{`${student?.first_name} ${student?.last_name}`}
 					</p>
 				</CardBody>
 				<CardFooter className="flex gap-2">
-					<Chip size="md" className="px-1">
-						{`${FIRST_YEAR}-${
-							LAST_YEAR ? LAST_YEAR.toString().slice(2, 5) : ""
-						}`}
+					<Chip size="lg" radius="sm" className="px-1 sm:text-lg text-sm">
+						{`${FIRST_YEAR}-${LAST_YEAR ? LAST_YEAR.toString() : ""}`}
 					</Chip>
-					<Chip size="md">{student?.current_technique || ""}</Chip>
+					{student && (
+						<>
+							{TechIcons.map((iconItem) => {
+								const cell = student.current_technique as string;
+								const cellValue = Object.keys(iconItem)[0];
+								const iconElement = iconItem[cell];
+								const tecnica = i18n.TECHS.find(
+									(item) => item.ID === cellValue,
+								);
+
+								if (!iconElement) {
+									return null;
+								}
+
+								return (
+									<Button
+										as={Link}
+										href={`/tecnicas/${cell.toLowerCase()}`}
+										size="sm"
+										className="p-2 text-white"
+										isIconOnly
+										variant="light"
+										style={{
+											backgroundColor: tecnica?.COLOR,
+										}}
+										key={cellValue} // Agregué una clave única para evitar advertencias en React
+									>
+										{iconElement &&
+											cloneElement(iconElement, {
+												className: "sm:text-lg text-sm",
+											})}
+									</Button>
+								);
+							})}
+						</>
+					)}
 				</CardFooter>
 			</Card>
 		</Skeleton>

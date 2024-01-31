@@ -12,7 +12,6 @@ import { FaUserGraduate, FaUsers, FaLaptopCode } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 
 import i18n from "@/locales/home.json";
-
 export default function HomePage() {
 	const [backgroundIndex, setBackgroundIndex] = useState(0);
 	const [direction, setDirection] = useState(1);

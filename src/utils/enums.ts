@@ -10,13 +10,13 @@ import { Colors } from "./general";
 //----Sex-----------------------------
 
 export const renderSexEnum: (key: Sex) => string = (key) => {
-	return key.toUpperCase() === Sex.FEMALE.toUpperCase()
+	return key.toUpperCase() === Sex.Female.toUpperCase()
 		? Locale.FEMALE
 		: Locale.MALE;
 };
 
 export const renderSexColor: (key: Sex) => Colors = (key) => {
-	return key === Sex.FEMALE ? "secondary" : "primary";
+	return key === Sex.Female ? "secondary" : "primary";
 };
 
 export const getSexIterables: () => CustomIterable[] = () => {
@@ -40,10 +40,6 @@ export const getRoleIterables: () => CustomIterable[] = () => {
 			};
 		});
 };
-
-// Uso de la función
-const roles = getRoleIterables();
-console.log(roles);
 
 export const renderRoleEnum: (key: Role) => string = (key) => {
 	return Role[key].toString().toLowerCase().replaceAll("_", " ");

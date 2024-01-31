@@ -11,12 +11,11 @@ import {
 	TableHeader,
 	TableColumn,
 	TableBody,
-	Spinner,
 	TableRow,
 	TableCell,
 } from "@nextui-org/react";
 import { useCallback, cloneElement } from "react";
-import { AdminEditStudentModal } from "./AdminEditStudentModal";
+import { AdminStudentModal } from "./AdminStudentModal";
 import TECH from "@/locales/tecnicas.json";
 import { TableEmpty } from "@/components/TableEmpty";
 import { renderSexColor, renderSexEnum } from "@/utils/enums";
@@ -29,6 +28,7 @@ export function AdminStudentTable({
 	isNotFound,
 	isError,
 	isLoading,
+	fetchData,
 	setCurrentPage,
 }: {
 	students?: Student[];
@@ -37,69 +37,73 @@ export function AdminStudentTable({
 	isNotFound: boolean;
 	isError: boolean;
 	isLoading: boolean;
+	fetchData: () => void;
 	setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }) {
-	const renderCell = useCallback((student: Student, columnKey: string) => {
-		const cellValue = student[columnKey];
+	const renderCell = useCallback(
+		(student: Student, columnKey: string) => {
+			const cellValue = student[columnKey];
 
-		switch (columnKey) {
-			case "photo_url":
-				return (
-					<User
-						avatarProps={{ radius: "lg", src: student.photo_url }}
-						description={student.last_name}
-						name={student.first_name}
-					/>
-				);
-			case "sex":
-				return (
-					<Chip
-						className="capitalize"
-						color={renderSexColor(cellValue as Sex)}
-						size="sm"
-						variant="flat"
-					>
-						{renderSexEnum(cellValue as Sex)}
-					</Chip>
-				);
-			case "current_technique": {
-				const iconElement = TechIcons.find(
-					(icon) => Object.keys(icon)[0] === cellValue,
-				)?.[cellValue as string];
+			switch (columnKey) {
+				case "photo_url":
+					return (
+						<User
+							avatarProps={{ radius: "lg", src: student.photo_url }}
+							description={student.rne as string}
+							name={`${student.first_name} ${student.last_name}`}
+						/>
+					);
+				case "sex":
+					return (
+						<Chip
+							className="capitalize"
+							color={renderSexColor(cellValue as Sex)}
+							size="sm"
+							variant="flat"
+						>
+							{renderSexEnum(cellValue as Sex)}
+						</Chip>
+					);
+				case "current_technique": {
+					const cell = cellValue as string;
+					const iconElement = TechIcons.find(
+						(icon) => Object.keys(icon)[0] === cellValue,
+					)?.[cell];
 
-				const tecnica = TECH.TECHS.find((item) => item.ID === cellValue);
+					const tecnica = TECH.TECHS.find((item) => item.ID === cellValue);
+					return (
+						<Button
+							as={Link}
+							href={`/tecnicas/${cell.toLowerCase()}`}
+							size="sm"
+							className="p-2 text-white"
+							isIconOnly
+							variant="light"
+							style={{
+								backgroundColor: tecnica?.COLOR,
+							}}
+						>
+							{iconElement &&
+								cloneElement(iconElement, {
+									size: 20,
+								})}
+						</Button>
+					);
+				}
 
-				return (
-					<Button
-						as={Link}
-						href={`/tecnicas/${cellValue.toString().toLowerCase()}`}
-						size="sm"
-						className="p-2 text-white"
-						isIconOnly
-						variant="light"
-						style={{
-							backgroundColor: tecnica?.COLOR,
-						}}
-					>
-						{iconElement &&
-							cloneElement(iconElement, {
-								size: 20,
-							})}
-					</Button>
-				);
+				case "school_years": {
+					const value = cellValue as number[];
+					return Math.max(...value);
+				}
+				case "actions":
+					return <AdminStudentModal onClose={fetchData} student={student} />;
+
+				default:
+					return <i>{cellValue as string}</i>;
 			}
-
-			case "school_years": {
-				const value = cellValue as number[];
-				return value[value.length - 1];
-			}
-			case "actions":
-				return <AdminEditStudentModal student={student} />;
-
-			default:
-				return <i>{cellValue}</i>;
-		}
-	}, []);
+		},
+		[fetchData],
+	);
 
 	return (
 		<Table
@@ -128,10 +132,11 @@ export function AdminStudentTable({
 
 				<TableColumn key="photo_url">Perfil</TableColumn>
 				<TableColumn key="sex">Sexo</TableColumn>
-				<TableColumn key="school_years">Ultimo ano escolar</TableColumn>
+				<TableColumn key="school_years">Último año escolar</TableColumn>
+				<TableColumn key="birth_date">Fecha de nacimiento</TableColumn>
 
 				<TableColumn key="current_technique">Técnica</TableColumn>
-				<TableColumn key="actions">Acciones</TableColumn>
+				<TableColumn key="actions">Editar</TableColumn>
 			</TableHeader>
 
 			<TableBody

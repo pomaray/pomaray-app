@@ -9,6 +9,7 @@ export const LIMIT_QUERY = "limit";
 export const SKIP_QUERY = "skip";
 
 export const STUDENTS_URL = "/api/students";
+export const STUDENT_ENDPOINT = process.env.STUDENT_ENDPOINT as string;
 
 //----Types-----------------------------------------------------
 export type StudentRequest = {

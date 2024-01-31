@@ -11,16 +11,17 @@ import {
 	Link,
 } from "@nextui-org/react";
 import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
-import useAuth, { AuthenticateRequest } from "@/hooks/useAuth";
+import useAuthStore from "@/hooks/useAuth";
 import i18n from "@/locales/acceder.json";
 import { useRouter } from "next/navigation";
+import { LoginRequest } from "@/types/request/auth";
 
 export default function LoginPage() {
 	const [isShowPassword, setIsShowPassword] = useState(false);
 	const [isDisabled, setIsDisabled] = useState(true);
 	const [passwordError, setPasswordError] = useState("");
 	const [usernameError, setUsernameError] = useState("");
-	const [formRequest, setFormRequest] = useState<AuthenticateRequest>({
+	const [formRequest, setFormRequest] = useState<LoginRequest>({
 		password: "",
 		username: "",
 	});
@@ -33,7 +34,7 @@ export default function LoginPage() {
 		user,
 		setError,
 		authenticateUser,
-	} = useAuth();
+	} = useAuthStore();
 
 	const router = useRouter();
 
@@ -124,7 +125,7 @@ export default function LoginPage() {
 						<Input
 							isRequired
 							name="password"
-							type={isShowPassword ? "password" : "text"}
+							type={!isShowPassword ? "password" : "text"}
 							label={i18n.FORM.PASSWORD}
 							onInput={onChange}
 							errorMessage={passwordError}
@@ -135,7 +136,7 @@ export default function LoginPage() {
 									className="relative top-1 text-lg text-foreground-500"
 									onClick={() => setIsShowPassword(!isShowPassword)}
 								>
-									{isShowPassword ? <EyeSlashFilledIcon /> : <EyeFilledIcon />}
+									{!isShowPassword ? <EyeSlashFilledIcon /> : <EyeFilledIcon />}
 								</Button>
 							}
 						/>

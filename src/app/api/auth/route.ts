@@ -1,8 +1,10 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
-import { type User } from "@/types/user";
+import { type User } from "@/types/general";
 import { UAParser } from "ua-parser-js";
+import { TOKEN_COOKIE } from "@/types/request/auth";
+import { TOKEN_EXPIRE_DAYS } from "@/utils/general";
 
 interface TokenResponse {
 	user?: User;
@@ -19,7 +21,7 @@ export async function GET() {
 	const END_POINT = process.env.TOKEN_ENDPOINT as string;
 
 	try {
-		const token = cookies().get("token")?.value;
+		const token = cookies().get(TOKEN_COOKIE)?.value;
 		if (!token) {
 			throw new AxiosError("No esta autorizado", "401");
 		}
@@ -37,19 +39,22 @@ export async function GET() {
 		return NextResponse.json({ user });
 	} catch (error) {
 		if (axios.isAxiosError(error)) {
+			const response = error.response?.data;
 			return NextResponse.json(
 				{
-					message: error.message,
+					message: response.message,
 				},
 				{
-					status: error.status,
-					statusText: error.code,
+					status: response.code || 500,
+					statusText: error.code || "ERR_INTERNAL_SERVER_ERROR",
 				},
 			);
 		}
+
 		return NextResponse.json(
 			{
 				code: "500",
+				status: 500,
 				message:
 					error instanceof Error
 						? error.message
@@ -99,10 +104,10 @@ export async function POST(req: NextRequest) {
 		}
 
 		const expire = new Date();
-		expire.setMonth(1);
+		expire.setHours(TOKEN_EXPIRE_DAYS * 24);
 
-		cookies().set("token", token, { secure: true, expires: expire });
-		return NextResponse.json({ user, ip });
+		cookies().set(TOKEN_COOKIE, token, { secure: true, expires: expire });
+		return NextResponse.json({ user });
 	} catch (error) {
 		if (axios.isAxiosError(error)) {
 			const { status, code } = error.toJSON() as AxiosError;

@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import i18n from "@/locales/tecnicas.json";
 
 export default function HomePage() {
-	const router = useRouter();
 	const dynamicPath = "/tecnicas";
 
 	return (

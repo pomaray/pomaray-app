@@ -2,12 +2,8 @@
 
 import { NextResponse } from "next/server";
 import { type NextRequest } from "next/server";
-import {
-	type TokenResponse,
-	TOKEN_COOKIE,
-	TOKEN_ENDPOINT,
-	LOGIN_PAGE,
-} from "@/types/responses/auth";
+import { TOKEN_COOKIE, TOKEN_ENDPOINT, LOGIN_PAGE } from "@/types/request/auth";
+import { type TokenResponse } from "@/types/responses/auth";
 
 //----Middleware----------------------------------------------------
 

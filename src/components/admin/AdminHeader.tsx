@@ -13,11 +13,11 @@ import {
 	Skeleton,
 	Tooltip,
 } from "@nextui-org/react";
-import { CheckIcon } from "@nextui-org/shared-icons";
 import { FaRightFromBracket } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AdminEditUserModal } from "@/components/admin/user/AdminEditUserModal";
+import { renderRoleEnum } from "@/utils/enums";
 
 export function Header() {
 	const [selectedLocation, setSelectedLocation] = useState({
@@ -28,19 +28,19 @@ export function Header() {
 	const router = useRouter();
 	const locations = [
 		{
-			href: "usuarios",
+			href: "/admin",
 			children: "Usuarios",
 		},
 		{
-			href: "estudiantes",
+			href: "/admin/estudiantes",
 			children: "Estudiantes",
 		},
 		{
-			href: "noticias",
+			href: "/admin/noticias",
 			children: "Noticias",
 		},
 		{
-			href: "descargas",
+			href: "admin/descargas",
 			children: "Descargas",
 		},
 	];
@@ -56,13 +56,9 @@ export function Header() {
 				return;
 			}
 		};
-
-		// Obtener el href actual de la ventana
-		const currentHref = window.location.href;
-
 		// Encontrar la ubicación correspondiente al href actual
 		const foundLocation = locations.find((location) =>
-			currentHref.includes(location.href),
+			window.location.href.endsWith(location.href),
 		);
 
 		// Actualizar el estado de la ubicación seleccionada
@@ -84,8 +80,8 @@ export function Header() {
 					disableAnimation
 					isLoaded={!!user}
 				>
-					<Chip color="primary" variant="bordered">
-						Session iniciada como: {user?.username}
+					<Chip color="primary" variant="bordered" className="capitalize">
+						Session iniciada como: {user && renderRoleEnum(user.role)}
 					</Chip>
 				</Skeleton>
 				<Skeleton
@@ -101,30 +97,37 @@ export function Header() {
 				<Skeleton
 					className={`rounded-lg ${!user && "w-64 h-8"}`}
 					disableAnimation
-					isLoaded={selectedLocation.children !== ""}
+					isLoaded={!!user}
 				>
 					<Breadcrumbs
+						color="foreground"
 						classNames={{
 							list: "shadow-sm bg-default-200",
 						}}
 						variant="solid"
 					>
-						<BreadcrumbItem>Casa</BreadcrumbItem>
-						<BreadcrumbItem>Admin</BreadcrumbItem>
+						<BreadcrumbItem href="/">Casa</BreadcrumbItem>
+						<BreadcrumbItem href="/admin">Admin</BreadcrumbItem>
 						<BreadcrumbItem>
 							<Dropdown>
 								<DropdownTrigger>
-									<span>{selectedLocation.children}</span>
+									<span
+										className={selectedLocation.href === "" ? "opacity-70" : ""}
+									>
+										{selectedLocation.children || "Usuarios"}
+									</span>
 								</DropdownTrigger>
 								<DropdownMenu aria-label="Routes">
 									{locations.map((item) => (
-										<DropdownItem key={item.href} href={item.href}>
-											<span className="flex gap-x-2">
-												{item.href === selectedLocation.href && (
-													<CheckIcon className="text-lg" />
-												)}{" "}
-												{item.children}
-											</span>
+										<DropdownItem
+											closeOnSelect
+											key={item.href}
+											href={item.href}
+											className={
+												selectedLocation.href !== item.href ? "opacity-75" : ""
+											}
+										>
+											{item.children}
 										</DropdownItem>
 									))}
 								</DropdownMenu>

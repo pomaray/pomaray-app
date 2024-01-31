@@ -1,21 +1,30 @@
-import { Student } from "@/types/general";
-import { STUDENT_ENDPOINT } from "@/types/request/student";
+import { User } from "@/types/general";
+import { USER_ENDPOINT } from "@/types/request/user";
 import { LOGIN_PAGE, TOKEN_COOKIE } from "@/types/request/auth";
-import { StudentsResponse } from "@/types/responses/student";
+import { UsersResponse } from "@/types/responses/user";
 import axios from "axios";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: Request) {
 	try {
-		const { searchParams } = new URL(request.url);
-		const url = `${STUDENT_ENDPOINT}?${searchParams}`;
+		const token = cookies().get(TOKEN_COOKIE)?.value;
+		if (!token) {
+			cookies().delete(TOKEN_COOKIE);
+			return NextResponse.redirect(new URL(LOGIN_PAGE, request.url));
+		}
 
-		const response = await axios.get(url);
-		const { total, students } = (await response.data) as StudentsResponse;
+		const response = await axios.get(USER_ENDPOINT, {
+			headers: {
+				Authorization: `Bearer ${token.trim()}`,
+			},
+		});
+		const { users } = (await response.data) as UsersResponse;
 
-		return NextResponse.json({ total, students });
+		return NextResponse.json({ users });
 	} catch (error) {
+		cookies().delete(TOKEN_COOKIE);
+
 		if (axios.isAxiosError(error)) {
 			return NextResponse.json(
 				{
@@ -27,6 +36,7 @@ export async function GET(request: Request) {
 				},
 			);
 		}
+
 		return NextResponse.json(
 			{
 				code: "500",
@@ -51,9 +61,9 @@ export async function POST(request: NextRequest) {
 			return NextResponse.redirect(new URL(LOGIN_PAGE, request.url));
 		}
 
-		const body = (await request.json()) as Student;
+		const body = (await request.json()) as User;
 
-		const response = await axios.post(STUDENT_ENDPOINT, body, {
+		const response = await axios.post(USER_ENDPOINT, body, {
 			headers: {
 				Authorization: `Bearer ${token.trim()}`,
 			},

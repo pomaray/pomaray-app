@@ -1,23 +1,11 @@
 import { create } from "zustand";
-import { User } from "@/types/general";
 import i18n from "@/locales/acceder.json";
 import axios, { AxiosError } from "axios";
+import { type LoginResponse } from "@/types/responses/auth";
+import { type LoginRequest } from "@/types/request/auth";
+import { type User } from "@/types/general";
 
-interface ErrorCodes {
-	"404": string;
-	"401": string;
-	"500": string;
-}
-
-export interface AuthenticateRequest {
-	username: string;
-	password: string;
-}
-
-interface AuthResponse {
-	user?: User;
-	code?: string;
-}
+type i18nCodes = keyof typeof i18n.ERRORS.CODES;
 
 export interface AuthStore {
 	usernameMinLength: number;
@@ -28,7 +16,7 @@ export interface AuthStore {
 	error?: string;
 	user?: User;
 
-	authenticateUser: (request: AuthenticateRequest) => Promise<User | undefined>;
+	authenticateUser: (request: LoginRequest) => Promise<User | undefined>;
 	setError: (error: string) => void;
 	getUserByToken: () => Promise<User | undefined>;
 }
@@ -40,7 +28,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
 	isLoading: false,
 	error: undefined,
 
-	authenticateUser: async (request: AuthenticateRequest) => {
+	authenticateUser: async (request: LoginRequest) => {
 		try {
 			set({ isLoading: true, error: undefined });
 
@@ -57,7 +45,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
 				},
 			);
 
-			const { user } = response.data as AuthResponse;
+			const { user } = response.data as LoginResponse;
 
 			if (!user) {
 				set({ error: i18n.ERRORS.CODES["500"] });
@@ -69,8 +57,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
 		} catch (err) {
 			const error = err as AxiosError;
 			if (error.response) {
-				const errorStatus =
-					error.response.status.toString() as keyof ErrorCodes;
+				const errorStatus = error.response.status.toString() as i18nCodes;
 				set({
 					user: undefined,
 					error: i18n.ERRORS.CODES[errorStatus] || i18n.ERRORS.CODES["500"],
@@ -92,7 +79,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
 
 			const response = await fetch("/api/auth");
 
-			const { user } = (await response.json()) as AuthResponse;
+			const { user } = (await response.json()) as LoginResponse;
 
 			set({ user });
 			return user;

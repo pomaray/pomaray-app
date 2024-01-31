@@ -1,35 +1,47 @@
-import { Student } from "@/types/general";
-import { STUDENT_ENDPOINT } from "@/types/request/student";
+import { USER_ENDPOINT } from "@/types/request/user";
 import { LOGIN_PAGE, TOKEN_COOKIE } from "@/types/request/auth";
-import { StudentsResponse } from "@/types/responses/student";
 import axios from "axios";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request: Request) {
+export async function PUT(request: NextRequest) {
 	try {
-		const { searchParams } = new URL(request.url);
-		const url = `${STUDENT_ENDPOINT}?${searchParams}`;
+		const token = cookies().get(TOKEN_COOKIE)?.value;
+		if (!token) {
+			cookies().delete(TOKEN_COOKIE);
+			return NextResponse.redirect(new URL(LOGIN_PAGE, request.url));
+		}
 
-		const response = await axios.get(url);
-		const { total, students } = (await response.data) as StudentsResponse;
+		const userId = request.url.split("users/")[1]; // Obtén el ID de la solicitud
+		const student = await request.json();
 
-		return NextResponse.json({ total, students });
+		const url = `${USER_ENDPOINT}/${userId}`; // Añade el ID a la URL
+
+		await axios.put(url, student, {
+			headers: {
+				Authorization: `Bearer ${token.trim()}`,
+			},
+		});
+
+		return NextResponse.json({ student });
 	} catch (error) {
 		if (axios.isAxiosError(error)) {
+			const response = error.response?.data;
 			return NextResponse.json(
 				{
-					message: error.message,
+					message: response.message,
 				},
 				{
-					status: error.status,
-					statusText: error.code,
+					status: response.code || 500,
+					statusText: error.code || "ERR_INTERNAL_SERVER_ERROR",
 				},
 			);
 		}
+
 		return NextResponse.json(
 			{
 				code: "500",
+				status: 500,
 				message:
 					error instanceof Error
 						? error.message
@@ -43,7 +55,7 @@ export async function GET(request: Request) {
 	}
 }
 
-export async function POST(request: NextRequest) {
+export async function DELETE(request: NextRequest) {
 	try {
 		const token = cookies().get(TOKEN_COOKIE)?.value;
 		if (!token) {
@@ -51,20 +63,19 @@ export async function POST(request: NextRequest) {
 			return NextResponse.redirect(new URL(LOGIN_PAGE, request.url));
 		}
 
-		const body = (await request.json()) as Student;
+		const userId = request.url.split("users/")[1]; // Obtén el ID de la solicitud
 
-		const response = await axios.post(STUDENT_ENDPOINT, body, {
+		const url = `${USER_ENDPOINT}/${userId}`; // Añade el ID a la URL
+
+		const response = await axios.delete(url, {
 			headers: {
 				Authorization: `Bearer ${token.trim()}`,
 			},
 		});
-		const { student } = response.data;
 
-		if (!student) {
-			throw new Error("No student provided from server");
-		}
+		const { message } = response.data;
 
-		return NextResponse.json({ student });
+		return NextResponse.json({ message });
 	} catch (error) {
 		if (axios.isAxiosError(error)) {
 			const response = error.response?.data;

@@ -5,8 +5,8 @@ Recordar que "sexo" no es lo mismo que "género",
 puedes ver más en: https://dle.rae.es/sexo.
 **/
 export enum Sex {
-	MALE = "Male",
-	FEMALE = "Female",
+	Male = "Male",
+	Female = "Female",
 }
 
 //----Role--------------------------------------------------

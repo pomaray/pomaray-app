@@ -3,6 +3,7 @@ import { type CustomIterable } from "@/types/custom";
 
 //----CONST-------------------------------------------------------
 export const MIN_YEAR = 2000;
+export const TOKEN_EXPIRE_DAYS = 15;
 export type Colors = "primary" | "secondary" | "danger" | "warning" | "success";
 
 //----Functions----------------------------------------------------

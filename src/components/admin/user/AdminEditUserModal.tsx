@@ -9,10 +9,7 @@ import {
 	ModalHeader,
 	Tooltip,
 	useDisclosure,
-	Checkbox,
-	CheckboxGroup,
 	Select,
-	Selection,
 	SelectItem,
 } from "@nextui-org/react";
 import { PressEvent } from "@react-types/shared";
@@ -20,7 +17,6 @@ import { AvatarIcon } from "@nextui-org/shared-icons";
 import { User } from "@/types/general";
 import { Role, Sex } from "@/types/enums";
 import useAuthStore from "@/hooks/useAuth";
-import { useState } from "react";
 import {
 	getRoleIterables,
 	getSexIterables,
@@ -32,16 +28,17 @@ interface AdminEditUserModal {
 	editUser?: User;
 	color?: "primary" | "default";
 	variant?: "flat" | "bordered" | "light" | "solid";
+	onClose?: () => void;
 }
 
 export function AdminEditUserModal({
 	editUser,
 	color = "primary",
 	variant = "solid",
+	onClose,
 }: AdminEditUserModal) {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 	const { user, isLoading } = useAuthStore();
-	const [role, setRole] = useState<Selection>(new Set([]));
 
 	return (
 		<>
@@ -86,7 +83,7 @@ export function AdminEditUserModal({
 				}}
 			>
 				<ModalContent>
-					{(onClose: ((e: PressEvent) => void) | undefined) => (
+					{() => (
 						<>
 							<ModalHeader className="flex flex-col gap-1 text-sm">
 								<span className="opacity-75">Editando a:</span>
@@ -103,14 +100,12 @@ export function AdminEditUserModal({
 							<form onSubmit={() => onOpen()}>
 								<ModalBody>
 									<Input
-										color="primary"
 										variant="bordered"
 										label="Nombre de usuario"
 										value={editUser?.username}
 										isRequired
 									/>
 									<Input
-										color="primary"
 										variant="bordered"
 										label="Nombre a mostrar:"
 										value={editUser?.display_name}
@@ -118,13 +113,11 @@ export function AdminEditUserModal({
 									/>
 									{user?.role && user.role >= 2 && (
 										<Select
-											color="primary"
 											variant="bordered"
 											items={getRoleIterables()}
 											label="Rol"
 											defaultSelectedKeys={[user?.role.toString()]}
 											fullWidth
-											onSelectionChange={setRole}
 											renderValue={(items) => (
 												<span className="capitalize text-foreground">
 													{items.length > 0
@@ -149,17 +142,18 @@ export function AdminEditUserModal({
 
 									{user?.sex && (
 										<Select
-											color="primary"
+											size="sm"
 											variant="bordered"
 											items={getSexIterables()}
 											label="Sexo:"
-											defaultSelectedKeys={[user?.sex.toString().toUpperCase()]}
+											defaultSelectedKeys={user ? [user.sex.toString()] : []}
 											fullWidth
-											onSelectionChange={setRole}
 											renderValue={(items) => (
 												<span className="capitalize text-foreground">
 													{items.length > 0
-														? renderSexEnum(items[0].textValue as Sex)
+														? renderSexEnum(
+																items[0].textValue as unknown as Sex,
+														  )
 														: undefined}
 												</span>
 											)}
@@ -167,8 +161,8 @@ export function AdminEditUserModal({
 											{(sex) => (
 												<SelectItem
 													className="capitalize"
-													key={sex.key}
-													textValue={sex.key as string}
+													key={sex.key.toString()}
+													textValue={sex.key.toString()}
 												>
 													{renderSexEnum(sex.key as Sex)}
 												</SelectItem>
@@ -177,11 +171,8 @@ export function AdminEditUserModal({
 									)}
 								</ModalBody>
 								<ModalFooter>
-									<Button fullWidth color="primary" onPress={onClose}>
+									<Button fullWidth color="primary">
 										Guardar
-									</Button>
-									<Button fullWidth variant="bordered" onPress={onClose}>
-										Cerrar
 									</Button>
 								</ModalFooter>
 							</form>
