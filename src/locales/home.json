@@ -43,8 +43,18 @@
 	"LIFE_AND_CULTURE": {
 		"TITLE": "Vida y cultura",
 		"SUB_TITLE": "Síguenos con el %s en instagram.",
-		"HASHTAG": "#yosoypomaray",
-		"HASHTAG_LINK": "#yosoypomaray",
-		"LOADING": "Cargando #yosoypamaray"
+		"HASHTAG": "#yoamoapomaray",
+		"HASHTAG_LINK": "#yoamoapomaray",
+		"LOADING": "Cargando #yosoypamaray",
+		"IMAGES": [
+		  "/images/daai/daai6.jpg",
+		  "/images/electronica/3.jpg",
+		  "/images/refrigeracion/ref1.jpg",
+		  "/images/refrigeracion/ref5.jpg",
+		  "/images/cm/cm4.jpg",
+		  "/images/gastronomia/gas2.jpg",
+		  "/images/electricidad/5.jpg",
+		  "/images/cm/cm5.jpg"
+		]
 	}
 }

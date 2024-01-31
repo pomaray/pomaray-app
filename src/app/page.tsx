@@ -1,20 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Card } from "@nextui-org/card";
+import { Card, CardBody, CardFooter } from "@nextui-org/card";
 import { Spinner } from "@nextui-org/spinner";
 import { Link } from "@nextui-org/link";
-import { Button } from "@nextui-org/react";
+import { Button, Image, Chip } from "@nextui-org/react";
 
 import { Title } from "@/components/ui/Title";
 import { Collage, type CollageContent } from "@/components/Collage";
 import { FaUserGraduate, FaUsers, FaLaptopCode } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
+import tec from "@/locales/noticias.json";
 import i18n from "@/locales/home.json";
+
 export default function HomePage() {
 	const [backgroundIndex, setBackgroundIndex] = useState(0);
 	const [direction, setDirection] = useState(1);
+	const [showSpinner, setShowSpinner] = useState(true);
+	const [showImages, setShowImages] = useState(false);
 
 	// SHORT-CUTS DE LOCALES
 	const VIDA_CULTURA_SUBTITULO = i18n.LIFE_AND_CULTURE.SUB_TITLE.split("%s");
@@ -24,10 +29,13 @@ export default function HomePage() {
 
 	useEffect(() => {
 		const interval = setInterval(() => {
-			setBackgroundIndex(
-				(prevIndex) => (prevIndex + 1) % i18n.HERO.CARROUSEL.length,
-			);
+			setBackgroundIndex((prevIndex) => (prevIndex + 1) % i18n.HERO.CARROUSEL.length);
 		}, 5000);
+
+		setTimeout(() => {
+			setShowSpinner(false);
+			setShowImages(true);
+		}, 500);
 
 		return () => clearInterval(interval);
 	}, []);
@@ -50,6 +58,16 @@ export default function HomePage() {
 			};
 		},
 	};
+
+	const router = useRouter();
+	const dynamicPath = "/noticias";
+
+	const copyToClipboard = () => {
+		const url = window.location.href;
+		navigator.clipboard.writeText(url);
+	};
+
+	const [currentMainNewsIndex, setCurrentMainNewsIndex] = useState(0);
 
 	return (
 		<main>
@@ -107,10 +125,42 @@ export default function HomePage() {
 			</section>
 
 			<section className="h-full flex flex-col justify-center items-center gap-20">
-				<Title withLine className="py-12" text={i18n.NEWS.TITLE} />
-				<div className="flex flex-row flex-wrap justify-center min-h-[50vh]">
-					{<Spinner label={i18n.NEWS.LOADING} />}
-				</div>
+				<Title withLine className="" text={i18n.NEWS.TITLE} />
+				<section className=" text-primary relative mx-9">
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:px-1 md:px-10">
+						{tec.NEWS.slice(0, 4).map((noticia, index) => (
+							<Card
+								key={noticia.ID}
+								onClick={() =>
+									router.push(`${dynamicPath}/${noticia.ID.toLowerCase()}`)
+								}
+								isPressable
+								shadow="none"
+								className="relative overflow-hidden w-full max-w-[400px]"
+							>
+									<Image
+										src={noticia.imagen_principal}
+										alt={noticia.titular}
+										className="w-screen h-48 object-cover rounded-t-md"
+									/>
+
+								<CardBody className="text-center py-4">
+									<Chip color="primary" className="mb-2">
+										{noticia.etiqueta}
+									</Chip>
+									<h3 className="md:text-md text-lg font-bold mb-2 line-clamp-2">
+										{noticia.titular}
+									</h3>
+									<p className="text-xs line-clamp-3">{noticia.ENTRADA}</p>
+								</CardBody>
+
+								<CardFooter className="flex justify-between items-center h-10">
+									<time className="mb-2 text-xs ml-2">{noticia.fecha}</time>
+								</CardFooter>
+							</Card>
+						))}
+					</div>
+				</section>
 				<a href="/noticias">
 					<Button color="primary">{i18n.NEWS.READ_BTN}</Button>
 				</a>
@@ -132,16 +182,22 @@ export default function HomePage() {
 				<Title className="py-4" text={i18n.LIFE_AND_CULTURE.TITLE} />
 				<p className="text-foreground">
 					{VIDA_CULTURA_SUBTITULO[0]}{" "}
-					<Link
-						className="underline text - white"
-						href={i18n.LIFE_AND_CULTURE.HASHTAG_LINK}
-					>
+					<Link className="underline text-primary" href={i18n.LIFE_AND_CULTURE.HASHTAG_LINK}>
 						{i18n.LIFE_AND_CULTURE.HASHTAG}
 					</Link>{" "}
 					{VIDA_CULTURA_SUBTITULO[1]}
 				</p>
-				<div className="flex flex-col justify-center min-h-[50vh]">
-					<Spinner label={i18n.LIFE_AND_CULTURE.LOADING} />
+				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 min-h-[50vh]">
+					{showSpinner && <Spinner label={i18n.LIFE_AND_CULTURE.LOADING} />}
+					{showImages &&
+						i18n.LIFE_AND_CULTURE.IMAGES.map((image, index) => (
+							<Image
+								key={index}
+								src={image}
+								alt={`Image ${index + 1}`}
+								className="p-2 w-96 sm:w-96 md:w-96 h-[47vh]"
+							/>
+						))}
 				</div>
 			</section>
 		</main>
