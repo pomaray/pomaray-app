@@ -10,7 +10,6 @@ export async function GET(request: Request) {
 	try {
 		const token = cookies().get(TOKEN_COOKIE)?.value;
 		if (!token) {
-			cookies().delete(TOKEN_COOKIE);
 			return NextResponse.redirect(new URL(LOGIN_PAGE, request.url));
 		}
 
@@ -23,8 +22,6 @@ export async function GET(request: Request) {
 
 		return NextResponse.json({ users });
 	} catch (error) {
-		cookies().delete(TOKEN_COOKIE);
-
 		if (axios.isAxiosError(error)) {
 			return NextResponse.json(
 				{
@@ -57,7 +54,6 @@ export async function POST(request: NextRequest) {
 	try {
 		const token = cookies().get(TOKEN_COOKIE)?.value;
 		if (!token) {
-			cookies().delete(TOKEN_COOKIE);
 			return NextResponse.redirect(new URL(LOGIN_PAGE, request.url));
 		}
 

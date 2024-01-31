@@ -8,7 +8,6 @@ export async function PUT(request: NextRequest) {
 	try {
 		const token = cookies().get(TOKEN_COOKIE)?.value;
 		if (!token) {
-			cookies().delete(TOKEN_COOKIE);
 			return NextResponse.redirect(new URL(LOGIN_PAGE, request.url));
 		}
 
@@ -59,7 +58,6 @@ export async function DELETE(request: NextRequest) {
 	try {
 		const token = cookies().get(TOKEN_COOKIE)?.value;
 		if (!token) {
-			cookies().delete(TOKEN_COOKIE);
 			return NextResponse.redirect(new URL(LOGIN_PAGE, request.url));
 		}
 
