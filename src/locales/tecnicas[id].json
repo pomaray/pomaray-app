@@ -71,12 +71,12 @@
 
 			"GALLERY_TITLE": "Galería de imágenes",
 			"IMAGES": [
-				"images/daai/daai7.jpg",
-				"images/daai/daai1.jpg",
-				"images/daai/daai5.jpg",
-				"images/daai/daai3.jpg",
-				"images/daai/daai4.jpg",
-				"images/daai/daai6.jpg"
+				"/images/daai/daai7.jpg",
+				"/images/daai/daai1.jpg",
+				"/images/daai/daai5.jpg",
+				"/images/daai/daai3.jpg",
+				"/images/daai/daai4.jpg",
+				"/images/daai/daai6.jpg"
 			]
 		},
 		"gas": {

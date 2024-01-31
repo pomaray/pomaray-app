@@ -1,85 +1,144 @@
 {
     "NEWS": [
-      {
-        "ID": "1",
-        "etiqueta": "Ciencia",
-        "titular": "Desarrollo de nueva tecnología en el laboratorio de informática",
-        "ENTRADA": "Investigadores del laboratorio de informática del Politécnico han logrado un avance significativo en el desarrollo de una nueva tecnología que promete revolucionar la industria.",
-        "imagen_principal": "/images/noticias/1.jpg",
-        "fecha": "2024-01-30"
-      },
-      {
-        "ID": "2",
-        "etiqueta": "Deportes",
-        "titular": "Éxito del equipo de robótica en la competición nacional",
-        "ENTRADA": "El equipo de robótica del Politécnico ha demostrado su excelencia al ganar la competición nacional de robótica, destacando la habilidad y dedicación de los estudiantes.",
-        "imagen_principal": "/images/noticias/2.jpg",
-        "fecha": "2024-01-30"
-      },
-      {
-        "ID": "3",
-        "etiqueta": "Eventos",
-        "titular": "Próximo evento de innovación tecnológica abierto a la comunidad",
-        "ENTRADA": "Se anuncia un emocionante evento de innovación tecnológica que será accesible para la comunidad, presentando proyectos innovadores de estudiantes y profesores.",
-        "imagen_principal": "/images/noticias/3.jpg",
-        "fecha": "2024-01-30"
-      },
-      {
-        "ID": "4",
-        "etiqueta": "Anuncios",
-        "titular": "Convocatoria abierta para proyectos de investigación",
-        "ENTRADA": "Se invita a estudiantes y profesores a presentar propuestas para proyectos de investigación en diversas áreas. Una oportunidad para contribuir al avance del conocimiento.",
-        "imagen_principal": "/images/noticias/4.jpg",
-        "fecha": "2024-01-30"
-      },
-      {
-        "ID": "5",
-        "etiqueta": "Cultura",
-        "titular": "Exposición de arte en el campus",
-        "ENTRADA": "La facultad de bellas artes organiza una exposición de arte en el campus, mostrando la creatividad y talento artístico de los estudiantes del Politécnico.",
-        "imagen_principal": "/images/electronica/5.jpg",
-        "fecha": "2024-01-30"
-      },
-      {
-        "ID": "6",
-        "etiqueta": "Ciencia",
-        "titular": "Desarrollo de nueva tecnología en el laboratorio de informática",
-        "ENTRADA": "Investigadores del laboratorio de informática del Politécnico han logrado un avance significativo en el desarrollo de una nueva tecnología que promete revolucionar la industria.",
-        "imagen_principal": "/images/electricidad/3.jpg",
-        "fecha": "2024-01-30"
-      },
-      {
-        "ID": "7",
-        "etiqueta": "Deportes",
-        "titular": "Éxito del equipo de robótica en la competición nacional",
-        "ENTRADA": "El equipo de robótica del Politécnico ha demostrado su excelencia al ganar la competición nacional de robótica, destacando la habilidad y dedicación de los estudiantes.",
-        "imagen_principal": "/images/noticias/2.jpg",
-        "fecha": "2024-01-30"
-      },
-      {
-        "ID": "8",
-        "etiqueta": "Eventos",
-        "titular": "Próximo evento de innovación tecnológica abierto a la comunidad",
-        "ENTRADA": "Se anuncia un emocionante evento de innovación tecnológica que será accesible para la comunidad, presentando proyectos innovadores de estudiantes y profesores.",
-        "imagen_principal": "/images/refrigeracion/ref3.jpg",
-        "fecha": "2024-01-30"
-      },
-      {
-        "ID": "9",
-        "etiqueta": "Anuncios",
-        "titular": "Convocatoria abierta para proyectos de investigación",
-        "ENTRADA": "Se invita a estudiantes y profesores a presentar propuestas para proyectos de investigación en diversas áreas. Una oportunidad para contribuir al avance del conocimiento.",
-        "imagen_principal": "/images/gastronomia/gas4.jpg",
-        "fecha": "2024-01-30"
-      },
-      {
-        "ID": "10",
-        "etiqueta": "Cultura",
-        "titular": "Exposición de arte en el campus",
-        "ENTRADA": "La facultad de bellas artes organiza una exposición de arte en el campus, mostrando la creatividad y talento artístico de los estudiantes del Politécnico.",
-        "imagen_principal": "/images/daai/daai5.jpg",
-        "fecha": "2024-01-30"
-      }
+        {
+            "ID": "1",
+            "etiqueta": "Ciencia",
+            "titular": "Desarrollo de nueva tecnología en el laboratorio de informática",
+            "ENTRADA": "Investigadores del laboratorio de informática del Politécnico han logrado un avance significativo en el desarrollo de una nueva tecnología que promete revolucionar la industria.",
+            "imagen_principal": "/images/noticias/1.jpg",
+            "recursos_multimedia": [
+                "/images/cm/cm1.jpg",
+                "/images/cm/cm2.jpg",
+                "/images/cm/cm3.jpg"
+            ],
+            "descripcion": "El equipo de investigación en el laboratorio de informática ha alcanzado un hito crucial en el desarrollo de una innovadora tecnología. Este avance tiene el potencial de revolucionar la industria y abrir nuevas posibilidades en el campo de la informática. Los investigadores, con dedicación y experiencia, han superado desafíos tecnológicos para crear una solución que promete transformar la forma en que interactuamos con la tecnología en el futuro. La comunidad científica espera con entusiasmo las aplicaciones prácticas de esta tecnología y su impacto en diversos sectores.",
+            "fecha": "2024-01-30"
+        },
+        {
+            "ID": "2",
+            "etiqueta": "Deportes",
+            "titular": "Éxito del equipo de robótica en la competición nacional",
+            "ENTRADA": "El equipo de robótica del Politécnico ha demostrado su excelencia al ganar la competición nacional de robótica, destacando la habilidad y dedicación de los estudiantes.",
+            "imagen_principal": "/images/noticias/2.jpg",
+            "recursos_multimedia": [
+                "/images/cm/cm5.jpg",
+                "/images/cm/cm6.jpg",
+                "/images/contabilidad/GAT3.jpg"
+            ],
+            "descripcion": "El equipo de robótica del Politécnico ha alcanzado el éxito al obtener el primer lugar en la competición nacional de robótica. Este logro destaca la excepcional habilidad y dedicación de los estudiantes que forman parte de este destacado equipo. La competición fue un desafío emocionante que puso a prueba la creatividad y el ingenio de los participantes. La victoria no solo representa un logro para el equipo, sino también un testimonio del compromiso de la institución con la excelencia en la educación tecnológica.",
+            "fecha": "2024-01-30"
+        },
+        {
+            "ID": "3",
+            "etiqueta": "Eventos",
+            "titular": "Próximo evento de innovación tecnológica abierto a la comunidad",
+            "ENTRADA": "Se anuncia un emocionante evento de innovación tecnológica que será accesible para la comunidad, presentando proyectos innovadores de estudiantes y profesores.",
+            "imagen_principal": "/images/noticias/3.jpg",
+            "recursos_multimedia": [
+                "/images/contabilidad/GAT4.jpg",
+                "/images/contabilidad/GAT5.jpg",
+                "/images/contabilidad/GAT6.jpg"
+            ],
+            "descripcion": "Próximamente, se llevará a cabo un evento emocionante de innovación tecnológica que estará abierto a toda la comunidad. El evento presentará proyectos innovadores desarrollados por talentosos estudiantes y profesores del Politécnico. Esta iniciativa busca fomentar la creatividad y el intercambio de ideas, creando un espacio para la colaboración y el aprendizaje mutuo. La diversidad de proyectos presentados reflejará la riqueza del talento dentro de la institución y ofrecerá una visión única de las tendencias emergentes en el ámbito tecnológico.",
+            "fecha": "2024-01-30"
+        },
+        {
+            "ID": "4",
+            "etiqueta": "Anuncios",
+            "titular": "Convocatoria abierta para proyectos de investigación",
+            "ENTRADA": "Se invita a estudiantes y profesores a presentar propuestas para proyectos de investigación en diversas áreas. Una oportunidad para contribuir al avance del conocimiento.",
+            "imagen_principal": "/images/noticias/4.jpg",
+            "recursos_multimedia": [
+                "/images/contabilidad/GAT6.jpg",
+                "/images/daai/daai.jpg",
+                "/images/daai/daai1.jpg"
+            ],
+            "descripcion": "Se abre la convocatoria para la presentación de propuestas de proyectos de investigación en diversas áreas. Estudiantes y profesores están invitados a contribuir con sus ideas y conocimientos para avanzar en la comprensión y aplicación del saber. Esta iniciativa respalda el compromiso de la institución con la investigación de vanguardia y ofrece una plataforma para impulsar la colaboración interdisciplinaria. Los proyectos seleccionados no solo contribuirán al cuerpo de conocimientos existente, sino que también brindarán oportunidades para el desarrollo profesional y académico de los participantes.",
+            "fecha": "2024-01-30"
+        },
+        {
+            "ID": "5",
+            "etiqueta": "Cultura",
+            "titular": "Exposición de arte en el campus",
+            "ENTRADA": "La facultad de bellas artes organiza una exposición de arte en el campus, mostrando la creatividad y talento artístico de los estudiantes del Politécnico.",
+            "imagen_principal": "/images/electronica/5.jpg",
+            "recursos_multimedia": [
+                "/images/daai/daai2.jpg",
+                "/images/daai/daai3.jpg",
+                "/images/daai/daai4.jpg"
+            ],
+            "descripcion": "La facultad de bellas artes del Politécnico organiza una impresionante exposición de arte en el campus. La muestra destaca la creatividad y el talento artístico de los estudiantes, ofreciendo una experiencia visual única para toda la comunidad. La exposición abarcará diversas formas de expresión artística, desde pinturas hasta instalaciones interactivas, brindando a los visitantes la oportunidad de sumergirse en el mundo diverso y vibrante de la creatividad. Este evento cultural no solo celebra el arte, sino que también promueve la importancia de las disciplinas artísticas en el desarrollo integral de los estudiantes.",
+            "fecha": "2024-01-30"
+        },
+        {
+            "ID": "6",
+            "etiqueta": "Ciencia",
+            "titular": "Desarrollo de nueva tecnología en el laboratorio de informática",
+            "ENTRADA": "Investigadores del laboratorio de informática del Politécnico han logrado un avance significativo en el desarrollo de una nueva tecnología que promete revolucionar la industria.",
+            "imagen_principal": "/images/electricidad/3.jpg",
+            "recursos_multimedia": [
+                "/images/daai/daai5.jpg",
+                "/images/daai/daai6.jpg",
+                "/images/daai/daai7.jpg"
+            ],
+            "descripcion": "El laboratorio de informática del Politécnico celebra un hito importante en el desarrollo de una nueva tecnología con el potencial de transformar la industria. Los investigadores han alcanzado un avance significativo que promete impulsar la innovación tecnológica. Esta nueva tecnología no solo representa un logro técnico, sino que también abre nuevas posibilidades para aplicaciones prácticas en diversos campos. Desde la mejora de la eficiencia en procesos industriales hasta avances en la interacción humano-computadora, este desarrollo tiene el potencial de marcar el comienzo de una era emocionante en la tecnología.",
+            "fecha": "2024-01-30"
+        },
+        {
+            "ID": "7",
+            "etiqueta": "Deportes",
+            "titular": "Éxito del equipo de robótica en la competición nacional",
+            "ENTRADA": "El equipo de robótica del Politécnico ha demostrado su excelencia al ganar la competición nacional de robótica, destacando la habilidad y dedicación de los estudiantes.",
+            "imagen_principal": "/images/noticias/2.jpg",
+            "recursos_multimedia": [
+                "/images/electricidad/1.jpg",
+                "/images/electricidad/2.jpg",
+                "/images/electricidad/3.jpg"
+            ],
+            "descripcion": "El equipo de robótica del Politécnico se alza con el primer lugar en la competición nacional de robótica, demostrando la excelencia, habilidad y dedicación de sus estudiantes. Una victoria que resalta el compromiso con la innovación tecnológica. El evento fue un escaparate de la destreza técnica y la creatividad de los participantes, subrayando la importancia de la educación en ingeniería y tecnología en la formación de profesionales altamente capacitados. Este logro no solo enorgullece a la institución, sino que también destaca el talento emergente en el campo de la robótica.",
+            "fecha": "2024-01-30"
+        },
+        {
+            "ID": "8",
+            "etiqueta": "Eventos",
+            "titular": "Próximo evento de innovación tecnológica abierto a la comunidad",
+            "ENTRADA": "Se anuncia un emocionante evento de innovación tecnológica que será accesible para la comunidad, presentando proyectos innovadores de estudiantes y profesores.",
+            "imagen_principal": "/images/refrigeracion/ref3.jpg",
+            "recursos_multimedia": [
+                "/images/electricidad/4.jpg",
+                "/images/electricidad/5.jpg",
+                "/images/electricidad/6.jpg"
+            ],
+            "descripcion": "Próximamente, la comunidad del Politécnico disfrutará de un evento emocionante de innovación tecnológica. Estudiantes y profesores presentarán sus proyectos más innovadores, ofreciendo una visión fascinante del futuro de la tecnología. Este evento no solo será una plataforma para exhibir la creatividad y la inventiva, sino que también fomentará el diálogo y la colaboración entre las diversas disciplinas tecnológicas. Desde avances en energías renovables hasta soluciones para desafíos globales, se espera que este evento inspire a la próxima generación de innovadores y visionarios.",
+            "fecha": "2024-01-30"
+        },
+        {
+            "ID": "9",
+            "etiqueta": "Anuncios",
+            "titular": "Convocatoria abierta para proyectos de investigación",
+            "ENTRADA": "Se invita a estudiantes y profesores a presentar propuestas para proyectos de investigación en diversas áreas. Una oportunidad para contribuir al avance del conocimiento.",
+            "imagen_principal": "/images/gastronomia/gas4.jpg",
+            "recursos_multimedia": [
+                "/images/electronica/4.jpg",
+                "/images/electronica/5.jpg",
+                "/images/electronica/6.jpg"
+            ],
+            "descripcion": "Se hace un llamado a estudiantes y profesores para presentar propuestas de proyectos de investigación en diversas áreas. Una oportunidad valiosa para contribuir al avance del conocimiento y fomentar la exploración en el ámbito académico. La convocatoria busca impulsar la investigación interdisciplinaria, abordando desafíos contemporáneos y ampliando los límites del conocimiento en campos tan diversos como la electrónica, la gastronomía y la ingeniería. Los proyectos seleccionados recibirán apoyo institucional y ofrecerán a los participantes la oportunidad de contribuir significativamente al progreso académico y científico.",
+            "fecha": "2024-01-30"
+        },
+        {
+            "ID": "10",
+            "etiqueta": "Cultura",
+            "titular": "Exposición de arte en el campus",
+            "ENTRADA": "La facultad de bellas artes organiza una exposición de arte en el campus, mostrando la creatividad y talento artístico de los estudiantes del Politécnico.",
+            "imagen_principal": "/images/daai/daai5.jpg",
+            "recursos_multimedia": [
+                "/images/electronica/1.jpg",
+                "/images/electronica/2.jpg",
+                "/images/electronica/3.jpg"
+            ],
+            "descripcion": "La facultad de bellas artes presenta una extraordinaria exposición de arte en el campus, destacando la creatividad y el talento artístico de los estudiantes del Politécnico. Un evento imperdible para apreciar diversas expresiones artísticas. La exposición no solo exhibirá pinturas y esculturas excepcionales, sino que también explorará la convergencia de la tecnología y las artes, presentando instalaciones multimedia y obras interactivas. Los estudiantes artistas compartirán sus inspiraciones y procesos creativos, proporcionando una experiencia enriquecedora para todos los asistentes. Esta iniciativa refleja el compromiso de la institución con el desarrollo integral de sus estudiantes, fomentando la apreciación y participación activa en el mundo artístico.",
+            "fecha": "2024-01-30"
+        }
     ]
-  }
-  
+}
