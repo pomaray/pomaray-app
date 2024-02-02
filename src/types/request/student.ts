@@ -2,9 +2,9 @@
 
 //----CONST-----------------------------------------------------
 
-export const YEAR_QUERY = "year";
+export const YEAR_QUERY = "years";
 export const NAME_QUERY = "name";
-export const TECH_QUERY = "tech";
+export const TECH_QUERY = "tecnique";
 export const LIMIT_QUERY = "limit";
 export const SKIP_QUERY = "skip";
 

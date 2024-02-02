@@ -4,6 +4,7 @@ import { Input, Autocomplete, AutocompleteItem } from "@nextui-org/react";
 import { Dispatch, FormEvent, SetStateAction } from "react";
 import { getTechIterables } from "@/utils/enums";
 import { StudentRequest } from "@/types/request/student";
+import { motion } from "framer-motion";
 
 export default function YearBookForm({
 	setFormRequestHandler,
@@ -59,8 +60,16 @@ export default function YearBookForm({
 	};
 
 	return (
-		<form
-			className="grid-cols-1 sm:grid-cols-3 grid gap-4 -z-50"
+		<motion.form
+			initial={{
+				translateY: 100,
+				opacity: 0,
+			}}
+			animate={{
+				translateY: 0,
+				opacity: 1,
+			}}
+			className="grid-cols-1 sm:grid-cols-3 grid gap-4 -z-50 my-10"
 			onSubmit={onSubmit}
 		>
 			<Input
@@ -117,6 +126,6 @@ export default function YearBookForm({
 					<AutocompleteItem key={year.key}>{year.value}</AutocompleteItem>
 				)}
 			</Autocomplete>
-		</form>
+		</motion.form>
 	);
 }

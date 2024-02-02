@@ -33,7 +33,7 @@ export default function RootLayout({
 			<body
 				className={`bg-transparent overflow-y-auto max-w-[100vw] overflow-x-hidden ${inter.className}`}
 			>
-				<header className="relative min-w-screen z-40 h-32">
+				<header className="print:hidden relative min-w-screen z-40 h-32">
 					<div className="fixed">
 						<Header />
 					</div>

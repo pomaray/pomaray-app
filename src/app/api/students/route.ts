@@ -9,7 +9,10 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: Request) {
 	try {
 		const { searchParams } = new URL(request.url);
-		const url = `${STUDENT_ENDPOINT}?${searchParams}`;
+		const url = `${STUDENT_ENDPOINT}?${searchParams
+			.toString()
+			.replace("%2C", ",")}`;
+		console.log(url);
 
 		const response = await axios.get(url);
 		const { total, students } = (await response.data) as StudentsResponse;

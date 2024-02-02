@@ -60,6 +60,8 @@ export const useYearBook = (_limit: number) => {
 			if (isLoading || !debouncedFormRequest) return;
 			setIsLoading(true);
 			setStudents([]);
+			setIsError(false);
+			setIsNotFound(false);
 
 			// Construir los `Query Params` según `debouncedFormRequest`.
 			const params = new URLSearchParams();
@@ -69,12 +71,11 @@ export const useYearBook = (_limit: number) => {
 				params.set(TECH_QUERY, debouncedFormRequest.tech);
 			if (debouncedFormRequest.years)
 				params.set(YEAR_QUERY, debouncedFormRequest.years.toString());
-			console.log(debouncedFormRequest);
 
 			// Construir la URL con los `Query Params` el `limit` y `skip`.
 			// Ej. /api/students?name=JohnDoe&limit=10&skip=0
 			const skip = (currentPage - 1) * limit;
-			const url = `${STUDENTS_URL}?${params.toString()}&${LIMIT_QUERY}=${limit}&${SKIP_QUERY}=${skip}`;
+			const url = `${STUDENTS_URL}?${params}&${LIMIT_QUERY}=${limit}&${SKIP_QUERY}=${skip}`;
 
 			// Hacer una petición `GET` a la URL.
 			const response = await axios.get<StudentsResponse>(url);

@@ -17,7 +17,6 @@
 	},
 	"NAVBAR": {
 		"NAME": "POMARAY",
-		"LOGO": "/images/logo.svg",
 		"SEE_NEWS": "Ver noticias",
 		"NOTIFICATION": {
 			"TEXT": "¡No te pierdas nuestro aniversario! %s",

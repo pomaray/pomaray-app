@@ -31,7 +31,7 @@ export default function LoginPage() {
 		passwordMinLength,
 		error,
 		isLoading,
-		user,
+		isSucces,
 		setError,
 		authenticateUser,
 	} = useAuthStore();
@@ -143,7 +143,7 @@ export default function LoginPage() {
 						{error && <p className="text-danger text-center">{error}</p>}
 						<Button
 							isDisabled={isDisabled}
-							isLoading={isLoading}
+							isLoading={isLoading || isSucces}
 							type="submit"
 							color="primary"
 						>

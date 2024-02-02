@@ -3,7 +3,7 @@
 	"REQUEST_BTN": "Solicitar información",
 	"SEND_MAIL": {
 		"MAIL": "pomaray@gmail.com",
-		"SUBJECT": "%s - Solicitud información",
+		"SUBJECT": "Solicitud información - %s",
 		"MESSAGE": "¡Hola!\n\nMe gustaría obtener más información sobre la técnica de %s.\n\nGracias."
 	},
 	"DATA": {

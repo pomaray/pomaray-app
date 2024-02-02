@@ -10,4 +10,5 @@ export type TokenResponse = {
 
 export type LoginResponse = {
 	user: User;
+	token: string;
 };

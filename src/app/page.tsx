@@ -1,25 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Card, CardBody, CardFooter } from "@nextui-org/card";
-import { Spinner } from "@nextui-org/spinner";
+import { Card } from "@nextui-org/card";
 import { Link } from "@nextui-org/link";
-import { Button, Image, Chip } from "@nextui-org/react";
+import { Button, Image } from "@nextui-org/react";
 
 import { Title } from "@/components/ui/Title";
 import { Collage, type CollageContent } from "@/components/Collage";
 import { FaUserGraduate, FaUsers, FaLaptopCode } from "react-icons/fa";
-import { AnimatePresence, motion } from "framer-motion";
-import { useRouter } from "next/navigation";
-
-import tec from "@/locales/noticias.json";
+import { AnimatePresence, AnimationProps, motion } from "framer-motion";
 import i18n from "@/locales/home.json";
+import { NewsCard } from "@/components/noticias/NewsCard";
 
 export default function HomePage() {
 	const [backgroundIndex, setBackgroundIndex] = useState(0);
 	const [direction, setDirection] = useState(1);
-	const [showSpinner, setShowSpinner] = useState(true);
-	const [showImages, setShowImages] = useState(false);
 
 	// SHORT-CUTS DE LOCALES
 	const VIDA_CULTURA_SUBTITULO = i18n.LIFE_AND_CULTURE.SUB_TITLE.split("%s");
@@ -29,13 +24,10 @@ export default function HomePage() {
 
 	useEffect(() => {
 		const interval = setInterval(() => {
-			setBackgroundIndex((prevIndex) => (prevIndex + 1) % i18n.HERO.CARROUSEL.length);
+			setBackgroundIndex(
+				(prevIndex) => (prevIndex + 1) % i18n.HERO.CARROUSEL.length,
+			);
 		}, 5000);
-
-		setTimeout(() => {
-			setShowSpinner(false);
-			setShowImages(true);
-		}, 500);
 
 		return () => clearInterval(interval);
 	}, []);
@@ -59,15 +51,10 @@ export default function HomePage() {
 		},
 	};
 
-	const router = useRouter();
-	const dynamicPath = "/noticias";
-
-	const copyToClipboard = () => {
-		const url = window.location.href;
-		navigator.clipboard.writeText(url);
+	const cardAnimation = {
+		initial: { y: -120 },
+		animate: { y: 0 },
 	};
-
-	const [currentMainNewsIndex, setCurrentMainNewsIndex] = useState(0);
 
 	return (
 		<main>
@@ -86,28 +73,50 @@ export default function HomePage() {
 						onAnimationComplete={() => setDirection(0)}
 					/>
 				</AnimatePresence>
-				<div className="relative text-center mt-30 text-white mt-10 sm:mt-0">
+				<motion.div
+					initial={{
+						translateY: 100,
+						opacity: 0,
+					}}
+					animate={{
+						translateY: 0,
+						opacity: 1,
+					}}
+					className="relative text-center mt-30 text-white mt-10 sm:mt-0"
+				>
 					<h1 className="md:text-5xl text-3xl font-bold mb-4 max-w-[20ch]">
 						{i18n.HERO.TITLE}
 					</h1>
 					<p className="lg:text-lg text-md font-semibold mt-6">
 						{i18n.HERO.SUB_TITLE}
 					</p>
-				</div>
-				<div className="mt-12 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-9">
+				</motion.div>
+				<motion.div
+					initial={{
+						translateY: 100,
+						opacity: 0,
+					}}
+					animate={{
+						translateY: 0,
+						opacity: 1,
+					}}
+					className="mt-12 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-9"
+				>
 					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background dark:bg-default-200">
 						<FaUserGraduate className="text-3xl text-primary" />
 						<p className="p-2">{i18n.HERO.GRADUATED}</p>
 					</Card>
+
 					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background dark:bg-default-200">
 						<FaUsers className="text-3xl text-primary" />
 						<p className="p-2">{i18n.HERO.USUER}</p>
 					</Card>
+
 					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background dark:bg-default-200">
 						<FaLaptopCode className="text-3xl text-primary" />
 						<p className="p-2">{i18n.HERO.TECHNOLOGY}</p>
 					</Card>
-				</div>
+				</motion.div>
 			</section>
 
 			<section className="container mx-auto pb-12 text-center text-foreground">
@@ -124,41 +133,20 @@ export default function HomePage() {
 				<Collage contentSections={contentSections} />
 			</section>
 
-			<section className="h-full flex flex-col justify-center items-center gap-20">
+			<section className="h-full flex flex-col justify-center items-center gap-20 px-[10rem]">
 				<Title withLine className="" text={i18n.NEWS.TITLE} />
 				<section className=" text-primary relative mx-9">
-					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:px-1 md:px-10">
-						{tec.NEWS.slice(0, 4).map((noticia, index) => (
-							<Card
-								key={noticia.ID}
-								onClick={() =>
-									router.push(`${dynamicPath}/${noticia.ID.toLowerCase()}`)
-								}
-								isPressable
-								shadow="none"
-								className="relative overflow-hidden w-full max-w-[400px]"
-							>
-									<Image
-										src={noticia.imagen_principal}
-										alt={noticia.titular}
-										className="w-screen h-48 object-cover rounded-t-md"
-									/>
-
-								<CardBody className="text-center py-4">
-									<Chip color="primary" className="mb-2">
-										{noticia.etiqueta}
-									</Chip>
-									<h3 className="md:text-md text-lg font-bold mb-2 line-clamp-2">
-										{noticia.titular}
-									</h3>
-									<p className="text-xs line-clamp-3">{noticia.ENTRADA}</p>
-								</CardBody>
-
-								<CardFooter className="flex justify-between items-center h-10">
-									<time className="mb-2 text-xs ml-2">{noticia.fecha}</time>
-								</CardFooter>
-							</Card>
-						))}
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:px-1">
+						{Array.from({ length: 4 }, (_, index) => {
+							return (
+								<NewsCard
+									// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+									key={index}
+									id={index.toString()}
+									isLoaded={true}
+								/>
+							);
+						})}
 					</div>
 				</section>
 				<a href="/noticias">
@@ -178,26 +166,34 @@ export default function HomePage() {
 				</div>
 			</section>
 
-			<section className="flex flex-col justify-center items-center py-5 sm:px-10 md:px-40 px-6">
+			<section className="flex flex-col justify-center items-center max-w-7xl mx-auto">
 				<Title className="py-4" text={i18n.LIFE_AND_CULTURE.TITLE} />
 				<p className="text-foreground">
 					{VIDA_CULTURA_SUBTITULO[0]}{" "}
-					<Link className="underline text-primary" href={i18n.LIFE_AND_CULTURE.HASHTAG_LINK}>
+					<Link
+						className="underline text-primary"
+						href={i18n.LIFE_AND_CULTURE.HASHTAG_LINK}
+					>
 						{i18n.LIFE_AND_CULTURE.HASHTAG}
 					</Link>{" "}
 					{VIDA_CULTURA_SUBTITULO[1]}
 				</p>
-				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 min-h-[50vh]">
-					{showSpinner && <Spinner label={i18n.LIFE_AND_CULTURE.LOADING} />}
-					{showImages &&
-						i18n.LIFE_AND_CULTURE.IMAGES.map((image, index) => (
+				<div className="grid grid-cols-12 gap-4 min-h-[50vh] mt-6 w-full">
+					{i18n.LIFE_AND_CULTURE.IMAGES.map((image, index) => (
+						<Card
+							shadow="none"
+							key={image.trim()}
+							className="lg:col-span-4 sm:col-span-6 col-span-12 h-[300px]"
+						>
 							<Image
-								key={index}
+								removeWrapper
+								alt={`Vida y cultura imagen ${index + 1}`}
+								className="z-0 w-full h-full object-cover hover:scale-125 transition-transform"
 								src={image}
-								alt={`Image ${index + 1}`}
-								className="p-2 w-96 sm:w-96 md:w-96 h-[47vh]"
+								loading="lazy"
 							/>
-						))}
+						</Card>
+					))}
 				</div>
 			</section>
 		</main>

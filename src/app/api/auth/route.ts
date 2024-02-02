@@ -3,19 +3,9 @@ import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { type User } from "@/types/general";
 import { UAParser } from "ua-parser-js";
-import { TOKEN_COOKIE } from "@/types/request/auth";
+import { LOGIN_PAGE, TOKEN_COOKIE } from "@/types/request/auth";
 import { TOKEN_EXPIRE_DAYS } from "@/utils/general";
-
-interface TokenResponse {
-	user?: User;
-}
-
-interface LoginResponse {
-	user?: User;
-	token?: string;
-}
-
-const SECRET = process.env.SIGNATURE as string;
+import { LoginResponse, TokenResponse } from "@/types/responses/auth";
 
 export async function GET() {
 	const END_POINT = process.env.TOKEN_ENDPOINT as string;
@@ -108,6 +98,41 @@ export async function POST(req: NextRequest) {
 
 		cookies().set(TOKEN_COOKIE, token, { secure: true, expires: expire });
 		return NextResponse.json({ user });
+	} catch (error) {
+		if (axios.isAxiosError(error)) {
+			const { status, code } = error.toJSON() as AxiosError;
+
+			return NextResponse.json(
+				{
+					message: error.toJSON(),
+					status: status ?? error.status,
+				},
+				{
+					status: status ?? error.status,
+					statusText: code,
+				},
+			);
+		}
+		return NextResponse.json(
+			{
+				code: "500",
+				message:
+					error instanceof Error
+						? error.message
+						: "Error interno del servidor.",
+			},
+			{
+				status: 500,
+				statusText: "ERR_INTERNAL_SERVER_ERROR",
+			},
+		);
+	}
+}
+
+export async function DELETE(req: NextRequest) {
+	try {
+		cookies().delete(TOKEN_COOKIE);
+		return NextResponse.redirect(new URL(LOGIN_PAGE, req.url));
 	} catch (error) {
 		if (axios.isAxiosError(error)) {
 			const { status, code } = error.toJSON() as AxiosError;

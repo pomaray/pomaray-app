@@ -12,6 +12,7 @@ export interface AuthStore {
 	passwordMinLength: number;
 
 	isLoading: boolean;
+	isSucces: boolean;
 
 	error?: string;
 	user?: User;
@@ -26,11 +27,12 @@ export const useAuthStore = create<AuthStore>((set) => ({
 	passwordMinLength: 8,
 	user: undefined,
 	isLoading: false,
+	isSucces: false,
 	error: undefined,
 
 	authenticateUser: async (request: LoginRequest) => {
 		try {
-			set({ isLoading: true, error: undefined });
+			set({ isSucces: false, isLoading: true, error: undefined });
 
 			const response = await axios.post(
 				"/api/auth/",
@@ -52,7 +54,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
 				return undefined;
 			}
 
-			set({ user });
+			set({ user, isSucces: true });
 			return user;
 		} catch (err) {
 			const error = err as AxiosError;
@@ -61,11 +63,13 @@ export const useAuthStore = create<AuthStore>((set) => ({
 				set({
 					user: undefined,
 					error: i18n.ERRORS.CODES[errorStatus] || i18n.ERRORS.CODES["500"],
+					isSucces: false,
 				});
 			} else {
 				set({
 					user: undefined,
 					error: i18n.ERRORS.CODES["500"],
+					isSucces: false,
 				});
 			}
 		} finally {
@@ -75,7 +79,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
 
 	getUserByToken: async () => {
 		try {
-			set({ isLoading: true, error: undefined });
+			set({ isSucces: false, isLoading: true, error: undefined });
 
 			const response = await fetch("/api/auth");
 

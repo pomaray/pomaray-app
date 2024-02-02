@@ -18,6 +18,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AdminEditUserModal } from "@/components/admin/user/AdminEditUserModal";
 import { renderRoleEnum } from "@/utils/enums";
+import { LOGIN_URL } from "@/types/request/auth";
 
 export function Header() {
 	const [selectedLocation, setSelectedLocation] = useState({
@@ -44,6 +45,12 @@ export function Header() {
 			children: "Descargas",
 		},
 	];
+
+	const logout = async () => {
+		await fetch(LOGIN_URL, {
+			method: "DELETE",
+		});
+	};
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
@@ -139,7 +146,12 @@ export function Header() {
 			<div className="flex gap-4 items-end">
 				<AdminEditUserModal editUser={user} />
 				<Tooltip content="Cerrar session" color="primary">
-					<Button isIconOnly color="primary" variant="bordered">
+					<Button
+						onPress={logout}
+						isIconOnly
+						color="primary"
+						variant="bordered"
+					>
 						<FaRightFromBracket className="text-lg" />
 					</Button>
 				</Tooltip>

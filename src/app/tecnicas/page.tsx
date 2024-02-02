@@ -4,12 +4,23 @@ import { TechCard } from "@/components/tecnicas/TechCard";
 import { Title } from "@/components/ui/Title";
 import { useRouter } from "next/navigation";
 import i18n from "@/locales/tecnicas.json";
+import { motion } from "framer-motion";
 
 export default function HomePage() {
 	const dynamicPath = "/tecnicas";
 
 	return (
-		<main className="min-h-[90vh]">
+		<motion.main
+			initial={{
+				translateY: 100,
+				opacity: 0,
+			}}
+			animate={{
+				translateY: 0,
+				opacity: 1,
+			}}
+			className="min-h-[90vh]"
+		>
 			<section className="p-10 pt-0">
 				<Title text={i18n.HERO.TITLE} />
 				<p className="text-lg max-w-2xl mx-auto text-pretty sm:text-center">
@@ -37,6 +48,6 @@ export default function HomePage() {
 					})}
 				</div>
 			</section>
-		</main>
+		</motion.main>
 	);
 }

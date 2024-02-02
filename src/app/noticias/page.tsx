@@ -1,102 +1,62 @@
-"use client"
-import {
-  Card,
-  CardBody,
-  Image,
-  Chip,
-  CardFooter,
-} from "@nextui-org/react";
-import { useRouter } from "next/navigation";
-import tec from "@/locales/noticias.json";
-import { useEffect, useState } from "react";
+/* eslint-disable @next/next/no-img-element */
+"use client";
+import { NewsCard } from "@/components/noticias/NewsCard";
+import { Title } from "@/components/ui/Title";
+import { Chip, Pagination } from "@nextui-org/react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function NewsPage() {
-  const router = useRouter();
-  const dynamicPath = "/noticias";
+	const [isLoaded, setIsLoaded] = useState(true);
+	return (
+		<main>
+			<section className="grid relative place-content-center w-full min-h-[80vh] bg-primary/80 -top-32">
+				<img
+					className="absolute inset-0 object-cover w-full h-full bg-no-repeat bg-center -z-10"
+					src={
+						"https://cnnespanol.cnn.com/wp-content/uploads/2024/02/GettyImages-1969688477.jpg?quality=100&strip=info&w=460&h=260&crop=1"
+					}
+					alt="Noticias princiapl"
+				/>
+				<motion.div
+					initial={{
+						translateY: 100,
+						opacity: 0,
+					}}
+					animate={{
+						translateY: 0,
+						opacity: 1,
+					}}
+					className="flex flex-col items-center justify-center gap-4 text-white max-w-4xl"
+				>
+					<Chip size="lg" variant="bordered" className="mb-2 text-white">
+						Categoria
+					</Chip>
+					<h1 className="md:text-7xl text-3xl font-bold mb-2 line-clamp-2">
+						Noticia Principal
+					</h1>
+					<p className="text-md text-wrap max-w-full text-center px-20">
+						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus id,
+						eum quod quidem ipsum ad omnis pariatur rerum, minima vel delectus,
+						optio commodi aliquam? Sapiente rerum sit fugiat nobis praesentium.
+					</p>
+				</motion.div>
+			</section>
+			<section className="max-w-7xl mx-auto -mt-20">
+				<Title text="Todas las noticias" />
 
-  const copyToClipboard = () => {
-    const url = window.location.href;
-    navigator.clipboard.writeText(url);
-  };
-
-  const [currentMainNewsIndex, setCurrentMainNewsIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentMainNewsIndex((prevIndex) =>
-        Math.floor(Math.random() * tec.NEWS.length)
-      );
-    }, 15000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <main className="container mx-auto max-w-[140ch]">
-      <section className="mb-8 lg:flex lg:items-center lg:justify-center mx-10	">
-        <article className="lg:w-1/2 h-32 p-2 rounded-md flex items-center py-9 justify-center mb-9 lg:mb-0 lg:mt-6">
-          <Image
-            shadow="none"
-            src={tec.NEWS[currentMainNewsIndex].imagen_principal}
-            alt={tec.NEWS[currentMainNewsIndex].titular}
-            className="w-screen md:h-16 xl:h-[70vh] sm:h-16 lg:w-screen lg:h-32 rounded-md object-cover 2xl:max-h-[50vh] 2xl:top-10 sm:py-28"
-          />
-        </article>
-        <aside className="lg:w-1/2 p-4 flex flex-col justify-center sm:py-28">
-          <Chip
-            color="primary"
-            variant="bordered"
-            size="lg"
-            className="mb-2 text-ellipsis overflow-hidden"
-          >
-            {tec.NEWS[currentMainNewsIndex].etiqueta}
-          </Chip>
-          <h1 className="lg:text-4xl text-2xl font-bold mb-2 text-balance">
-            {tec.NEWS[currentMainNewsIndex].titular}
-          </h1>
-          <p className="mb-4 text-sm">
-            {tec.NEWS[currentMainNewsIndex].ENTRADA}
-          </p>
-        </aside>
-      </section>
-
-      <section className="sm:py-8 md:py-8 text-primary relative 2xl:py-36 mx-9">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:px-1 md:px-10">
-          {tec.NEWS.slice(0, 10).map((noticia, index) => (
-            <Card
-              key={noticia.ID}
-              onClick={() =>
-                router.push(`${dynamicPath}/${noticia.ID.toLowerCase()}`)
-              }
-              isPressable
-              shadow="none"
-              className="relative overflow-hidden w-full max-w-[400px]"
-            >
-              <div className="h-48">
-                <Image
-                  src={noticia.imagen_principal}
-                  alt={noticia.titular}
-                  className="w-screen h-48 object-cover rounded-t-md"
-                />
-              </div>
-
-              <CardBody className="text-center py-4">
-                <Chip color="primary" className="mb-2">
-                  {noticia.etiqueta}
-                </Chip>
-                <h3 className="md:text-md text-lg font-bold mb-2 line-clamp-2">
-                  {noticia.titular}
-                </h3>
-                <p className="text-xs line-clamp-3">{noticia.ENTRADA}</p>
-              </CardBody>
-
-              <CardFooter className="flex justify-between items-center h-10">
-                <time className="mb-2 text-xs ml-2">{noticia.fecha}</time>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
-      </section>
-    </main>
-  );
+				<div className="min-h-[80vh] grid grid-cols-4 gap-4 pb-10">
+					{Array.from({ length: 12 }, (_, index) => {
+						return (
+							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+							<NewsCard key={index} id={index.toString()} isLoaded={isLoaded} />
+						);
+					})}
+				</div>
+			</section>
+			<section className="flex justify-center">
+				<Pagination isDisabled={!isLoaded} size="lg" total={30} page={1} />
+			</section>
+		</main>
+	);
 }

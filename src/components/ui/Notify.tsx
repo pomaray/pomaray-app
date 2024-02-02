@@ -30,14 +30,14 @@ export function NavbarNotify({ isClose }: { isClose: boolean }) {
 			{!!forceCLose ||
 				(!isClose && (
 					<motion.div
-						initial={{ y: -120, opacity: 1 }}
+						initial={{ y: -120 }}
 						animate={{ y: 0 }}
 						exit={{ y: -50 }}
 						transition={{
 							duration: 0.2,
 							delay: !forceCLose || !isClose ? 0.3 : 0,
 						}}
-						className="relative flex flex-col justify-center w-screen bg-primary dark:text-foreground !text-white py-2 px-12 text-sm sm:text-lg font-medium z-10 shadow-md"
+						className="print:hidden relative flex flex-col justify-center w-screen bg-primary dark:text-foreground !text-white py-2 px-12 text-sm sm:text-lg font-medium z-10 shadow-md"
 					>
 						<span className="text-center text-sm xss:text-tiny">
 							{TEXTO[0]}{" "}

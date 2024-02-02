@@ -3,13 +3,10 @@
 import { notFound, useParams } from "next/navigation";
 import i18n from "@/locales/tecnicas[id].json";
 import { Image, Card, Button, Chip } from "@nextui-org/react";
-import { useRouter } from "next/navigation";
 
 export default function TechniquePage() {
 	const { id } = useParams<{ id: string }>();
-
 	const technique = i18n.DATA[id as keyof typeof i18n.DATA];
-	const router = useRouter();
 
 	const mailTo = () => {
 		const subject = i18n.SEND_MAIL.SUBJECT.replace("%s", technique.NAME);
@@ -52,8 +49,15 @@ export default function TechniquePage() {
 								{desc}
 							</p>
 						))}
-						<div className="flex space-x-4 mt-4">
-							<Button color="primary">{i18n.DOWNLOAD_BTN}</Button>
+						<div className="print:hidden flex space-x-4 mt-4">
+							<Button
+								onClick={() => {
+									print();
+								}}
+								color="primary"
+							>
+								{i18n.DOWNLOAD_BTN}
+							</Button>
 							<Button onClick={mailTo} color="primary" variant="bordered">
 								{i18n.REQUEST_BTN}
 							</Button>
@@ -61,43 +65,51 @@ export default function TechniquePage() {
 					</div>
 				</section>
 
-				{technique.INFORMATION.map((item) => (
-					<section key={item.TITLE} className="sm:py-6 py-2 sm:px-0">
-						<h2 className="sm:text-3xl text-xl font-bold my-4 text-primary">
-							{item.TITLE}
-						</h2>
-						{item.PARAGRAPHS.map((parag) => (
-							<p
-								key={parag.substring(0, 10)}
-								className="opacity-80 sm:text-lg text-sm text-pretty sm:mb-4 mb-2"
-							>
-								{parag}
-							</p>
-						))}
-					</section>
-				))}
-
-				<section className="py-8">
-					<h2 className="text-3xl font-bold mb-4 text-primary">
-						{technique.GALLERY_TITLE}
-					</h2>
-					<div className="grid grid-cols-12 gap-4">
-						{technique.IMAGES.map((image, index) => (
-							<Card
-								shadow="none"
-								key={image.trim()}
-								className="col-span-12 sm:col-span-4 h-[300px]"
-							>
-								<Image
-									removeWrapper
-									alt={`Image ${index + 1}`}
-									className="z-0 w-full h-full object-cover hover:scale-125 transition-transform"
-									src={image}
-								/>
-							</Card>
-						))}
-					</div>
-				</section>
+				{technique.INFORMATION.map((item, index) => {
+					if (index === 1) {
+						return (
+							<section key={item.TITLE} className="print:py-2 py-8">
+								<h2 className="text-3xl font-bold mb-4 text-primary">
+									{technique.GALLERY_TITLE}
+								</h2>
+								<div className="grid grid-cols-12 gap-4">
+									{technique.IMAGES.map((image, imageIndex) => (
+										<Card
+											shadow="none"
+											key={image.trim()}
+											className="lg:col-span-4 sm:col-span-6 col-span-12 h-[300px]"
+										>
+											<Image
+												removeWrapper
+												alt={`Image ${imageIndex + 1}`}
+												className="z-0 w-full h-full object-cover hover:scale-125 transition-transform"
+												src={image}
+											/>
+										</Card>
+									))}
+								</div>
+							</section>
+						);
+					}
+					return (
+						<section
+							key={item.TITLE}
+							className="print:py-2 sm:py-6 py-2 sm:px-0"
+						>
+							<h2 className="sm:text-3xl text-xl font-bold my-4 text-primary">
+								{item.TITLE}
+							</h2>
+							{item.PARAGRAPHS.map((parag) => (
+								<p
+									key={parag.substring(0, 10)}
+									className="opacity-80 sm:text-lg text-sm text-pretty sm:mb-4 mb-2"
+								>
+									{parag}
+								</p>
+							))}
+						</section>
+					);
+				})}
 			</article>
 		</main>
 	);
