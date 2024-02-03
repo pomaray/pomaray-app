@@ -133,10 +133,10 @@ export default function HomePage() {
 				<Collage contentSections={contentSections} />
 			</section>
 
-			<section className="h-full flex flex-col justify-center items-center gap-20 px-[10rem]">
-				<Title withLine className="" text={i18n.NEWS.TITLE} />
-				<section className=" text-primary relative mx-9">
-					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:px-1">
+			<section className="h-full flex flex-col justify-center items-center gap-10 xl:px-0 px-20 mx-auto max-w-7xl">
+				<Title withLine  text={i18n.NEWS.TITLE} />
+				<div className="text-primary relative">
+					<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
 						{Array.from({ length: 4 }, (_, index) => {
 							return (
 								<NewsCard
@@ -148,7 +148,7 @@ export default function HomePage() {
 							);
 						})}
 					</div>
-				</section>
+				</div>
 				<a href="/noticias">
 					<Button color="primary">{i18n.NEWS.READ_BTN}</Button>
 				</a>
@@ -156,7 +156,7 @@ export default function HomePage() {
 
 			<section id="ubicacion" className="text-center pb-20">
 				<Title withLine text={i18n.LOCATION.TITLE} />
-				<div className="mx-auto w-4/5">
+				<div className="mx-auto px-20">
 					<iframe
 						title="Ubicación"
 						className="w-full h-[60vh] rounded-lg"
@@ -166,7 +166,7 @@ export default function HomePage() {
 				</div>
 			</section>
 
-			<section className="flex flex-col justify-center items-center max-w-7xl mx-auto">
+			<section className="flex flex-col justify-center items-center max-w-7xl px-20																													 mx-auto">
 				<Title className="py-4" text={i18n.LIFE_AND_CULTURE.TITLE} />
 				<p className="text-foreground">
 					{VIDA_CULTURA_SUBTITULO[0]}{" "}

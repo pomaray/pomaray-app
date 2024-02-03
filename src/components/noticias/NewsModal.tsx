@@ -7,6 +7,7 @@ import {
 	Spinner,
 	ModalFooter,
 	Button,
+	ScrollShadow,
 } from "@nextui-org/react";
 import i18n from "@/locales/root.json";
 import { NewsCard } from "./NewsCard";
@@ -46,7 +47,7 @@ export function NewsModal() {
 				<ModalContent>
 					{
 						<>
-							<ModalHeader className="text-primary text-4xl pt-6 -mb-20">
+							<ModalHeader className="text-primary text-4xl -mb-10">
 								<Title
 									classNames={{
 										line: "max-w-[12ch] mx-auto",
@@ -55,32 +56,37 @@ export function NewsModal() {
 									text="Ultimas noticias"
 								/>
 							</ModalHeader>
-							<ModalBody className="min-h-[60vh] max-h-screen flex flex-col justify-center">
-								<div className="grid grid-cols-3 max-w-full">
-									{Array.from({ length: 3 }, (_, index) => {
-										return (
-											<NewsCard
-												// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-												key={index}
-												id={index.toString()}
-												isLoaded={true}
-											/>
-										);
-									})}
-								</div>
+							<ModalBody className="h-[90vh] flex flex-col justify-center">
+								<ScrollShadow className="min-w-[300px]  h-[380px]">
+									<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-full max-h-[70vh] -py-10">
+										{Array.from({ length: 3 }, (_, index) => {
+											return (
+												<NewsCard
+													// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+													key={index}
+													id={index.toString()}
+													isLoaded={true}
+												/>
+											);
+										})}
+									</div>
+								</ScrollShadow>
 							</ModalBody>
-							<ModalFooter className="-mt-10">
+							<ModalFooter className="-mt-10 sm:mt-0">
 								<Button
+								fullWidth
 									onClick={() => {
 										setIsOpen(false);
 									}}
 									as={Link}
 									href="/noticias"
 									color="primary"
+									className="text-sm px-4 sm:text-sm *:"
 								>
 									Ver todas las noticias
 								</Button>
 								<Button
+								fullWidth
 									onClick={() => {
 										setIsOpen(false);
 									}}

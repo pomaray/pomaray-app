@@ -54,6 +54,7 @@ export async function POST(request: NextRequest) {
 		}
 
 		const body = (await request.json()) as Student;
+		console.log(body);
 
 		const response = await axios.post(STUDENT_ENDPOINT, body, {
 			headers: {
@@ -61,7 +62,7 @@ export async function POST(request: NextRequest) {
 			},
 		});
 		const { student } = response.data;
-
+		
 		if (!student) {
 			throw new Error("No student provided from server");
 		}
