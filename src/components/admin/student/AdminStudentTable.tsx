@@ -17,7 +17,7 @@ import {
 import { useCallback, cloneElement } from "react";
 import { AdminStudentModal } from "./AdminStudentModal";
 import TECH from "@/locales/tecnicas.json";
-import { TableEmpty } from "@/components/TableEmpty";
+import { TableEmpty } from "@/components/ui/TableEmpty";
 import { renderSexColor, renderSexEnum } from "@/utils/enums";
 import Link from "next/link";
 

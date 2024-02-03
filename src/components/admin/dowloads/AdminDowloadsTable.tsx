@@ -13,7 +13,7 @@ import { FILE_ICONS } from "@/components/descargas/FileIcons";
 import { PiDownloadSimpleFill } from "react-icons/pi";
 import { type File } from "@/types/general";
 import useFiles from "@/hooks/useFiles";
-import { TableEmpty } from "@/components/TableEmpty";
+import { TableEmpty } from "@/components/ui/TableEmpty";
 
 export function AdminDowloadsTable({
 	forceLoaing,

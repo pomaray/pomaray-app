@@ -1,11 +1,14 @@
-export function ResponseText({
-	errorMessage,
-}: {
-	errorMessage?: string;
-}) {
+import { twMerge } from "tailwind-merge";
+
+interface ErrorTxtProps {
+	className?: string;
+	children?: React.ReactNode;
+}
+
+export function ErrorTxt({ children, className }: ErrorTxtProps) {
 	return (
-		<div className="text-center">
-			<p className="text-danger">{errorMessage}</p>
+		<div className={twMerge("text-center", className)}>
+			<p className="text-danger">{children}</p>
 		</div>
 	);
 }

@@ -15,6 +15,7 @@ import useAuthStore from "@/hooks/useAuth";
 import i18n from "@/locales/acceder.json";
 import { useRouter } from "next/navigation";
 import { LoginRequest } from "@/types/request/auth";
+import { ErrorTxt } from "@/components/ui/Errors";
 
 export default function LoginPage() {
 	const [isShowPassword, setIsShowPassword] = useState(false);
@@ -140,7 +141,9 @@ export default function LoginPage() {
 								</Button>
 							}
 						/>
-						{error && <p className="text-danger text-center">{error}</p>}
+						{error && (
+							<ErrorTxt className="text-danger text-center">{error}</ErrorTxt>
+						)}
 						<Button
 							isDisabled={isDisabled}
 							isLoading={isLoading || isSucces}

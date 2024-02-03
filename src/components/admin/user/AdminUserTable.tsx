@@ -13,7 +13,7 @@ import {
 } from "@nextui-org/react";
 import { useCallback } from "react";
 import { AdminEditUserModal } from "./AdminEditUserModal";
-import { TableEmpty } from "@/components/TableEmpty";
+import { TableEmpty } from "@/components/ui/TableEmpty";
 import { renderRoleEnum, renderSexColor, renderSexEnum } from "@/utils/enums";
 
 export function AdminUserTable({

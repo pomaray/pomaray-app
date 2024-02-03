@@ -27,7 +27,7 @@ import { FormEvent, useState } from "react";
 import { STUDENTS_URL } from "@/types/request/student";
 import { validateStudent } from "@/utils/validators";
 import axios from "axios";
-import { ResponseText } from "@/components/ReponseText";
+import { ErrorTxt } from "@/components/ui/Errors";
 import { getYears, yearsToIterable } from "@/utils/general";
 
 export function AdminStudentModal({
@@ -393,7 +393,7 @@ export function AdminStudentModal({
 											</SelectItem>
 										)}
 									</Select>
-									<ResponseText errorMessage={error} />
+									<ErrorTxt>{error}</ErrorTxt>
 								</ModalBody>
 								<ModalFooter>
 									<Button type="submit" fullWidth color="primary">
