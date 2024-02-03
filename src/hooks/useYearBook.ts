@@ -38,7 +38,7 @@ export const useYearBook = (_limit: number) => {
 	const [students, setStudents] = useState<Student[]>([]);
 	const [formRequest, setFormRequest] = useState<StudentRequest>({
 		name: "",
-		years: [2024],
+		years: [],
 		tech: "",
 	});
 	const [debouncedFormRequest, setDebouncedFormRequest] =

@@ -100,10 +100,10 @@ export default function LoginPage() {
 	}, [formRequest, usernameMinLength, passwordMinLength]);
 
 	return (
-		<main className="grid place-content-center min-h-[90vh]">
+		<main className="grid place-content-center min-h-[80vh]">
 			<Card
 				shadow="none"
-				className="sm:w-[26rem] max-w-[26rem] bg-transparent px-4 min-h-[22rem] shadow-none"
+				className="sm:w-[26rem] relative max-w-[26rem] bg-transparent px-4 min-h-[22rem] shadow-none"
 			>
 				<CardHeader className="flex flex-col justify-center gap-y-4 sm:py-6">
 					<h2 className="sm:text-2xl text-xl font-semibold">

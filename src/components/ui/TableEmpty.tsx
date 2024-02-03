@@ -1,5 +1,5 @@
 import { Spinner } from "@nextui-org/spinner";
-import { EyeFilledIcon, CloseIcon } from "@nextui-org/shared-icons";
+import { EyeFilledIcon } from "@nextui-org/shared-icons";
 
 export function TableEmpty({
 	isLoading,
@@ -27,9 +27,9 @@ export function TableEmpty({
 	}
 	if (isError && !isNotFound) {
 		return (
-			<div className="min-h-[75vh] w-full flex flex-col justify-center items-center gap-y-2">
-				<CloseIcon className="text-danger text-5xl" />
-				<span className="text-lg">
+			<div className="min-h-[75vh] w-full flex flex-col justify-center items-center gap-y-2 opacity-30">
+				<EyeFilledIcon className="text-danger text-5xl" />
+				<span className="text-danger text-lg">
 					Hubo un error, por favor intentelo de nuevo.
 				</span>
 			</div>

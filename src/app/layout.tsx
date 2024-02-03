@@ -9,6 +9,7 @@ import { Footer } from "@/components/ui/Footer";
 import { Header } from "@/components/ui/Header";
 
 import i18n from "@/locales/root.json";
+import NProgressProvider from "@/context/NProgress";
 
 // Tipografía.
 const inter = Inter({ subsets: ["latin"] });
@@ -38,10 +39,12 @@ export default function RootLayout({
 						<Header />
 					</div>
 				</header>
-				<UIProviders>
-					{children}
-					<Footer />
-				</UIProviders>
+				<NProgressProvider>
+					<UIProviders>
+						{children}
+						<Footer />
+					</UIProviders>
+				</NProgressProvider>
 				<SpeedInsights />
 			</body>
 		</html>

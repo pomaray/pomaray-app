@@ -8,5 +8,5 @@
 		"PERIOD": "Periodo escolar"
 	},
 	"ERROR": "Ops! Hubo un error, por favor intentelo de nuevo.",
-	"NOT_FOUND": "No se pudo encontrar el estudiante que buscas"
+	"NOT_FOUND": "No se pudo encontrar el estudiante que buscas. Intentelo de nuevo."
 }

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function DescargasPage() {
 	return (
-		<motion.section
+		<motion.main
 			initial={{
 				translateY: 100,
 				opacity: 0,
@@ -14,17 +14,17 @@ export default function DescargasPage() {
 				translateY: 0,
 				opacity: 1,
 			}}
-			className="container mx-auto py-8"
+			className="container mx-auto p-8"
 		>
-			<div>
+			<section>
 				<h1 className="text-5xl font-bold mb-6 text-primary">
 					{i18n.HERO.TITLE}
 				</h1>
 				<p>{i18n.HERO.SUB_TITLE}</p>
-			</div>
-			<div className="min-h-screen">
+			</section>
+			<section className="min-h-screen">
 				<DowloadsTable />
-			</div>
-		</motion.section>
+			</section>
+		</motion.main>
 	);
 }

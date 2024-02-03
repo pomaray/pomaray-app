@@ -2,7 +2,7 @@
 
 import { notFound, useParams } from "next/navigation";
 import i18n from "@/locales/tecnicas[id].json";
-import { Image, Card, Button, Chip } from "@nextui-org/react";
+import { Image, Card, Button, Chip, Divider } from "@nextui-org/react";
 
 export default function TechniquePage() {
 	const { id } = useParams<{ id: string }>();
@@ -38,27 +38,35 @@ export default function TechniquePage() {
 						>
 							{technique.NAME}
 						</Chip>
-						<h1 className="sm:text-4xl text-2xl font-bold mb-2 text-balance">
+						<h1 className="sm:text-4xl text-2xl font-bold mb-2">
 							{technique.TITLE}
 						</h1>
 						{technique.DESCRIPTION.map((desc) => (
 							<p
 								key={desc.substring(0, 10)}
-								className="mb-4 sm:text-lg text-sm"
+								className="mb-4 sm:text-lg text-md text-pretty"
 							>
 								{desc}
 							</p>
 						))}
-						<div className="print:hidden flex space-x-4 mt-4">
+						<div className="print:hidden grid grid-cols-2 gap-4 mt-4">
 							<Button
+								fullWidth
 								onClick={() => {
 									print();
 								}}
 								color="primary"
+								className="sm:text-md text-sm"
 							>
 								{i18n.DOWNLOAD_BTN}
 							</Button>
-							<Button onClick={mailTo} color="primary" variant="bordered">
+							<Button
+								fullWidth
+								onClick={mailTo}
+								color="primary"
+								variant="bordered"
+								className="sm:text-md text-sm"
+							>
 								{i18n.REQUEST_BTN}
 							</Button>
 						</div>
@@ -69,8 +77,9 @@ export default function TechniquePage() {
 					if (index === 1) {
 						return (
 							<section key={item.TITLE} className="print:py-2 py-8">
-								<h2 className="text-3xl font-bold mb-4 text-primary">
+								<h2 className="sm:text-3xl text-2xl font-bold my-4 text-primary">
 									{technique.GALLERY_TITLE}
+									<Divider className="h-1 mt-2 bg-primary rounded-full" />
 								</h2>
 								<div className="grid grid-cols-12 gap-4">
 									{technique.IMAGES.map((image, imageIndex) => (
@@ -96,13 +105,14 @@ export default function TechniquePage() {
 							key={item.TITLE}
 							className="print:py-2 sm:py-6 py-2 sm:px-0"
 						>
-							<h2 className="sm:text-3xl text-xl font-bold my-4 text-primary">
+							<h2 className="sm:text-3xl text-2xl font-bold my-4 text-primary">
 								{item.TITLE}
+								<Divider className="h-1 mt-2 bg-primary rounded-full" />
 							</h2>
 							{item.PARAGRAPHS.map((parag) => (
 								<p
 									key={parag.substring(0, 10)}
-									className="opacity-80 sm:text-lg text-sm text-pretty sm:mb-4 mb-2"
+									className="mb-4 sm:text-lg text-md text-pretty opacity-65"
 								>
 									{parag}
 								</p>

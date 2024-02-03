@@ -2,6 +2,7 @@ import { Tech } from "@/types/enums";
 import { Card, CardHeader, CardBody } from "@nextui-org/react";
 import { cloneElement } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export function TechCard({
 	dynamicPath,
@@ -19,9 +20,8 @@ export function TechCard({
 	const router = useRouter();
 	return (
 		<Card
-			onClick={() => {
-				router.push(`${dynamicPath}/${TechId.toLowerCase()}`);
-			}}
+			as={Link}
+			href={`${dynamicPath}/${TechId.toLowerCase()}`}
 			isPressable
 			shadow="none"
 			className="xl:p-6 hover:bg-default-200 bg-default-100 shadow-sm text-foreground transition-colors"

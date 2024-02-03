@@ -9,11 +9,11 @@ import {
 	Button,
 } from "@nextui-org/react";
 import { cloneElement, useCallback } from "react";
-import { FILE_ICONS } from "./FileIcons";
+import { FILE_ICONS } from "@/components/descargas/FileIcons";
 import { PiDownloadSimpleFill } from "react-icons/pi";
 import { type File } from "@/types/general";
 import useFiles from "@/hooks/useFiles";
-import { TableEmpty } from "../ui/TableEmpty";
+import { TableEmpty } from "@/components/ui/TableEmpty";
 
 export function DowloadsTable() {
 	const { isError, isNotFound, isLoading, files } = useFiles();

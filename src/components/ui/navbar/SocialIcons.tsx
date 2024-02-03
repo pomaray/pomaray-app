@@ -5,7 +5,7 @@ import i18n from "@/locales/root.json";
 export function FacebookButton() {
 	return (
 		<Button
-			className="text-xl text-blue-600 bg-white"
+			className="text-lg text-blue-600 bg-white"
 			href={i18n.NETWORKS.FACEBOOK}
 			target="_blank"
 			size="sm"
@@ -18,7 +18,7 @@ export function FacebookButton() {
 export function InstagramButton() {
 	return (
 		<Button
-			className="text-xl text-danger bg-white"
+			className="text-lg text-danger bg-white"
 			href={i18n.NETWORKS.INSTAGRAM}
 			target="_blank"
 			size="sm"

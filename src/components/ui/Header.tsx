@@ -1,6 +1,9 @@
 "use client";
+import i18n from "@/locales/root.json";
+import Logo from "@/components/ui/Logo";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
-import { useState } from "react";
 import {
 	Navbar,
 	NavbarBrand,
@@ -14,16 +17,40 @@ import { SocialIcons } from "@/components/ui/navbar/SocialIcons";
 import { NavbarNotify } from "@/components/ui/Notify";
 import { NavbarMenu } from "@/components/ui/navbar/NavbarMenu";
 import { NavbarContent } from "@/components/ui/navbar/NavbarContent";
-import Logo from "@/components/ui/Logo";
-import i18n from "@/locales/root.json";
 
 export function Header() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const path = usePathname();
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	useEffect(() => {
+		if (isMenuOpen) {
+			setIsMenuOpen(false);
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [path]);
+
 	return (
 		<header className="relative min-w-screen z-40 h-28">
 			<Navbar
+				classNames={{
+					item: [
+						"flex",
+						"relative",
+						"h-full",
+						"items-center",
+						"data-[active=true]:after:content-['']",
+						"data-[active=true]:after:absolute",
+						"data-[active=true]:after:bottom-0",
+						"data-[active=true]:after:left-0",
+						"data-[active=true]:after:right-0",
+						"data-[active=true]:after:h-[2px]",
+						"data-[active=true]:after:rounded-[2px]",
+						"data-[active=true]:after:bg-primary",
+					],
+				}}
 				isBlurred={false}
 				isBordered={false}
+				isMenuOpen={isMenuOpen}
 				onMenuOpenChange={setIsMenuOpen}
 				className="z-50 relative shadow-sm border-none outline-none w-screen bg-background print:hidden"
 			>
