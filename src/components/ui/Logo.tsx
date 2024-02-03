@@ -9,8 +9,9 @@ type LogoProps = {
 
 export default function Logo({ className, width = 40 }: LogoProps) {
 	return (
-		// biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>
 		<svg
+			role="img"
+			aria-label="Logo"
 			version="1.0"
 			xmlns="http://www.w3.org/2000/svg"
 			width={width}

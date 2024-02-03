@@ -26,7 +26,7 @@ const config: Config = {
 						background: "#303031",
 
 						primary: {
-							DEFAULT: "#1b6027",
+							DEFAULT: "#397040",
 							50: "#128f48",
 							100: "#15a152",
 							200: "#17af59",

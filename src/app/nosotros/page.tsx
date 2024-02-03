@@ -1,10 +1,10 @@
 "use client";
-import { Divider, Image } from "@nextui-org/react";
-import { motion } from "framer-motion";
 import i18n from "@/locales/nosotros.json";
-import historia from "@/locales/historia.json";
-import HistoryTimeline from "@/components/ui/Timeline";
-import Logo from "@/components/Logo";
+
+import { Divider } from "@nextui-org/divider";
+import { HistoryTimeline } from "@/components/ui/Timeline";
+import { motion } from "framer-motion";
+import Logo from "@/components/ui/Logo";
 
 export default function NosotrosPage() {
 	return (
@@ -28,16 +28,16 @@ export default function NosotrosPage() {
 				</div>
 				<p className="text-pretty mt-2">{i18n.HERO.SUBTITLE}</p>
 				<div className="mx-auto py-16">
-					<HistoryTimeline points={historia.historia} />
+					<HistoryTimeline points={i18n.TIME_LINE} />
 				</div>
 			</section>
 
 			{i18n.CONTENT.map((sec) => (
 				<section key={sec.TITLE}>
-					<Divider className="bg-primary h-1 rounded-full" />
-					<h2 className="sm:text-3xl text-2xl text-balance text-primary py-6 font-bold">
+					<h2 className="sm:text-3xl text-2xl text-balance text-primary font-bold mt-6 mb-2">
 						{sec.TITLE}
 					</h2>
+					<Divider className="bg-primary h-1 rounded-full mb-4" />
 
 					{sec.PARAGRAPHS.map((parag, paragIndex) => {
 						const isList = parag.substring(0, 2).trim() === "-";
@@ -54,10 +54,7 @@ export default function NosotrosPage() {
 						}
 
 						return (
-							<p
-								className={`pb-4 text-pretty ${isLastList && "pt-4"}`}
-								key={parag}
-							>
+							<p className={`text-pretty ${isLastList && "pt-4"}`} key={parag}>
 								{parag}
 							</p>
 						);

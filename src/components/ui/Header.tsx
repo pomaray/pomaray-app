@@ -7,13 +7,14 @@ import {
 	NavbarContent as NextNavbarContent,
 	Link,
 	NavbarMenuToggle,
+	Button,
+	NavbarItem,
 } from "@nextui-org/react";
 import { SocialIcons } from "@/components/ui/navbar/SocialIcons";
-import { NewsModal } from "@/components/noticias/NewsModal";
 import { NavbarNotify } from "@/components/ui/Notify";
 import { NavbarMenu } from "@/components/ui/navbar/NavbarMenu";
 import { NavbarContent } from "@/components/ui/navbar/NavbarContent";
-import Logo from "@/components/Logo";
+import Logo from "@/components/ui/Logo";
 import i18n from "@/locales/root.json";
 
 export function Header() {
@@ -44,7 +45,18 @@ export function Header() {
 				</NextNavbarContent>
 				<NextNavbarContent justify="end">
 					<SocialIcons />
-					<NewsModal />
+					<NavbarItem>
+						<Button
+							as={Link}
+							color="primary"
+							href="/noticias"
+							size="md"
+							variant="bordered"
+							className="text-foreground"
+						>
+							{i18n.NAVBAR.SEE_NEWS}
+						</Button>
+					</NavbarItem>
 					<NavbarMenuToggle className="lg:hidden text-foreground" />
 				</NextNavbarContent>
 				<NavbarMenu />

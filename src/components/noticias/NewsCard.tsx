@@ -38,6 +38,7 @@ export function NewsCard({
 		<Skeleton disableAnimation isLoaded={isLoaded} className="rounded-lg p-2">
 			<Card
 				isPressable
+				radius="sm"
 				shadow="none"
 				className="hover:bg-default-200 bg-default-100 shadow-sm transition-colors max-w-full"
 			>

@@ -45,15 +45,18 @@
 				"SUB_ITEMS": [
 					{
 						"TEXT": "Nosotros",
-						"LINK": "/nosotros"
+						"LINK": "/nosotros",
+						"DESCRIPTION": "Historia, mision, vision y valores del politecnico."
 					},
 					{
 						"TEXT": "Contacto",
-						"LINK": "/contacto"
+						"LINK": "/contacto",
+						"DESCRIPTION": "Historia, mision, vision y valores del politecnico."
 					},
 					{
 						"TEXT": "Descargas",
-						"LINK": "/descargas"
+						"LINK": "/descargas",
+						"DESCRIPTION": "Historia, mision, vision y valores del politecnico."
 					}
 				]
 			}

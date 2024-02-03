@@ -5,13 +5,12 @@ import i18n from "@/locales/root.json";
 export function FacebookButton() {
 	return (
 		<Button
-			isIconOnly
 			className="text-xl text-blue-600 bg-white"
 			href={i18n.NETWORKS.FACEBOOK}
 			target="_blank"
 			size="sm"
 		>
-			<FaFacebook />
+			<FaFacebook /> Facebook
 		</Button>
 	);
 }
@@ -19,13 +18,12 @@ export function FacebookButton() {
 export function InstagramButton() {
 	return (
 		<Button
-			isIconOnly
 			className="text-xl text-danger bg-white"
 			href={i18n.NETWORKS.INSTAGRAM}
 			target="_blank"
 			size="sm"
 		>
-			<FaInstagram />
+			<FaInstagram /> Instagram
 		</Button>
 	);
 }
@@ -33,8 +31,24 @@ export function InstagramButton() {
 export function SocialIcons() {
 	return (
 		<div className="hidden lg:flex gap-x-4">
-			<FacebookButton />
-			<InstagramButton />
+			<Button
+				isIconOnly
+				className="text-xl text-danger bg-white"
+				href={i18n.NETWORKS.INSTAGRAM}
+				target="_blank"
+				size="sm"
+			>
+				<FaInstagram />
+			</Button>
+			<Button
+				isIconOnly
+				className="text-xl text-blue-600 bg-white"
+				href={i18n.NETWORKS.FACEBOOK}
+				target="_blank"
+				size="sm"
+			>
+				<FaFacebook />
+			</Button>
 		</div>
 	);
 }

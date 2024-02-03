@@ -10,6 +10,24 @@ import {
 } from "@nextui-org/react";
 import { ChevronIcon } from "@nextui-org/shared-icons";
 import Link from "next/link";
+import { BiSolidInstitution } from "react-icons/bi";
+import { FaPhone, FaDownload } from "react-icons/fa6";
+
+const ICONS = {
+	"/contacto": (
+		<FaPhone className="text-primary" fill="currentColor" size={30} />
+	),
+	"/descargas": (
+		<FaDownload className="text-primary" fill="currentColor" size={30} />
+	),
+	"/nosotros": (
+		<BiSolidInstitution
+			className="text-primary"
+			fill="currentColor"
+			size={30}
+		/>
+	),
+};
 
 interface NavbarContentProps {
 	isMenu?: boolean;
@@ -33,18 +51,32 @@ export function NavbarContent({ isMenu = false }: NavbarContentProps) {
 			if (item.SUB_ITEMS) {
 				return (
 					<NavbarItem key={item.TEXT}>
-						<Dropdown>
+						<Dropdown radius="sm">
 							<DropdownTrigger>
-								<span className="text-foreground font-semibold cursor-pointer">
+								<Button
+									disableRipple
+									className="p-0 bg-transparent data-[hover=true]:bg-transparent font-semibold text-md"
+									endContent={<ChevronIcon className="-rotate-90" />}
+									radius="sm"
+									variant="light"
+								>
 									{item.TEXT}
-								</span>
+								</Button>
 							</DropdownTrigger>
-							<DropdownMenu aria-label="Static Actions">
+							<DropdownMenu
+								aria-label={item.TEXT}
+								className="w-[340px]"
+								itemClasses={{
+									base: "gap-4",
+								}}
+							>
 								{item.SUB_ITEMS.map((subItem) => (
 									<DropdownItem
 										as={Link}
 										href={subItem.LINK}
 										key={subItem.LINK}
+										description={subItem.DESCRIPTION}
+										startContent={ICONS[subItem.LINK as keyof typeof ICONS]}
 									>
 										{subItem.TEXT}
 									</DropdownItem>
@@ -54,11 +86,11 @@ export function NavbarContent({ isMenu = false }: NavbarContentProps) {
 					</NavbarItem>
 				);
 			}
-		} else if (item.LINK && !isMenu) {
+		} else if (item.LINK && isMenu) {
 			return (
 				<NavbarMenuItem key={item.LINK}>
 					<Link
-						className="text-foreground font-semibold cursor-pointer"
+						className="text-foreground font-semibold cursor-pointer text-xl"
 						href={item.LINK}
 					>
 						{item.TEXT}

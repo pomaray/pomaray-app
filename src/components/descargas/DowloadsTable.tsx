@@ -13,7 +13,7 @@ import { FILE_ICONS } from "./FileIcons";
 import { PiDownloadSimpleFill } from "react-icons/pi";
 import { type File } from "@/types/general";
 import useFiles from "@/hooks/useFiles";
-import { TableEmpty } from "../TableEmpty";
+import { TableEmpty } from "../ui/TableEmpty";
 
 export function DowloadsTable() {
 	const { isError, isNotFound, isLoading, files } = useFiles();

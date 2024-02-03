@@ -12,7 +12,7 @@ type HistoryTimelineProps = {
 	points: TimelinePoint[];
 };
 
-export default function HistoryTimeline({ points }: HistoryTimelineProps) {
+export function HistoryTimeline({ points }: HistoryTimelineProps) {
 	return (
 		<Tabs
 			aria-label="TimeLine tabs"
@@ -33,7 +33,7 @@ export default function HistoryTimeline({ points }: HistoryTimelineProps) {
 					title={point.date}
 					className="max-w-[1000px] mx-auto"
 				>
-					<Card shadow="none" radius="sm">
+					<Card shadow="none" radius="sm" className="bg-default-100  shadow-sm">
 						<CardBody className="min-h-72 px-20">
 							<div className="flex flex-col md:gap-4 items-center justify-center">
 								<div className="relative col-span-6 md:col-span-4 h-full">
