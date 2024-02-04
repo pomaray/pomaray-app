@@ -22,12 +22,12 @@ export const metadata: Metadata = {
 	openGraph: {
 		images: i18n.WEBSITE.BANNER,
 		type: "website",
-	},	
+	},
 	metadataBase: new URL("https://pomaray.vercel.app/"),
 	description: i18n.WEBSITE.DESCRIPTION,
 	keywords: i18n.WEBSITE.TAGS,
 	category: i18n.WEBSITE.CATEGORY,
-	robots: ""
+	robots: "",
 };
 export default function RootLayout({
 	children,
@@ -37,7 +37,7 @@ export default function RootLayout({
 	return (
 		<html suppressHydrationWarning lang="en">
 			<head>
-				<meta name="theme-color" content="#303031" />
+				<meta name="theme-color" content="#397040" />
 			</head>
 			<body
 				className={`bg-transparent overflow-y-auto max-w-[100vw] overflow-x-hidden ${fraunces.className}`}
