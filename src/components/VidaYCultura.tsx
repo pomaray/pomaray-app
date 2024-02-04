@@ -28,6 +28,7 @@ export function VidaYCultura() {
 							shadow="none"
 							key={image.trim()}
 							className="lg:col-span-4 sm:col-span-6 col-span-12 h-[300px]"
+							radius="sm"
 						>
 							<Image
 								removeWrapper
@@ -35,6 +36,7 @@ export function VidaYCultura() {
 								className="z-0 w-full h-full object-cover hover:scale-125 transition-transform"
 								src={image}
 								loading="lazy"
+								radius="none"
 							/>
 						</Card>
 					))}

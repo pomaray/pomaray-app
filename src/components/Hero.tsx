@@ -41,7 +41,7 @@ export function Hero() {
 	};
 
 	return (
-		<section className="relative grid place-content-center w-screen min-h-[100vh] p-10 bg-primary/80 -top-32">
+		<section className="relative grid place-content-center max-w-screen min-h-[100vh] p-10 bg-primary/80 -top-32 !overflox-hidden">
 			<AnimatePresence initial={true} custom={direction}>
 				<motion.img
 					key={backgroundIndex}
@@ -66,17 +66,26 @@ export function Hero() {
 					</p>
 				</div>
 				<div className="md:space-y-0 md:space-x-9 mt-12 flex flex-col md:flex-row justify-center items-center space-y-4 ">
-					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background">
+					<Card
+						radius="sm"
+						className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background"
+					>
 						<FaUserGraduate className="text-3xl text-primary" />
 						<p className="p-2">{i18n.HERO.GRADUATED}</p>
 					</Card>
 
-					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background">
+					<Card
+						radius="sm"
+						className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background"
+					>
 						<FaUsers className="text-3xl text-primary" />
 						<p className="p-2">{i18n.HERO.USUER}</p>
 					</Card>
 
-					<Card className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background">
+					<Card
+						radius="sm"
+						className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background"
+					>
 						<FaLaptopCode className="text-3xl text-primary" />
 						<p className="p-2">{i18n.HERO.TECHNOLOGY}</p>
 					</Card>

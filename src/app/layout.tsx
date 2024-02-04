@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fraunces } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "@/styles/globals.css";
@@ -12,7 +12,7 @@ import i18n from "@/locales/root.json";
 import NProgressProvider from "@/context/NProgress";
 
 // Tipografía.
-const inter = Inter({ subsets: ["latin"] });
+const fraunces = Fraunces({ subsets: ["latin"], weight: ["400", "500"] });
 
 export const metadata: Metadata = {
 	title: {
@@ -32,7 +32,7 @@ export default function RootLayout({
 	return (
 		<html suppressHydrationWarning lang="en">
 			<body
-				className={`bg-transparent overflow-y-auto max-w-[100vw] overflow-x-hidden ${inter.className}`}
+				className={`bg-transparent overflow-y-auto max-w-[100vw] overflow-x-hidden ${fraunces.className}`}
 			>
 				<header className="print:hidden relative min-w-screen z-40 h-32">
 					<div className="fixed">

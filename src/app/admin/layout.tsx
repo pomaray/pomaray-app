@@ -2,8 +2,11 @@ import { Header } from "@/components/admin/AdminHeader";
 
 export const metadata = {
 	title: "Admin",
+	openGraph: {
+		images: "/banner/admin.png",
+	},
+	description: "Dashboard de administrador.",
 };
-
 export default function AdminLayout({
 	children,
 }: {
