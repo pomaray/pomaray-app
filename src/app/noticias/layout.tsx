@@ -3,7 +3,7 @@ import i18n from "@/locales/noticias.json";
 export const metadata = {
 	title: i18n.METADATA.TITLE,
 	openGraph: {
-		images: i18n.METADATA.BANNNER,
+		images: i18n.METADATA.BANNER,
 	},
 	description: i18n.METADATA.DESCRIPTION,
 };
