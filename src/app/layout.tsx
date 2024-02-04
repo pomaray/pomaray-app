@@ -21,11 +21,13 @@ export const metadata: Metadata = {
 	},
 	openGraph: {
 		images: i18n.WEBSITE.BANNER,
-	},
+		type: "website",
+	},	
 	metadataBase: new URL("https://pomaray.vercel.app/"),
 	description: i18n.WEBSITE.DESCRIPTION,
 	keywords: i18n.WEBSITE.TAGS,
 	category: i18n.WEBSITE.CATEGORY,
+	robots: ""
 };
 export default function RootLayout({
 	children,
