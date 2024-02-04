@@ -1,9 +1,4 @@
 {
-	"METADATA": {
-		"TITLE": "Inicio",
-		"BANNNER": "/banner/home.jpg",
-		"DESCRIPTION": "Bienvenido al Politécnico Madre Rafaela Ybarra. Descubre un mundo de conocimiento e innovación. Explora nuestras últimas técnicas, prácticas líderes y contribuciones al desarrollo técnico en la comunidad educativa. ¡Inspírate con nosotros!"
-	},
 	"HERO": {
 		"TITLE": "¡Aprende con el Politécnico Madre Rafaela Ybarra!",
 		"SUB_TITLE": "Donde tu futuro comienza.",
@@ -52,14 +47,14 @@
 		"HASHTAG_LINK": "#yoamoapomaray",
 		"LOADING": "Cargando #yosoypamaray",
 		"IMAGES": [
-		  "/images/daai/daai6.jpg",
-		  "/images/electronica/3.jpg",
-		  "/images/refrigeracion/ref1.jpg",
-		  "/images/refrigeracion/ref5.jpg",
-		  "/images/cm/cm4.jpg",
-		  "/images/gastronomia/gas2.jpg",
-		  "/images/electricidad/5.jpg",
-		  "/images/cm/cm5.jpg"
+			"/images/daai/daai6.jpg",
+			"/images/electronica/3.jpg",
+			"/images/refrigeracion/ref1.jpg",
+			"/images/refrigeracion/ref5.jpg",
+			"/images/cm/cm4.jpg",
+			"/images/gastronomia/gas2.jpg",
+			"/images/electricidad/5.jpg",
+			"/images/cm/cm5.jpg"
 		]
 	}
 }

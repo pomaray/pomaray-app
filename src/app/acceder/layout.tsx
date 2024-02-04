@@ -6,6 +6,7 @@ export const metadata = {
 		images: i18n.METADATA.BANNNER,
 	},
 	description: i18n.METADATA.DESCRIPTION,
+	metadataBase: new URL("https://pomaray.vercel.app/"),
 };
 export default function LoginLayout({
 	children,

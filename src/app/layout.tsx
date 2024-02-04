@@ -12,16 +12,17 @@ import NProgressProvider from "@/context/NProgress";
 // Tipografía.
 const fraunces = Fraunces({ subsets: ["latin"], weight: ["400", "500"] });
 
-import i18n from "@/locales/home.json";
+import i18n from "@/locales/root.json";
 
-export const metadata = {
-	title: i18n.METADATA.TITLE,
-	openGraph: {
-		images: i18n.METADATA.BANNNER,
+export const metadata: Metadata = {
+	title: {
+		default: i18n.WEBSITE.NAME,
+		template: `%s - ${i18n.WEBSITE.NAME}`,
 	},
-	description: i18n.METADATA.DESCRIPTION,
+	description: i18n.WEBSITE.DESCRIPTION,
+	keywords: i18n.WEBSITE.TAGS,
+	category: i18n.WEBSITE.CATEGORY,
 };
-
 export default function RootLayout({
 	children,
 }: {

@@ -5,6 +5,7 @@ export const metadata = {
 	openGraph: {
 		images: "/banner/admin.png",
 	},
+	metadataBase: new URL("https://pomaray.vercel.app/"),
 	description: "Dashboard de administrador.",
 };
 export default function AdminLayout({
