@@ -2,11 +2,7 @@
 	"HERO": {
 		"TITLE": "¡Aprende con el Politécnico Madre Rafaela Ybarra!",
 		"SUB_TITLE": "Donde tu futuro comienza.",
-		"CARROUSEL": [
-			"images/TECNICA.png",
-			"images/TECNICA.png",
-			"images/TECNICA.png"
-		],
+		"CARROUSEL": ["images/1.png", "images/1.png", "images/1.png"],
 		"GRADUATED": "Oportunidades Laborales.",
 		"USUER": "Cuerpo Docente Calificado.",
 		"TECHNOLOGY": "Innovación Educativa y Tecnología Avanzada."

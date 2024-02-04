@@ -19,6 +19,9 @@ export const metadata: Metadata = {
 		default: i18n.WEBSITE.NAME,
 		template: `%s - ${i18n.WEBSITE.NAME}`,
 	},
+	openGraph: {
+		images: i18n.WEBSITE.BANNER,
+	},
 	description: i18n.WEBSITE.DESCRIPTION,
 	keywords: i18n.WEBSITE.TAGS,
 	category: i18n.WEBSITE.CATEGORY,
@@ -30,6 +33,9 @@ export default function RootLayout({
 }) {
 	return (
 		<html suppressHydrationWarning lang="en">
+			<head>
+				<meta name="theme-color" content="#303031" />
+			</head>
 			<body
 				className={`bg-transparent overflow-y-auto max-w-[100vw] overflow-x-hidden ${fraunces.className}`}
 			>

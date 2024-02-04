@@ -13,7 +13,8 @@
 			"desarrollo académico",
 			"innovación educativa",
 			"politécnico"
-		]
+		],
+		"BANNER": "/images/banner/home.jpg"
 	},
 	"NAVBAR": {
 		"NAME": "POMARAY",
