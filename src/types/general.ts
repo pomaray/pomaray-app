@@ -35,3 +35,5 @@ export type Student = {
 	current_technique: string;
 	[key: string]: string | number | Sex | number[] | Date | undefined;
 };
+
+export const NOTIFY_SHOW_KEY = "show_notifiy";

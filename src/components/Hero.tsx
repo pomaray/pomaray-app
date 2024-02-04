@@ -41,7 +41,7 @@ export function Hero() {
 	};
 
 	return (
-		<section className="relative grid place-content-center max-w-screen min-h-[100vh] p-10 bg-primary/80 -top-32 !overflox-hidden">
+		<section className="relative grid place-content-center max-w-screen min-h-[100vh] p-10 bg-primary/80 -top-28 !overflox-hidden">
 			<AnimatePresence initial={true} custom={direction}>
 				<motion.img
 					aria-label="Imagen de campus del Politécnico."
@@ -58,8 +58,8 @@ export function Hero() {
 				/>
 			</AnimatePresence>
 			<Reveal>
-				<div className="relative text-center text-white mt-36 sm:mt-0">
-					<h1 className="md:text-5xl text-3xl font-bold mb-4 max-w-[20ch]">
+				<div className="relative text-center text-white mt-36 sm:mt-16">
+					<h1 className="md:text-6xl text-3xl font-bold mb-4 max-w-[25ch]">
 						{i18n.HERO.TITLE}
 					</h1>
 					<p className="lg:text-lg text-md font-semibold mt-6">

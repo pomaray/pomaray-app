@@ -43,8 +43,8 @@ export default function RootLayout({
 			<body
 				className={`bg-transparent overflow-y-auto max-w-[100vw] overflow-x-hidden ${fraunces.className}`}
 			>
-				<header className="print:hidden relative min-w-screen z-40 h-32">
-					<div className="fixed">
+				<header className="print:hidden relative min-w-screen h-28">
+					<div className="fixed z-40">
 						<Header />
 					</div>
 				</header>

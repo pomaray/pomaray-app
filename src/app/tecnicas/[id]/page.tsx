@@ -112,7 +112,7 @@ export default function TechniquePage() {
 							{item.PARAGRAPHS.map((parag) => (
 								<p
 									key={parag.substring(0, 10)}
-									className="mb-4 sm:text-lg text-md text-pretty opacity-65"
+									className="mb-4 sm:text-lg text-md text-pretty"
 								>
 									{parag}
 								</p>

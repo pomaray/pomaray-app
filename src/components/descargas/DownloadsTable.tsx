@@ -15,8 +15,8 @@ import { type File } from "@/types/general";
 import useFiles from "@/hooks/useFiles";
 import { TableEmpty } from "@/components/ui/TableEmpty";
 
-export function DowloadsTable() {
-	const { isError, isNotFound, isLoading, files } = useFiles();
+export function DownloadsTable() {
+	const { isError, isNotFound, isLoading, files, fetchData } = useFiles();
 
 	const renderCell = useCallback((file: File, columnKey: string) => {
 		const cellValue = file[columnKey];
@@ -45,35 +45,44 @@ export function DowloadsTable() {
 			case "download":
 				return (
 					<Button
-						variant="solid"
+						aria-label="Descargar archivo"
+						variant="light"
 						isIconOnly
-						className="hover:opacity-100 opacity-70 transition-opacity"
+						className="group hover:opacity-100 opacity-70 transition-opacity"
 					>
-						<PiDownloadSimpleFill className="text-lg text-foreground" />
+						<PiDownloadSimpleFill className="group-hover:translate-y-0 -translate-y-0.5 t transition-transform text-lg text-foreground" />
 					</Button>
+				);
+			case "size":
+				return (
+					<span className="font-bold  sm:text-md text-xs opacity-50 text-nowrap">
+						{cellValue}
+					</span>
 				);
 			default:
 				return (
-					<span className="font-bold text-md opacity-85">{cellValue}</span>
+					<span className="font-bold capitalize sm:text-lg text-md opacity-90 text-nowrap">
+						{cellValue}
+					</span>
 				);
 		}
 	}, []);
 
 	return (
 		<Table
-			removeWrapper
-			aria-label="Example table with client side pagination"
+			shadow="none"
 			className="py-6"
+			aria-label="Tabla de descargas."
 			classNames={{
+				wrapper: "min-h-screen bg-transparent px-0",
 				thead: "[&>tr]:first:shadow-sm",
 			}}
 		>
 			<TableHeader className="bg-blue-600">
-				<TableColumn key="file">{i18n.TABLE.COLUMNS.FILE_NAME}</TableColumn>
 				<TableColumn key="type">{i18n.TABLE.COLUMNS.FILE_TYPE}</TableColumn>
+				<TableColumn key="name">{i18n.TABLE.COLUMNS.FILE_NAME}</TableColumn>
 				<TableColumn key="size">{i18n.TABLE.COLUMNS.FILE_SIZE}</TableColumn>
 
-				<TableColumn key="date">{i18n.TABLE.COLUMNS.FILE_DATE}</TableColumn>
 				<TableColumn key="download">
 					{i18n.TABLE.COLUMNS.DOWNLOAD_FILE}
 				</TableColumn>
@@ -85,6 +94,7 @@ export function DowloadsTable() {
 						isError={isError}
 						isLoading={isLoading}
 						isNotFound={isNotFound}
+						onTry={fetchData}
 					/>
 				}
 				items={files}

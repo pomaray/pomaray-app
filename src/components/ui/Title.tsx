@@ -21,9 +21,7 @@ export function Title({
 }: SectionTitleProps) {
 	return (
 		<div className={twMerge("py-10", className)}>
-			{typeof text === "object" ? (
-				text
-			) : (
+			{typeof text === "string" ? (
 				<h2
 					className={twMerge(
 						`text-${classNames?.text}`,
@@ -42,6 +40,19 @@ export function Title({
 						/>
 					)}
 				</h2>
+			) : (
+				<div className="w-fit">
+					{text}
+					{withLine && (
+						<span
+							className={twMerge(
+								`bg-${color}`,
+								"block  h-1 mt-2 rounded-lg w-full top-10",
+								classNames?.line,
+							)}
+						/>
+					)}
+				</div>
 			)}
 		</div>
 	);

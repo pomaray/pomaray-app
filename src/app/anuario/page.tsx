@@ -5,7 +5,8 @@ import useYearBook from "@/hooks/useYearBook";
 import YearBookForm from "@/components/anuario/YearBookForm";
 
 import { Title } from "@/components/ui/Title";
-import { Pagination, Spinner } from "@nextui-org/react";
+import { Button, Pagination, Spinner } from "@nextui-org/react";
+import { EllipsisIcon } from "@nextui-org/shared-icons";
 import { YearBookStudent } from "@/components/anuario/YearBookStudent";
 import YearBookNotFound from "@/components/anuario/YearBookNotFound";
 import { motion } from "framer-motion";
@@ -19,6 +20,7 @@ export default function YearBook() {
 		currentPage,
 		totalPages,
 
+		fetchData,
 		setFormRequest,
 		setCurrentPage,
 	} = useYearBook(30);
@@ -52,12 +54,14 @@ export default function YearBook() {
 					translateY: 0,
 					opacity: 1,
 				}}
-				className="grid place-content-center min-h-[60vh]"
+				className="grid place-content-center min-h-[75vh]"
 			>
 				{isLoading && !isError ? (
 					<Spinner />
 				) : isError ? (
-					<YearBookNotFound />
+					<div>
+						<YearBookNotFound onTry={fetchData} />
+					</div>
 				) : (
 					<div className="grid xs:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 sm:grid-cols-3 gap-4 sm:px-2 pb-20 mx-w-6xl mx-auto">
 						{students?.map((student, index) => (

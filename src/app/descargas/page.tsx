@@ -1,5 +1,6 @@
 "use client";
-import { DowloadsTable } from "@/components/descargas/DowloadsTable";
+import { DownloadsTable } from "@/components/descargas/DownloadsTable";
+import { Title } from "@/components/ui/Title";
 import i18n from "@/locales/descargas.json";
 import { motion } from "framer-motion";
 
@@ -14,17 +15,18 @@ export default function DescargasPage() {
 				translateY: 0,
 				opacity: 1,
 			}}
-			className="container mx-auto p-8"
+			className="max-w-7xl mx-auto sm:px-10 px-6"
 		>
 			<section>
-				<h1 className="text-5xl font-bold mb-6 text-primary">
-					{i18n.HERO.TITLE}
-				</h1>
-				<p>{i18n.HERO.SUB_TITLE}</p>
+				<Title
+					text={
+						<h1 className="sm:text-6xl text-4xl mb-4">{i18n.HERO.TITLE}</h1>
+					}
+					withLine
+				/>
+				<p className="max-w-[70ch] text-pretty">{i18n.HERO.SUB_TITLE}</p>
 			</section>
-			<section className="min-h-screen">
-				<DowloadsTable />
-			</section>
+			<DownloadsTable />
 		</motion.main>
 	);
 }

@@ -16,7 +16,7 @@ export default function NewsPage() {
 					src={
 						"https://cnnespanol.cnn.com/wp-content/uploads/2024/02/GettyImages-1969688477.jpg?quality=100&strip=info&w=460&h=260&crop=1"
 					}
-					alt="Noticias princiapl"
+					alt="Noticias principal"
 				/>
 				<motion.div
 					initial={{
@@ -30,11 +30,10 @@ export default function NewsPage() {
 					className="flex flex-col items-center justify-center gap-4 text-white max-w-4xl"
 				>
 					<Chip
-						size="lg"
-						variant="bordered"
-						className="mb-2 text-white border-white"
+						variant="solid"
+						className="mb-2 text-foreground bg-default-100 border-white"
 					>
-						Categoria
+						Categoría
 					</Chip>
 					<h1 className="md:text-7xl text-3xl font-bold mb-2 line-clamp-2">
 						Noticia Principal
@@ -44,7 +43,10 @@ export default function NewsPage() {
 						eum quod quidem ipsum ad omnis pariatur rerum, minima vel delectus,
 						optio commodi aliquam? Sapiente rerum sit fugiat nobis praesentium.
 					</p>
-					<Button color="primary" variant="faded" className="dark:text-white">
+					<Button
+						variant="faded"
+						className="hover:scale-105 transition-transform"
+					>
 						Seguir leyendo
 					</Button>
 				</motion.div>
@@ -52,7 +54,7 @@ export default function NewsPage() {
 			<section className="container mx-auto -mt-20">
 				<Title text="Todas las noticias" />
 
-				<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 px-9">
+				<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 sm:px-9">
 					{Array.from({ length: 12 }, (_, index) => {
 						return (
 							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
