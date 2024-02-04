@@ -1,10 +1,11 @@
+import i18n from "@/locales/anuario.json";
+
 export const metadata = {
-	title: "Anuario",
+	title: i18n.METADATA.TITLE,
 	openGraph: {
-		images: "/banner/anuario.png",
+		images: i18n.METADATA.BANNNER,
 	},
-	description:
-		"Explora y encuentra fácilmente tu foto de anuario con nuestra herramienta de filtrado. Descubre recuerdos inolvidables y revive esos momentos especiales con nuestro anuario digital.",
+	description: i18n.METADATA.DESCRIPTION,
 };
 
 export default function LoginLayout({

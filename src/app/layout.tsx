@@ -7,21 +7,19 @@ import UIProviders from "@/components/ui/Providers";
 
 import { Footer } from "@/components/ui/Footer";
 import { Header } from "@/components/ui/Header";
-
-import i18n from "@/locales/root.json";
 import NProgressProvider from "@/context/NProgress";
 
 // Tipografía.
 const fraunces = Fraunces({ subsets: ["latin"], weight: ["400", "500"] });
 
-export const metadata: Metadata = {
-	title: {
-		default: i18n.WEBSITE.NAME,
-		template: `%s - ${i18n.WEBSITE.NAME}`,
+import i18n from "@/locales/home.json";
+
+export const metadata = {
+	title: i18n.METADATA.TITLE,
+	openGraph: {
+		images: i18n.METADATA.BANNNER,
 	},
-	description: i18n.WEBSITE.DESCRIPTION,
-	keywords: i18n.WEBSITE.TAGS,
-	category: i18n.WEBSITE.CATEGORY,
+	description: i18n.METADATA.DESCRIPTION,
 };
 
 export default function RootLayout({

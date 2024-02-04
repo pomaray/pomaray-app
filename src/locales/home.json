@@ -1,4 +1,9 @@
 {
+	"METADATA": {
+		"TITLE": "Inicio",
+		"BANNNER": "/banner/home.jpg",
+		"DESCRIPTION": "Bienvenido al Politécnico Madre Rafaela Ybarra. Descubre un mundo de conocimiento e innovación. Explora nuestras últimas técnicas, prácticas líderes y contribuciones al desarrollo técnico en la comunidad educativa. ¡Inspírate con nosotros!"
+	},
 	"HERO": {
 		"TITLE": "¡Aprende con el Politécnico Madre Rafaela Ybarra!",
 		"SUB_TITLE": "Donde tu futuro comienza.",

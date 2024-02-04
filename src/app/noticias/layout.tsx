@@ -1,10 +1,11 @@
+import i18n from "@/locales/noticias.json";
+
 export const metadata = {
-	title: "Noticias",
+	title: i18n.METADATA.TITLE,
 	openGraph: {
-		images: "/banner/noticias.png",
+		images: i18n.METADATA.BANNNER,
 	},
-	description:
-		"Mantente actualizado con las últimas noticias y eventos en el Politécnico Madre Rafaela Ybarra. Descubre nuestras historias más recientes, logros destacados y contribuciones a la comunidad educativa.",
+	description: i18n.METADATA.DESCRIPTION,
 };
 
 export default function LoginLayout({

@@ -1,4 +1,9 @@
 {
+	"METADATA": {
+		"TITLE": "Nosotros",
+		"BANNNER": "/banner/nosotros.png",
+		"DESCRIPTION": "Descubre la rica historia del Politécnico Madre Rafaela Ybarra, pionero en educación técnica. Desde su inicio, hemos liderado con innovación, forjando un legado que impulsa el desarrollo técnico en nuestra comunidad educativa."
+	},
 	"HERO": {
 		"TITLE": "Nuestra Historia",
 		"SUBTITLE": "En el Politécnico Madre Rafaela Ibárra, en el corazón de la República Dominicana, nos preocupamos profundamente por brindar educación de calidad. Fundado bajo la visión de la Hermana Rafaela Ibárra, nuestro instituto es un faro de excelencia académica que se preocupa no solo por impartir conocimientos, sino también por cultivar valores fundamentales. En nuestras aulas, la dedicación a la educación de calidad es más que una misión; es nuestro compromiso con el desarrollo integral de cada estudiante.",

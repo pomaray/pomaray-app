@@ -1,41 +1,46 @@
 {
-    "HERO": {
-      "TITULO": "Contáctenos",
-      "DESCRIPCION": "¡Estamos aquí para ayudarte! Ponte en contacto con nosotros completando el formulario o utilizando la información de contacto a continuación."
-    },
-    "FORMULARIO": {
-      "TITULO": "Envíanos un mensaje",
-      "CAMPOS": [
-        {
-          "ID": "nombre",
-          "TITULO": "Nombre",
-          "TIPO": "texto",
-          "REQUERIDO": true
-        },
-        {
-          "ID": "correo",
-          "TITULO": "Correo Electrónico",
-          "TIPO": "correo",
-          "REQUERIDO": true
-        },
-        {
-          "ID": "contenido",
-          "TITULO": "Contenido",
-          "TIPO": "areaTexto",
-          "REQUERIDO": true
-        }
-      ],
-      "BOTON_ENVIAR": {
-        "TEXTO": "Enviar",
-        "COLOR": "verde"
+  "METADATA": {
+    "TITLE": "Contacto",
+    "BANNNER": "/banner/contacto.png",
+    "DESCRIPTION": "Conéctate con nosotros en el Politécnico Madre Rafaela Ybarra. Estamos aquí para responder a tus preguntas, colaborar en proyectos y fortalecer nuestra comunidad educativa. ¡Contáctanos y sé parte de nuestro camino técnico!"
+  },
+  "HERO": {
+    "TITULO": "Contáctenos",
+    "DESCRIPCION": "¡Estamos aquí para ayudarte! Ponte en contacto con nosotros completando el formulario o utilizando la información de contacto a continuación."
+  },
+  "FORMULARIO": {
+    "TITULO": "Envíanos un mensaje",
+    "CAMPOS": [
+      {
+        "ID": "nombre",
+        "TITULO": "Nombre",
+        "TIPO": "texto",
+        "REQUERIDO": true
+      },
+      {
+        "ID": "correo",
+        "TITULO": "Correo Electrónico",
+        "TIPO": "correo",
+        "REQUERIDO": true
+      },
+      {
+        "ID": "contenido",
+        "TITULO": "Contenido",
+        "TIPO": "areaTexto",
+        "REQUERIDO": true
       }
-    },
-    "INFORMACION_ADICIONAL": {
-      "HORARIOS": "Lunes a Viernes: 9am - 5pm",
-      "DIRECCION": "Calle Principal #123, Ciudad",
-      "SOPORTE": {
-        "CORREO": "pomaray@gmail.com",
-        "TELEFONO": "+123 456 789"
-      }
+    ],
+    "BOTON_ENVIAR": {
+      "TEXTO": "Enviar",
+      "COLOR": "verde"
+    }
+  },
+  "INFORMACION_ADICIONAL": {
+    "HORARIOS": "Lunes a Viernes: 9am - 5pm",
+    "DIRECCION": "Calle Principal #123, Ciudad",
+    "SOPORTE": {
+      "CORREO": "pomaray@gmail.com",
+      "TELEFONO": "+123 456 789"
     }
   }
+}

@@ -10,7 +10,7 @@
 		"daai": {
 			"NAME": "Desarrollo y Administración de Aplicaciones Informáticas",
 			"TITLE": "Da el salto a la industria tecnológica.",
-			"BANNER": "/images/banner/1.png",
+			"BANNER": "/images/banner/11.png",
 			"DESCRIPTION": [
 				"La técnica de Desarrollo y Administración de Aplicaciones Informáticas es un campo amplio y emocionante que abarca el estudio y la aplicación de sistemas de cómputo, hardware, software y procesos de información. Aquellos que optan por seguir esta técnica se sumergen en el mundo de la programación, la gestión de datos, la ciberseguridad y el desarrollo de software.",
 				"La capacidad de resolver problemas de manera lógica y creativa es esencial en este campo. Los profesionales de la informática son responsables de diseñar soluciones innovadoras para desafíos tecnológicos y contribuir al avance continuo de la sociedad digital."
@@ -82,7 +82,7 @@
 		"gas": {
 			"NAME": "Gastronomía",
 			"TITLE": "Descubre el arte culinario.",
-			"BANNER": "/images/banner/6.png",
+			"BANNER": "/images/banner/17.png",
 			"DESCRIPTION": [
 				"La técnica de Gastronomía es un apasionante viaje al mundo de la cocina y la creación de experiencias culinarias. Los estudiantes explorarán las técnicas de cocina, la presentación de platos, la gestión de restaurantes y la creatividad gastronómica.",
 				"La gastronomía va más allá de la preparación de alimentos; es un arte que fusiona la tradición culinaria con la innovación y la expresión personal."
@@ -152,7 +152,7 @@
 		"cm": {
 			"NAME": "Comercio y Mercadeo",
 			"TITLE": "Impulsa tu carrera en el mundo de los negocios.",
-			"BANNER": "/images/banner/4.png",
+			"BANNER": "/images/banner/15.png",
 			"DESCRIPTION": [
 				"La técnica de Comercio y Mercadeo te brinda las habilidades y conocimientos necesarios para destacar en el entorno empresarial actual. Desde estrategias de mercadeo hasta gestión de ventas y comercio internacional, este programa prepara a los estudiantes para liderar en el competitivo mundo de los negocios."
 			],
@@ -221,7 +221,7 @@
 		"gat": {
 			"NAME": "Gestión Administrativa y Tributaria",
 			"TITLE": "Domina la contabilidad y lidera en el ámbito administrativo.",
-			"BANNER": "/images/banner/3.png",
+			"BANNER": "/images/banner/13.png",
 			"DESCRIPTION": [
 				"La técnica de Gestión Administrativa y Tributaria se centra en proporcionar a los estudiantes conocimientos sólidos en contabilidad, gestión financiera y tributación. Este programa prepara a los futuros profesionales para asumir roles clave en el ámbito administrativo, brindando habilidades esenciales para el manejo efectivo de las finanzas y el cumplimiento tributario."
 			],
@@ -289,7 +289,7 @@
 		"tro": {
 			"NAME": "Electrónica",
 			"TITLE": "Explora el fascinante mundo de la electrónica.",
-			"BANNER": "/images/banner/2.png",
+			"BANNER": "/images/banner/12.png",
 			"DESCRIPTION": [
 				"La técnica de Electrónica es un emocionante viaje al corazón de la tecnología moderna. Este programa proporciona a los estudiantes conocimientos especializados en el diseño, montaje y mantenimiento de sistemas electrónicos. Desde circuitos integrados hasta dispositivos avanzados, los estudiantes adquieren habilidades esenciales para contribuir al desarrollo de la electrónica en la sociedad actual."
 			],
@@ -357,7 +357,7 @@
 		"tri": {
 			"NAME": "Electricidad",
 			"TITLE": "Sumérgete en el mundo de la energía eléctrica.",
-			"BANNER": "/images/banner/5.png",
+			"BANNER": "/images/banner/16.png",
 			"DESCRIPTION": [
 				"La técnica de Electricidad te proporciona conocimientos especializados en la generación, distribución y aplicación de la energía eléctrica. Desde sistemas de potencia hasta electrónica de potencia, los estudiantes adquieren habilidades esenciales para trabajar en el emocionante campo de la electricidad, contribuyendo al desarrollo sostenible de la sociedad actual."
 			],
@@ -425,7 +425,7 @@
 		"rae": {
 			"NAME": "Refrigeración y Acondicionamiento de Aire",
 			"TITLE": "Sumérgete en el mundo de la climatización y la refrigeración.",
-			"BANNER": "/images/banner/7.png",
+			"BANNER": "/images/banner/14.png",
 			"DESCRIPTION": [
 				"La técnica de Refrigeración y Acondicionamiento de Aire se enfoca en brindar conocimientos especializados en sistemas de climatización, refrigeración y gestión térmica. Este programa prepara a los estudiantes para diseñar, instalar y mantener sistemas que controlan la temperatura y la calidad del aire, desempeñando un papel clave en la comodidad y la eficiencia energética."
 			],

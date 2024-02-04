@@ -1,10 +1,11 @@
+import i18n from "@/locales/contacto.json";
+
 export const metadata = {
-	title: "Contacto",
+	title: i18n.METADATA.TITLE,
 	openGraph: {
-		images: "/banner/contacto.png",
+		images: i18n.METADATA.BANNNER,
 	},
-	description:
-		"¡Contáctanos! Estamos aquí para responder tus preguntas, recibir tus comentarios y brindarte la asistencia que necesitas. Completa el formulario de contacto y conecta con nosotros. Tu opinión es importante para nosotros.",
+	description: i18n.METADATA.DESCRIPTION,
 };
 
 export default function LoginLayout({

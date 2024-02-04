@@ -1,10 +1,11 @@
+import i18n from "@/locales/descargas.json";
+
 export const metadata = {
-	title: "Descargas",
+	title: i18n.METADATA.TITLE,
 	openGraph: {
-		images: "/banner/descargas.png",
+		images: i18n.METADATA.BANNNER,
 	},
-	description:
-		"Descarga contenido subido por el Politécnico Madre Rafaela Ybarra.",
+	description: i18n.METADATA.DESCRIPTION,
 };
 
 export default function LoginLayout({

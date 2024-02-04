@@ -1,4 +1,9 @@
 {
+	"METADATA": {
+		"TITLE": "Noticias",
+		"BANNNER": "/banner/noticias.png",
+		"DESCRIPTION": "Sumérgete en las últimas noticias del Politécnico Madre Rafaela Ybarra. Mantente informado sobre avances técnicos, logros académicos y eventos emocionantes. Descubre cómo estamos marcando la pauta en la educación técnica."
+	},
     "NEWS": [
         {
             "ID": "1",

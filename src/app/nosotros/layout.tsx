@@ -1,10 +1,11 @@
+import i18n from "@/locales/nosotros.json";
+
 export const metadata = {
-	title: "Nosotros",
+	title: i18n.METADATA.TITLE,
 	openGraph: {
-		images: "/banner/nosotros.png",
+		images: i18n.METADATA.BANNNER,
 	},
-	description:
-		"Explora nuestra historia y misión en el Politécnico Madre Rafaela Ybarra. Descubre cómo estamos comprometidos a proporcionar contenido de calidad y contribuir al crecimiento educativo.",
+	description: i18n.METADATA.DESCRIPTION,
 };
 
 export default function LoginLayout({
