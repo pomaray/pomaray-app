@@ -2,14 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import { NextResponse } from "next/server";
 import { formatDate, formatSize } from "@/utils/general";
-
-export type File = {
-	name: string;
-	type: string;
-	size: string;
-	date: string;
-	[key: string]: string;
-};
+import { type File } from "@/types/general";
 
 export async function GET() {
 	const rootFolder = process.cwd();
@@ -20,7 +13,6 @@ export async function GET() {
 	try {
 		const files: string[] = await fs.readdir(absoluteFolderPath);
 
-		// Mapea los nombres de archivos a objetos del tipo File
 		const filesInfo: File[] = await Promise.all(
 			files.map(async (fileName) => {
 				const filePath = path.join(absoluteFolderPath, fileName);
@@ -33,7 +25,8 @@ export async function GET() {
 						type: path.extname(fileName).toLowerCase(),
 						size: formatSize(fileStats.size),
 						date: formatDate(fileStats.mtime),
-					};
+						path: filePath,
+					} as File;
 				} catch (error) {
 					console.error(
 						`Error processing file ${fileName}: ${
@@ -41,11 +34,12 @@ export async function GET() {
 						}`,
 					);
 					return {
-						name: fileName.split(".")[0],
+						name: "unknown",
 						type: "unknown",
 						size: "unknown",
 						date: "unknown",
-					};
+						path: "unknown",
+					} as File;
 				}
 			}),
 		);

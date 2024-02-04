@@ -15,6 +15,13 @@ import { type File } from "@/types/general";
 import useFiles from "@/hooks/useFiles";
 import { TableEmpty } from "@/components/ui/TableEmpty";
 
+function handleDownload(filePath: string) {
+	const link = document.createElement("a");
+	link.href = filePath;
+	link.download = filePath.split("/").pop() as string;
+	link.click();
+}
+
 export function DownloadsTable() {
 	const { isError, isNotFound, isLoading, files, fetchData } = useFiles();
 
@@ -49,6 +56,9 @@ export function DownloadsTable() {
 						variant="light"
 						isIconOnly
 						className="group hover:opacity-100 opacity-70 transition-opacity"
+						onClick={() => {
+							handleDownload(file.path);
+						}}
 					>
 						<PiDownloadSimpleFill className="group-hover:translate-y-0 -translate-y-0.5 t transition-transform text-lg text-foreground" />
 					</Button>

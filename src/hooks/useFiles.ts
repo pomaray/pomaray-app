@@ -34,7 +34,12 @@ export const useFiles = () => {
 			}
 
 			// Extraer datos JSON de la respuesta.
-			const data = await response.json();
+			const data = (await response.json()) as File[];
+			if (!data || data.length <= 0) {
+				setIsNotFound(true);
+				setIsError(true);
+				return;
+			}
 			setFiles(data); // Asigna los archivos de la respuesta al estado
 		} catch (error) {
 			// Manejo de errores si es 404 (Not found) asignar `setIsNotFound`
