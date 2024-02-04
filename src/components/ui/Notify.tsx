@@ -51,6 +51,7 @@ export function NavbarNotify({ isClose }: { isClose: boolean }) {
 						</span>
 
 						<Button
+							aria-label="Cerrar notificacion"
 							name="close"
 							isIconOnly
 							variant="light"

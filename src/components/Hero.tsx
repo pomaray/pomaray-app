@@ -44,6 +44,7 @@ export function Hero() {
 		<section className="relative grid place-content-center max-w-screen min-h-[100vh] p-10 bg-primary/80 -top-32 !overflox-hidden">
 			<AnimatePresence initial={true} custom={direction}>
 				<motion.img
+					aria-label="Imagen de campus del Politécnico."
 					key={backgroundIndex}
 					className="absolute inset-0 object-cover w-screen h-full bg-no-repeat bg-center -z-10"
 					src={i18n.HERO.CARROUSEL[backgroundIndex]}

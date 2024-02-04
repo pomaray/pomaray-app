@@ -28,6 +28,7 @@ export default function ThemeSwitcher() {
 				}`}
 			>
 				<Button
+					aria-label="Cambiar a modo"
 					name="Tema"
 					variant="light"
 					isIconOnly
@@ -43,14 +44,18 @@ export default function ThemeSwitcher() {
 					)}
 				</Button>
 			</Tooltip>
-			<Tooltip content="Enviar correo">
+			<Tooltip content="Correo de soporte">
 				<Button
+					aria-label="Contactar al correo de soporte"
 					name="Correo"
 					variant="light"
 					isIconOnly
 					className="dark:hover:bg-neutral-700 hover:bg-slate-500 transition-colors p-2 text-xl rounded-xl"
 				>
-					<a href={`mailto:${i18n.WEBSITE.MAIL}`}>
+					<a
+						aria-label="Enviar un correo al equipo de soporte"
+						href={`mailto:${i18n.WEBSITE.MAIL}`}
+					>
 						<MailIcon className="text-white" />
 					</a>
 				</Button>

@@ -27,7 +27,7 @@ export function Title({
 				<h2
 					className={twMerge(
 						`text-${classNames?.text}`,
-						"relative mx-auto sm:text-4xl text-3xl font-bold w-fit",
+						"relative mx-auto sm:text-4xl text-3xl font-bold w-fit text-balance",
 						className,
 					)}
 				>

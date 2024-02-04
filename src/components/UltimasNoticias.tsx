@@ -8,7 +8,7 @@ import { Reveal } from "./ui/ScrollReveal";
 export function UltimasNoticias() {
 	return (
 		<Reveal>
-			<section className="flex flex-col justify-center items-center gap-10 px-8">
+			<section className="flex flex-col justify-center items-center gap-10">
 				<Title withLine text={i18n.NEWS.TITLE} />
 				<div className="text-primary relative">
 					<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
@@ -25,7 +25,9 @@ export function UltimasNoticias() {
 					</div>
 				</div>
 				<a href="/noticias">
-					<Button color="primary">{i18n.NEWS.READ_BTN}</Button>
+					<Button aria-label={i18n.NEWS.READ_BTN} color="primary">
+						{i18n.NEWS.READ_BTN}
+					</Button>
 				</a>
 			</section>
 		</Reveal>
