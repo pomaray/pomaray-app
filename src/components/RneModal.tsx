@@ -11,7 +11,7 @@ import {
 export function RneModal() {
 	return (
 		<>
-			<Modal isOpen={true}>
+			<Modal isOpen={false}>
 				<ModalContent>
 					{(onClose) => (
 						<>
