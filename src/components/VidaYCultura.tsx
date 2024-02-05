@@ -10,7 +10,7 @@ export function VidaYCultura() {
 
 	return (
 		<Reveal>
-			<section className="flex flex-col justify-center items-center px-8">
+			<section className="flex flex-col justify-center items-center">
 				<Title className="py-4" text={i18n.LIFE_AND_CULTURE.TITLE} />
 				<p className="text-foreground">
 					{SUB_TITLE[0]}{" "}

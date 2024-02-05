@@ -2,15 +2,15 @@
 	"HERO": {
 		"TITLE": "¡Aprende con el Politécnico Madre Rafaela Ybarra!",
 		"SUB_TITLE": "Donde tu futuro comienza.",
-		"CARROUSEL": ["images/1.png", "images/1.png", "images/1.png"],
+		"CARROUSEL": ["/images/1.jpg", "/images/1.jpg", "/images/1.jpg"],
 		"GRADUATED": "Oportunidades Laborales.",
-		"USUER": "Cuerpo Docente Calificado.",
+		"USER": "Cuerpo Docente Calificado.",
 		"TECHNOLOGY": "Innovación Educativa y Tecnología Avanzada."
 	},
 	"SECURITY_MEASURES": {
 		"TITLE": "Medidas de seguridad implementadas",
-		"SUB_TITLE": "Hacemos todo lo posible para garantizar la salud, la seguridad y el bienestar de nuestros estudiantes y empleados. Puede encontrar información adicional %s.",
-		"SUB_TITLE_LINK": "aquí",
+		"SUB_TITLE": "Hacemos todo lo posible para garantizar la salud, la seguridad y el bienestar de nuestros estudiantes y empleados. Puede encontrar %s.",
+		"SUB_TITLE_LINK": "información adicional aquí",
 		"COLLAGE": [
 			{
 				"TITLE": "Vida Estudiantil",

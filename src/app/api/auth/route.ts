@@ -1,7 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
-import { type User } from "@/types/general";
 import { UAParser } from "ua-parser-js";
 import { LOGIN_PAGE, TOKEN_COOKIE } from "@/types/request/auth";
 import { TOKEN_EXPIRE_DAYS } from "@/utils/general";

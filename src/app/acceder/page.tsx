@@ -157,7 +157,12 @@ export default function LoginPage() {
 				<CardFooter className="flex flex-col gap-y-6">
 					<p className="text-center">
 						{i18n.FORM.ALREADY_HAVE}{" "}
-						<Link isDisabled={isLoading} showAnchorIcon href="/admin">
+						<Link
+							aria-label="Ya soy admin."
+							isDisabled={isLoading}
+							showAnchorIcon
+							href="/admin"
+						>
 							{i18n.FORM.ALREADY_HAVE_ACCESS}
 						</Link>
 					</p>

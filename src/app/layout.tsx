@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 import "@/styles/globals.css";
 import UIProviders from "@/components/ui/Providers";
@@ -22,12 +23,12 @@ export const metadata: Metadata = {
 	openGraph: {
 		images: i18n.WEBSITE.BANNER,
 		type: "website",
-	},	
+	},
 	metadataBase: new URL("https://pomaray.vercel.app/"),
 	description: i18n.WEBSITE.DESCRIPTION,
 	keywords: i18n.WEBSITE.TAGS,
 	category: i18n.WEBSITE.CATEGORY,
-	robots: ""
+	robots: "",
 };
 export default function RootLayout({
 	children,
@@ -38,13 +39,12 @@ export default function RootLayout({
 		<html suppressHydrationWarning lang="en">
 			<head>
 				<meta name="theme-color" content="#397040" />
-				<meta name="robots" content="noindex "/>
 			</head>
 			<body
 				className={`bg-transparent overflow-y-auto max-w-[100vw] overflow-x-hidden ${fraunces.className}`}
 			>
-				<header className="print:hidden relative min-w-screen z-40 h-32">
-					<div className="fixed">
+				<header className="print:hidden relative min-w-screen h-28">
+					<div className="fixed z-40">
 						<Header />
 					</div>
 				</header>
@@ -55,6 +55,7 @@ export default function RootLayout({
 					</UIProviders>
 				</NProgressProvider>
 				<SpeedInsights />
+				<Analytics />
 			</body>
 		</html>
 	);

@@ -16,7 +16,7 @@ export function NavbarNotify({ isClose }: { isClose: boolean }) {
 
 	useEffect(() => {
 		const currentUrl = window.location.href;
-		const defaultIgnore = ["/admin/acceder", "/admin", "/not-found"];
+		const defaultIgnore = ["/acceder", "/admin", "/not-found"];
 		const ignoreUrl = defaultIgnore.concat(i18n.NAVBAR.NOTIFICATION.LINK);
 		const shouldIgnore = ignoreUrl.some((url) => currentUrl.includes(url));
 
@@ -51,6 +51,7 @@ export function NavbarNotify({ isClose }: { isClose: boolean }) {
 						</span>
 
 						<Button
+							aria-label="Cerrar notificacion"
 							name="close"
 							isIconOnly
 							variant="light"

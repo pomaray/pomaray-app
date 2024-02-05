@@ -5,13 +5,13 @@
 		"DESCRIPTION": "Revive momentos inolvidables en nuestro anuario del Politécnico Madre Rafaela Ybarra. Explora los logros, eventos y experiencias que han definido nuestro año académico. Celebra con nosotros el espíritu técnico y educativo."
 	},
 	"TITLE": "Encuentra tu foto de anuario",
-	"TIP": "Filtra y encuentra tu foto de anuario fácilmente. Puedes Utilizar los filtros para buscar.",
+	"TIP": "Filtra y encuentra tu foto de anuario fácilmente. Puedes utilizar los filtros para buscar.",
 	"FORM": {
 		"MIN_PERIOD": "2010",
 		"NAME": "Nombre del estudiante",
 		"TECH": "Técnica",
 		"PERIOD": "Periodo escolar"
 	},
-	"ERROR": "Ops! Hubo un error, por favor intentelo de nuevo.",
-	"NOT_FOUND": "No se pudo encontrar el estudiante que buscas. Intentelo de nuevo."
+	"ERROR": "Oops! Hubo un error, por favor inténtelo de nuevo.",
+	"NOT_FOUND": "No se pudo encontrar el estudiante que buscas. Inténtelo de nuevo."
 }

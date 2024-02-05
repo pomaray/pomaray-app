@@ -11,7 +11,7 @@ function NProgressProvider({
 		<>
 			<ProgressBar
 				color="#397040"
-				height="3px"
+				height="4px"
 				options={{
 					showSpinner: false,
 				}}

@@ -2,11 +2,11 @@
 	"METADATA": {
 		"TITLE": "Descargas",
 		"BANNER": "/images/banner/descargas.png",
-		"DESCRIPTION": "Explora nuestro centro de descargas en el Politécnico Madre Rafaela Ybarra. Obtén acceso a recursos educativos, documentos informativos y material técnico exclusivo. Descarga ahora para potenciar tu aprendizaje y desarrollo."
+		"DESCRIPTION": "Obtén acceso a recursos educativos, documentos informativos y material técnico exclusivo."
 	},
 	"HERO": {
 		"TITLE": "Descargas",
-		"SUB_TITLE": "Descarga subtitulo."
+		"SUB_TITLE": "Explora nuestra sección de descargas en el Politécnico para acceder a documentos vitales, incluyendo reglas, normativas y recursos académicos esenciales."
 	},
 	"TABLE": {
 		"FILES_PATH": "/archivos",

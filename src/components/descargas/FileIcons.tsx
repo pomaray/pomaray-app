@@ -9,8 +9,8 @@ export type FileIcon = {
 };
 
 export const FILE_ICONS: FileIcon[] = [
-	{ pdf: { icon: <FaFilePdf />, color: "red-500" } },
-	{ docx: { icon: <FaFileWord />, color: "blue-600" } },
-	{ xlsx: { icon: <FaFileExcel />, color: "success" } },
+	{ ".pdf": { icon: <FaFilePdf />, color: "danger" } },
+	{ ".docx": { icon: <FaFileWord />, color: "blue-600" } },
+	{ ".xlsx": { icon: <FaFileExcel />, color: "success" } },
 	{ default: { icon: <FaFile />, color: "default-200" } },
 ];
