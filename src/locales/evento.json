@@ -1,0 +1,11 @@
+{
+  "logotipo": "android-chrome-192x192.png",
+  "titulo": "ANIVERSARIO POMARAY",
+  "fecha": "14 DE FEBRERO DE 2024",
+  "descripcion": "Te invitamos a nuestro 46 aniversario",
+  "hora": "08:00 AM",
+  "lugar": "AUDITORIO",
+  "codigoQR": "QR.png",
+  "textoHora": "HORA",
+  "textoLugar": "LUGAR"
+}
