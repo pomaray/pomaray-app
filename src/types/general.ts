@@ -18,6 +18,7 @@ export type File = {
 	type: string;
 	size: string;
 	date: string;
+	path: string;
 	[key: string]: string;
 };
 

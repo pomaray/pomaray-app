@@ -30,7 +30,7 @@ export function Header() {
 	}, [path]);
 
 	return (
-		<header className="relative min-w-screen z-40 h-28">
+		<header className="relative min-w-screen z-40 h-18">
 			<Navbar
 				classNames={{
 					item: [

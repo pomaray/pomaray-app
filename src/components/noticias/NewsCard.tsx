@@ -4,13 +4,14 @@ import {
 	Card,
 	CardHeader,
 	CardBody,
-	Chip,
 	CardFooter,
 	Image,
 	Skeleton,
 } from "@nextui-org/react";
 import { EyeIcon } from "@nextui-org/shared-icons";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import { twMerge } from "tailwind-merge";
 
 export function NewsCard({
 	id,
@@ -19,14 +20,9 @@ export function NewsCard({
 	id?: string;
 	isLoaded?: boolean;
 }) {
+	const router = useRouter();
 	const [isOpen, setIsOpen] = useState(false);
 	const dynamicPath = `/notcias/${id}`;
-	const copyToClipboard = () => {
-		setIsOpen(true);
-		const url = window.location.href;
-		navigator.clipboard.writeText(dynamicPath);
-	};
-
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		setTimeout(() => {
@@ -35,45 +31,72 @@ export function NewsCard({
 	}, [isOpen]);
 
 	return (
-		<Skeleton disableAnimation isLoaded={isLoaded} className="rounded-lg p-2">
-			<Card
-				isPressable
-				radius="sm"
-				shadow="none"
-				className="hover:bg-default-200 bg-default-100 shadow-sm transition-colors max-w-full"
-			>
-				<CardHeader className="h-48">
-					<Image
-						src={""}
-						alt={""}
-						className="w-screen h-48 object-cover rounded-t-md"
-					/>
-				</CardHeader>
+		<Card
+			isPressable={isLoaded}
+			onPress={() => {
+				router.push(dynamicPath);
+			}}
+			radius="sm"
+			shadow="none"
+			className={twMerge(
+				"bg-default-100 pt-4 shadow-sm transition-colors max-w-full",
+				`${isLoaded && "hover:bg-default-200"}`,
+			)}
+		>
+			<CardHeader className="h-48 px-6">
+				<Skeleton
+					isLoaded={isLoaded}
+					disableAnimation
+					className="rounded-lg w-full"
+				>
+					<Image src={""} alt={""} className="h-48 object-cover rounded-t-md" />
+				</Skeleton>
+			</CardHeader>
 
-				<CardBody className="px-6 max-w-full">
-					<Chip size="sm" color="primary" className="mb-2">
-						Categoria
-					</Chip>
-					<h3 className="md:text-md text-lg font-bold mb-2 line-clamp-2">
-						Noticia
+			<CardBody className="px-6 max-w-full gap-y-2">
+				{/* <Chip size="sm" color="primary">
+					{}
+				</Chip> */}
+
+				<Skeleton
+					isLoaded={isLoaded}
+					disableAnimation
+					className="rounded-lg w-full"
+				>
+					<h3 className="md:text-md text-lg font-bold line-clamp-2 min-h-8">
+						{}
 					</h3>
-					<p className="text-xs text-wrap max-w-full">
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus id,
-						eum quod quidem ipsum ad omnis pariatur rerum, minima vel delectus,
-						optio commodi aliquam? Sapiente rerum sit fugiat nobis praesentium.
-					</p>
-				</CardBody>
+				</Skeleton>
+				<Skeleton
+					isLoaded={isLoaded}
+					disableAnimation
+					className="rounded-lg w-full min-h-16"
+				>
+					<p className="text-xs text-wrap max-w-full">{}</p>
+				</Skeleton>
+			</CardBody>
 
-				<CardFooter className="flex justify-between items-center h-12 opacity-50 pr-6">
-					<time className="mb-2 text-xs ml-2">{"24/01/2017"}</time>
-					<div className="flex text-sm gap-2 items-center">
-						<div className="flex items-center gap-2">
-							<EyeIcon />
-							<span>666</span>
+			<CardFooter className="px-6">
+				<Skeleton
+					isLoaded={isLoaded}
+					disableAnimation
+					className={twMerge(
+						"rounded-lg w-full min-w-28 h-7",
+						isLoaded && "h-fit",
+					)}
+				>
+					<div className="flex justify-between items-center h-12 opacity-50 px-6">
+						<time className="mb-2 text-xs ml-2">{"24/01/2017"}</time>
+
+						<div className="flex text-sm gap-2 items-center">
+							<div className="flex items-center gap-2">
+								<EyeIcon />
+								<span>666</span>
+							</div>
 						</div>
 					</div>
-				</CardFooter>
-			</Card>
-		</Skeleton>
+				</Skeleton>
+			</CardFooter>
+		</Card>
 	);
 }

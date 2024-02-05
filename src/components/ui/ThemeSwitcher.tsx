@@ -2,7 +2,12 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { SunIcon, MoonIcon, MailIcon } from "@nextui-org/shared-icons";
+import {
+	SunIcon,
+	MoonIcon,
+	MailIcon,
+	Notification,
+} from "@nextui-org/shared-icons";
 import { Button } from "@nextui-org/button";
 import { Tooltip } from "@nextui-org/react";
 import i18n from "@/locales/root.json";

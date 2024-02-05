@@ -1,15 +1,14 @@
 {
-    "cSpell.enabled": false,
-    "cSpell.language": "en,es-ES",
-    "cSpell.words": [
-        "Lenght",
-        "nextui",
-        "Pomaray",
-        "Redericionar",
-        "Redireccionar",
-        "sigerd"
-    ],
-    "cSpell.enableFiletypes": [
-        "json"
-    ]
+	"cSpell.enabled": true,
+	"cSpell.language": "en,es-ES",
+	"cSpell.words": [
+		"Dowloads",
+		"Lenght",
+		"nextui",
+		"Pomaray",
+		"Redericionar",
+		"Redireccionar",
+		"sigerd"
+	],
+	"cSpell.enableFiletypes": ["json"]
 }

@@ -145,6 +145,7 @@ export function AdminStudentTable({
 						isError={isError}
 						isNotFound={isNotFound}
 						isLoading={isLoading}
+						onTry={fetchData}
 					/>
 				}
 				items={students}

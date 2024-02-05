@@ -8,6 +8,7 @@ export function Ubicacion() {
 			<section id="ubicacion" className="text-center">
 				<Title withLine text={i18n.LOCATION.TITLE} />
 				<iframe
+					loading="lazy"
 					aria-label="Ubicacion en el mapa del Politécnico."
 					title="Ubicación"
 					className="w-full h-[60vh] rounded-lg"
