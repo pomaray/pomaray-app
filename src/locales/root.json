@@ -47,17 +47,17 @@
 					{
 						"TEXT": "Nosotros",
 						"LINK": "/nosotros",
-						"DESCRIPTION": "Historia, mision, vision y valores del politecnico."
+						"DESCRIPTION": "Historia, mision, visión y valores del politecnico."
 					},
 					{
 						"TEXT": "Contacto",
 						"LINK": "/contacto",
-						"DESCRIPTION": "Historia, mision, vision y valores del politecnico."
+						"DESCRIPTION": "Conéctate con nosotros para cualquier pregunta, comentario o colaboración."
 					},
 					{
 						"TEXT": "Descargas",
 						"LINK": "/descargas",
-						"DESCRIPTION": "Historia, mision, vision y valores del politecnico."
+						"DESCRIPTION": "Documentos vitales y recursos del politecnico."
 					}
 				]
 			}
