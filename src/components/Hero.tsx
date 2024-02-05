@@ -6,6 +6,7 @@ import { Card } from "@nextui-org/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaUserGraduate, FaUsers, FaLaptopCode } from "react-icons/fa";
 import { Reveal } from "./ui/ScrollReveal";
+import Link from "next/link";
 
 export function Hero() {
 	const [backgroundIndex, setBackgroundIndex] = useState(0);
@@ -68,24 +69,33 @@ export function Hero() {
 				</div>
 				<div className="md:space-y-0 md:space-x-9 mt-12 flex flex-col md:flex-row justify-center items-center space-y-4 ">
 					<Card
+						isPressable
+						as={Link}
+						href={"/nosotros#docentes"}
 						radius="sm"
-						className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background"
+						className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background hover:scale-95 transition-transform"
 					>
 						<FaUserGraduate className="text-3xl text-primary" />
 						<p className="p-2">{i18n.HERO.GRADUATED}</p>
 					</Card>
 
 					<Card
+						isPressable
+						as={Link}
+						href={"/tecnicas#tecnicas"}
 						radius="sm"
-						className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background"
+						className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background hover:scale-95 transition-transform"
 					>
 						<FaUsers className="text-3xl text-primary" />
-						<p className="p-2">{i18n.HERO.USUER}</p>
+						<p className="p-2">{i18n.HERO.USER}</p>
 					</Card>
 
 					<Card
+						isPressable
+						as={Link}
+						href={"/noticias/1"}
 						radius="sm"
-						className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background"
+						className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background hover:scale-95 transition-transform"
 					>
 						<FaLaptopCode className="text-3xl text-primary" />
 						<p className="p-2">{i18n.HERO.TECHNOLOGY}</p>

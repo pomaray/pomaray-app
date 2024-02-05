@@ -2,12 +2,12 @@
 "use client";
 import { NewsCard } from "@/components/noticias/NewsCard";
 import { Title } from "@/components/ui/Title";
-import { Button, Chip, Pagination } from "@nextui-org/react";
+import { Button, Pagination } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
 export default function NewsPage() {
-	const [isLoaded, setIsLoaded] = useState(true);
+	const [isLoaded, setIsLoaded] = useState(false);
 	return (
 		<main>
 			<section className="grid relative place-content-center w-full sm:min-h-[80vh] min-h-[100vh] bg-primary/80 -top-32">
@@ -27,23 +27,18 @@ export default function NewsPage() {
 						translateY: 0,
 						opacity: 1,
 					}}
-					className="flex flex-col items-center justify-center gap-4 text-white max-w-4xl"
+					className="flex flex-col items-center justify-center gap-4 text-white w-full max-w-4xl"
 				>
-					<Chip
-						variant="solid"
-						className="mb-2 text-foreground bg-default-100 border-white"
-					>
-						Categoría
-					</Chip>
-					<h1 className="md:text-7xl text-3xl font-bold mb-2 line-clamp-2">
-						Noticia Principal
+					<h1 className="md:text-7xl text-3xl font-bold mb-2 text-center px-6">
+						{"Cargando ultima noticia..."}
 					</h1>
+
 					<p className="text-md text-pretty text-center max-w-full sm:px-20 px-10">
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus id,
-						eum quod quidem ipsum ad omnis pariatur rerum, minima vel delectus,
-						optio commodi aliquam? Sapiente rerum sit fugiat nobis praesentium.
+						{}
 					</p>
+
 					<Button
+						isLoading={!isLoaded}
 						variant="faded"
 						className="hover:scale-105 transition-transform"
 					>
@@ -54,7 +49,7 @@ export default function NewsPage() {
 			<section className="container mx-auto -mt-20">
 				<Title text="Todas las noticias" />
 
-				<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 sm:px-9">
+				<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 sm:px-9 px-6">
 					{Array.from({ length: 12 }, (_, index) => {
 						return (
 							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
