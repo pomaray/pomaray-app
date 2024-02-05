@@ -9,17 +9,14 @@ import {
 } from "@nextui-org/react";
 
 export function RneModal() {
-	const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
 	return (
 		<>
-			<Button onPress={onOpen}>Open Modal</Button>
-			<Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+			<Modal isOpen={true}>
 				<ModalContent>
 					{(onClose) => (
 						<>
 							<ModalHeader className="flex flex-col gap-1">
-								Modal Title
+								Generar RNE
 							</ModalHeader>
 							<ModalBody>
 								<p>

@@ -10,6 +10,7 @@ import { EllipsisIcon } from "@nextui-org/shared-icons";
 import { YearBookStudent } from "@/components/anuario/YearBookStudent";
 import YearBookNotFound from "@/components/anuario/YearBookNotFound";
 import { motion } from "framer-motion";
+import { RneModal } from "@/components/RneModal";
 
 export default function YearBook() {
 	const {
@@ -80,6 +81,8 @@ export default function YearBook() {
 					page={currentPage}
 				/>
 			</section>
+
+			<RneModal />
 		</main>
 	);
 }
