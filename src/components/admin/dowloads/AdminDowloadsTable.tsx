@@ -20,7 +20,7 @@ export function AdminDowloadsTable({
 }: {
 	forceLoaing: boolean;
 }) {
-	const { isError, isNotFound, isLoading, files } = useFiles();
+	const { isError, isNotFound, isLoading, files, fetchData } = useFiles();
 
 	const renderCell = useCallback((file: File, columnKey: string) => {
 		const cellValue = file[columnKey];
@@ -96,6 +96,7 @@ export function AdminDowloadsTable({
 						isError={isError}
 						isLoading={isLoading || forceLoaing}
 						isNotFound={isNotFound}
+						onTry={fetchData}
 					/>
 				}
 				items={files}

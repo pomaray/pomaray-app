@@ -22,7 +22,7 @@
 		"NOTIFICATION": {
 			"TEXT": "¡No te pierdas nuestro aniversario! %s",
 			"LINK_TEXT": "Ver invitación",
-			"LINK": "/aniversario"
+			"LINK": "/invitacion"
 		},
 		"ITEMS": [
 			{
