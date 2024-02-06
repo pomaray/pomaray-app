@@ -18,7 +18,7 @@ export default function EventoComponent() {
 	const diffInSeconds = Math.floor(diffInMilliseconds / 1000);
 	const calculatedDays = Math.floor(diffInSeconds / (60 * 60 * 24));
 	const [isAccepted, setIsAccepted] = useState(false);
-	const canvas = require("canvas-confetti");
+const canvas = require("canvas-confetti");
 
 	useEffect(() => {
 		const local = localStorage.getItem("aniversario");

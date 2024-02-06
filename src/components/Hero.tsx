@@ -42,7 +42,7 @@ export function Hero() {
 	};
 
 	return (
-		<section className="relative grid place-content-center max-w-screen min-h-[100vh] p-10 bg-primary/80 -top-28 !overflox-hidden">
+		<section className="relative grid place-content-center max-w-screen min-h-[100vh] p-10 bg-primary/40 -top-28 !overflox-hidden">
 			<AnimatePresence initial={true} custom={direction}>
 				<motion.img
 					aria-label="Imagen de campus del Politécnico."

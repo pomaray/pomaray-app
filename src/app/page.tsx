@@ -9,7 +9,7 @@ export default function HomePage() {
 		<main>
 			<Hero />
 
-			<div className="container flex flex-col gap-y-20 mx-auto -mt-20">
+			<div className="container flex flex-col gap-y-20 mx-auto -mt-20 xl:px-12">
 				<MedidasDeSeguridad />
 
 				<UltimasNoticias />

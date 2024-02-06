@@ -5,7 +5,6 @@ import {
 	ModalContent,
 	ModalFooter,
 	ModalHeader,
-	useDisclosure,
 } from "@nextui-org/react";
 
 export function RneModal() {
