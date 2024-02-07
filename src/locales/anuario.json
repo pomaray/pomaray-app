@@ -6,11 +6,17 @@
 	},
 	"TITLE": "Encuentra tu foto de anuario",
 	"TIP": "Filtra y encuentra tu foto de anuario fácilmente. Puedes utilizar los filtros para buscar.",
+	"SETTINGS": "Ajustes de anuario.",
+	"RE_SEARCH": "Volver a buscar.",
+	"VIDEO_EXAMPLE_TIP": "Ver video de prueba",
+	"VIDEO_EXAMPLE": "https://www.youtube.com/",
 	"FORM": {
 		"MIN_PERIOD": "2010",
-		"NAME": "Nombre del estudiante",
+		"FIRST_NAME": "Nombre del estudiante",
+		"LAST_NAME": "Apellido del estudiante",
 		"TECH": "Técnica",
-		"PERIOD": "Periodo escolar"
+		"PERIOD": "Periodo escolar",
+		"LOADING_MOBILE": "Cargando los estudiantes, por favor espere."
 	},
 	"ERROR": "Oops! Hubo un error, por favor inténtelo de nuevo.",
 	"NOT_FOUND": "No se pudo encontrar el estudiante que buscas. Inténtelo de nuevo."

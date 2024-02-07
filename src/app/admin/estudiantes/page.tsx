@@ -38,7 +38,9 @@ export default function AdminStudents() {
 						variant="solid"
 						isIconOnly
 						className="hover:opacity-100 opacity-70 transition-opacity"
-						onPress={fetchData}
+						onPress={() => {
+							fetchData();
+						}}
 					>
 						<SearchIcon />
 					</Button>

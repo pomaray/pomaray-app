@@ -12,7 +12,7 @@ export function VidaYCultura() {
 		<Reveal>
 			<section className="flex flex-col justify-center items-center">
 				<Title className="py-4" text={i18n.LIFE_AND_CULTURE.TITLE} />
-				<p className="text-foreground">
+				<p className="text-foreground sm:text-left text-center">
 					{SUB_TITLE[0]}{" "}
 					<Link
 						className="underline text-primary"

@@ -2,7 +2,7 @@ import { create } from "zustand";
 import i18n from "@/locales/acceder.json";
 import axios, { AxiosError } from "axios";
 import { type LoginResponse } from "@/types/responses/auth";
-import { type LoginRequest } from "@/types/request/auth";
+import { LOGIN_URL, type LoginRequest } from "@/types/request/auth";
 import { type User } from "@/types/general";
 
 type i18nCodes = keyof typeof i18n.ERRORS.CODES;
@@ -35,7 +35,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
 			set({ isSucces: false, isLoading: true, error: undefined });
 
 			const response = await axios.post(
-				"/api/auth/",
+				LOGIN_URL,
 				{
 					username: request.username,
 					password: request.password,

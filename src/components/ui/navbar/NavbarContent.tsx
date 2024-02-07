@@ -15,6 +15,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BiSolidInstitution } from "react-icons/bi";
 import { FaPhone, FaDownload } from "react-icons/fa6";
+import { twMerge } from "tailwind-merge";
 
 const ICONS = {
 	"/contacto": (
@@ -106,10 +107,15 @@ export function NavbarContent({ isMenu = false }: NavbarContentProps) {
 				);
 			}
 		} else if (item.LINK && isMenu) {
+			const itemIsActive = item.LINK === isActive;
+
 			return (
-				<NavbarMenuItem key={item.LINK}>
+				<NavbarMenuItem isActive={itemIsActive} key={item.LINK}>
 					<Link
-						className="text-foreground font-semibold cursor-pointer text-xl"
+						className={twMerge(
+							"text-foreground font-semibold cursor-pointer text-xl",
+							itemIsActive && "opacity-30",
+						)}
 						href={item.LINK}
 					>
 						{item.TEXT}

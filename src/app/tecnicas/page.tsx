@@ -27,9 +27,9 @@ export default function HomePage() {
 					{i18n.HERO.DESCRIPTION}
 				</p>
 			</section>
-			<section className="pb-20 flex flex-col justify-center 2xl:px-[15rem] tv:px-[45rem]">
+			<section className="pb-20 flex flex-col justify-center 2xl:px-12 3xl:px-[15rem] tv:px-[45rem]">
 				<Title withLine text={i18n.TECH_TITLE} />
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-4 px-6 sm:px-10 md:px-10 lg:px-[15rem]]">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-4 px-6 sm:px-10 md:px-10 xl:px-[15rem]]">
 					{i18n.TECHS.map((tech) => {
 						const iconElement = TechIcons.find(
 							(icon) => Object.keys(icon)[0] === tech.ID,

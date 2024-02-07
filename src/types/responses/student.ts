@@ -8,3 +8,8 @@ export type StudentsResponse = {
 	total: number;
 	students: Array<Student>;
 };
+
+//----Rne---------------------------------------------------
+export type RneResponse = {
+	rne: string;
+};

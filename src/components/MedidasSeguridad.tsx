@@ -14,8 +14,11 @@ export function MedidasDeSeguridad() {
 		<Reveal>
 			<section className="text-foreground text-center">
 				<div>
-					<Title text={i18n.SECURITY_MEASURES.TITLE} />
-					<p className="sm:text-lg text-sm mt-4 mx-auto max-w-[75ch] my-12 text-pretty">
+					<Title
+						className="max-w-[50ch] mx-auto"
+						text={i18n.SECURITY_MEASURES.TITLE}
+					/>
+					<p className="sm:text-lg text-sm mt-4 mx-auto max-w-[55ch] my-12 text-pretty">
 						{MEDIDAS_DE_SEGURIDAD_SUBTITULO[0]}
 						<UILink
 							as={Link}

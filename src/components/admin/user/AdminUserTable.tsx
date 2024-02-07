@@ -100,6 +100,7 @@ export function AdminUserTable({
 						isError={isError}
 						isNotFound={isNotFound}
 						isLoading={isLoading}
+						onTry={fetchData}
 					/>
 				}
 				items={users}
