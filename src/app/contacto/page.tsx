@@ -16,8 +16,27 @@ export default function ContactoPage() {
         </div>
       </section>
       <section className="flex flex-wrap mt-8">
+
+        <div className="w-full sm:w-1/2 pr-4 pt-8 text-center">
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold mb-4">Horarios</h2>
+            <p>{INFORMACION_ADICIONAL.HORARIOS}</p>
+          </div>
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold mb-4">Dirección</h2>
+            <p>{INFORMACION_ADICIONAL.DIRECCION}</p>
+          </div>
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold mb-4">Soporte</h2>
+            <p>
+              Correo Electrónico: {INFORMACION_ADICIONAL.SOPORTE.CORREO}
+              <br />
+              Teléfono: {INFORMACION_ADICIONAL.SOPORTE.TELEFONO}
+            </p>
+          </div>
+        </div>
         <div className="w-full sm:w-1/2 pr-4">
-          <h2 className="text-3xl font-bold mb-4">{FORMULARIO.TITULO}</h2>
+          <h2 className="text-3xl font-bold mb-4 text-center">{FORMULARIO.TITULO}</h2>
           <form>
             {FORMULARIO.CAMPOS.map((campo) => (
               <div key={campo.ID} className="mb-4">
@@ -51,24 +70,6 @@ export default function ContactoPage() {
               {FORMULARIO.BOTON_ENVIAR.TEXTO}
             </Button>
           </form>
-        </div>
-        <div className="w-full sm:w-1/2 pl-4">
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold mb-4">Horarios</h2>
-            <p>{INFORMACION_ADICIONAL.HORARIOS}</p>
-          </div>
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold mb-4">Dirección</h2>
-            <p>{INFORMACION_ADICIONAL.DIRECCION}</p>
-          </div>
-          <div>
-            <h2 className="text-3xl font-bold mb-4">Soporte</h2>
-            <p>
-              Correo Electrónico: {INFORMACION_ADICIONAL.SOPORTE.CORREO}
-              <br />
-              Teléfono: {INFORMACION_ADICIONAL.SOPORTE.TELEFONO}
-            </p>
-          </div>
         </div>
       </section>
     </article>
