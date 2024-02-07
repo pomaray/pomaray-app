@@ -9,7 +9,7 @@ export const TECH_QUERY = "tecnique";
 export const LIMIT_QUERY = "limit";
 export const SKIP_QUERY = "skip";
 
-export const STUDENTS_URL = "http://localhost:8000/api/estudiantes";
+export const STUDENTS_URL = "https://pomaray-api.onrender.com/api/estudiantes";
 export const STUDENT_ENDPOINT = process.env.STUDENT_ENDPOINT as string;
 
 export const RNE_URL = "/api/students";
