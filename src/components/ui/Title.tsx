@@ -19,13 +19,15 @@ export function Title({
 	text,
 	color = "primary",
 }: SectionTitleProps) {
+	const lineClassName = "block h-1 mt-2 rounded-full max-w-full mx-4 top-10";
+
 	return (
 		<div className={twMerge("py-10", className)}>
 			{typeof text === "string" ? (
 				<h2
 					className={twMerge(
 						`text-${classNames?.text}`,
-						"relative mx-auto sm:text-4xl text-3xl font-bold w-fit text-balance",
+						"relative mx-auto sm:text-5xl text-3xl font-bold w-fit text-balance",
 						className,
 					)}
 				>
@@ -34,7 +36,7 @@ export function Title({
 						<span
 							className={twMerge(
 								`bg-${color}`,
-								"block  h-1 mt-2 rounded-lg w-full top-10",
+								lineClassName,
 								classNames?.line,
 							)}
 						/>
@@ -47,7 +49,7 @@ export function Title({
 						<span
 							className={twMerge(
 								`bg-${color}`,
-								"block  h-1 mt-2 rounded-lg w-full top-10",
+								lineClassName,
 								classNames?.line,
 							)}
 						/>

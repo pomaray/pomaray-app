@@ -69,18 +69,30 @@ export default function YearBookForm({
 				translateY: 0,
 				opacity: 1,
 			}}
-			className="grid-cols-1 sm:grid-cols-3 grid gap-4 -z-50 my-10"
+			className="grid-cols-1 xl:grid-cols-4 sm:grid-cols-2  grid gap-4 -z-50 my-10"
 			onSubmit={onSubmit}
 		>
 			<Input
 				size="sm"
 				name="name"
-				label={i18n.FORM.NAME}
+				label={i18n.FORM.FIRST_NAME}
 				isDisabled={isLoading}
 				onChange={(e) =>
 					setFormRequestHandler((prev) => ({
 						...prev,
-						name: e.target.value,
+						first_name: e.target.value,
+					}))
+				}
+			/>
+			<Input
+				size="sm"
+				name="name"
+				label={i18n.FORM.LAST_NAME}
+				isDisabled={isLoading}
+				onChange={(e) =>
+					setFormRequestHandler((prev) => ({
+						...prev,
+						last_name: e.target.value,
 					}))
 				}
 			/>
