@@ -21,6 +21,7 @@ export default function YearBook() {
 		currentPage,
 		totalPages,
 
+		setLimit,
 		fetchData,
 		setFormRequest,
 		setCurrentPage,
@@ -73,6 +74,8 @@ export default function YearBook() {
 							isDisabled={isLoading}
 							onReSearch={fetchData}
 							videoExample={i18n.VIDEO_EXAMPLE}
+							limit={limit}
+							setLimit={setLimit}
 						/>
 						<div className="grid xs:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 sm:grid-cols-3 gap-4 sm:px-2 pb-20 mx-w-6xl mx-auto">
 							{Array.from(

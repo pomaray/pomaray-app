@@ -7,62 +7,72 @@ import {
 	ModalHeader,
 	Tooltip,
 	useDisclosure,
+	Slider,
 } from "@nextui-org/react";
-import { VscSettings } from "react-icons/vsc";
 import i18n from "@/locales/anuario.json";
+import { LuSettings2 } from "react-icons/lu";
+import { useState } from "react";
 
 export interface YearBookSettingsModalProps {
+	limit: number;
 	isDisabled: boolean;
+	limitHandler: (newLimit: number) => void;
 }
 
 export function YearBookSettingsModal({
+	limit: initLimit,
 	isDisabled,
+	limitHandler,
 }: YearBookSettingsModalProps) {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
+	const [limit, setLimit] = useState(initLimit);
 	return (
 		<>
-			<Tooltip content="Cambiar ajustes de la busqueda.">
+			<Tooltip content={i18n.SETTINGS}>
 				<Button
-					onPress={onOpen}
 					isDisabled={isDisabled}
-					className="hover:opacity-100 opacity-60 transition-opacity"
+					isIconOnly
+					className="hover:opacity-100 opacity-60 transition-opacity text-lg"
+					onPress={onOpen}
 				>
-					<VscSettings className="text-lg" />
-					{i18n.SETTINGS}
+					<LuSettings2 />
 				</Button>
 			</Tooltip>
 			<Modal isOpen={isOpen} onOpenChange={onOpenChange}>
 				<ModalContent>
 					{(onClose) => (
 						<>
-							<ModalHeader className="flex flex-col gap-1"></ModalHeader>
+							<ModalHeader className="flex flex-col gap-1">
+								Ajustes del anuario
+							</ModalHeader>
 							<ModalBody>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Nullam pulvinar risus non risus hendrerit venenatis.
-									Pellentesque sit amet hendrerit risus, sed porttitor quam.
-								</p>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Nullam pulvinar risus non risus hendrerit venenatis.
-									Pellentesque sit amet hendrerit risus, sed porttitor quam.
-								</p>
-								<p>
-									Magna exercitation reprehenderit magna aute tempor cupidatat
-									consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-									incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-									aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-									nisi consectetur esse laborum eiusmod pariatur proident Lorem
-									eiusmod et. Culpa deserunt nostrud ad veniam.
-								</p>
+								<Slider
+									size="md"
+									step={5}
+									label="Limite de estudiantes por pagina"
+									showSteps={true}
+									maxValue={50}
+									minValue={5}
+									value={limit}
+									defaultValue={limit}
+									className="max-w-md"
+									onChange={(newLimit) => {
+										setLimit(newLimit as number);
+									}}
+								/>
 							</ModalBody>
 							<ModalFooter>
 								<Button color="danger" variant="light" onPress={onClose}>
 									Close
 								</Button>
-								<Button color="primary" onPress={onClose}>
-									Action
+								<Button
+									color="primary"
+									onPress={() => {
+										limitHandler(limit);
+										onClose();
+									}}
+								>
+									Aplicar
 								</Button>
 							</ModalFooter>
 						</>

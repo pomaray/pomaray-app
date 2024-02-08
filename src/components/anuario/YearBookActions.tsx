@@ -1,19 +1,24 @@
 import { BiQuestionMark } from "react-icons/bi";
-import { SearchIcon } from "@nextui-org/shared-icons";
 import { Tooltip, Button } from "@nextui-org/react";
 import Link from "next/link";
 import i18n from "@/locales/anuario.json";
+import { MdOutlineSettingsBackupRestore } from "react-icons/md";
+import { YearBookSettingsModal } from "./YearBookSettingsModal";
 
 export interface YearBookActionsProps {
+	limit: number;
 	isDisabled: boolean;
-	onReSearch: () => void;
 	videoExample: string;
+	setLimit: (value: number) => void;
+	onReSearch: () => void;
 }
 
 export function YearBookActions({
+	limit,
 	isDisabled,
-	onReSearch,
 	videoExample,
+	setLimit,
+	onReSearch,
 }: YearBookActionsProps) {
 	return (
 		<div className="flex w-full justify-between gap-x-4 px-2 pb-6">
@@ -23,14 +28,19 @@ export function YearBookActions({
 						isDisabled={isDisabled}
 						color="primary"
 						isIconOnly
-						className="hover:opacity-100 opacity-60 transition-opacity"
+						className="hover:opacity-100 opacity-60 transition-opacity text-lg"
 						onPress={() => {
 							onReSearch();
 						}}
 					>
-						<SearchIcon />
+						<MdOutlineSettingsBackupRestore />
 					</Button>
 				</Tooltip>
+				<YearBookSettingsModal
+					limitHandler={setLimit}
+					isDisabled={isDisabled}
+					limit={limit}
+				/>
 			</div>
 			<div>
 				<Tooltip content={i18n.VIDEO_EXAMPLE_TIP}>
@@ -38,10 +48,11 @@ export function YearBookActions({
 						as={Link}
 						isIconOnly
 						isDisabled={isDisabled}
-						className="hover:opacity-100 opacity-60 transition-opacity"
+						className="hover:opacity-100 opacity-60 transition-opacity text-lg"
 						href={videoExample}
+						target="_blank"
 					>
-						<BiQuestionMark className="text-xl" />
+						<BiQuestionMark />
 					</Button>
 				</Tooltip>
 			</div>

@@ -14,7 +14,6 @@ import {
 	LIMIT_QUERY,
 	SKIP_QUERY,
 	STUDENTS_URL,
-	STUDENT_ENDPOINT,
 } from "@/types/request/student";
 import { StudentsResponse } from "@/types/responses/student";
 import { NOT_FOUND } from "@/types/responses/codes";
@@ -122,7 +121,7 @@ export const useYearBook = (_limit = 30) => {
 		// Se declara arriba y se ejecuta aquí por que es asíncrona.
 		// Ver mas : https://dev.to/jasmin/how-to-use-async-function-in-useeffect-5efc
 		fetchData(true);
-	}, [debouncedFormRequest]);
+	}, [debouncedFormRequest, limit]);
 
 	// ¡NO TOCAR!
 	// Se ejecuta cada vez que se cambia de pagina.
