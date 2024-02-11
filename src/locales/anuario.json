@@ -16,7 +16,8 @@
 		"LAST_NAME": "Apellido del estudiante",
 		"TECH": "Técnica",
 		"PERIOD": "Periodo escolar",
-		"LOADING_MOBILE": "Cargando los estudiantes, por favor espere."
+		"LOADING_MOBILE": "Cargando los estudiantes, por favor espere.",
+		"SIGERD_ERROR": "Por favor, ingrese su SIGERD valido."
 	},
 	"ERROR": "Oops! Hubo un error, por favor inténtelo de nuevo.",
 	"NOT_FOUND": "No se pudo encontrar el estudiante que buscas. Inténtelo de nuevo."

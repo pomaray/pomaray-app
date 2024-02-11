@@ -1,62 +1,21 @@
 "use client";
 import i18n from "@/locales/anuario.json";
 import { Input, Autocomplete, AutocompleteItem } from "@nextui-org/react";
-import { Dispatch, FormEvent, SetStateAction } from "react";
+import { FormEvent } from "react";
 import { getTechIterables } from "@/utils/enums";
-import { StudentRequest } from "@/types/request/student";
+
 import { motion } from "framer-motion";
+import { getYears, yearsToIterable } from "@/utils/general";
+import useYearBook from "@/hooks/useYearBook";
 
-export default function YearBookForm({
-	setFormRequestHandler,
-	isLoading = false,
-}: {
-	isLoading: boolean;
-	setFormRequestHandler: Dispatch<SetStateAction<StudentRequest>>;
-}) {
-	const getYears = (): { key: string; value: string }[] => {
-		try {
-			const currentYear = new Date().getFullYear();
-			let startYear = 2010;
+export default function YearBookForm() {
+	const { fetchData, isLoading, formRequest, setFormRequest } = useYearBook();
 
-			try {
-				startYear = Number(i18n.FORM.MIN_PERIOD);
-			} catch (innerError) {
-				console.error("Error al obtener el año mínimo:", innerError);
-			}
-
-			const yearRange: number[] = Array.from(
-				{ length: currentYear - startYear },
-				(_, index) => startYear + index,
-			);
-
-			const yearItems: { key: string; value: string }[] = [];
-
-			for (let i = 0; i < yearRange.length - 1; i++) {
-				const start = yearRange[i];
-				const end = start + 1;
-
-				const key = `${start}-${end}`;
-				const value = `${start}-${end}`;
-
-				yearItems.push({ key, value });
-			}
-
-			// Agregamos el último año, ya que el bucle termina en el penúltimo
-			const lastYear = yearRange[yearRange.length - 1];
-			yearItems.push({
-				key: `${lastYear}-${lastYear + 1}`,
-				value: `${lastYear}-${lastYear + 1}`,
-			});
-
-			return yearItems;
-		} catch (error) {
-			console.error("Error al obtener los años:", error);
-			return [];
-		}
-	};
+	const years = yearsToIterable(getYears());
 
 	const onSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		fetchData();
 	};
 
 	return (
@@ -78,10 +37,10 @@ export default function YearBookForm({
 				label={i18n.FORM.FIRST_NAME}
 				isDisabled={isLoading}
 				onChange={(e) =>
-					setFormRequestHandler((prev) => ({
-						...prev,
+					setFormRequest({
+						...formRequest,
 						first_name: e.target.value,
-					}))
+					})
 				}
 			/>
 			<Input
@@ -90,10 +49,10 @@ export default function YearBookForm({
 				label={i18n.FORM.LAST_NAME}
 				isDisabled={isLoading}
 				onChange={(e) =>
-					setFormRequestHandler((prev) => ({
-						...prev,
+					setFormRequest({
+						...formRequest,
 						last_name: e.target.value,
-					}))
+					})
 				}
 			/>
 			<Autocomplete
@@ -104,10 +63,10 @@ export default function YearBookForm({
 				defaultItems={getTechIterables()}
 				onSelectionChange={(key) =>
 					key &&
-					setFormRequestHandler((prev) => ({
-						...prev,
+					setFormRequest({
+						...formRequest,
 						tech: key.toString(),
-					}))
+					})
 				}
 			>
 				{(tecnique) => (
@@ -121,21 +80,23 @@ export default function YearBookForm({
 				name="years"
 				isDisabled={isLoading}
 				label={i18n.FORM.PERIOD}
-				defaultItems={getYears()}
+				defaultItems={years}
 				onSelectionChange={(key) =>
-					setFormRequestHandler((prev) => ({
-						...prev,
+					setFormRequest({
+						...formRequest,
 						years: key
 							? key
 									.toString()
 									.split("-")
 									.map((value) => Number(value))
 							: [],
-					}))
+					})
 				}
 			>
 				{(year) => (
-					<AutocompleteItem key={year.key}>{year.value}</AutocompleteItem>
+					<AutocompleteItem key={year.key}>
+						{year.value.toString()}
+					</AutocompleteItem>
 				)}
 			</Autocomplete>
 		</motion.form>

@@ -1,3 +1,4 @@
+"use client";
 import { type Student } from "@/types/general";
 import {
 	Card,
@@ -10,7 +11,7 @@ import {
 	Button,
 	Link,
 } from "@nextui-org/react";
-import { cloneElement } from "react";
+import { cloneElement, useEffect, useState } from "react";
 import { TechIcons } from "../tecnicas/TechIcons";
 import i18n from "@/locales/tecnicas.json";
 
@@ -21,6 +22,16 @@ export function YearBookStudent({
 }) {
 	const FIRST_YEAR = student?.school_years?.[0];
 	const LAST_YEAR = student?.school_years?.[student.school_years.length - 1];
+
+	const [isMounted, setIsMounted] = useState(false);
+
+	useEffect(() => {
+		setIsMounted(true);
+	}, []);
+
+	if (!isMounted) {
+		return null;
+	}
 
 	return (
 		<Skeleton className="rounded-small" disableAnimation isLoaded={!!student}>

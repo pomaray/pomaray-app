@@ -1,5 +1,5 @@
 import { Student } from "@/types/general";
-import { STUDENT_ENDPOINT } from "@/types/request/student";
+import { SIGERD_LOCALE, STUDENT_ENDPOINT } from "@/types/request/student";
 import { LOGIN_PAGE, TOKEN_COOKIE } from "@/types/request/auth";
 import { StudentsResponse } from "@/types/responses/student";
 import axios from "axios";
@@ -14,7 +14,11 @@ export async function GET(request: Request) {
 			.replace("%2C", ",")}`;
 		console.log(url);
 
-		const response = await axios.get(url);
+		const response = await axios.get(url, {
+			headers: {
+				Authorization: request.headers.get("Authorization"),
+			},
+		});
 		const { total, students } = (await response.data) as StudentsResponse;
 
 		return NextResponse.json({ total, students });
@@ -22,17 +26,17 @@ export async function GET(request: Request) {
 		if (axios.isAxiosError(error)) {
 			return NextResponse.json(
 				{
-					message: error.message,
+					message: error.response?.data?.message,
 				},
 				{
-					status: error.status,
+					status: error.response?.status,
 					statusText: error.code,
 				},
 			);
 		}
 		return NextResponse.json(
 			{
-				code: "500",
+				status: 500,
 				message:
 					error instanceof Error
 						? error.message
@@ -62,7 +66,7 @@ export async function POST(request: NextRequest) {
 			},
 		});
 		const { student } = response.data;
-		
+
 		if (!student) {
 			throw new Error("No student provided from server");
 		}

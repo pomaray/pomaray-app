@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {
 	Button,
 	Modal,
@@ -6,32 +7,57 @@ import {
 	ModalFooter,
 	ModalHeader,
 	Tooltip,
-	useDisclosure,
 	Slider,
 	Input,
 } from "@nextui-org/react";
 import i18n from "@/locales/anuario.json";
 import { LuSettings2 } from "react-icons/lu";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import useYearBook from "@/hooks/useYearBook";
 
-export interface YearBookSettingsModalProps {
-	limit: number;
-	isDisabled: boolean;
-	limitHandler: (newLimit: number) => void;
-}
-
-export function YearBookSettingsModal({
-	limit: initLimit,
-	isDisabled,
-	limitHandler,
-}: YearBookSettingsModalProps) {
-	const { isOpen, onOpen, onOpenChange } = useDisclosure();
+export function YearBookSettingsModal() {
+	const {
+		sigerd,
+		limit: initLimit,
+		isLoading,
+		isNotAuth,
+		setLimit: LimitHandler,
+		setSigerd,
+		fetchData,
+	} = useYearBook();
+	const [shouldOpen, setShouldOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
 	const [limit, setLimit] = useState(initLimit);
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	useEffect(() => {
+		if (sigerd < 1) {
+			setShouldOpen(true);
+			setIsOpen(true);
+		}
+
+		if (shouldOpen && isNotAuth && sigerd > 1) setShouldOpen(false);
+		console.log(`State: ${sigerd > 1}, ${shouldOpen}, ${isNotAuth}`);
+	}, [sigerd]);
+
+	const onOpen = () => {
+		setIsOpen(true);
+	};
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	useMemo(() => {
+		if (isNotAuth) {
+			setShouldOpen(true);
+			setIsOpen(true);
+		}
+		console.log(`Memo: ${shouldOpen}, ${sigerd}`);
+	}, [isNotAuth]);
+
 	return (
 		<>
 			<Tooltip content={i18n.SETTINGS}>
 				<Button
-					isDisabled={isDisabled}
+					isDisabled={isLoading}
 					isIconOnly
 					className="hover:opacity-100 opacity-60 transition-opacity text-lg"
 					onPress={onOpen}
@@ -39,15 +65,31 @@ export function YearBookSettingsModal({
 					<LuSettings2 />
 				</Button>
 			</Tooltip>
-			<Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+			<Modal
+				isDismissable={!shouldOpen}
+				hideCloseButton={shouldOpen}
+				isOpen={isOpen || shouldOpen}
+				onOpenChange={() => {
+					setIsOpen(!isOpen);
+				}}
+			>
 				<ModalContent>
 					{(onClose) => (
 						<>
 							<ModalHeader className="flex flex-col gap-1">
-								Ajustes del anuario
+								Ajustes del anuario {isOpen ? "active" : "disabled"}
 							</ModalHeader>
 							<ModalBody className="flex flex-col gap-12">
-								<Input label="SIGER ID" variant="bordered" />
+								<Input
+									label="SIGER ID"
+									variant="bordered"
+									isRequired
+									onChange={(e) => {
+										setSigerd(Number(e.target.value));
+									}}
+									value={sigerd.toString()}
+									errorMessage={shouldOpen && i18n.FORM.SIGERD_ERROR}
+								/>
 								<Slider
 									size="md"
 									step={5}
@@ -65,16 +107,23 @@ export function YearBookSettingsModal({
 							</ModalBody>
 							<ModalFooter>
 								<Button
+									isDisabled={shouldOpen}
+									color="danger"
+									variant="bordered"
+									onPress={onClose}
+								>
+									Cerrar
+								</Button>
+								<Button
+									isDisabled={shouldOpen}
 									color="primary"
 									onPress={() => {
-										limitHandler(limit);
+										LimitHandler(limit);
 										onClose();
+										fetchData();
 									}}
 								>
 									Aplicar
-								</Button>
-								<Button color="danger" variant="light" onPress={onClose}>
-									Cerrar
 								</Button>
 							</ModalFooter>
 						</>
