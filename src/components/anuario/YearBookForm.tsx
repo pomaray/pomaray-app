@@ -1,17 +1,35 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import i18n from "@/locales/anuario.json";
 import { Input, Autocomplete, AutocompleteItem } from "@nextui-org/react";
-import { FormEvent } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { getTechIterables } from "@/utils/enums";
 
 import { motion } from "framer-motion";
 import { getYears, yearsToIterable } from "@/utils/general";
 import useYearBook from "@/hooks/useYearBook";
+import { StudentRequest } from "@/types/request/student";
 
 export default function YearBookForm() {
 	const { fetchData, isLoading, formRequest, setFormRequest } = useYearBook();
 
 	const years = yearsToIterable(getYears());
+	const [debouncedFormRequest, setDebouncedFormRequest] =
+		useState<StudentRequest>(formRequest);
+
+	useEffect(() => {
+		const timeout = setTimeout(() => {
+			setDebouncedFormRequest(formRequest);
+		}, 500); // Ajusta el tiempo de debounce según tus necesidades
+
+		// Limpia el temporizador si el componente se desmonta o si formRequest cambia
+		return () => clearTimeout(timeout);
+	}, [formRequest]);
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	useEffect(() => {
+		fetchData();
+	}, [debouncedFormRequest]);
 
 	const onSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();

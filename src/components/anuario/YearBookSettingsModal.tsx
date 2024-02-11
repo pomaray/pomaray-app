@@ -117,7 +117,7 @@ export function YearBookSettingsModal() {
 									onPress={() => {
 										LimitHandler(limit);
 										onClose();
-										fetchData();
+										fetchData(true);
 									}}
 								>
 									Aplicar

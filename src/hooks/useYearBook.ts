@@ -101,6 +101,8 @@ const useYearBook = create<YearBookStore>((set, get) => {
 				set({ isNotFound: false });
 				set({ isNotAuth: false });
 
+				if (resetPage) set({ currentPage: 1 });
+
 				const debouncedFormRequest = get().formRequest;
 				const limit = get().limit;
 				const currentPage = get().currentPage;
