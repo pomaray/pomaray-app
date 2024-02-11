@@ -80,10 +80,9 @@ export default function YearBookForm() {
 				isDisabled={isLoading}
 				defaultItems={getTechIterables()}
 				onSelectionChange={(key) =>
-					key &&
 					setFormRequest({
 						...formRequest,
-						tech: key.toString(),
+						tech: key ? key.toString() : "",
 					})
 				}
 			>
