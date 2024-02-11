@@ -8,6 +8,7 @@ import {
 	Tooltip,
 	useDisclosure,
 	Slider,
+	Input,
 } from "@nextui-org/react";
 import i18n from "@/locales/anuario.json";
 import { LuSettings2 } from "react-icons/lu";
@@ -45,7 +46,8 @@ export function YearBookSettingsModal({
 							<ModalHeader className="flex flex-col gap-1">
 								Ajustes del anuario
 							</ModalHeader>
-							<ModalBody>
+							<ModalBody className="flex flex-col gap-12">
+								<Input label="SIGER ID" variant="bordered" />
 								<Slider
 									size="md"
 									step={5}
@@ -62,9 +64,6 @@ export function YearBookSettingsModal({
 								/>
 							</ModalBody>
 							<ModalFooter>
-								<Button color="danger" variant="light" onPress={onClose}>
-									Close
-								</Button>
 								<Button
 									color="primary"
 									onPress={() => {
@@ -73,6 +72,9 @@ export function YearBookSettingsModal({
 									}}
 								>
 									Aplicar
+								</Button>
+								<Button color="danger" variant="light" onPress={onClose}>
+									Cerrar
 								</Button>
 							</ModalFooter>
 						</>
