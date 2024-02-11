@@ -30,7 +30,7 @@ export default function YearBook() {
 	useEffect(() => {
 		fetchData();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [currentPage]);
 
 	return (
 		<main className="flex flex-col gap-y-6 min-h-screen w-screen px-6 max-w-screen overflow-x-hidden">
