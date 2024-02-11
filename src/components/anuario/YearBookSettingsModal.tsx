@@ -36,21 +36,18 @@ export function YearBookSettingsModal() {
 			setIsOpen(true);
 		}
 
-		if (shouldOpen && isNotAuth && sigerd > 1) setShouldOpen(false);
-		console.log(`State: ${sigerd > 1}, ${shouldOpen}, ${isNotAuth}`);
+		if (shouldOpen && sigerd > 1) setShouldOpen(false);
 	}, [sigerd]);
 
 	const onOpen = () => {
 		setIsOpen(true);
 	};
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useMemo(() => {
 		if (isNotAuth) {
 			setShouldOpen(true);
 			setIsOpen(true);
 		}
-		console.log(`Memo: ${shouldOpen}, ${sigerd}`);
 	}, [isNotAuth]);
 
 	return (
@@ -77,7 +74,7 @@ export function YearBookSettingsModal() {
 					{(onClose) => (
 						<>
 							<ModalHeader className="flex flex-col gap-1">
-								Ajustes del anuario {isOpen ? "active" : "disabled"}
+								Ajustes del anuario
 							</ModalHeader>
 							<ModalBody className="flex flex-col gap-12">
 								<Input
