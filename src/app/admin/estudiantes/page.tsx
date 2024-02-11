@@ -9,26 +9,13 @@ import { Button, Tooltip } from "@nextui-org/react";
 import { SearchIcon } from "@nextui-org/shared-icons";
 
 export default function AdminStudents() {
-	const {
-		students,
-		totalPages,
-		currentPage,
-		isNotFound,
-		isError,
-		isLoading,
-		setCurrentPage,
-		setFormRequest,
-		fetchData,
-	} = useYearBook(12);
+	const { isLoading, fetchData } = useYearBook();
 	const { user } = useAuthStore();
 
 	return (
 		<section className="min-h-[80vh] pb-12 px-2">
 			<div className="w-full text-center mx-auto py-6">
-				<YearBookForm
-					isLoading={isLoading}
-					setFormRequestHandler={setFormRequest}
-				/>
+				<YearBookForm />
 			</div>
 			<div className="flex gap-2">
 				<AdminStudentModal onClose={fetchData} />
@@ -47,16 +34,7 @@ export default function AdminStudents() {
 				</Tooltip>
 			</div>
 
-			<AdminStudentTable
-				students={students}
-				currentPage={currentPage || 1}
-				totalPages={totalPages}
-				setCurrentPage={setCurrentPage}
-				isNotFound={isNotFound}
-				isError={isError}
-				isLoading={isLoading}
-				fetchData={fetchData}
-			/>
+			<AdminStudentTable />
 		</section>
 	);
 }

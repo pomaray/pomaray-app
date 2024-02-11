@@ -20,26 +20,19 @@ import TECH from "@/locales/tecnicas.json";
 import { TableEmpty } from "@/components/ui/TableEmpty";
 import { renderSexColor, renderSexEnum } from "@/utils/enums";
 import Link from "next/link";
+import useYearBook from "@/hooks/useYearBook";
 
-export function AdminStudentTable({
-	students,
-	totalPages,
-	currentPage,
-	isNotFound,
-	isError,
-	isLoading,
-	fetchData,
-	setCurrentPage,
-}: {
-	students?: Student[];
-	totalPages: number;
-	currentPage: number;
-	isNotFound: boolean;
-	isError: boolean;
-	isLoading: boolean;
-	fetchData: () => void;
-	setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
-}) {
+export function AdminStudentTable() {
+	const {
+		fetchData,
+		students,
+		isLoading,
+		totalPages,
+		currentPage,
+		isError,
+		isNotFound,
+		setCurrentPage,
+	} = useYearBook();
 	const renderCell = useCallback(
 		(student: Student, columnKey: string) => {
 			const cellValue = student[columnKey];
