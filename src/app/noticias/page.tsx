@@ -30,7 +30,7 @@ export default function NewsPage() {
 					className="flex flex-col items-center justify-center gap-4 text-white w-full max-w-4xl"
 				>
 					<h1 className="md:text-7xl text-3xl font-bold mb-2 text-center px-6">
-						{"Cargando ultima noticia..."}
+						{"Cargando última noticia..."}
 					</h1>
 
 					<p className="text-md text-pretty text-center max-w-full sm:px-20 px-10">

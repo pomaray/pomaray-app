@@ -47,7 +47,7 @@
 					{
 						"TEXT": "Nosotros",
 						"LINK": "/nosotros",
-						"DESCRIPTION": "Historia, mision, visión y valores del politecnico."
+						"DESCRIPTION": "Historia, misión, visión y valores del politécnico."
 					},
 					{
 						"TEXT": "Contacto",
@@ -57,7 +57,7 @@
 					{
 						"TEXT": "Descargas",
 						"LINK": "/descargas",
-						"DESCRIPTION": "Documentos vitales y recursos del politecnico."
+						"DESCRIPTION": "Documentos vitales y recursos del politécnico."
 					}
 				]
 			}

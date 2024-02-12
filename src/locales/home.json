@@ -21,7 +21,7 @@
 			},
 			{
 				"TITLE": "Red de Contactos Profesionales Sólida gracias al Politécnico",
-				"CONTENT": "El amplio alcance del Politécnico permite a los estudiantes conectarse con expertos de la industria y establecer relaciones valiosas que pueden beneficiarles durante toda su carrera.",
+				"CONTENT": "El amplio alcance del politécnico permite a los estudiantes conectarse con expertos de la industria y establecer relaciones valiosas que pueden beneficiarles durante toda su carrera.",
 				"BUTTON_TEXT": "Aplica Hoy",
 				"BUTTON_LINK": "#",
 				"IMAGE_SRC": "https://th.bing.com/th/id/OIP.R8wwROorsXVuV0tW_0FCKgHaE8?pid=ImgDet&rs=1"
@@ -29,9 +29,9 @@
 		]
 	},
 	"NEWS": {
-		"TITLE": "Ultimas noticias",
+		"TITLE": "Últimas noticias",
 		"READ_BTN": "Leer todas las noticias",
-		"LOADING": "Cargando las ultimas noticias."
+		"LOADING": "Cargando las últimas noticias."
 	},
 	"LOCATION": {
 		"TITLE": "Ubicación"
