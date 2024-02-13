@@ -26,7 +26,7 @@ export default function NosotrosPage() {
 					</h1>
 					<Logo className="fill-white mt-2" width={80} />
 				</div>
-				<p className="text-pretty mt-2">{i18n.HERO.SUBTITLE}</p>
+				<p className="text-pretty mt-6">{i18n.HERO.SUBTITLE}</p>
 				<div className="mx-auto py-16">
 					<HistoryTimeline points={i18n.TIME_LINE} />
 				</div>
@@ -34,10 +34,10 @@ export default function NosotrosPage() {
 
 			{i18n.CONTENT.map((sec) => (
 				<section key={sec.TITLE}>
-					<h2 className="sm:text-3xl text-2xl text-balance text-primary font-bold mt-6 mb-2">
+					<h2 className="sm:text-3xl text-2xl text-balance text-primary font-bold mt-4 mb-2">
 						{sec.TITLE}
 					</h2>
-					<Divider className="bg-primary h-1 rounded-full mb-4" />
+					<Divider className="bg-primary h-1 rounded-full mb-6	" />
 
 					{sec.PARAGRAPHS.map((parag, paragIndex) => {
 						const isList = parag.substring(0, 2).trim() === "-";

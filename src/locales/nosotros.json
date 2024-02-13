@@ -33,11 +33,12 @@
 			"TITLE": "Carreras Precursoras",
 			"PARAGRAPHS": [
 				"Las carreras en las que el Politécnico fue precursora son:",
-				"- Ingeniería en Tecnología de la Información",
-				"- Administración de Empresas Turísticas",
-				"- Ingeniería Ambiental",
-				"- Tecnología Médica",
-				"- Diseño Gráfico y Multimedia",
+				"- Finanzas y Mercadeo",
+				"- Contabilidad y Gestión Administrativa",
+				"- Contabilidad y Finanzas",
+				"- Servicios turísticos",
+				"- Hostelería",
+				"- e Informática.",
 				"Estas pioneras carreras no solo marcaron la diferencia en el ámbito educativo, sino que también respondieron a las necesidades cambiantes de la sociedad, contribuyendo al desarrollo integral del país."
 			]
 		}
@@ -45,51 +46,27 @@
 	"TIME_LINE": [
 		{
 			"title": "Fundadores",
-			"content": "En el año 1960, un grupo visionario de educadores y líderes comunitarios se unió para fundar nuestro instituto. Su pasión por la educación sentó las bases de lo que somos hoy.",
+			"content": "En 1978, surge el Politécnico Las Caobas, pero su transformación clave ocurre en 1979 cuando las hermanas de Ángeles Custodios asumen el liderazgo y toman la dirección de la tanda nocturna, estableciendo su filosofía y adaptándose a la necesidad de una escuela primaria para lograr un impacto educativo más significativo en la comunidad.",
 			"imageSrc": "https://i.ytimg.com/vi/WSlF22lwhoo/hqdefault.jpg",
-			"date": "1960"
+			"date": "1978 - 1979"
 		},
 		{
 			"title": "Acuerdo entre el Estado y la Compañía de Jesús",
-			"content": "En 1975, se alcanzó un histórico acuerdo entre el Estado y la Compañía de Jesús, consolidando nuestro compromiso con la educación integral y el servicio a la sociedad.",
+			"content": "En 2008, por requerimiento de la secretaria de educación Alejandrina Germán, los centros educativos debían cambiar sus nombres. En nuestro caso, tras una votación, se eligió a la madre Rafaela Ybarra. Ese año, la tanda vespertina se separa y el centro comienza a operar como Liceo, bajo el nombre POMARAY, con horario de 7:30 am a 2:00 pm.",
 			"imageSrc": "https://1.bp.blogspot.com/-iYy8k4SUvDc/U9zJjgvLBuI/AAAAAAAAUi0/4x_QNtB9pMQ/s1600/20140801_095450.jpg",
-			"date": "1975"
+			"date": "2008"
 		},
 		{
 			"title": "Cambio de Categoría a Instituto de Estudios Superiores",
-			"content": "En 1988, celebramos el cambio de categoría a Instituto de Estudios Superiores, marcando un hito en nuestra evolución y consolidando nuestra posición como líderes académicos.",
+			"content": "Entre los años 2010-2011 la secretaria docente Lic. Sonia A. Mejía Rosario, luego de una serie de combinaciones de letras, decide referirse al centro con el nombre abreviado POMARAY para evitar la redundancia y repetición al preparar el proyecto de centro de ese año. Desde entonces, se da a conocer al Politécnico Madre Rafaela Ybarra como POMARAY.",
 			"imageSrc": "https://3.bp.blogspot.com/-4GcDVzq9KXA/VSXTH6FgZQI/AAAAAAAAtOY/ya1vBb2BPaw/s1600/estudiantes2.jpg",
-			"date": "1988"
+			"date": "2010-2011"
 		},
 		{
 			"title": "Educación Técnico Profesional",
 			"content": "La década de 1990 vio la expansión de nuestro enfoque en la educación técnico profesional, proporcionando a los estudiantes habilidades prácticas y relevantes para el mundo laboral.",
 			"imageSrc": "https://secureservercdn.net/192.169.221.188/cb2.ad5.myftpupload.com/wp-content/uploads/2020/11/WhatsApp-Image-2020-11-06-at-10.50.42-PM-1050x525.jpeg",
-			"date": "1990"
-		},
-		{
-			"title": "Docentes",
-			"content": "Nuestro dedicado cuerpo docente ha sido la piedra angular de nuestro éxito. Con maestros apasionados y comprometidos, hemos guiado a generaciones de estudiantes hacia el conocimiento y la excelencia.",
-			"imageSrc": "https://scontent.fsdq1-1.fna.fbcdn.net/v/t39.30808-6/352236254_1448209585718336_4256011282393822715_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=3X_de29iRC8AX_yvL69&_nc_ht=scontent.fsdq1-1.fna&oh=00_AfBl9sO5mRPKNvC6B8t2lCeOd459bPAF4bk4u8XVfNsOHg&oe=65666EC0",
-			"date": "1995"
-		},
-		{
-			"title": "Nuestros Logros",
-			"content": "Hemos celebrado numerosos logros a lo largo de los años, desde destacados resultados académicos hasta reconocimientos por contribuciones significativas a la comunidad y la sociedad en general.",
-			"imageSrc": "https://scontent.fsdq1-1.fna.fbcdn.net/v/t39.30808-6/329757964_1147331042606967_6437303461128054325_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=hhGG8oeI7qUAX_SPivl&_nc_ht=scontent.fsdq1-1.fna&oh=00_AfCh1W80xl8h5V_bbZ0gY8klvO1B03vkahYgyRDlKkwiJQ&oe=6567F757",
-			"date": "2000"
-		},
-		{
-			"title": "Desarrollo Industrial",
-			"content": "A medida que avanzamos en el siglo XXI, hemos liderado iniciativas para integrar la educación con el desarrollo industrial, preparando a nuestros estudiantes para los desafíos del mundo moderno.",
-			"imageSrc": "https://scontent.fsdq1-1.fna.fbcdn.net/v/t39.30808-6/346271066_1180069049340431_6931828332309587053_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=JDIPZkakdc4AX_25kmX&_nc_oc=AQl_GOweG600E5gPUsP59Ra1Fj447HWihcgFbjTdgxYMr5NdiYOhXxOQXx37S0ZnxN8&_nc_ht=scontent.fsdq1-1.fna&oh=00_AfCEOrYtZHcxPrPzJ-vTNYStloO4gmOzrXeGUetAV1u1pQ&oe=6567DE27",
-			"date": "2010"
-		},
-		{
-			"title": "Familia POMARAY",
-			"content": "La comunidad POMARAY es una familia diversa y unida. Fomentamos un entorno donde cada miembro se siente valorado y apoyado, creando la base para el crecimiento personal y académico.",
-			"imageSrc": "https://scontent.fsdq1-2.fna.fbcdn.net/v/t39.30808-6/345060539_1026531095419321_7552784244089987512_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=c-4jHlF2qkcAX82Nnfu&_nc_ht=scontent.fsdq1-2.fna&oh=00_AfBKvU7sNHF1c0x4NHucgqVoSMZ-DNb6fv4z8OXo6aL_WcA&oe=65671BB6",
-			"date": "2015"
+			"date": "2024"
 		}
 	]
 }
