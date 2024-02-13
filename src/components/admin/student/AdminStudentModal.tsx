@@ -67,6 +67,7 @@ export function AdminStudentModal({
 		setInternalLoading(true);
 		const validated = validateStudent(newStudent);
 		if (validated !== null) {
+			setInternalLoading(false);
 			setError(validated);
 			return;
 		}
