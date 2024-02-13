@@ -11,7 +11,7 @@ export const SKIP_QUERY = "skip";
 
 export const SIGERD_LOCALE = "sigerd";
 
-export const STUDENTS_URL = "https://pomaray-api.onrender.com/api/estudiantes/";
+export const STUDENTS_URL = "/api/students";
 export const STUDENT_ENDPOINT =
 	"https://pomaray-api.onrender.com/api/estudiantes/";
 

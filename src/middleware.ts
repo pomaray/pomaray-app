@@ -33,6 +33,8 @@ export async function middleware(request: NextRequest) {
 		// Si el usuario no existe.
 		throw new Error("No user provided by the API.");
 	} catch (error) {
+		console.log(error);
+		
 		// Eliminar le token de las cookies.
 		request.cookies.delete(TOKEN_COOKIE);
 

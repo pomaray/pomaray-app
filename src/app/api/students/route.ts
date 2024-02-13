@@ -1,5 +1,5 @@
 import { Student } from "@/types/general";
-import { SIGERD_LOCALE, STUDENT_ENDPOINT } from "@/types/request/student";
+import { STUDENT_ENDPOINT } from "@/types/request/student";
 import { LOGIN_PAGE, TOKEN_COOKIE } from "@/types/request/auth";
 import { StudentsResponse } from "@/types/responses/student";
 import axios from "axios";

@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
 
 		// Obtener el User-Agent del header
 		const userAgentString = req.headers.get("User-Agent");
-
+		
 		// Analizar el User-Agent
 		const parser = new UAParser();
 		const userAgentInfo = parser.setUA(userAgentString as string).getResult();
@@ -86,6 +86,7 @@ export async function POST(req: NextRequest) {
 			password,
 			device,
 		});
+		
 
 		const { user, token } = response.data;
 		if (!user || !token) {
@@ -98,7 +99,6 @@ export async function POST(req: NextRequest) {
 		cookies().set(TOKEN_COOKIE, token, { secure: true, expires: expire });
 		return NextResponse.json({ user });
 	} catch (error) {
-		console.log(error);
 
 		if (axios.isAxiosError(error)) {
 			const { status, code } = error.toJSON() as AxiosError;

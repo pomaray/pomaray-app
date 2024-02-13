@@ -5,7 +5,7 @@ import {
 	LAST_NAME_QUERY,
 	LIMIT_QUERY,
 	SKIP_QUERY,
-	STUDENTS_URL,
+	STUDENT_ENDPOINT,
 	StudentRequest,
 	TECH_QUERY,
 	YEAR_QUERY,
@@ -121,7 +121,7 @@ const useYearBook = create<YearBookStore>((set, get) => {
 				// Construir la URL con los `Query Params` el `limit` y `skip`.
 				// Ej. /api/students?name=JohnDoe&limit=10&skip=0
 				const skip = !resetPage ? (currentPage - 1) * limit : 0;
-				const url = `${STUDENTS_URL}?${params}&${LIMIT_QUERY}=${limit}&${SKIP_QUERY}=${skip}`;
+				const url = `${STUDENT_ENDPOINT}?${params}&${LIMIT_QUERY}=${limit}&${SKIP_QUERY}=${skip}`;
 
 				// Hacer una petición `GET` a la URL.
 				const response = await axios.get<StudentsResponse>(url, {

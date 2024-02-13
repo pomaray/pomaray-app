@@ -48,7 +48,8 @@ export const useAuthStore = create<AuthStore>((set) => ({
 			);
 
 			const { user } = response.data as LoginResponse;
-
+				console.log(user);
+				
 			if (!user) {
 				set({ error: i18n.ERRORS.CODES["500"] });
 				return undefined;
