@@ -1,8 +1,8 @@
-import { LOGIN_PAGE, TOKEN_COOKIE } from "@/types/request/auth";
-import { SessionsResponse, TokenResponse } from "@/types/responses/auth";
+import { TOKEN_COOKIE } from "@/types/request/auth";
+import { SessionsResponse } from "@/types/responses/auth";
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 export async function GET() {
 	const END_POINT = process.env.TOKEN_ALL_ENDPOINT as string;

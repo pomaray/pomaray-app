@@ -8,7 +8,7 @@ export function Footer() {
 
 	return (
 		<footer className="print:hidden flex flex-col bg-slate-600 dark:bg-content1 min-h-[10rem] text-white p-6 mt-12">
-			<div className="grid sm:place-content-start sm:grid-cols-2 lg:place-content-center lg:grid-cols-4 xl:px-[20rem]">
+			<div className="grid sm:place-content-start sm:grid-cols-2 lg:place-content-center lg:grid-cols-3 xl:px-[20rem]">
 				<FooterTable />
 			</div>
 			<div className="grid grid-cols-1 grid-flow-row place-content-center mt-10 gap-2">

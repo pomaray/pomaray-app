@@ -137,7 +137,7 @@ export async function DELETE(req: NextRequest) {
 			throw new AxiosError("No esta autorizado", "401");
 		}
 
-		const url = `${TOKEN_ENDPOINT}/${token}`;
+		const url = `${TOKEN_ENDPOINT}${token}`;
 
 		await axios.delete(url, {
 			headers: {
@@ -148,32 +148,6 @@ export async function DELETE(req: NextRequest) {
 
 		return NextResponse.redirect(new URL(LOGIN_PAGE, req.url));
 	} catch (error) {
-		if (axios.isAxiosError(error)) {
-			const { status, code } = error.toJSON() as AxiosError;
-
-			return NextResponse.json(
-				{
-					message: error.toJSON(),
-					status: status ?? error.status,
-				},
-				{
-					status: status ?? error.status,
-					statusText: code,
-				},
-			);
-		}
-		return NextResponse.json(
-			{
-				code: "500",
-				message:
-					error instanceof Error
-						? error.message
-						: "Error interno del servidor.",
-			},
-			{
-				status: 500,
-				statusText: "ERR_INTERNAL_SERVER_ERROR",
-			},
-		);
+		return NextResponse.redirect(new URL(LOGIN_PAGE, req.url));
 	}
 }

@@ -1,12 +1,14 @@
 import React from "react";
 import { Input, Textarea, Button } from "@nextui-org/react";
 import locale from "@/locales/contacto.json";
+import { Reveal } from "@/components/ui/ScrollReveal";
 
 export default function ContactoPage() {
   const { HERO, FORMULARIO, INFORMACION_ADICIONAL } = locale;
 
   return (
-    <article className="max-w-5xl mx-auto px-6 sm:px-12 py-6">
+  <Reveal>
+      <main className="max-w-5xl mx-auto px-6 sm:px-12 py-6">
       <section>
         <div className="text-center">
           <h1 className="sm:text-5xl text-4xl font-bold my-4 text-primary">
@@ -65,13 +67,15 @@ export default function ContactoPage() {
             ))}
             <Button
               type="submit"
-              className="py-2 px-4 rounded"
+              fullWidth
+              color="primary"
             >
               {FORMULARIO.BOTON_ENVIAR.TEXTO}
             </Button>
           </form>
         </div>
       </section>
-    </article>
+    </main>
+  </Reveal>
   );
 }
