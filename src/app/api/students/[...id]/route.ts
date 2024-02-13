@@ -14,7 +14,7 @@ export async function PUT(request: NextRequest) {
 		const studentId = request.url.split("students/")[1]; // Obtén el ID de la solicitud
 		const student = await request.json();
 
-		const url = `${STUDENT_ENDPOINT}/${studentId}`; // Añade el ID a la URL
+		const url = `${STUDENT_ENDPOINT}${studentId}`; // Añade el ID a la URL
 
 		await axios.put(url, student, {
 			headers: {
@@ -24,6 +24,8 @@ export async function PUT(request: NextRequest) {
 
 		return NextResponse.json({ student });
 	} catch (error) {
+		console.log(error);
+
 		if (axios.isAxiosError(error)) {
 			const response = error.response?.data;
 			return NextResponse.json(
@@ -63,7 +65,8 @@ export async function DELETE(request: NextRequest) {
 
 		const studentId = request.url.split("students/")[1]; // Obtén el ID de la solicitud
 
-		const url = `${STUDENT_ENDPOINT}/${studentId}`; // Añade el ID a la URL
+		const url = `${STUDENT_ENDPOINT}${studentId}`; // Añade el ID a la URL
+		console.log(`Deleting student: ${studentId}`);
 
 		const response = await axios.delete(url, {
 			headers: {

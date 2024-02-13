@@ -69,9 +69,6 @@ export function Hero() {
 				</div>
 				<div className="md:space-y-0 md:space-x-9 mt-12 flex flex-col md:flex-row justify-center items-center space-y-4 ">
 					<Card
-						isPressable
-						as={Link}
-						href={"/nosotros#docentes"}
 						radius="sm"
 						className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background hover:scale-95 transition-transform"
 					>
@@ -80,9 +77,6 @@ export function Hero() {
 					</Card>
 
 					<Card
-						isPressable
-						as={Link}
-						href={"/tecnicas#tecnicas"}
 						radius="sm"
 						className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background hover:scale-95 transition-transform"
 					>
@@ -91,9 +85,6 @@ export function Hero() {
 					</Card>
 
 					<Card
-						isPressable
-						as={Link}
-						href={"/noticias/1"}
 						radius="sm"
 						className="flex flex-col justify-center items-center shadow-md w-[200px] h-[170px] text-center gap-4 bg-background hover:scale-95 transition-transform"
 					>

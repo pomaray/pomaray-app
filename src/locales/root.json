@@ -72,12 +72,16 @@
 			"TITLE": "Nosotros",
 			"ELEMENTS": [
 				{
+					"TEXT": "Contacto",
+					"LINK": "/contacto"
+				},
+				{
 					"TEXT": "Historia",
 					"LINK": "/nosotros"
 				},
 				{
 					"TEXT": "Ubicación",
-					"LINK": "#ubicacion"
+					"LINK": "/#ubicacion"
 				},
 				{
 					"TEXT": "Técnicas",
@@ -103,19 +107,6 @@
 				{
 					"TEXT": "Anuario",
 					"LINK": "/anuario"
-				}
-			]
-		},
-		{
-			"TITLE": "Contacto",
-			"ELEMENTS": [
-				{
-					"TEXT": "Email",
-					"LINK": "mailto:desarolladores.pomaray@gmail.com"
-				},
-				{
-					"TEXT": "Teléfono",
-					"LINK": "tel:+123456789"
 				}
 			]
 		},

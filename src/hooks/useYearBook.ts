@@ -95,7 +95,7 @@ const useYearBook = create<YearBookStore>((set, get) => {
 		fetchData: async (resetPage = false) => {
 			try {
 				if (get().isLoading || !get().formRequest || get().sigerd < 1) return;
-				set({ isLoading: false });
+				set({ isLoading: true });
 				set({ students: [] });
 				set({ isError: false });
 				set({ isNotFound: false });
@@ -122,7 +122,6 @@ const useYearBook = create<YearBookStore>((set, get) => {
 				// Ej. /api/students?name=JohnDoe&limit=10&skip=0
 				const skip = !resetPage ? (currentPage - 1) * limit : 0;
 				const url = `${STUDENTS_URL}?${params}&${LIMIT_QUERY}=${limit}&${SKIP_QUERY}=${skip}`;
-				console.log(url);
 
 				// Hacer una petición `GET` a la URL.
 				const response = await axios.get<StudentsResponse>(url, {
@@ -154,7 +153,6 @@ const useYearBook = create<YearBookStore>((set, get) => {
 				}
 
 				set({ isError: true, totalPages: 0 });
-				console.log(get());
 			} finally {
 				set({ isLoading: false });
 			}

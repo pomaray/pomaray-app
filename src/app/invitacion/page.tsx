@@ -18,7 +18,6 @@ export default function EventoComponent() {
 	const diffInSeconds = Math.floor(diffInMilliseconds / 1000);
 	const calculatedDays = Math.floor(diffInSeconds / (60 * 60 * 24));
 	const [isAccepted, setIsAccepted] = useState(false);
-const canvas = require("canvas-confetti");
 
 	useEffect(() => {
 		const local = localStorage.getItem("aniversario");
@@ -45,7 +44,7 @@ const canvas = require("canvas-confetti");
 			}}
 			className="max-w-7xl mx-auto min-h-[80vh] flex justify-center sm:px-20 px-4 text-center"
 		>
-			<div className="relative flex flex-col justify-start items-center w-full sm:h-[70vh] border-2 border-primary px-10 py-10">
+			<div className="relative flex flex-col justify-start items-center w-full  border-2 border-primary px-10 py-10">
 				<div className="grid place-content-center w-full">
 					<Logo className="m-auto fill-primary" width={140} />
 				</div>
@@ -76,7 +75,7 @@ const canvas = require("canvas-confetti");
 				</div>
 				<div className="grid place-content-center w-full place-self-end">
 					<p>
-						Te esperamos en {calculatedDays} Dias en el{" "}
+						Te esperamos en {calculatedDays + 1} Dia en el{" "}
 						<span className="text-focus underline">Auditorio</span> del
 						Politécnico.
 					</p>
@@ -84,7 +83,7 @@ const canvas = require("canvas-confetti");
 				<img
 					src="/QR.png"
 					width={100}
-					className="sm:absolute right-5 bottom-5 sm:my-0 my-6"
+					className="lg:absolute right-5 bottom-5 lg:my-0 my-6"
 					alt="Código QR de invitación."
 				/>
 			</div>

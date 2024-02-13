@@ -63,11 +63,12 @@ export function YearBookSettingsModal() {
 				</Button>
 			</Tooltip>
 			<Modal
-				isDismissable={!shouldOpen}
-				hideCloseButton={shouldOpen}
 				isOpen={isOpen || shouldOpen}
 				onOpenChange={() => {
 					setIsOpen(!isOpen);
+					if (shouldOpen) {
+						setShouldOpen(false);
+					}
 				}}
 			>
 				<ModalContent>
@@ -103,12 +104,7 @@ export function YearBookSettingsModal() {
 								/>
 							</ModalBody>
 							<ModalFooter>
-								<Button
-									isDisabled={shouldOpen}
-									color="danger"
-									variant="bordered"
-									onPress={onClose}
-								>
+								<Button color="danger" variant="bordered" onPress={onClose}>
 									Cerrar
 								</Button>
 								<Button

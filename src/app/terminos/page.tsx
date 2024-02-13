@@ -19,7 +19,7 @@ export default function TerminosCondicionesPage() {
 
 			<section>
 				<h2 className="sm:text-3xl text-2xl text-balance text-primary py-6 font-bold">
-					{i18n.INTRODUCTION.TITLE}
+					{i18n.COLLECTED_INFORMATION.TITLE}
 				</h2>
 				<p className="text-pretty mt-2">{i18n.COLLECTED_INFORMATION.CONTENT}</p>
 			</section>

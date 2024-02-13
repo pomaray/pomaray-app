@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosResponse } from "axios";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { UAParser } from "ua-parser-js";
-import { LOGIN_PAGE, TOKEN_COOKIE } from "@/types/request/auth";
+import { LOGIN_PAGE, TOKEN_COOKIE, TOKEN_ENDPOINT } from "@/types/request/auth";
 import { TOKEN_EXPIRE_DAYS } from "@/utils/general";
 import { LoginResponse, TokenResponse } from "@/types/responses/auth";
 
@@ -98,6 +98,8 @@ export async function POST(req: NextRequest) {
 		cookies().set(TOKEN_COOKIE, token, { secure: true, expires: expire });
 		return NextResponse.json({ user });
 	} catch (error) {
+		console.log(error);
+
 		if (axios.isAxiosError(error)) {
 			const { status, code } = error.toJSON() as AxiosError;
 
@@ -130,7 +132,20 @@ export async function POST(req: NextRequest) {
 
 export async function DELETE(req: NextRequest) {
 	try {
+		const token = cookies().get(TOKEN_COOKIE)?.value;
+		if (!token) {
+			throw new AxiosError("No esta autorizado", "401");
+		}
+
+		const url = `${TOKEN_ENDPOINT}/${token}`;
+
+		await axios.delete(url, {
+			headers: {
+				Authorization: `Bearer ${token.trim()}`,
+			},
+		});
 		cookies().delete(TOKEN_COOKIE);
+
 		return NextResponse.redirect(new URL(LOGIN_PAGE, req.url));
 	} catch (error) {
 		if (axios.isAxiosError(error)) {

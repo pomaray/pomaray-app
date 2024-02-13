@@ -7,6 +7,7 @@ import YearBookForm from "@/components/anuario/YearBookForm";
 import { AdminStudentModal } from "@/components/admin/student/AdminStudentModal";
 import { Button, Tooltip } from "@nextui-org/react";
 import { SearchIcon } from "@nextui-org/shared-icons";
+import { YearBookActions } from "@/components/anuario/YearBookActions";
 
 export default function AdminStudents() {
 	const { isLoading, fetchData } = useYearBook();
@@ -16,6 +17,7 @@ export default function AdminStudents() {
 		<section className="min-h-[80vh] pb-12 px-2">
 			<div className="w-full text-center mx-auto py-6">
 				<YearBookForm />
+				<YearBookActions />
 			</div>
 			<div className="flex gap-2">
 				<AdminStudentModal onClose={fetchData} />

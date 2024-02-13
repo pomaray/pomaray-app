@@ -12,8 +12,7 @@ import {
 	Select,
 	SelectItem,
 } from "@nextui-org/react";
-import { PressEvent } from "@react-types/shared";
-import { AvatarIcon } from "@nextui-org/shared-icons";
+import { AvatarIcon, EditDocumentBulkIcon } from "@nextui-org/shared-icons";
 import { User } from "@/types/general";
 import { Role, Sex } from "@/types/enums";
 import useAuthStore from "@/hooks/useAuth";
@@ -26,15 +25,13 @@ import {
 
 interface AdminEditUserModal {
 	editUser?: User;
-	color?: "primary" | "default";
-	variant?: "flat" | "bordered" | "light" | "solid";
+	isSession?: boolean;
 	onClose?: () => void;
 }
 
 export function AdminEditUserModal({
 	editUser,
-	color = "primary",
-	variant = "solid",
+	isSession,
 	onClose,
 }: AdminEditUserModal) {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -42,15 +39,21 @@ export function AdminEditUserModal({
 
 	return (
 		<>
-			<Tooltip content="Editar usuario" color="primary">
+			<Tooltip
+				content={isSession ? "Editar mi usuario" : "Editar usuario"}
+				color="primary"
+			>
 				<Button
 					isDisabled={user?.role !== Role.SUPER_ADMIN || isLoading}
 					onPress={onOpen}
-					variant={variant}
+					color={isSession ? "primary" : "default"}
 					isIconOnly
-					color={color}
 				>
-					<AvatarIcon className="text-lg text-background" />
+					{!isSession ? (
+						<EditDocumentBulkIcon className="text-lg text-gray-500" />
+					) : (
+						<AvatarIcon className="text-lg text-background" />
+					)}
 				</Button>
 			</Tooltip>
 			<Modal

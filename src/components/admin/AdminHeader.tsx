@@ -41,8 +41,12 @@ export function Header() {
 			children: "Noticias",
 		},
 		{
-			href: "admin/descargas",
+			href: "/admin/descargas",
 			children: "Descargas",
+		},
+		{
+			href: "/admin/sesiones",
+			children: "Sesiones",
 		},
 	];
 
@@ -144,7 +148,7 @@ export function Header() {
 				</Skeleton>
 			</div>
 			<div className="flex gap-4 items-end">
-				<AdminEditUserModal editUser={user} />
+				<AdminEditUserModal isSession editUser={user} />
 				<Tooltip content="Cerrar session" color="primary">
 					<Button
 						onPress={logout}

@@ -61,10 +61,10 @@ export function AdminStudentModal({
 	const [error, setError] = useState("");
 	const { user, isLoading } = useAuthStore();
 	const { isOpen, onOpen, onOpenChange, onClose: Close } = useDisclosure();
-
+	const [internalLoading, setInternalLoading] = useState(false);
 	const createStudent = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-
+		setInternalLoading(true);
 		const validated = validateStudent(newStudent);
 		if (validated !== null) {
 			setError(validated);
@@ -100,12 +100,14 @@ export function AdminStudentModal({
 				// Si es otro tipo de error, manejarlo en consecuencia
 				setError("Hubo un error, por favor inténtelo de nuevo.");
 			}
-			console.log(error);
+		} finally {
+			setInternalLoading(false);
 		}
 	};
 
 	const deleteStudent = async () => {
-		setError(""); // Limpiamos el error si la validación fue exitosa
+		setError("");
+		setInternalLoading(true);
 
 		try {
 			await axios.delete(`${STUDENTS_URL}/${student?.id}`, {
@@ -123,6 +125,8 @@ export function AdminStudentModal({
 				// Si es otro tipo de error, manejarlo en consecuencia
 				setError("Hubo un error, por favor inténtelo de nuevo.");
 			}
+		} finally {
+			setInternalLoading(false);
 		}
 	};
 
@@ -283,8 +287,6 @@ export function AdminStudentModal({
 										value={newStudent ? newStudent.birth_date : ""}
 										max={minDate.toISOString().slice(0, 10)}
 										onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-											console.log(e.target.value);
-
 											setNewStudent((prev) => ({
 												...prev,
 												birth_date: e.target.value,
@@ -396,11 +398,17 @@ export function AdminStudentModal({
 									<ErrorTxt>{error}</ErrorTxt>
 								</ModalBody>
 								<ModalFooter>
-									<Button type="submit" fullWidth color="primary">
+									<Button
+										isLoading={internalLoading}
+										type="submit"
+										fullWidth
+										color="primary"
+									>
 										{student ? "Actualizar" : "Crear"}
 									</Button>
 									{student && (
 										<Button
+											isLoading={internalLoading}
 											onPress={deleteStudent}
 											fullWidth
 											color="danger"

@@ -36,3 +36,16 @@ export type Student = {
 	current_technique: string;
 	[key: string]: string | number | Sex | number[] | Date | undefined;
 };
+
+//----Session---------------------------------------------------
+export type Session = {
+	id: string;
+	ip: string;
+
+	device: string;
+	token: string;
+	expire: Date;
+
+	user_id: string;
+	[key: string]: string | Date | undefined;
+};
