@@ -63,7 +63,7 @@ export function Hero() {
 					<h1 className="md:text-6xl text-3xl font-bold mb-4 max-w-[25ch]">
 						{i18n.HERO.TITLE}
 					</h1>
-					<p className="lg:text-lg text-md font-semibold mt-6">
+					<p className="lg:text-xl text-md font-semibold mt-6">
 						{i18n.HERO.SUB_TITLE}
 					</p>
 				</div>
