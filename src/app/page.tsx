@@ -12,7 +12,7 @@ export default function HomePage() {
 			<div className="container flex flex-col gap-y-20 mx-auto -mt-20 xl:px-12 px-6">
 				<MedidasDeSeguridad />
 
-				<UltimasNoticias />
+				{/* <UltimasNoticias /> */}
 
 				<Ubicacion />
 

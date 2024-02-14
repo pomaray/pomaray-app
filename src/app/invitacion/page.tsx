@@ -75,7 +75,7 @@ export default function EventoComponent() {
 				</div>
 				<div className="grid place-content-center w-full place-self-end">
 					<p>
-						Te esperamos en {calculatedDays + 1} Dia en el{" "}
+						Te esperamos en hoy en el{" "}
 						<span className="text-focus underline">Auditorio</span> del
 						Politécnico.
 					</p>
