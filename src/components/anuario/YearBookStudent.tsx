@@ -10,6 +10,7 @@ import {
 	Skeleton,
 	Button,
 	Link,
+	Tooltip,
 } from "@nextui-org/react";
 import { cloneElement, useEffect, useState } from "react";
 import { TechIcons } from "../tecnicas/TechIcons";
@@ -24,6 +25,7 @@ export function YearBookStudent({
 	const LAST_YEAR = student?.school_years?.[student.school_years.length - 1];
 
 	const [isMounted, setIsMounted] = useState(false);
+	const studentName = `${student?.first_name} ${student?.last_name}`;
 
 	useEffect(() => {
 		setIsMounted(true);
@@ -56,9 +58,11 @@ export function YearBookStudent({
 					</div>
 				</CardHeader>
 				<CardBody className="!overflow-hidden place-self-center flex-none sm:py-2 py-0">
-					<p className="block whitespace-nowrap max-w-[100%] overflow-hidden text-ellipsis text-xl font-semibold">
-						{`${student?.first_name} ${student?.last_name}`}
-					</p>
+					<Tooltip placement="top-start" content={studentName}>
+						<p className="block whitespace-nowrap max-w-[100%] overflow-hidden text-ellipsis text-xl font-semibold">
+							{studentName}
+						</p>
+					</Tooltip>
 				</CardBody>
 				<CardFooter className="flex gap-2 justify-between">
 					<Chip size="lg" radius="sm" className="px-1 sm:text-lg text-sm">

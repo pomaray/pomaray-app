@@ -28,7 +28,7 @@ export default function YearBookForm() {
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
-		fetchData();
+		fetchData(true);
 	}, [debouncedFormRequest]);
 
 	const onSubmit = (e: FormEvent<HTMLFormElement>) => {

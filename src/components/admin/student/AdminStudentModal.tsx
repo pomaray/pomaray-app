@@ -210,6 +210,7 @@ export function AdminStudentModal({
 								</div>
 								<Image
 									width={70}
+									className="aspect-square"
 									src={newStudent?.photo_url}
 									alt={newStudent?.first_name}
 								/>

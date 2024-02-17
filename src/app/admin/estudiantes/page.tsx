@@ -8,10 +8,17 @@ import { AdminStudentModal } from "@/components/admin/student/AdminStudentModal"
 import { Button, Tooltip } from "@nextui-org/react";
 import { SearchIcon } from "@nextui-org/shared-icons";
 import { YearBookActions } from "@/components/anuario/YearBookActions";
+import { useEffect } from "react";
 
 export default function AdminStudents() {
-	const { isLoading, fetchData } = useYearBook();
+	const { isLoading, fetchData, currentPage } = useYearBook();
 	const { user } = useAuthStore();
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	useEffect(() => {
+		fetchData();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [currentPage]);
 
 	return (
 		<section className="min-h-[80vh] pb-12 px-2">
