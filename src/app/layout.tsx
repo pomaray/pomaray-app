@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 	description: i18n.WEBSITE.DESCRIPTION,
 	keywords: i18n.WEBSITE.TAGS,
 	category: i18n.WEBSITE.CATEGORY,
-	robots: "",
+	robots: "index, follow",
 };
 export default function RootLayout({
 	children,
