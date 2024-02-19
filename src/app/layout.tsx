@@ -39,6 +39,7 @@ export default function RootLayout({
 		<html suppressHydrationWarning lang="en">
 			<head>
 				<meta name="theme-color" content="#397040" />
+				<meta name="googlebot" content="index, follow" />
 			</head>
 			<body
 				className={`bg-transparent overflow-y-auto max-w-[100vw] overflow-x-hidden ${fraunces.className}`}
