@@ -1,4 +1,5 @@
-# Pomaray App
+<div align="center">
+<h1> Pomaray App </h1>
 
 <picture>
  <source media="(prefers-color-scheme: dark)" srcset="public/images/docs/pomaray-app.png">
@@ -6,7 +7,19 @@
  <img alt="Miniatura de la aplicacion." src="public/images/docs/pomaray-app.png">
 </picture>
 
+![GitHub stars](https://img.shields.io/github/stars/pomaray/pomaray-app)
+![GitHub issues](https://img.shields.io/github/issues/pomaray/pomaray-app)
+![GitHub forks](https://img.shields.io/github/forks/pomaray/pomaray-app)
+![GitHub PRs](https://img.shields.io/github/issues-pr/pomaray/pomaray-app)
+
 > © 2023 Politécnico Madre Rafaela Ybarra. Todos los derechos reservados.
+
+</div>
+
+<h1> Contribuciones </h1>
+<a href="https://github.com/pomaray/pomaray-app/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=pomaray/pomaray-app" />
+</a>
 
 ## Licencia
 Este proyecto está bajo la Licencia POMARAY - Ver el archivo [*LICENSE*](LICENSE) para más detalles.
@@ -15,10 +28,10 @@ Este proyecto está bajo la Licencia POMARAY - Ver el archivo [*LICENSE*](LICENS
 
 | Nombre             | Realizado |
 | ------------------ | --------- |
-| Noticias           | ❌         |
-| Admin/Noticias     | ❌         |
-| Mejorar nostors    | ❌         |
-| Presentar proyecto | ❌         |
+| Noticias           | ❌        |
+| Admin/Noticias     | ❌        |
+| Mejorar nosotros   | ❌        |
+| Presentar contacto | ❌        |
 
 ## Contribuir
 
@@ -81,3 +94,4 @@ Este proyecto usa **Nextui**, liberia de componentes - Ver [*Configuracion*](tai
 | Primary-700 | `#5ff7a1`          |
 | Primary-800 | `#75faaf`          |
 | Primary-900 | `#99fac3`          |
+
