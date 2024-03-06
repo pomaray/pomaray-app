@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "src/components/anuario"  ],
+, "src/components/anuario", "src/app/tecnicas/[id]/page.mdx"  ],
   "exclude": [
     "node_modules"
   ]

@@ -14,7 +14,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BiSolidInstitution } from "react-icons/bi";
-import { FaPhone, FaDownload } from "react-icons/fa6";
+import { FaPhone, FaDownload, FaUsers } from "react-icons/fa6";
 import { twMerge } from "tailwind-merge";
 
 const ICONS = {
@@ -27,6 +27,12 @@ const ICONS = {
 	"/nosotros": (
 		<BiSolidInstitution
 			className="text-primary"
+			fill="currentColor"
+			size={30}
+		/>
+	),
+	"/contribuidores": (
+		<FaUsers className="text-primary"
 			fill="currentColor"
 			size={30}
 		/>
@@ -138,6 +144,6 @@ export function NavbarContent({ isMenu = false }: NavbarContentProps) {
 				</NavbarMenuItem>
 			));
 		}
-		return null; // Added to handle cases where neither condition is met
+		return null; 
 	});
 }

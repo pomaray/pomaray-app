@@ -58,6 +58,11 @@
 						"TEXT": "Descargas",
 						"LINK": "/descargas",
 						"DESCRIPTION": "Documentos vitales y recursos del politécnico."
+					},
+					{
+						"TEXT": "Contribudores",
+						"LINK": "/contribudores",
+						"DESCRIPTION": "Grupo de desarrolladores de la aplicación del politécnico."
 					}
 				]
 			}
