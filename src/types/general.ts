@@ -49,3 +49,14 @@ export type Session = {
 	user_id: string;
 	[key: string]: string | Date | undefined;
 };
+
+//----News---------------------------------------------------
+export type News = {
+	id: string;
+	title: string;
+	short_description: string;
+	content: string;
+	views: number;
+	post_by: string;
+	created_date: Date;
+};

@@ -58,7 +58,11 @@ export function YearBookStudent({
 					</div>
 				</CardHeader>
 				<CardBody className="!overflow-hidden place-self-center flex-none sm:py-2 py-0">
-					<Tooltip placement="top-start" content={studentName}>
+					<Tooltip
+						placement="top-start"
+						content={studentName}
+						isDisabled={!student}
+					>
 						<p className="block whitespace-nowrap max-w-[100%] overflow-hidden text-ellipsis text-xl font-semibold">
 							{studentName}
 						</p>

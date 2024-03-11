@@ -30,6 +30,7 @@ export const metadata: Metadata = {
 	category: i18n.WEBSITE.CATEGORY,
 	robots: "index, follow",
 };
+
 export default function RootLayout({
 	children,
 }: {

@@ -14,13 +14,21 @@ export async function generateMetadata({
 
 	if (!tech) notFound();
 	return {
-		metadataBase: new URL("https://pomaray.vercel.app/"),
+		metadataBase: new URL("https://pomaray.edu.do/"),
 		title: `${tech.NAME} - ${i18n.WEBSITE.NAME}`,
 		openGraph: {
 			images: tech.BANNER,
 		},
 		description: tech.DESCRIPTION,
 	};
+}
+
+export async function generateStaticParams() {
+	const techs = Object.keys(TECH.DATA) as Array<keyof typeof TECH.DATA>;
+
+	return techs.map((tech) => ({
+		slug: tech,
+	}));
 }
 
 export default function LoginLayout({
